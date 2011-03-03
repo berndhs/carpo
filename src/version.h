@@ -33,6 +33,7 @@ public:
   ProgramVersion (QString pgmname);
   
   static QString Version (); 
+  static QString ShortVersion ();
   static QString MyName ();
   
   static void ShowVersionWindow ();

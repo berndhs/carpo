@@ -39,7 +39,7 @@ main (int argc, char *argv[])
   QCoreApplication::setOrganizationDomain ("bernd-stramm.com");
   QCoreApplication::setApplicationName ("newrss");
   deliberate::ProgramVersion pv ("NewRss");
-  QCoreApplication::setApplicationVersion (pv.Version());
+  QCoreApplication::setApplicationVersion (pv.ShortVersion());
   QSettings  settings;
   deliberate::InitSettings ();
   deliberate::SetSettings (settings);

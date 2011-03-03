@@ -46,6 +46,12 @@ namespace deliberate {
 		       + QString("\r\n")
 		       + copyright;
   }
+  
+  QString ProgramVersion::ShortVersion ()
+  {
+    return ProgramName + QString (" Version ")
+                   + VersionNumber;
+  }
 
   void ProgramVersion::ShowVersionWindow ()
   {
