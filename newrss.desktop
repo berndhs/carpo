@@ -1,0 +1,12 @@
+
+[Desktop Entry]
+Name=New Rss Reader
+GenericName=GUI Application that does nothing
+Comment=Framework to do something
+Exec=tiler
+Icon=tiler
+StartupNotify=false
+Terminal=false
+Type=Application
+Categories=Utility;
+X-Desktop-File-Install-Version=0.16
