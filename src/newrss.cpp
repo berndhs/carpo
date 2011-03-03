@@ -49,6 +49,7 @@ NewRss::AddConfigMessages (const QStringList & messages)
 void
 NewRss::Run ()
 {
+  ui.qmlView->setSource (QUrl::fromLocalFile("qml/mainview.qml"));
   show ();
 }
 
