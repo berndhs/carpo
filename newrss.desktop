@@ -1,12 +1,12 @@
 
 [Desktop Entry]
-Name=New Rss Reader
-GenericName=GUI Application that does nothing
-Comment=Framework to do something
-Exec=tiler
-Icon=tiler
+Name=New Rss/Atom Reader
+GenericName=RSS Reader
+Comment=An application to read RSS and Atom feeds.
+Exec=newrss
+Icon=newrss
 StartupNotify=false
 Terminal=false
 Type=Application
-Categories=Utility;
+Categories=Network;
 X-Desktop-File-Install-Version=0.16
