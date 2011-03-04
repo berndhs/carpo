@@ -23,14 +23,24 @@
  ****************************************************************/
 
 
+#include <QDeclarativeContext>
+#include <QGraphicsObject>
+#include <QObject>
+#include <QDebug>
+
 namespace deliberate
 {
 
 NewRss::NewRss (QWidget *parent)
   :QMainWindow (parent),
-   app (0)
+   app (0),
+   context (0),
+   uiObject (0)
 {
   ui.setupUi (this);
+  htmlString = QString ("<html><head></head>"
+                        "<body><h1>HTML String</h1></body>"
+                        "</html>");
   Connect ();
 }
 
@@ -50,6 +60,8 @@ void
 NewRss::Run ()
 {
   ui.qmlView->setSource (QUrl::fromLocalFile("qml/mainview.qml"));
+  context = ui.qmlView->rootContext ();
+  uiObject = ui.qmlView->rootObject();
   show ();
 }
 
@@ -58,6 +70,20 @@ NewRss::Connect ()
 {
   connect (ui.actionQuit, SIGNAL (triggered()),
            this, SLOT (Quit()));
+  connect (ui.actionLoad, SIGNAL (triggered()),
+           this, SLOT (Load ()));
+}
+
+void
+NewRss::Load ()
+{
+qDebug () << "NewRss::Load " << context << uiObject;
+  if (context) {
+    if (uiObject) {
+      QMetaObject::invokeMethod (uiObject, "setHtml",
+                    Q_ARG (QVariant, htmlString));
+    }
+  }
 }
 
 void

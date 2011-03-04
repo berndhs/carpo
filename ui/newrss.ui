@@ -14,7 +14,7 @@
    <string>NewRss</string>
   </property>
   <property name="windowIcon">
-   <iconset>
+   <iconset resource="../newrss.qrc">
     <normaloff>:/newrss.png</normaloff>:/newrss.png</iconset>
   </property>
   <widget class="QWidget" name="centralwidget">
@@ -47,8 +47,15 @@
     <addaction name="actionAbout"/>
     <addaction name="actionLicense"/>
    </widget>
+   <widget class="QMenu" name="menuLoad_Html">
+    <property name="title">
+     <string>Load Html</string>
+    </property>
+    <addaction name="actionLoad"/>
+   </widget>
    <addaction name="menuAgenda"/>
    <addaction name="menuHelp"/>
+   <addaction name="menuLoad_Html"/>
   </widget>
   <action name="actionSettings">
    <property name="text">
@@ -88,6 +95,11 @@
   <action name="actionRevive">
    <property name="text">
     <string>Revive Expired</string>
+   </property>
+  </action>
+  <action name="actionLoad">
+   <property name="text">
+    <string>Load</string>
    </property>
   </action>
  </widget>

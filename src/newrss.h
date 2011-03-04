@@ -25,8 +25,12 @@
 #include <QMainWindow>
 #include <QApplication>
 #include <QStringList>
+#include <QObject>
+#include <QGraphicsObject>
 
 #include "ui_newrss.h"
+
+class QDeclarativeContext;
 
 namespace deliberate
 {
@@ -44,6 +48,7 @@ public:
 private slots:
 
   void Quit ();
+  void Load ();
 
 private:
 
@@ -53,6 +58,10 @@ private:
   QApplication  *app;
   Ui_NewRssMain  ui;
   QStringList    configMessages;
+
+  QDeclarativeContext *context;
+  QGraphicsObject     *uiObject;
+  QString              htmlString;
 
 }; 
 
