@@ -29,6 +29,7 @@
 #include <QModelIndex>
 #include <QGraphicsObject>
 #include "headline-list.h"
+#include "qml-feed-if.h"
 #include "ui_newrss.h"
 
 class QDeclarativeContext;
@@ -66,6 +67,7 @@ private:
   QString              htmlString;
 
   HeadlineList         headlines;
+  FeedInterface       *feedIF;
 
 }; 
 

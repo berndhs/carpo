@@ -27,67 +27,81 @@
 
 
  Rectangle {
-     id: displayArea
+  id: displayArea
 
-     property string urlString : "http://fiji.reflective-computing.com"
+  property string urlString : "http://fiji.reflective-computing.com"
+  property real embedMargin : 2
 
-     width: 400; height: 200
-     color: "transparent"
-     border.color: "black"
+  width: 400; height: 400
+  color: "transparent"
+  border.color: "black"
 
 
-     Component {
-         id: contactDelegate
-         Item {
-             width: 180; height: 60
-             Column {
-                 Text { text: "Item" }
-                 Text { text: '<b>Day:</b> ' + day }
-                 Text { text: '<b>Meal:</b> ' + meal }
-             }
-         }
-     }
-     ListView {
-        id: storyList
-         width: 200; height: 200
+  Component {
+    id: contactDelegate
+    Item {
+      width: 300; height: 60
+      Column {
+        Text { text: 'The meal for <b>' + day + ' </b> is <i> ' + meal + '</i>' }
+      }
+    }
+  }
+  Rectangle {
+    id: feedIndexArea
+    z: -1
+    color: "transparent"
+    border.color: "red"
+    anchors.top: parent.top
+    anchors.left: parent.left
+    anchors.topMargin: embedMargin
+    anchors.leftMargin: embedMargin
+    height: parent.height - 2*embedMargin
+    width: parent.width - 2*embedMargin 
+    ListView {
+      id: storyList
+      z: 2
+      width: parent.width - 2*embedMargin
+      height: parent.width - 2*embedMargin
+      clip: true
+      contentWidth: childrenRect.width; contentHeight: childrenRect.height
+      anchors.top:  feedIndexArea.top
+      anchors.topMargin: embedMargin
+      orientation: ListView.Vertical
+      model: displayModel
+      highlight: Rectangle { color: "lightsteelblue"; radius: 5 }
+      delegate: contactDelegate
+    }
+  }
 
-        anchors.top:  displayArea.top
-        anchors.topMargin: 20
-        orientation: ListView.Vertical
-        model: displayModel
-        highlight: Rectangle { color: "lightsteelblue"; radius: 5 }
-        delegate: contactDelegate
-     }
-
-     Rectangle {
-       id: specialLabel
-       height: 40
-       width: 80
-       color: "green"
-       border.color: "blue"
-       anchors.top: storyList.bottom
-       Text {
-         id: letters
-         text: "Rows: " + displayModel.rowCountText()
-       }
-       function refreshCount () {
-          letters.text = "Rows now " + displayModel.rowCountText()
-       }
-     }
-     WebView {
-        id: storyView
-        anchors.top: specialLabel.bottom
-        anchors.topMargin: 8
-       
-        preferredHeight: 500
-        preferredWidth:  300
-        settings.autoLoadImages: true
-        html: "<p>This is old <b>html</b>.</p>"
-     }
-     function setTheHtml (theHtml) {
-       storyView.html = theHtml
-       specialLabel.refreshCount() 
-       specialLabel.color = "red"
-     }
-     
+  Rectangle {
+    id: specialLabel
+    height: 32
+    width: 80
+    color: "green"
+    border.color: "black"
+    anchors.top: feedIndexArea.bottom
+    Text {
+      id: letters
+      text: "Rows: " + displayModel.rowCountText()
+    }
+    function refreshCount () {
+      letters.text = "Rows now " + displayModel.rowCountText()
+    }
+  }
+  WebView {
+    id: storyView
+    anchors.top: specialLabel.bottom
+    anchors.topMargin: 8
+   
+    preferredHeight: 500
+    preferredWidth:  300
+    settings.autoLoadImages: true
+    html: "<p>This is old <b>html</b>.</p>"
+  }
+  function setTheHtml (theHtml) {
+    storyView.html = theHtml
+    specialLabel.refreshCount() 
+    specialLabel.color = "red"
+  }
+  
  }

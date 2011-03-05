@@ -18,14 +18,12 @@ HeadlineList::HeadlineList (QObject *parent)
 int 
 HeadlineList::rowCount (const QModelIndex & parent) const
 {
-  qDebug () << "HeadlineList::rowCount " << parent << days.count();
   return days.count();
 }
 
 QString
 HeadlineList::rowCountText ()
 {
-  qDebug () << "HeadlineList::rowCountText" ;
   return QString::number(days.count());
 }
 
@@ -33,20 +31,23 @@ HeadlineList::rowCountText ()
 QVariant 
 HeadlineList::data (const QModelIndex & index, int role) const
 {
-  qDebug () << " HeadlineList::data " << index << role;
+qDebug () << "headline data " << index << role;
   if (!index.isValid()) {
     return QVariant();
   }
   int row = index.row();
+  QVariant retval;
   if (role == Qt::DisplayRole) {
-    return QString ("%1: %2").arg (days.value(row)).arg(meals.value(row));
+    retval = QString ("%1: %2").arg (days.value(row)).arg(meals.value(row));
   } else if (role == int (Type_Day)) {
-    return days.value (row);
+    retval = days.value (row);
   } else if (role == int (Type_Meal)) {
-    return meals.value (row);
+    retval = meals.value (row);
   } else {
-    return QVariant ();
+    retval = QVariant ();
   } 
+  qDebug () << " HeadlineList::data returning " << retval;
+  return retval;
 }
 
 void
@@ -56,7 +57,6 @@ HeadlineList::addLine (const QString & day, const QString & meal)
   days << day;
   meals << meal;
   endInsertRows ();
-  qDebug () << "HealineList::addLine " << day << meal;
 }
 
 } // namespace

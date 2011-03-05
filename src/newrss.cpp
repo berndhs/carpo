@@ -36,12 +36,14 @@ NewRss::NewRss (QWidget *parent)
    app (0),
    context (0),
    uiObject (0),
-   headlines (this)
+   headlines (this),
+   feedIF (0)
 {
   ui.setupUi (this);
   htmlString = QString ("<html><head></head>"
                         "<body><h1>HTML String number %1</h1></body>"
                         "</html>");
+  feedIF = new FeedInterface (this);
   Connect ();
 }
 
@@ -66,6 +68,7 @@ NewRss::Run ()
   headlines.addLine ("Friday","Fish");
   context->setContextProperty ("displayModel", &headlines);
   ui.qmlView->setSource (QUrl::fromLocalFile("qml/mainview.qml"));
+  context->setContextProperty("feedIF",feedIF);
   uiObject = ui.qmlView->rootObject();
   show ();
 }
@@ -96,7 +99,6 @@ NewRss::Load ()
 qDebug () << "NewRss::Load " << context << uiObject;
   if (context) {
     if (uiObject) {
-qDebug () << " sending html string " << htmlString;
       QMetaObject::invokeMethod (uiObject, "setTheHtml",
                     Q_ARG (QVariant, htmlString.arg (count++)));
       headlines.addLine ("Saturday","Cheese");

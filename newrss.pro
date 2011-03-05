@@ -71,6 +71,7 @@ HEADERS = \
           src/deliberate.h \
           src/version.h \
           src/headline-list.h \
+          src/qml-feed-if.h \
 
 
 SOURCES = \
@@ -80,4 +81,5 @@ SOURCES = \
           src/deliberate.cpp \
           src/version.cpp \
           src/headline-list.cpp \
+          src/qml-feed-if.cpp \
 
