@@ -1,5 +1,4 @@
 
-
 /****************************************************************
  * This file is distributed under the following license:
  *
@@ -22,53 +21,42 @@
  ****************************************************************/
 
 
- import QtQuick 1.0
- import QtWebKit 1.0
+import QtQuick 1.0
 
-
- Rectangle {
-  id: displayArea
-
-  property string urlString : "http://fiji.reflective-computing.com"
-  property real embedMargin : 2
-
-  width: 400; height: 400
+Rectangle {
+  z: -1
   color: "transparent"
-  border.color: "black"
-
-  FeedIndex {
-    id: feedIndexArea
-  }
-  Rectangle {
-    id: specialLabel
-    height: 32
-    width: 80
-    color: "green"
-    border.color: "black"
-    anchors.top: feedIndexArea.bottom
-    Text {
-      id: letters
-      text: "Rows: " + displayModel.rowCountText()
-    }
-    function refreshCount () {
-      letters.text = "Rows now " + displayModel.rowCountText()
+  border.color: "red"
+  anchors.top: parent.top
+  anchors.left: parent.left
+  anchors.topMargin: embedMargin
+  anchors.leftMargin: embedMargin
+  height: parent.height - 2*embedMargin
+  width: parent.width - 2*embedMargin 
+  Component {
+    id: contactDelegate
+    Item {
+      width: 300; height: 60
+      Column {
+        Text { text: 'The meal for <b>' + day + ' </b> is <i> ' + meal + '</i>' }
+      }
     }
   }
-  WebView {
-    id: storyView
-    anchors.top: specialLabel.bottom
-    anchors.topMargin: 8
-   
-    preferredHeight: 500
-    preferredWidth:  300
-    settings.autoLoadImages: true
-    html: "<p>This is old <b>html</b>.</p>"
+  ListView {
+    id: storyList
+    z: 2
+    width: parent.width - 2*embedMargin
+    height: parent.width - 2*embedMargin
+    clip: true
+    contentWidth: childrenRect.width; contentHeight: childrenRect.height
+    anchors.top:  parent.top
+    anchors.topMargin: embedMargin
+    orientation: ListView.Vertical
+    model: displayModel
+    highlight: Rectangle { color: "lightsteelblue"; radius: 5 }
+    delegate: contactDelegate
   }
-  function setTheHtml (theHtml) {
-    storyView.html = theHtml
-    specialLabel.refreshCount() 
-    specialLabel.color = "red"
-    feedIndexArea.changeOrientation (ListView.Horizontal)
+  function changeOrientation (theOrient) {
+    storyList.orientation = theOrient
   }
-  
- }
+}
