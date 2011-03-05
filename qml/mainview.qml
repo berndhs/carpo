@@ -31,45 +31,63 @@
 
      property string urlString : "http://fiji.reflective-computing.com"
 
-     width: 800; height: 600
-     color: "#f0f020"
+     width: 400; height: 200
+     color: "transparent"
+     border.color: "black"
+
+
      Component {
-         id: storyItemDelegate
+         id: contactDelegate
          Item {
-             width: 160; height: 40
+             width: 180; height: 60
              Column {
+                 Text { text: "Item" }
                  Text { text: '<b>Day:</b> ' + day }
                  Text { text: '<b>Meal:</b> ' + meal }
              }
          }
      }
-
      ListView {
         id: storyList
-        height: 60
+         width: 200; height: 200
+
         anchors.top:  displayArea.top
         anchors.topMargin: 20
         orientation: ListView.Vertical
-        model: Menu {}
-        delegate: storyItemDelegate
+        model: displayModel
         highlight: Rectangle { color: "lightsteelblue"; radius: 5 }
+        delegate: contactDelegate
      }
 
+     Rectangle {
+       id: specialLabel
+       height: 40
+       width: 80
+       color: "green"
+       border.color: "blue"
+       anchors.top: storyList.bottom
+       Text {
+         id: letters
+         text: "Rows: " + displayModel.rowCountText()
+       }
+       function refreshCount () {
+          letters.text = "Rows now " + displayModel.rowCountText()
+       }
+     }
      WebView {
         id: storyView
-        anchors.top: storyList.bottom
-        anchors.topMargin: 80
+        anchors.top: specialLabel.bottom
+        anchors.topMargin: 8
        
         preferredHeight: 500
-        preferredWidth:  700
+        preferredWidth:  300
         settings.autoLoadImages: true
-        html: "<p>This is <b>html</b>.</p>"
+        html: "<p>This is old <b>html</b>.</p>"
      }
-     function setHtml (theHtml) {
-        webView.html = theHtml
+     function setTheHtml (theHtml) {
+       storyView.html = theHtml
+       specialLabel.refreshCount() 
+       specialLabel.color = "red"
      }
-
-     Item { id: headerSpace; width: parent.width; height: 62 }
-
      
  }

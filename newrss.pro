@@ -70,6 +70,7 @@ HEADERS = \
           src/cmdoptions.h \
           src/deliberate.h \
           src/version.h \
+          src/headline-list.h \
 
 
 SOURCES = \
@@ -78,4 +79,5 @@ SOURCES = \
           src/cmdoptions.cpp \
           src/deliberate.cpp \
           src/version.cpp \
+          src/headline-list.cpp \
 

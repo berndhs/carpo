@@ -35,11 +35,12 @@ NewRss::NewRss (QWidget *parent)
   :QMainWindow (parent),
    app (0),
    context (0),
-   uiObject (0)
+   uiObject (0),
+   headlines (this)
 {
   ui.setupUi (this);
   htmlString = QString ("<html><head></head>"
-                        "<body><h1>HTML String</h1></body>"
+                        "<body><h1>HTML String number %1</h1></body>"
                         "</html>");
   Connect ();
 }
@@ -59,8 +60,12 @@ NewRss::AddConfigMessages (const QStringList & messages)
 void
 NewRss::Run ()
 {
-  ui.qmlView->setSource (QUrl::fromLocalFile("qml/mainview.qml"));
   context = ui.qmlView->rootContext ();
+  headlines.addLine ("Monday","Beef");
+  headlines.addLine ("Wednesday","Pork");
+  headlines.addLine ("Friday","Fish");
+  context->setContextProperty ("displayModel", &headlines);
+  ui.qmlView->setSource (QUrl::fromLocalFile("qml/mainview.qml"));
   uiObject = ui.qmlView->rootObject();
   show ();
 }
@@ -72,16 +77,29 @@ NewRss::Connect ()
            this, SLOT (Quit()));
   connect (ui.actionLoad, SIGNAL (triggered()),
            this, SLOT (Load ()));
+  connect (&headlines, 
+           SIGNAL (rowsInserted ( const QModelIndex & , int , int)),
+           this,
+           SLOT (RowsInserted ( const QModelIndex &, int, int)));
+}
+
+void
+NewRss::RowsInserted (const QModelIndex & index, int start, int end)
+{
+  qDebug () << "NewRss::RowsInserted " << index << start << end;
 }
 
 void
 NewRss::Load ()
 {
+  static int count (1);
 qDebug () << "NewRss::Load " << context << uiObject;
   if (context) {
     if (uiObject) {
-      QMetaObject::invokeMethod (uiObject, "setHtml",
-                    Q_ARG (QVariant, htmlString));
+qDebug () << " sending html string " << htmlString;
+      QMetaObject::invokeMethod (uiObject, "setTheHtml",
+                    Q_ARG (QVariant, htmlString.arg (count++)));
+      headlines.addLine ("Saturday","Cheese");
     }
   }
 }

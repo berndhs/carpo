@@ -26,8 +26,9 @@
 #include <QApplication>
 #include <QStringList>
 #include <QObject>
+#include <QModelIndex>
 #include <QGraphicsObject>
-
+#include "headline-list.h"
 #include "ui_newrss.h"
 
 class QDeclarativeContext;
@@ -49,6 +50,7 @@ private slots:
 
   void Quit ();
   void Load ();
+  void RowsInserted (const QModelIndex & index, int start, int end);
 
 private:
 
@@ -62,6 +64,8 @@ private:
   QDeclarativeContext *context;
   QGraphicsObject     *uiObject;
   QString              htmlString;
+
+  HeadlineList         headlines;
 
 }; 
 
