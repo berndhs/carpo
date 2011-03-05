@@ -25,6 +25,13 @@ import QtQuick 1.0
 
 Rectangle {
   z: -1
+  signal selected (string d, string m)
+  function changeOrientation (theOrient) {
+    storyList.orientation = theOrient
+  }
+  function nextStory () {
+    storyList.incrementCurrentIndex()
+  }
   color: "transparent"
   border.color: "red"
   anchors.top: parent.top
@@ -33,6 +40,7 @@ Rectangle {
   anchors.leftMargin: embedMargin
   height: parent.height - 2*embedMargin
   width: parent.width - 2*embedMargin 
+
   Component {
     id: contactDelegate
     Item {
@@ -40,8 +48,16 @@ Rectangle {
       Column {
         Text { text: 'The meal for <b>' + day + ' </b> is <i> ' + meal + '</i>' }
       }
+      MouseArea {
+        anchors.fill: parent
+        onClicked: {
+          selected (day, meal)
+        }
+      }
     }
+
   }
+
   ListView {
     id: storyList
     z: 2
@@ -55,8 +71,10 @@ Rectangle {
     model: displayModel
     highlight: Rectangle { color: "lightsteelblue"; radius: 5 }
     delegate: contactDelegate
-  }
-  function changeOrientation (theOrient) {
-    storyList.orientation = theOrient
+/*
+    onDidselect: {
+      parent.selected (d,m)
+    }
+*/
   }
 }

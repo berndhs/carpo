@@ -32,12 +32,22 @@
   property string urlString : "http://fiji.reflective-computing.com"
   property real embedMargin : 2
 
+  function setTheHtml (theHtml) {
+    storyView.html = theHtml
+    specialLabel.refreshCount() 
+    specialLabel.color = "red"
+    feedIndexArea.nextStory ()
+  }
+
   width: 400; height: 400
   color: "transparent"
   border.color: "black"
 
   FeedIndex {
     id: feedIndexArea
+    onSelected: {
+      feedIF.clickedOn (d,m)
+    }
   }
   Rectangle {
     id: specialLabel
@@ -63,12 +73,6 @@
     preferredWidth:  300
     settings.autoLoadImages: true
     html: "<p>This is old <b>html</b>.</p>"
-  }
-  function setTheHtml (theHtml) {
-    storyView.html = theHtml
-    specialLabel.refreshCount() 
-    specialLabel.color = "red"
-    feedIndexArea.changeOrientation (ListView.Horizontal)
   }
   
  }
