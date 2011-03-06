@@ -25,55 +25,98 @@ import QtQuick 1.0
 
 Rectangle {
   z: -1
-  signal selected (string d, string m)
-  function changeOrientation (theOrient) {
-    storyList.orientation = theOrient
-  }
+  signal selected (string i, string t)
+  signal reportOrientation (int orient)
+
   function nextStory () {
     storyList.incrementCurrentIndex()
+  }
+  function flipOrientation () {
+    storyList.flipOrientation ()
   }
   color: "transparent"
   anchors.top: parent.top
   anchors.left: parent.left
   anchors.topMargin: 0
   anchors.leftMargin: 0
-  height: 200
-  width: 200
+  height: parent.height
+  width: parent.width
 
   Component {
-    id: contactDelegate
+    id: verticalDelegate
     Item {
       width: 300; height: 60
-      Column {
-        Text { text: '<i>' + title + '</i>' }
+      Column { 
+         id: idCol
+         anchors.leftMargin: 2
+         Text { text: '<i>' + ident + '</i>' } 
+      }
+      Column { 
+        anchors.left: idCol.right
+        anchors.leftMargin: 4
+        Text { text: '<b>' + title + '</b>' } 
       }
       MouseArea {
         anchors.fill: parent
-        onClicked: {
-          selected (ident, title)
-        }
+        onClicked: { selected (ident, title) }
       }
     }
+  }
 
+  Component {
+    id: horizontalDelegate
+    Item {
+      width: 300; height: 60
+      Row { 
+         id: idCol
+         anchors.leftMargin: 2
+         Text { text: '<i>' + ident + '</i>' } 
+      }
+      Row { 
+        anchors.top: idCol.bottom
+        anchors.topMargin: 4
+        Text { text: '<b>' + title + '</b>' } 
+      }
+      MouseArea {
+        anchors.fill: parent
+        onClicked: { selected (ident, title) }
+      }
+    }
   }
 
   ListView {
     id: storyList
+    function changeOrientation (orient) {
+      feedIF.report ("changeOrientation start")
+      orientation = orient
+      if (orient == ListView.Horizontal) {
+        delegate = horizontalDelegate
+      } else {
+        delegate = verticalDelegate
+      }
+      reportOrientatil (orientation)
+      feedIF.report ("changeOrientation end")
+    }
+    function flipOrientation () {
+      feedIF.report ("flipOrientation start " + orientation)
+      if (orientation == ListView.Horizontal) {
+        changeOrientation (ListView.Vertical) 
+      } else {
+        changeOrientation (ListView.Horizontal)
+      }
+      feedIF.report ("flipOrientation end")
+    }
     z: 2
     width: parent.width - 2*embedMargin
     height: parent.width - 2*embedMargin
-    clip: true
+    clip: false
     contentWidth: childrenRect.width; contentHeight: childrenRect.height
     anchors.top:  parent.top
     anchors.topMargin: embedMargin
-    orientation: ListView.Vertical
+    orientation: ListView.Horizontal
+    delegate: horizontalDelegate
+    snapMode: ListView.NoSnap
     model: displayModel
     highlight: Rectangle { color: "lightsteelblue"; radius: 5 }
-    delegate: contactDelegate
-/*
-    onDidselect: {
-      parent.selected (d,m)
-    }
-*/
   }
 }

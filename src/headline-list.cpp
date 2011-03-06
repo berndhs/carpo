@@ -64,7 +64,7 @@ HeadlineList::addLine (const QString & ident, const QString & title)
 QString
 HeadlineList::addNewLine (const QString & title)
 {
-  QString ident (QString ("Ident%1").arg(nextId++));
+  QString ident (QString ("Story_%1").arg(nextId++));
   addLine (ident, title);
   return ident;
 }

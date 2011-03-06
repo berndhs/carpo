@@ -43,6 +43,11 @@
     width = w
     height = h
   }
+  function turnIndex () {
+    feedIF.report ("turnIndex called")
+    feedIndexArea.flipOrientation()
+    feedIF.report ("turnIndex finishing")
+  }
 
   width: 400; height: 400
   color: "transparent"
@@ -52,17 +57,18 @@
     id: feedIndexArea
     height: indexHeight
     width: parent.width
-    onSelected: {
-      feedIF.clickedOn (d,m)
-    }
+    onSelected: { feedIF.clickedOn (i,t) }
+    onReportOrientation: { feedIF.listOrientation (orient) }
   }
   Rectangle {
     id: specialLabel
-    height: 32
-    width: 80
-    color: "green"
+    height: 20
+    width: parent.width - 2*embedMargin
+    color: "cyan"
     border.color: "black"
     anchors.top: feedIndexArea.bottom
+    anchors.leftMargin: embedMargin
+    anchors.rightMargin: embedMargin
     Text {
       id: letters
       text: "Rows: " + displayModel.rowCountText()
@@ -80,7 +86,7 @@
     preferredHeight: 500
     preferredWidth:  parent.width
     settings.autoLoadImages: true
-    html: "<p>This is old <b>html</b>.</p>"
+    html: "<p>default <b>html</b>.</p>"
   }
   
  }

@@ -121,9 +121,7 @@ NewRss::Load ()
 qDebug () << "NewRss::Load " << context << uiObject;
   if (context) {
     if (uiObject) {
-      QMetaObject::invokeMethod (uiObject, "setTheHtml",
-                    Q_ARG (QVariant, htmlString.arg (count++)));
-      headlines.addLine ("Saturday","Cheese");
+      QMetaObject::invokeMethod (uiObject, "turnIndex");
     }
   }
 }
