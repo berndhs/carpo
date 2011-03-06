@@ -46,12 +46,12 @@ Rectangle {
     Item {
       width: 300; height: 60
       Column {
-        Text { text: 'The meal for <b>' + day + ' </b> is <i> ' + meal + '</i>' }
+        Text { text: '<i>' + title + '</i>' }
       }
       MouseArea {
         anchors.fill: parent
         onClicked: {
-          selected (day, meal)
+          selected (ident, title)
         }
       }
     }

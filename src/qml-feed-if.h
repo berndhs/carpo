@@ -17,6 +17,10 @@ public:
 
   Q_INVOKABLE void clickedOn (const QString & day, const QString & meal);
 
+signals:
+
+  void ShowStory (const QString & id);
+
 
 private:
 

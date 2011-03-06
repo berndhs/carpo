@@ -58,6 +58,7 @@ private slots:
   void RowsInserted (const QModelIndex & index, int start, int end);
   void LoadFeed ();
   void FinishedNet (QNetworkReply * reply);
+  void ShowStory (const QString & id);
 
 private:
 
@@ -79,6 +80,8 @@ private:
   QDomDocument           feedDoc;
 
   QString              feedUrlString;
+
+  QMap <QString, QString>  stories;
 
 }; 
 

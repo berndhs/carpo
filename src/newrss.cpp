@@ -68,9 +68,6 @@ void
 NewRss::Run ()
 {
   context = ui.qmlView->rootContext ();
-  headlines.addLine ("Monday","Beef");
-  headlines.addLine ("Wednesday","Pork");
-  headlines.addLine ("Friday","Fish");
   context->setContextProperty ("displayModel", &headlines);
   ui.qmlView->setSource (QUrl::fromLocalFile("qml/mainview.qml"));
   context->setContextProperty("feedIF",feedIF);
@@ -93,6 +90,8 @@ NewRss::Connect ()
            this, SLOT (LoadFeed()));
   connect (qnam, SIGNAL (finished (QNetworkReply *)),
            this, SLOT (FinishedNet (QNetworkReply *)));
+  connect (feedIF, SIGNAL (ShowStory (const QString &)),
+           this, SLOT (ShowStory (const QString &)));
 }
 
 void
@@ -113,6 +112,18 @@ qDebug () << "NewRss::Load " << context << uiObject;
       headlines.addLine ("Saturday","Cheese");
     }
   }
+}
+
+void
+NewRss::ShowStory (const QString & id)
+{
+  if (stories.contains(id)) {
+    htmlString = stories[id];
+  } else {
+    htmlString = "<b><i>No Such Story!</b></i>";
+  }
+  QMetaObject::invokeMethod (uiObject, "setTheHtml",
+                 Q_ARG (QVariant, htmlString));
 }
 
 void
@@ -147,13 +158,12 @@ NewRss::FinishedNet (QNetworkReply * reply)
       QDomElement elt = item.toElement();
       QDomNodeList titles = elt.elementsByTagName ("title");
       QDomNodeList descrs = elt.elementsByTagName ("description");
-      int nt = titles.count();
-      for (int t=0; t<nt; t++) {
-        qDebug () << "  Title " << titles.at(t).toElement().text();
-      }
-      int nd = descrs.count();
-      for (int d=0; d<nd; d++) {
-        qDebug () << "   Description " << descrs.at(d).toElement().text();
+      int minCount = qMin( titles.count(), descrs.count());
+      for (int t=0; t<minCount; t++) {
+        QString title = titles.at(t).toElement().text();
+        QString descr = descrs.at(t).toElement().text();
+        QString id = headlines.addNewLine (title);
+        stories[id] = descr;
       }
     }
   }

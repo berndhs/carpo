@@ -6,25 +6,27 @@
 namespace deliberate
 {
 
+int HeadlineList::nextId (33333);
+
 HeadlineList::HeadlineList (QObject *parent)
   :QAbstractListModel(parent)
 {
   QHash<int, QByteArray> roles;
-  roles[Type_Day] = "day";
-  roles[Type_Meal] = "meal";
+  roles[Type_Ident] = "ident";
+  roles[Type_Title] = "title";
   setRoleNames(roles);
 }
 
 int 
 HeadlineList::rowCount (const QModelIndex & parent) const
 {
-  return days.count();
+  return idents.count();
 }
 
 QString
 HeadlineList::rowCountText ()
 {
-  return QString::number(days.count());
+  return QString::number(idents.count());
 }
 
 
@@ -38,11 +40,11 @@ qDebug () << "headline data " << index << role;
   int row = index.row();
   QVariant retval;
   if (role == Qt::DisplayRole) {
-    retval = QString ("%1: %2").arg (days.value(row)).arg(meals.value(row));
-  } else if (role == int (Type_Day)) {
-    retval = days.value (row);
-  } else if (role == int (Type_Meal)) {
-    retval = meals.value (row);
+    retval = QString ("%1: %2").arg (idents.value(row)).arg(titles.value(row));
+  } else if (role == int (Type_Ident)) {
+    retval = idents.value (row);
+  } else if (role == int (Type_Title)) {
+    retval = titles.value (row);
   } else {
     retval = QVariant ();
   } 
@@ -51,12 +53,20 @@ qDebug () << "headline data " << index << role;
 }
 
 void
-HeadlineList::addLine (const QString & day, const QString & meal)
+HeadlineList::addLine (const QString & ident, const QString & title)
 {
   beginInsertRows (QModelIndex(), rowCount(), rowCount());
-  days << day;
-  meals << meal;
+  idents << ident;
+  titles << title;
   endInsertRows ();
+}
+
+QString
+HeadlineList::addNewLine (const QString & title)
+{
+  QString ident (QString ("Ident%1").arg(nextId++));
+  addLine (ident, title);
+  return ident;
 }
 
 } // namespace

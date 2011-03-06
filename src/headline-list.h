@@ -19,19 +19,22 @@ public:
 
   int rowCount (const QModelIndex & index = QModelIndex()) const;
   QVariant data (const QModelIndex & index, int role = Qt::DisplayRole) const;
-  void addLine (const QString & day, const QString & meal);
+  void addLine (const QString & ident, const QString & title);
+  QString addNewLine (const QString & title);
 
   Q_INVOKABLE QString rowCountText ();
 
 private:
 
   enum DataType {
-     Type_Day = Qt::UserRole+1,
-     Type_Meal = Qt::UserRole+2
+     Type_Ident = Qt::UserRole+1,
+     Type_Title = Qt::UserRole+2
   };
 
-  QStringList   days;
-  QStringList   meals;
+  QStringList   idents;
+  QStringList   titles;
+
+  static int   nextId;
   
 };
 
