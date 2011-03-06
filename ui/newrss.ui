@@ -52,6 +52,7 @@
      <string>Load Html</string>
     </property>
     <addaction name="actionLoad"/>
+    <addaction name="actionLoadFeed"/>
    </widget>
    <addaction name="menuAgenda"/>
    <addaction name="menuHelp"/>
@@ -100,6 +101,11 @@
   <action name="actionLoad">
    <property name="text">
     <string>Load</string>
+   </property>
+  </action>
+  <action name="actionLoadFeed">
+   <property name="text">
+    <string>Load Feed</string>
    </property>
   </action>
  </widget>

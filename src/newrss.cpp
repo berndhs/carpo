@@ -25,6 +25,8 @@
 
 #include <QDeclarativeContext>
 #include <QGraphicsObject>
+#include <QDomElement>
+#include <QDomNode>
 #include <QObject>
 #include <QDebug>
 
@@ -37,8 +39,11 @@ NewRss::NewRss (QWidget *parent)
    context (0),
    uiObject (0),
    headlines (this),
-   feedIF (0)
+   feedIF (0),
+   qnam (0),
+   feedUrlString ("http://xkcd.com/rss.xml")
 {
+  qnam = new QNetworkAccessManager;
   ui.setupUi (this);
   htmlString = QString ("<html><head></head>"
                         "<body><h1>HTML String number %1</h1></body>"
@@ -84,6 +89,10 @@ NewRss::Connect ()
            SIGNAL (rowsInserted ( const QModelIndex & , int , int)),
            this,
            SLOT (RowsInserted ( const QModelIndex &, int, int)));
+  connect (ui.actionLoadFeed, SIGNAL (triggered()),
+           this, SLOT (LoadFeed()));
+  connect (qnam, SIGNAL (finished (QNetworkReply *)),
+           this, SLOT (FinishedNet (QNetworkReply *)));
 }
 
 void
@@ -111,6 +120,42 @@ NewRss::Quit ()
 {
   if (app) {
     app->quit();
+  }
+}
+
+void
+NewRss::LoadFeed ()
+{
+  if (qnam) {
+    qnam->get (QNetworkRequest (QUrl (feedUrlString)));
+  }
+}
+
+void
+NewRss::FinishedNet (QNetworkReply * reply)
+{
+  qDebug () << " NewRss::FinishedNet " << reply;
+  bool ok = feedDoc.setContent (reply);
+  qDebug () << "   parse " << ok;
+  qDebug () << "   document " << feedDoc.toString ();
+  QDomNodeList items = feedDoc.elementsByTagName ("item");
+  int ni = items.count();
+  for (int i=0; i<ni; i++) {
+    QDomNode item = items.at(i);
+    if (item.isElement()) {
+      qDebug () << " Item Element";
+      QDomElement elt = item.toElement();
+      QDomNodeList titles = elt.elementsByTagName ("title");
+      QDomNodeList descrs = elt.elementsByTagName ("description");
+      int nt = titles.count();
+      for (int t=0; t<nt; t++) {
+        qDebug () << "  Title " << titles.at(t).toElement().text();
+      }
+      int nd = descrs.count();
+      for (int d=0; d<nd; d++) {
+        qDebug () << "   Description " << descrs.at(d).toElement().text();
+      }
+    }
   }
 }
 

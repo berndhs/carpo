@@ -28,6 +28,10 @@
 #include <QObject>
 #include <QModelIndex>
 #include <QGraphicsObject>
+#include <QNetworkAccessManager>
+#include <QNetworkRequest>
+#include <QNetworkReply>
+#include <QDomDocument>
 #include "headline-list.h"
 #include "qml-feed-if.h"
 #include "ui_newrss.h"
@@ -52,6 +56,8 @@ private slots:
   void Quit ();
   void Load ();
   void RowsInserted (const QModelIndex & index, int start, int end);
+  void LoadFeed ();
+  void FinishedNet (QNetworkReply * reply);
 
 private:
 
@@ -68,6 +74,11 @@ private:
 
   HeadlineList         headlines;
   FeedInterface       *feedIF;
+
+  QNetworkAccessManager *qnam;
+  QDomDocument           feedDoc;
+
+  QString              feedUrlString;
 
 }; 
 
