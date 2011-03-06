@@ -37,7 +37,6 @@
     storyView.html = theHtml
     specialLabel.refreshCount() 
     specialLabel.color = "red"
-    feedIndexArea.nextStory ()
   }
   function setSize (w, h) {
     width = w
@@ -57,7 +56,10 @@
     id: feedIndexArea
     height: indexHeight
     width: parent.width
-    onSelected: { feedIF.clickedOn (i,t) }
+    onSelected: { 
+      feedIF.clickedOn (idx, i,t) ; 
+      feedIF.report (" list current " + feedIndexArea.reportCurrent() )
+    }
     onReportOrientation: { feedIF.listOrientation (orient) }
   }
   Rectangle {

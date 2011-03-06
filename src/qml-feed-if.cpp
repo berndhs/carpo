@@ -10,9 +10,9 @@ FeedInterface::FeedInterface (QObject *parent)
 }
 
 void
-FeedInterface::clickedOn (const QString & id, const QString & title)
+FeedInterface::clickedOn (int index, const QString & id, const QString & title)
 {
-  qDebug () << "FeedInterface: clicked on " << id << title;
+  qDebug () << "FeedInterface: clicked on " << index << id << title;
   emit ShowStory (id);
 }
 
