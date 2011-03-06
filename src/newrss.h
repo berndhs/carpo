@@ -32,6 +32,7 @@
 #include <QNetworkRequest>
 #include <QNetworkReply>
 #include <QDomDocument>
+#include <QResizeEvent>
 #include "headline-list.h"
 #include "qml-feed-if.h"
 #include "ui_newrss.h"
@@ -59,6 +60,10 @@ private slots:
   void LoadFeed ();
   void FinishedNet (QNetworkReply * reply);
   void ShowStory (const QString & id);
+
+protected:
+
+  void resizeEvent (QResizeEvent *event);
 
 private:
 

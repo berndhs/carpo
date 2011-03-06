@@ -31,12 +31,17 @@
 
   property string urlString : "http://fiji.reflective-computing.com"
   property real embedMargin : 2
+  property real indexHeight : 200
 
   function setTheHtml (theHtml) {
     storyView.html = theHtml
     specialLabel.refreshCount() 
     specialLabel.color = "red"
     feedIndexArea.nextStory ()
+  }
+  function setSize (w, h) {
+    width = w
+    height = h
   }
 
   width: 400; height: 400
@@ -45,6 +50,8 @@
 
   FeedIndex {
     id: feedIndexArea
+    height: indexHeight
+    width: parent.width
     onSelected: {
       feedIF.clickedOn (d,m)
     }
@@ -67,10 +74,11 @@
   WebView {
     id: storyView
     anchors.top: specialLabel.bottom
-    anchors.topMargin: 8
+    anchors.leftMargin: embedMargin
+    anchors.rightMargin: embedMargin
    
     preferredHeight: 500
-    preferredWidth:  300
+    preferredWidth:  parent.width
     settings.autoLoadImages: true
     html: "<p>This is old <b>html</b>.</p>"
   }

@@ -30,6 +30,8 @@
 #include <QObject>
 #include <QDebug>
 
+#include "deliberate.h"
+
 namespace deliberate
 {
 
@@ -49,6 +51,12 @@ NewRss::NewRss (QWidget *parent)
                         "<body><h1>HTML String number %1</h1></body>"
                         "</html>");
   feedIF = new FeedInterface (this);
+  QSize defaultSize = size();
+  QSize newsize = Settings().value ("sizes/main", defaultSize).toSize();
+  resize (newsize);
+  QMetaObject::invokeMethod (uiObject, "setSize",
+               Q_ARG (QVariant, (ui.qmlView->size().width()-2)),
+               Q_ARG (QVariant, (ui.qmlView->size().height())-2));
   Connect ();
 }
 
@@ -72,6 +80,12 @@ NewRss::Run ()
   ui.qmlView->setSource (QUrl::fromLocalFile("qml/mainview.qml"));
   context->setContextProperty("feedIF",feedIF);
   uiObject = ui.qmlView->rootObject();
+  QSize defaultSize = size();
+  QSize newsize = Settings().value ("sizes/main", defaultSize).toSize();
+  resize (newsize);
+  QMetaObject::invokeMethod (uiObject, "setSize",
+               Q_ARG (QVariant, (ui.qmlView->size().width()-2)),
+               Q_ARG (QVariant, (ui.qmlView->size().height())-2));
   show ();
 }
 
@@ -129,6 +143,9 @@ NewRss::ShowStory (const QString & id)
 void
 NewRss::Quit ()
 {
+  QSize currentSize = size();
+  Settings().setValue ("sizes/main",currentSize);
+  Settings().sync();
   if (app) {
     app->quit();
   }
@@ -166,6 +183,20 @@ NewRss::FinishedNet (QNetworkReply * reply)
         stories[id] = descr;
       }
     }
+  }
+}
+
+void
+NewRss::resizeEvent (QResizeEvent *event)
+{
+  if (!event) {
+    return;
+  }
+  QMainWindow::resizeEvent (event);
+  if (context) {
+    QMetaObject::invokeMethod (uiObject, "setSize",
+                 Q_ARG (QVariant, (ui.qmlView->size().width()-2)),
+                 Q_ARG (QVariant, (ui.qmlView->size().height())-2));
   }
 }
 

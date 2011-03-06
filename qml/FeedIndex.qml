@@ -33,13 +33,12 @@ Rectangle {
     storyList.incrementCurrentIndex()
   }
   color: "transparent"
-  border.color: "red"
   anchors.top: parent.top
   anchors.left: parent.left
-  anchors.topMargin: embedMargin
-  anchors.leftMargin: embedMargin
-  height: parent.height - 2*embedMargin
-  width: parent.width - 2*embedMargin 
+  anchors.topMargin: 0
+  anchors.leftMargin: 0
+  height: 200
+  width: 200
 
   Component {
     id: contactDelegate
