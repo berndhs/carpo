@@ -72,6 +72,7 @@ HEADERS = \
           src/version.h \
           src/headline-list.h \
           src/qml-feed-if.h \
+          src/feedlist-parser.h \
 
 
 SOURCES = \
@@ -82,4 +83,5 @@ SOURCES = \
           src/version.cpp \
           src/headline-list.cpp \
           src/qml-feed-if.cpp \
+          src/feedlist-parser.cpp \
 

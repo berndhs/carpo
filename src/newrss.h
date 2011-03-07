@@ -36,6 +36,7 @@
 #include "headline-list.h"
 #include "qml-feed-if.h"
 #include "ui_newrss.h"
+#include "feedlist-parser.h"
 
 class QDeclarativeContext;
 
@@ -57,7 +58,9 @@ private slots:
   void Quit ();
   void Load ();
   void RowsInserted (const QModelIndex & index, int start, int end);
-  void LoadFeed ();
+  void LoadFeed1 ();
+  void LoadFeed2 ();
+  void LoadList ();
   void FinishedNet (QNetworkReply * reply);
   void ShowStory (const QString & id);
 
@@ -68,6 +71,7 @@ protected:
 private:
 
   void  Connect ();
+  void  ParseStories (QDomNodeList & items, const QString & contentTag);
 
 
   QApplication  *app;
@@ -83,6 +87,8 @@ private:
 
   QNetworkAccessManager *qnam;
   QDomDocument           feedDoc;
+
+  FeedlistParser       *feedlistParser;
 
   QString              feedUrlString;
 

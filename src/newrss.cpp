@@ -43,9 +43,11 @@ NewRss::NewRss (QWidget *parent)
    headlines (this),
    feedIF (0),
    qnam (0),
-   feedUrlString ("http://xkcd.com/rss.xml")
+   feedlistParser (0),
+   feedUrlString ("http://www.atomenabled.org/atom.xml")
 {
   qnam = new QNetworkAccessManager;
+  feedlistParser = new FeedlistParser (this);
   ui.setupUi (this);
   htmlString = QString ("<html><head></head>"
                         "<body><h1>HTML String number %1</h1></body>"
@@ -100,8 +102,12 @@ NewRss::Connect ()
            SIGNAL (rowsInserted ( const QModelIndex & , int , int)),
            this,
            SLOT (RowsInserted ( const QModelIndex &, int, int)));
-  connect (ui.actionLoadFeed, SIGNAL (triggered()),
-           this, SLOT (LoadFeed()));
+  connect (ui.actionLoadRss, SIGNAL (triggered()),
+           this, SLOT (LoadFeed1()));
+  connect (ui.actionLoadAtom, SIGNAL (triggered()),
+           this, SLOT (LoadFeed2()));
+  connect (ui.actionLoadList, SIGNAL (triggered()),
+           this, SLOT (LoadList ()));
   connect (qnam, SIGNAL (finished (QNetworkReply *)),
            this, SLOT (FinishedNet (QNetworkReply *)));
   connect (feedIF, SIGNAL (ShowStory (const QString &)),
@@ -150,10 +156,18 @@ NewRss::Quit ()
 }
 
 void
-NewRss::LoadFeed ()
+NewRss::LoadFeed1 ()
 {
   if (qnam) {
-    qnam->get (QNetworkRequest (QUrl (feedUrlString)));
+    qnam->get (QNetworkRequest (QUrl ("http://xkcd.com/rss.xml")));
+  }
+}
+
+void
+NewRss::LoadFeed2 ()
+{
+  if (qnam) {
+    qnam->get (QNetworkRequest (QUrl ("http://www.atomenabled.org/atom.xml")));
   }
 }
 
@@ -165,6 +179,18 @@ NewRss::FinishedNet (QNetworkReply * reply)
   qDebug () << "   parse " << ok;
   qDebug () << "   document " << feedDoc.toString ();
   QDomNodeList items = feedDoc.elementsByTagName ("item");
+  QDomNodeList entries = feedDoc.elementsByTagName ("entry");
+  if (items.count() > 0) {
+    ParseStories (items, "description");
+  }
+  if (entries.count() > 0) {
+    ParseStories (entries, "content");
+  }
+}
+
+void
+NewRss::ParseStories (QDomNodeList & items, const QString & contentTag)
+{
   int ni = items.count();
   for (int i=0; i<ni; i++) {
     QDomNode item = items.at(i);
@@ -172,7 +198,7 @@ NewRss::FinishedNet (QNetworkReply * reply)
       qDebug () << " Item Element";
       QDomElement elt = item.toElement();
       QDomNodeList titles = elt.elementsByTagName ("title");
-      QDomNodeList descrs = elt.elementsByTagName ("description");
+      QDomNodeList descrs = elt.elementsByTagName (contentTag);
       int minCount = qMin( titles.count(), descrs.count());
       for (int t=0; t<minCount; t++) {
         QString title = titles.at(t).toElement().text();
@@ -183,6 +209,7 @@ NewRss::FinishedNet (QNetworkReply * reply)
     }
   }
 }
+
 
 void
 NewRss::resizeEvent (QResizeEvent *event)
@@ -195,6 +222,14 @@ NewRss::resizeEvent (QResizeEvent *event)
     QMetaObject::invokeMethod (uiObject, "setSize",
                  Q_ARG (QVariant, (ui.qmlView->size().width()-2)),
                  Q_ARG (QVariant, (ui.qmlView->size().height())-2));
+  }
+}
+
+void
+NewRss::LoadList ()
+{
+  if (feedlistParser) {
+    feedlistParser->Read ();
   }
 }
 

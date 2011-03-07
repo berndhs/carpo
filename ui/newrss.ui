@@ -49,10 +49,12 @@
    </widget>
    <widget class="QMenu" name="menuLoad_Html">
     <property name="title">
-     <string>Load Html</string>
+     <string>Load</string>
     </property>
     <addaction name="actionLoad"/>
-    <addaction name="actionLoadFeed"/>
+    <addaction name="actionLoadRss"/>
+    <addaction name="actionLoadAtom"/>
+    <addaction name="actionLoadList"/>
    </widget>
    <addaction name="menuAgenda"/>
    <addaction name="menuHelp"/>
@@ -100,12 +102,22 @@
   </action>
   <action name="actionLoad">
    <property name="text">
-    <string>Load</string>
+    <string>Flip</string>
    </property>
   </action>
-  <action name="actionLoadFeed">
+  <action name="actionLoadRss">
    <property name="text">
-    <string>Load Feed</string>
+    <string>Load RSS</string>
+   </property>
+  </action>
+  <action name="actionLoadAtom">
+   <property name="text">
+    <string>Load Atom</string>
+   </property>
+  </action>
+  <action name="actionLoadList">
+   <property name="text">
+    <string>Load Feed List</string>
    </property>
   </action>
  </widget>
