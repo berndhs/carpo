@@ -29,36 +29,11 @@
 #include <QMap>
 #include <QString>
 
+#include "feedlist.h"
+
 namespace deliberate
 {
 
-
-class StoryMark
-{
-public:
-
-  QString  readit;
-  QString  hash;
-};
-
-class Feed 
-{
-public:
-
-  QMap <QString, QString>  values;
-  QList <StoryMark>       storyMarks;
-
-};
-
-class Folder
-{
-public:
-
-  QString        name;
-  QString        hash;
-  QList <Feed>   childFeeds;
-  QList <Folder> childFolders;
-};
 
 class FeedlistParser : public QObject
 {

@@ -24,6 +24,8 @@
 
 
 #include <QDebug>
+#include <QTextStream>
+#include <stdio.h>
 #include <QFile>
 #include <QXmlStreamReader>
 
@@ -127,6 +129,8 @@ FeedlistParser::ParseFeedlist (QXmlStreamReader & xread)
     }
   }
   qDebug () << " ======== done Feedlist";
+  QTextStream sout (stdout);
+  sout << topFolder << endl;
 }
 
 void
