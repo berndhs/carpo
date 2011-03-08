@@ -25,6 +25,9 @@ public:
 
   Q_INVOKABLE QString rowCountText ();
 
+  bool removeRows (int begin, int end, 
+                   const QModelIndex & parent = QModelIndex());
+
 private:
 
   enum DataType {

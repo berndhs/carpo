@@ -26,8 +26,20 @@ HeadlineList::rowCount (const QModelIndex & parent) const
 void
 HeadlineList::clear ()
 {
-  idents.clear ();
-  titles.clear ();
+  int oldRows = idents.count();
+  removeRows (0,oldRows-1);
+}
+
+bool
+HeadlineList::removeRows (int begin, int end, const QModelIndex & parent)
+{
+  beginRemoveRows (parent, begin, end);
+  for (int i=end; i>= begin; i--) {
+    idents.removeAt (i);
+    titles.removeAt (i);
+  }
+  endRemoveRows ();
+  return true;
 }
 
 QString
