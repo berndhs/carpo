@@ -56,9 +56,17 @@
     <addaction name="actionLoadAtom"/>
     <addaction name="actionLoadList"/>
    </widget>
+   <widget class="QMenu" name="menuTest">
+    <property name="title">
+     <string>Test</string>
+    </property>
+    <addaction name="actionShrinkIndex"/>
+    <addaction name="actionExpandIndex"/>
+   </widget>
    <addaction name="menuAgenda"/>
    <addaction name="menuHelp"/>
    <addaction name="menuLoad_Html"/>
+   <addaction name="menuTest"/>
   </widget>
   <action name="actionSettings">
    <property name="text">
@@ -118,6 +126,16 @@
   <action name="actionLoadList">
    <property name="text">
     <string>Load Feed List</string>
+   </property>
+  </action>
+  <action name="actionShrinkIndex">
+   <property name="text">
+    <string>Shrink Index</string>
+   </property>
+  </action>
+  <action name="actionExpandIndex">
+   <property name="text">
+    <string>Expand Index</string>
    </property>
   </action>
  </widget>

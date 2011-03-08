@@ -37,6 +37,12 @@ Rectangle {
   function reportCurrent () {
     return storyList.currentIndex
   }
+  function shrink () {
+    shrinkIt.running = true; 
+  }
+  function expand () {
+    expandIt.running = true;
+  }
   color: "transparent"
   anchors.top: parent.top
   anchors.left: parent.left
@@ -45,6 +51,18 @@ Rectangle {
   height: parent.height
   width: parent.width
 
+  PropertyAnimation on scale { 
+    id: shrinkIt
+    running: false
+    to: 0
+    duration: 1000
+  }
+  PropertyAnimation on scale { 
+    id: expandIt
+    running: false
+    to: 1
+    duration: 1000
+  }
   Component {
     id: verticalDelegate
     Item {

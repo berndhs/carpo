@@ -47,6 +47,12 @@
     feedIndexArea.flipOrientation()
     feedIF.report ("turnIndex finishing")
   }
+  function shrinkIndex () {
+    feedIndexArea.shrink ()
+  }
+  function expandIndex () {
+    feedIndexArea.expand ()
+  }
 
   width: 400; height: 400
   color: "transparent"
@@ -55,7 +61,9 @@
   FeedIndex {
     id: feedIndexArea
     height: indexHeight
-    width: parent.width
+    width: 0.5*parent.width
+    border.color: "blue"
+    border.width: 3
     onSelected: { 
       feedIF.clickedOn (idx, i,t) ; 
       feedIF.report (" list current " + feedIndexArea.reportCurrent() )

@@ -39,7 +39,7 @@ NewRss::NewRss (QWidget *parent)
   :QMainWindow (parent),
    app (0),
    context (0),
-   uiObject (0),
+   qmlRoot (0),
    headlines (this),
    feedIF (0),
    qnam (0),
@@ -56,7 +56,7 @@ NewRss::NewRss (QWidget *parent)
   QSize defaultSize = size();
   QSize newsize = Settings().value ("sizes/main", defaultSize).toSize();
   resize (newsize);
-  QMetaObject::invokeMethod (uiObject, "setSize",
+  QMetaObject::invokeMethod (qmlRoot, "setSize",
                Q_ARG (QVariant, (ui.qmlView->size().width()-2)),
                Q_ARG (QVariant, (ui.qmlView->size().height())-2));
   Connect ();
@@ -81,11 +81,11 @@ NewRss::Run ()
   context->setContextProperty ("displayModel", &headlines);
   ui.qmlView->setSource (QUrl::fromLocalFile("qml/mainview.qml"));
   context->setContextProperty("feedIF",feedIF);
-  uiObject = ui.qmlView->rootObject();
+  qmlRoot = ui.qmlView->rootObject();
   QSize defaultSize = size();
   QSize newsize = Settings().value ("sizes/main", defaultSize).toSize();
   resize (newsize);
-  QMetaObject::invokeMethod (uiObject, "setSize",
+  QMetaObject::invokeMethod (qmlRoot, "setSize",
                Q_ARG (QVariant, (ui.qmlView->size().width()-2)),
                Q_ARG (QVariant, (ui.qmlView->size().height())-2));
   show ();
@@ -108,6 +108,10 @@ NewRss::Connect ()
            this, SLOT (LoadFeed2()));
   connect (ui.actionLoadList, SIGNAL (triggered()),
            this, SLOT (LoadList ()));
+  connect (ui.actionShrinkIndex, SIGNAL (triggered()),
+           this, SLOT (ShrinkIndex ()));
+  connect (ui.actionExpandIndex, SIGNAL (triggered()),
+           this, SLOT (ExpandIndex ()));
   connect (qnam, SIGNAL (finished (QNetworkReply *)),
            this, SLOT (FinishedNet (QNetworkReply *)));
   connect (feedIF, SIGNAL (ShowStory (const QString &)),
@@ -124,10 +128,10 @@ void
 NewRss::Load ()
 {
   static int count (1);
-qDebug () << "NewRss::Load " << context << uiObject;
+qDebug () << "NewRss::Load " << context << qmlRoot;
   if (context) {
-    if (uiObject) {
-      QMetaObject::invokeMethod (uiObject, "turnIndex");
+    if (qmlRoot) {
+      QMetaObject::invokeMethod (qmlRoot, "turnIndex");
     }
   }
 }
@@ -140,8 +144,20 @@ NewRss::ShowStory (const QString & id)
   } else {
     htmlString = "<b><i>No Such Story!</b></i>";
   }
-  QMetaObject::invokeMethod (uiObject, "setTheHtml",
+  QMetaObject::invokeMethod (qmlRoot, "setTheHtml",
                  Q_ARG (QVariant, htmlString));
+}
+
+void
+NewRss::ShrinkIndex ()
+{
+  QMetaObject::invokeMethod (qmlRoot, "shrinkIndex");
+}
+
+void
+NewRss::ExpandIndex ()
+{
+  QMetaObject::invokeMethod (qmlRoot, "expandIndex");
 }
 
 void
@@ -219,7 +235,7 @@ NewRss::resizeEvent (QResizeEvent *event)
   }
   QMainWindow::resizeEvent (event);
   if (context) {
-    QMetaObject::invokeMethod (uiObject, "setSize",
+    QMetaObject::invokeMethod (qmlRoot, "setSize",
                  Q_ARG (QVariant, (ui.qmlView->size().width()-2)),
                  Q_ARG (QVariant, (ui.qmlView->size().height())-2));
   }

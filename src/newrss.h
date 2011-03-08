@@ -63,6 +63,8 @@ private slots:
   void LoadList ();
   void FinishedNet (QNetworkReply * reply);
   void ShowStory (const QString & id);
+  void ShrinkIndex ();
+  void ExpandIndex ();
 
 protected:
 
@@ -79,7 +81,7 @@ private:
   QStringList    configMessages;
 
   QDeclarativeContext *context;
-  QGraphicsObject     *uiObject;
+  QGraphicsObject     *qmlRoot;
   QString              htmlString;
 
   HeadlineList         headlines;
