@@ -88,6 +88,8 @@ NewRss::Run ()
   QMetaObject::invokeMethod (qmlRoot, "setSize",
                Q_ARG (QVariant, (ui.qmlView->size().width()-2)),
                Q_ARG (QVariant, (ui.qmlView->size().height())-2));
+  HideList ("FeedIndex");
+  ShowList ("FeedList");
   show ();
 }
 
@@ -116,6 +118,10 @@ NewRss::Connect ()
            this, SLOT (FinishedNet (QNetworkReply *)));
   connect (feedIF, SIGNAL (ShowStory (const QString &)),
            this, SLOT (ShowStory (const QString &)));
+  connect (feedIF, SIGNAL (ShowList (const QString &)),
+           this, SLOT (ShowList (const QString &)));
+  connect (feedIF, SIGNAL (HideList (const QString &)),
+           this, SLOT (HideList (const QString &)));
 }
 
 void
@@ -127,7 +133,6 @@ NewRss::RowsInserted (const QModelIndex & index, int start, int end)
 void
 NewRss::Load ()
 {
-  static int count (1);
 qDebug () << "NewRss::Load " << context << qmlRoot;
   if (context) {
     if (qmlRoot) {
@@ -146,6 +151,20 @@ NewRss::ShowStory (const QString & id)
   }
   QMetaObject::invokeMethod (qmlRoot, "setTheHtml",
                  Q_ARG (QVariant, htmlString));
+}
+
+void
+NewRss::ShowList (const QString & list)
+{
+  QMetaObject::invokeMethod (qmlRoot, 
+                             QString("expand%1").arg(list).toLatin1().data());
+}
+
+void
+NewRss::HideList (const QString & list)
+{
+  QMetaObject::invokeMethod (qmlRoot, 
+                            QString("shrink%1").arg(list).toLatin1().data());
 }
 
 void

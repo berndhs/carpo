@@ -63,6 +63,8 @@ private slots:
   void LoadList ();
   void FinishedNet (QNetworkReply * reply);
   void ShowStory (const QString & id);
+  void ShowList (const QString & list);
+  void HideList (const QString & list);
   void ShrinkIndex ();
   void ExpandIndex ();
 

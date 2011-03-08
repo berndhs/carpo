@@ -24,20 +24,19 @@
 import QtQuick 1.0
 
 Rectangle {
-
   property real normalWidth: parent.width
   z: -1
   signal selected (int idx, string i, string t)
   signal reportOrientation (int orient)
 
   function nextStory () {
-    storyList.incrementCurrentIndex()
+    feedList.incrementCurrentIndex()
   }
   function flipOrientation () {
-    storyList.flipOrientation ()
+    feedList.flipOrientation ()
   }
   function reportCurrent () {
-    return storyList.currentIndex
+    return feedList.currentIndex
   }
   function shrink () {
     shrinkIt.running = true; 
@@ -76,7 +75,7 @@ Rectangle {
       }
       MouseArea {
         anchors.fill: parent
-        onClicked: { selected (index, ident, title); storyList.currentIndex = index }
+        onClicked: { selected (index, ident, title); feedList.currentIndex = index }
       }
     }
   }
@@ -92,13 +91,13 @@ Rectangle {
       }
       MouseArea {
         anchors.fill: parent
-        onClicked: { selected (index, ident, title); storyList.currentIndex = index }
+        onClicked: { selected (index, ident, title); feedList.currentIndex = index }
       }
     }
   }
 
   ListView {
-    id: storyList
+    id: feedList
     function changeOrientation (orient) {
       feedIF.report ("changeOrientation start")
       orientation = orient
@@ -108,7 +107,7 @@ Rectangle {
         delegate = verticalDelegate
       }
       reportOrientation (orientation)
-      feedIF.report ("storyList orientation " + orientation)
+      feedIF.report ("feedList orientation " + orientation)
       feedIF.report ("changeOrientation end")
     }
     function flipOrientation () {
@@ -132,6 +131,6 @@ Rectangle {
     delegate: verticalDelegate
     snapMode: ListView.NoSnap
     model: displayModel
-    highlight: Rectangle { color: "lightsteelblue"; radius: 5 }
+    highlight: Rectangle { color: "oldlace"; radius: 5 }
   }
 }

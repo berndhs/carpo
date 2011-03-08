@@ -47,11 +47,20 @@
     feedIndexArea.flipOrientation()
     feedIF.report ("turnIndex finishing")
   }
-  function shrinkIndex () {
+  function shrinkFeedIndex () {
     feedIndexArea.shrink ()
   }
-  function expandIndex () {
+  function expandFeedIndex () {
     feedIndexArea.expand ()
+  }
+  function shrinkFeedList () {
+    feedListArea.shrink ()
+  }
+  function expandFeedList () {
+    feedListArea.expand ()
+  }
+  function toggleLists () {
+    feedIF.toggleLists ()
   }
 
   width: 400; height: 400
@@ -61,8 +70,23 @@
   FeedIndex {
     id: feedIndexArea
     height: indexHeight
+    normalWidth: 0.5*parent.width
     width: 0.5*parent.width
     border.color: "blue"
+    border.width: 3
+    onSelected: { 
+      feedIF.clickedOn (idx, i,t) ; 
+      feedIF.report (" list current " + feedIndexArea.reportCurrent() )
+    }
+    onReportOrientation: { feedIF.listOrientation (orient) }
+  }
+  FeedList {
+    id: feedListArea
+    anchors.left: feedIndexArea.right
+    height: indexHeight
+    normalWidth: 0.5*parent.width
+    width: 0.5*parent.width
+    border.color: "red"
     border.width: 3
     onSelected: { 
       feedIF.clickedOn (idx, i,t) ; 
@@ -81,10 +105,14 @@
     anchors.rightMargin: embedMargin
     Text {
       id: letters
-      text: "Rows: " + displayModel.rowCountText()
+      text: "Toggle Feed-List / Feed-Index view --- Rows: " + displayModel.rowCountText()
     }
     function refreshCount () {
       letters.text = "Rows now " + displayModel.rowCountText()
+    }
+    MouseArea {
+      anchors.fill: parent
+      onClicked: { toggleLists () }
     }
   }
   WebView {
