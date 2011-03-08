@@ -34,7 +34,7 @@
   property real indexHeight : 200
 
   function setTheHtml (theHtml) {
-    storyView.html = theHtml
+    storyView.storyHtml = theHtml
     specialLabel.refreshCount() 
     specialLabel.color = "red"
   }
@@ -75,6 +75,7 @@
     scale: 1
     border.color: "blue"
     border.width: 3
+    clip: true
     onSelected: { 
       feedIF.storyClicked (idx, i,t) ; 
       feedIF.report (" list current " + feedIndexArea.reportCurrent() )
@@ -90,6 +91,7 @@
     scale: 0
     border.color: "red"
     border.width: 3
+    clip: true
     onSelected: { 
       feedIF.feedClicked (idx, i,t) ; 
       feedIF.report (" list current " + feedIndexArea.reportCurrent() )
@@ -117,16 +119,15 @@
       onClicked: { toggleLists () }
     }
   }
-  WebView {
+  StoryView {
     id: storyView
+    z: 3
     anchors.top: specialLabel.bottom
     anchors.leftMargin: embedMargin
     anchors.rightMargin: embedMargin
+    height: 500
    
-    preferredHeight: 500
-    preferredWidth:  parent.width
-    settings.autoLoadImages: true
-    html: "<p>default <b>html</b>.</p>"
+    storyHtml: "<p>default <b>html</b>.</p>"
   }
   
  }

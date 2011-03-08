@@ -26,7 +26,6 @@ import QtQuick 1.0
 Rectangle {
   property real normalWidth: parent.width
   property real shrinkDelay: 500
-  z: -1
   signal selected (int idx, string i, string t)
   signal reportOrientation (int orient)
 
