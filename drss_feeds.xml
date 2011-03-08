@@ -1,0 +1,2638 @@
+<?xml version='1.0' encoding='utf-8'?>
+<drssfeedlist version="1.0">
+ <folder name="Strange and Funny" hash="">
+  <feed hash="5809ff7cadfe391bacbd3ddd7caec3dc4e68cfa8">
+   <language></language>
+   <xmlUrl>http://www.welt.de/satire/?service=Rss</xmlUrl>
+   <title>WELT ONLINE - Satire</title>
+   <description>WELT ONLINE - Satire</description>
+   <imageUrl></imageUrl>
+   <nick>WELT ONLINE - Satire</nick>
+   <webUrl>http://www.welt.de/satire/</webUrl>
+   <storysig readit="n" hash="1196ac474856050064991a65752e0123799477f2"/>
+   <storysig readit="n" hash="140e2a84e0ff07f034104842139519ec6503c2c3"/>
+   <storysig readit="y" hash="36244deaa6cc0ec32e602de9cc6e50bda822aa47"/>
+   <storysig readit="n" hash="39e77782a433842a6666b11843ec62676f396303"/>
+   <storysig readit="y" hash="421343bd64af2368f07e3069effa8eb022d05017"/>
+   <storysig readit="y" hash="47f05d7f9136b860f627fde80eda5e3e2dd81285"/>
+   <storysig readit="n" hash="4b04a5b61379ed6103525f4a772124309a17b6e3"/>
+   <storysig readit="n" hash="4fd81aa2e758e7708bc6ccfc420ad4f1efbc6a75"/>
+   <storysig readit="n" hash="5f25a7ecadecf4c00fc0e2162f5070dc3bffd8c1"/>
+   <storysig readit="n" hash="626d7262eafb81fad2c15c6b7fbfa0c06258377b"/>
+   <storysig readit="y" hash="68d6b63c9ccd59b0b3588ea98e5cef1eee1cea2f"/>
+   <storysig readit="n" hash="701bde200351361f12dde6db168cc0c0d6045df7"/>
+   <storysig readit="n" hash="8e07cf940cbb30529f0e25e17cf52d698b8e6589"/>
+   <storysig readit="n" hash="a08130c6a54cf85283466735f20df5d3c7fd0ef9"/>
+   <storysig readit="y" hash="a694d198237dada52d8d8f3752f9941b5b78e123"/>
+   <storysig readit="n" hash="af1f7c61b74bf0f63a59c80e7ca766b48e10a1f7"/>
+   <storysig readit="n" hash="bac0837f2ea5f7c87b7a1d05fe190dad68a95565"/>
+   <storysig readit="n" hash="c139eafac46346e7b9f3810eb5cef19e7099bf5d"/>
+   <storysig readit="n" hash="c5577f09ffcebf0a1227e5620d424fecad060453"/>
+   <storysig readit="y" hash="c9e800d9393a109b627207d42f01260eb79e17ab"/>
+   <storysig readit="n" hash="ca890d76da9a7b6efcaffd8d9a1b15d60a40f57f"/>
+   <storysig readit="n" hash="ce3b2cd5bf4bbeab5a9659cfb26f9919de678efd"/>
+   <storysig readit="n" hash="cee51a2bbe9e73258dc9aadd2cba66ce1a29b3d0"/>
+   <storysig readit="n" hash="d6cd2b5c0d6331477783129293230c008ebbd48a"/>
+   <storysig readit="n" hash="da0e3ee2aa16c2268ad7c893ee7b5966311b8983"/>
+   <storysig readit="n" hash="e7d5d3ad6df1149164a9044c89815197f2832a9c"/>
+   <storysig readit="n" hash="f45ceb181725da9a24396997a0550a0d5f785677"/>
+   <storysig readit="n" hash="f56f02bb187b1eba8b73c829991186f17271863e"/>
+   <storysig readit="n" hash="f81f9646e94766fa91703e5f512ac21e23668cdf"/>
+  </feed>
+  <feed hash="55a3c47e6414e64de87499581de938177d175da2">
+   <language></language>
+   <xmlUrl>http://feeds.reuters.com/reuters/oddlyEnoughNews</xmlUrl>
+   <title>Reuters: Oddly Enough</title>
+   <description>Reuters: Oddly Enough</description>
+   <imageUrl></imageUrl>
+   <nick>Reuters: Oddly Enough</nick>
+   <webUrl>http://www.reuters.com</webUrl>
+   <storysig readit="n" hash="130ecbf1b60625e6cc67f6243bd4d0baba45d975"/>
+   <storysig readit="n" hash="1adac239ff2ac1017faa0af9402cd624fe9d4ac2"/>
+   <storysig readit="n" hash="3175093d76e5f19fb63e45f1b81d01c46667e435"/>
+   <storysig readit="n" hash="6644708f193fa3f2dfaa01cb794abc3daa6c806f"/>
+   <storysig readit="n" hash="926e885c8e8b7f945ca0a386ecb467b4936eec9c"/>
+   <storysig readit="n" hash="bb205597e1bf17d12cbc66500440916aa072943d"/>
+   <storysig readit="n" hash="bc93fe141f14dc3cf65676afea61538fea0c53a5"/>
+   <storysig readit="y" hash="c71610293523a3d56e04d017b5791965f5ee59a8"/>
+   <storysig readit="n" hash="df0061fbcfad83c2b2400689a4a8a024c390dbf0"/>
+   <storysig readit="y" hash="f77e23429d7cef3fbe9c7d093bce37df874dea36"/>
+  </feed>
+  <feed hash="cc7fdf2bee983e34bed08701422a223585de331a">
+   <language></language>
+   <xmlUrl>http://xkcd.com/rss.xml</xmlUrl>
+   <title>xkcd.com</title>
+   <description>xkcd.com: A webcomic of romance and math humor.</description>
+   <imageUrl></imageUrl>
+   <nick>xkcd</nick>
+   <webUrl>http://xkcd.com/</webUrl>
+   <storysig readit="y" hash="44c035aa0fbf9aed1cc6133f75a12271f3ff5036"/>
+   <storysig readit="y" hash="507d2331b807e1a103f5a205310dc7c26b40e1a6"/>
+   <storysig readit="y" hash="83d58c7e718cf0ca36d152465992656596bb3d2b"/>
+   <storysig readit="y" hash="cd5cffe25f11078199073c4cc70c9d47af077559"/>
+  </feed>
+ </folder>
+ <folder name="Computing" hash="">
+  <feed hash="36f275e85d0594ff19552b880a39900b9cd54ab8">
+   <language></language>
+   <xmlUrl>http://rss.slashdot.org/Slashdot/slashdotHardware</xmlUrl>
+   <title>Slashdot: Hardware</title>
+   <description>Slashdot: Hardware</description>
+   <imageUrl></imageUrl>
+   <nick>Slashdot: Hardware</nick>
+   <webUrl>http://hardware.slashdot.org/</webUrl>
+   <storysig readit="y" hash="1bbde19ae59755c599522a37449836a66d71497f"/>
+   <storysig readit="y" hash="1ea50cde37fbadac68aec52d712388f1913052d8"/>
+   <storysig readit="n" hash="3b67d612c9759d61bbe7f68315a93a199ed53806"/>
+   <storysig readit="n" hash="449781bc1683cb0458c4ebb6704afccfd3cbbc57"/>
+   <storysig readit="y" hash="58045658702716dc89f04a81040a402e0124b18c"/>
+   <storysig readit="y" hash="7d2bbef3b6fd0d5693b7478a2afc3f67e993f77a"/>
+   <storysig readit="y" hash="7fe3db1f14ef86ebe0a019dcefad4aa2c15fc9fc"/>
+   <storysig readit="y" hash="8044ea668d5fa22065c504f2078bc03d7525f555"/>
+   <storysig readit="n" hash="8aaacddb091513f40d6415b9342286136ec8e1e1"/>
+   <storysig readit="n" hash="8e07d1eb0cd820dcfc3b873937ddcd3c55db4d1e"/>
+   <storysig readit="n" hash="9799f03a23187ed180dc1cbb5c3f5d3a39ba8e7a"/>
+   <storysig readit="n" hash="9e235685f0b59220aaf28d3fc0ea11f6f10fd546"/>
+   <storysig readit="n" hash="d5b000ed69ee77d78bb13542b0000f78ab8c29bb"/>
+   <storysig readit="n" hash="d798c74a374fe1710e05ce9603037e401ae8e7fa"/>
+   <storysig readit="n" hash="dd4006fd121b2ffc03e1a868aa5b1491f8fd7bef"/>
+  </feed>
+  <feed hash="74842d05a4f1a791f0363074a4ecaf0051f8b272">
+   <language></language>
+   <xmlUrl>http://rss.slashdot.org/Slashdot/slashdotLinux</xmlUrl>
+   <title>Slashdot: Linux</title>
+   <description>Slashdot: Linux</description>
+   <imageUrl></imageUrl>
+   <nick>Slashdot: Linux</nick>
+   <webUrl>http://linux.slashdot.org/</webUrl>
+   <storysig readit="n" hash="1169c9e05f958b9bc6bfc3eacde9355a9ef09182"/>
+   <storysig readit="y" hash="274bd38ad51ad900afc188afd02f8e7b83057bd4"/>
+   <storysig readit="n" hash="38bb6808a0cac713734d0e57af5aed43d40357ee"/>
+   <storysig readit="n" hash="39d95b20d6483402e61f98ee4a84a22c13bf2e3c"/>
+   <storysig readit="n" hash="575329a2b89398a4553b9e64109b59fc68222809"/>
+   <storysig readit="n" hash="98237397e348fc2b29def00a6754182c60bdd2a5"/>
+   <storysig readit="n" hash="9c40e6f942a31e343a276c1d47479b9a6fc85e92"/>
+   <storysig readit="n" hash="a3af20a08d17b686ecf6e999b2d8e0004d2f3683"/>
+   <storysig readit="n" hash="b0cd1f39b3116d53016070822493431ec547a184"/>
+   <storysig readit="n" hash="b5f11f2eb29df4451fabb0e645e41b67d92dfa33"/>
+   <storysig readit="n" hash="c05c7e23c1f18b88fda0e581fee5b754cc3ec2df"/>
+   <storysig readit="n" hash="c2e831b2001e2f4657107144c3db72d7f5841a68"/>
+   <storysig readit="n" hash="cdfcb971555b3f3bfa1dfc9b11f5e1b6cdb99038"/>
+   <storysig readit="n" hash="db0141b88b54c5778d228469c4f6ec312f8cadae"/>
+   <storysig readit="n" hash="dda59adf696a771636fb608841d4b4e9de9760ff"/>
+  </feed>
+  <feed hash="8a63cabfa5acbe6b5f2b773badc6f7538094ba80">
+   <language></language>
+   <xmlUrl>http://rss.slashdot.org/Slashdot/slashdotAskSlashdot</xmlUrl>
+   <title>Slashdot: Ask Slashdot</title>
+   <description>Slashdot: Ask Slashdot</description>
+   <imageUrl></imageUrl>
+   <nick>Slashdot: Ask Slashdot</nick>
+   <webUrl>http://ask.slashdot.org/</webUrl>
+   <storysig readit="n" hash="13b07788449fab6fbabf543d2d5c5ca51dfcd78e"/>
+   <storysig readit="n" hash="177940a73b0b3ddca2bf1717ca0a3185c6f0747e"/>
+   <storysig readit="n" hash="2f6292eb258fdc9f09af12ad647b4d9c52dbbe28"/>
+   <storysig readit="y" hash="36fad42a58325838b0442c4cdbcad30b7165ac55"/>
+   <storysig readit="n" hash="434353128c6583a60e293f309d8afce4583d4456"/>
+   <storysig readit="y" hash="5235c2b6e2a125b65324e7b50792b9ec85f719e0"/>
+   <storysig readit="n" hash="6c37153554ccd5abca41e9fb9b303f5516617226"/>
+   <storysig readit="n" hash="7e9822122b6ef06fd93d57109e35693056b43e36"/>
+   <storysig readit="n" hash="807ef587a95326739eb9d31977d5479e0af99320"/>
+   <storysig readit="n" hash="a328f6a7d55227aed934c1ef2d9765ff9db5205a"/>
+   <storysig readit="y" hash="af5c7aba66a84c45140ee7f3df0dfe23fbc887e9"/>
+   <storysig readit="y" hash="c9ea661e71adce6519b6fc711e218748dcd8cdc7"/>
+   <storysig readit="n" hash="e06875dee9bc9dd5acb8b0cae0a3a2b191b46b68"/>
+   <storysig readit="y" hash="f3ba5fd8bb18a58011a9d931bb9b361556db73db"/>
+   <storysig readit="n" hash="f81ae041d4489be4015e6d650acd4ec7163d2ff3"/>
+  </feed>
+  <feed hash="b9b76500b29c6acbee10a912b61d81113b8ed947">
+   <language></language>
+   <xmlUrl>http://lwn.net/headlines/rss</xmlUrl>
+   <title>LWN.net</title>
+   <description>
+ LWN.net is a comprehensive source of news and opinions from
+        and about the Linux community.  This is the main LWN.net feed,
+        listing all articles which are posted to the site front page.
+
+    </description>
+   <imageUrl></imageUrl>
+   <nick>LWN.net</nick>
+   <webUrl>http://lwn.net</webUrl>
+   <storysig readit="n" hash="0457994593290c9da022f16918ca5e8fc0596ac3"/>
+   <storysig readit="n" hash="205017528e8b04f67fd822225c19c4bad5a85b2a"/>
+   <storysig readit="n" hash="2d0af7d2f3b866433d2206a2884103e1b2b5fa38"/>
+   <storysig readit="n" hash="2de0b316eadfe1424d43bc1b7e897af9393c7cb6"/>
+   <storysig readit="n" hash="459a3608fdfbf4785cd51898232e9a2bd6214e95"/>
+   <storysig readit="n" hash="48042e7ddfa2873412fa68f04d91e7c7529362d5"/>
+   <storysig readit="y" hash="49ea91072d77ecc039f08803ae0d6e46aac83e59"/>
+   <storysig readit="n" hash="5595a2213c682469cd6e8a2ab064f600856f1536"/>
+   <storysig readit="n" hash="5de46764f6949439f8b88008b3971190ade7dbe4"/>
+   <storysig readit="n" hash="6768244bb2396b070869e1f40301a1597e0e0394"/>
+   <storysig readit="y" hash="7fa7484695ca00bf56fe3b1238c68dccdc04fb8d"/>
+   <storysig readit="n" hash="8f69efc5f0a93b0e68b5286538f073ca9c96c6a3"/>
+   <storysig readit="n" hash="c05838a21c61c66f3f46a51fd688a4b43797d1df"/>
+   <storysig readit="n" hash="c5a0393178c5629584cf6ab5ff375c4e37abbb73"/>
+   <storysig readit="n" hash="e750c8727e853ca35e2d4bb2214b46ab18437f51"/>
+  </feed>
+  <feed hash="e6404e207b48aa0dc9067c5d393c51c7b6d4e895">
+   <language></language>
+   <xmlUrl>http://feeds.feedburner.com/TheQtBlog?format=xml</xmlUrl>
+   <title>The Qt Blog</title>
+   <description>The past, present and future of Qt</description>
+   <imageUrl></imageUrl>
+   <nick>Noklia Qt Blog</nick>
+   <webUrl>http://blog.qt.nokia.com</webUrl>
+   <storysig readit="n" hash="0156a84f8ba06c0c7cab754c6d704a96117d0418"/>
+   <storysig readit="n" hash="09e9e26f72ebb3b88ef6af397f4e7daa0c1fd788"/>
+   <storysig readit="n" hash="1f70bd409e24e2cb00e1c5ae7c1ee6f458ca5807"/>
+   <storysig readit="n" hash="2b8c7a2cfa289dddb01cee9d0cb7ef4a455975b8"/>
+   <storysig readit="n" hash="3f1b893e80c55cc1733c17c1a8097d7049c0dd7e"/>
+   <storysig readit="n" hash="5722caa0103fc6b38b84d1bec4b00f4e333e33b5"/>
+   <storysig readit="y" hash="6a025de760a27b323d27f4f426f270ef2a97325b"/>
+   <storysig readit="n" hash="93fbcceb8d6d17acc6df72ab8074d04c5d3af3c8"/>
+   <storysig readit="n" hash="f24ce559600ef5286fec50b3817b03f59243cf72"/>
+   <storysig readit="n" hash="f789f82c04ca066f52c2db03d784ef78c2251650"/>
+  </feed>
+  <feed hash="">
+   <language></language>
+   <xmlUrl>http://borasky-research.net/feed/</xmlUrl>
+   <title>Borasky Research Journal</title>
+   <description>Docendo Discimus</description>
+   <imageUrl></imageUrl>
+   <nick>Ed Borasky</nick>
+   <webUrl>http://borasky-research.net</webUrl>
+   <storysig readit="n" hash="13dfed398793a36bbff8eb1beeca48ae585eb0e4"/>
+   <storysig readit="n" hash="3129c7ba5522072d9d853905b62ab2f71353bc81"/>
+   <storysig readit="y" hash="3525ad33709b56b21b9cc1cc0e600bba0e2ecfba"/>
+   <storysig readit="n" hash="74b636aafc355935c94ebdcb026bfabf0e167272"/>
+   <storysig readit="n" hash="74ee7a3f76c084fd1a9e71391a1c24aea7592f16"/>
+   <storysig readit="n" hash="7d7f403d7b59b06e5c46655562076e3c74676862"/>
+   <storysig readit="n" hash="9330703fe872bccd30619b960c4f268afa2bbaf7"/>
+   <storysig readit="n" hash="add9e69305ac4c618185a12d07db88b0230c79c4"/>
+   <storysig readit="n" hash="b9187ff12fd6a3d42623e533c983a4fced8cf255"/>
+   <storysig readit="n" hash="fa2964d35205c1a97b445aa9e0e4c7a401877ee4"/>
+  </feed>
+ </folder>
+ <folder name="Sports News" hash="">
+  <folder name="Racing" hash="">
+   <feed hash="70e9612050ed3c4ed37d5fa0d8a469239d8513a1">
+    <language></language>
+    <xmlUrl>http://rss.feedsportal.com/feed/motorsporttotal/us_racing</xmlUrl>
+    <title>US-Racing bei Motorsport-Total.com</title>
+    <description>US-Racing bei Motorsport-Total.com</description>
+    <imageUrl></imageUrl>
+    <nick>US-Racing bei Motorsport-Total.com</nick>
+    <webUrl>http://www.motorsport-total.com</webUrl>
+    <storysig readit="n" hash="0bb535f731d6490161deff8500537bba133af14d"/>
+    <storysig readit="n" hash="103085f49277a6070f2cba8acc2d7849930d9bd0"/>
+    <storysig readit="n" hash="18d0f1c125473981367cb037c9949cf31d44b06c"/>
+    <storysig readit="n" hash="305a0311001c0642186eed3b63f9711bc2f98829"/>
+    <storysig readit="n" hash="37c48e87fdffeb47cbbd9c1a64c7d7f87aa42793"/>
+    <storysig readit="n" hash="4d61210324de3b99c0699c0b75cea1397984e49b"/>
+    <storysig readit="n" hash="4e61002cb3567a1d84b410f9b3ca673abf11dcb9"/>
+    <storysig readit="n" hash="5881b0def63931dbe138803d72ae0651a731ab3f"/>
+    <storysig readit="n" hash="66dfc3918cbe98c626d5ef10974e49fd5be26b2d"/>
+    <storysig readit="n" hash="6734eca2c3772fab955444f50e1f5fff04a83cdf"/>
+    <storysig readit="y" hash="6d8d0b9011c80cbd825536502cae46985f3d7214"/>
+    <storysig readit="n" hash="710c95c47457672e0f4712f831c0553fd2b10102"/>
+    <storysig readit="n" hash="89565d365cf40d36bf6901e17bf66ef15181ad60"/>
+    <storysig readit="y" hash="8bafbe40efd0afed201dcccd7b68729178eb0d8f"/>
+    <storysig readit="n" hash="8bd526cebf171e50e867bc998c7d7a15df218761"/>
+    <storysig readit="n" hash="9be7189160ee3f9c31f466cd974049ce6ac5a951"/>
+    <storysig readit="n" hash="9f87a5429bf5b40e16fe6f5ab346fc4c6b3b4696"/>
+    <storysig readit="n" hash="a83eead9efe27969122cdb183686410f062cc52d"/>
+    <storysig readit="n" hash="aa6a5219e26e1551735a44afe54ed6a5fac872ab"/>
+    <storysig readit="n" hash="ad778187b89292675048a53a72145f674b2f29ce"/>
+    <storysig readit="n" hash="c5734087308f02ecdb40c02491401f7b424a97b0"/>
+    <storysig readit="y" hash="c8bb18feab62639b9bdb8b3a9bf7d563ad61dd87"/>
+    <storysig readit="n" hash="cd66ac49bd6ae402c59ffed421215d5a6f79ce29"/>
+    <storysig readit="n" hash="db6da67f956973616c77648452d075d8c510b15e"/>
+    <storysig readit="n" hash="f6755aa1842192fc2c7b9362100359a776fd9c76"/>
+   </feed>
+   <feed hash="862681ddaa8ed4caf03bb330160de053c3943e10">
+    <language></language>
+    <xmlUrl>http://rss.nascar.com/rss/news_cup.rss</xmlUrl>
+    <title>NASCAR.COM - Sprint Cup Series Headlines</title>
+    <description>NASCAR.COM is the official league site for the National Association for Stock Car Auto Racing. This is where fans find up-to-the-minute NASCAR news, expert opinions, point standings, schedules, driver and team information as well as real-time race telemetry and live team communications.</description>
+    <imageUrl></imageUrl>
+    <nick>NASCAR.COM - Sprint Cup Series Headlines</nick>
+    <webUrl>http://nascar.com?eref=/news/headlines/cup</webUrl>
+    <storysig readit="n" hash="2251dc9e744ea1322fb5a082e608615a98f10c44"/>
+    <storysig readit="n" hash="6f6ddfb1f8893b50ccc44f3c5ca61e2c7045af38"/>
+    <storysig readit="n" hash="dc2fefdb06f326d9dc15c2dd0efbfa91011ee69f"/>
+    <storysig readit="n" hash="ef09e7b72560aaed929d18dc5a2037110fbed4a1"/>
+    <storysig readit="y" hash="f3c3bee5d932231b18a0052217caf7a8cbfce6ef"/>
+   </feed>
+   <feed hash="0fa5f861c6de357e17db7d252b43b3afc6921053">
+    <language></language>
+    <xmlUrl>http://www.cammas-groupama.com/en/utilitaires/archives/actus_fr.xml</xmlUrl>
+    <title>Cammas - Groupama news</title>
+    <description>All Franck Cammas's  and multihulls Groupama news </description>
+    <imageUrl></imageUrl>
+    <nick>Cammas</nick>
+    <webUrl>http://www.cammas-groupama.com</webUrl>
+    <storysig readit="y" hash="3dff8989466e14d02d0e638bfd9c1aab68ba07b3"/>
+    <storysig readit="y" hash="6484ffa5b2a329e869dd520c1db7e8f61cda0b5a"/>
+    <storysig readit="y" hash="69a5bc2f02cb087b19d773eb087c0e1c8247192c"/>
+    <storysig readit="n" hash="6ca958a0621de12e87caad298f311f40ac9bfd78"/>
+    <storysig readit="n" hash="af3271cd5f256732825cf3ce069155204f7e47f2"/>
+    <storysig readit="n" hash="bc77efd12fcddbd6d85e333c048d6b90e88c8493"/>
+    <storysig readit="y" hash="ca2ab2859bd3832e3f3e1b98ab0153426c01557f"/>
+    <storysig readit="n" hash="cfc0a599a85e2a9fdf42f0b9c0b5561c8d7a77f9"/>
+    <storysig readit="n" hash="d6fc979e14ccb0e834a99f9c944408d1563908fa"/>
+    <storysig readit="y" hash="e44a03750afe5cb96913dbb4fdf03d2a816f3869"/>
+   </feed>
+  </folder>
+  <folder name="Futbol" hash="">
+   <feed hash="d749af9277eb1239639a79415a6df85e2ca22e2d">
+    <language></language>
+    <xmlUrl>http://rss.kicker.de/team/borussiadortmund</xmlUrl>
+    <title>kicker online: Teamnews - Borussia Dortmund</title>
+    <description>kicker online: Teamnews - Borussia Dortmund</description>
+    <imageUrl></imageUrl>
+    <nick>kicker online: Teamnews - Borussia Dortmund</nick>
+    <webUrl>http://rss.kicker.derss.kicker.de/team/borussiadortmund</webUrl>
+    <storysig readit="y" hash="1bf3e75740b5362765a218f59a722ab3d7549ccd"/>
+    <storysig readit="y" hash="3116a461b703c6b4f6efedd5fc1d6b2aaa440ad6"/>
+    <storysig readit="y" hash="386f4c128854af085e508b4986abeb663e4fc4fb"/>
+    <storysig readit="y" hash="43643757b697e9605813988d3b3c16b67c5a0ab1"/>
+    <storysig readit="y" hash="471719c1c27bd317491f2ea78807021492171864"/>
+    <storysig readit="y" hash="596613f313df9d252ea109549c9f09bd250e854b"/>
+    <storysig readit="y" hash="5e6191c283d2427d70d51f12855d67525f322782"/>
+    <storysig readit="y" hash="67a72afa758bd901504aac7831501f57653cc924"/>
+    <storysig readit="y" hash="6f137eea51f30e31ea3172b13898d1188db1ac4c"/>
+    <storysig readit="y" hash="7ecec7b88c9a987a8b8ca7293c7977c11f881d8f"/>
+    <storysig readit="y" hash="8675308a5320e66b8aca7f8fe7a583f5999584cf"/>
+    <storysig readit="y" hash="8f4e074b40893495a6a8acfe608ba9e31c9eec97"/>
+    <storysig readit="y" hash="9ed19bdd344f7a99e642cc206be20f5746d12109"/>
+    <storysig readit="y" hash="ad5fe15174fb7fbc1b6f8875ae3a9dbaa0cc953b"/>
+    <storysig readit="y" hash="b5153731790a40ae1286cfc48dc6d772c433b495"/>
+    <storysig readit="y" hash="d268171ee714a7338f03078f3de2750270a693f7"/>
+    <storysig readit="y" hash="d6241c63963c104838a759d8d900334dffed5d20"/>
+    <storysig readit="y" hash="d9310f92d433799c6325c419e2453390f9b40972"/>
+    <storysig readit="y" hash="e50ab1693e893f1263feb2d0c5cc285d95125697"/>
+    <storysig readit="y" hash="eedf2fa56dfb7a7df81201b7452262b1ffa17c0a"/>
+   </feed>
+   <feed hash="3ef35204788707871d906b1810bbbd91d26ae635">
+    <language></language>
+    <xmlUrl>http://www.ruhrnachrichten.de/storage/rss/rss/rn_bvb_exklusiv.xml</xmlUrl>
+    <title>RuhrNachrichten.de: BVB</title>
+    <description>RuhrNachrichten.de: BVB</description>
+    <imageUrl></imageUrl>
+    <nick>RuhrNachrichten.de: BVB</nick>
+    <webUrl>http://www.ruhrnachrichten.de/</webUrl>
+    <storysig readit="n" hash="1cab246f00f16e4971529cdb7e902668dcd04623"/>
+    <storysig readit="n" hash="31803545b0aabed49baea6bd3c7af8aaed61d8e6"/>
+    <storysig readit="n" hash="3effab5c41e16368ff4231224eaa37a317e791aa"/>
+    <storysig readit="n" hash="51f5593e4164e47daa013dd4b4dfb789241df0a5"/>
+    <storysig readit="n" hash="51fc4f1969782cc2a70734e1441ca7a8540e0487"/>
+    <storysig readit="n" hash="7d63e82ea9fb881a7e098ac7b1ae776a5e35b6a1"/>
+    <storysig readit="n" hash="8b0792a39bca5c4261bd36203e2f79ddcc828541"/>
+    <storysig readit="n" hash="a74dc60cbcdddf617f1cfd2d2e7de9e3288cdef1"/>
+    <storysig readit="n" hash="cfa4a41f245b0e4feac542f3537a3d63bceca7c9"/>
+    <storysig readit="y" hash="dbcb83fd4cfa28810a26d024355b32b8d00dce71"/>
+   </feed>
+   <feed hash="06a960f512cdddf128f32b10644903baaac11388">
+    <language></language>
+    <xmlUrl>http://www.bvb.de/bvbonline.rss</xmlUrl>
+    <title>Borussia Dortmund online</title>
+    <description>Der Online-Auftritt von Borussia Dortmund</description>
+    <imageUrl></imageUrl>
+    <nick>Borussia Dortmund online</nick>
+    <webUrl>http://www.bvb.de</webUrl>
+    <storysig readit="n" hash="0f0247a93296af94d4b4c2d55c5d99c5ba58b020"/>
+    <storysig readit="y" hash="637c23edb8e5470ec2a32bd5b8467c8b87892dda"/>
+    <storysig readit="n" hash="66f627439353aaeef6752d6583ec5b6c651e9779"/>
+    <storysig readit="n" hash="7bd163fb97e3ccc08b8c91f6e1c55691b3b73d41"/>
+    <storysig readit="n" hash="8cc9e23f9dfded017e908a17bf867d479016e273"/>
+    <storysig readit="n" hash="af548140e4c2a8066ac8da03c064de57060157eb"/>
+    <storysig readit="n" hash="c6229a5530dea164734c3d77649433664b9f123b"/>
+    <storysig readit="n" hash="e6eda9b74886115ab0c32d76286785196a9da8d7"/>
+    <storysig readit="n" hash="f4127811540fa9e2acb3fbcabda636359b09c613"/>
+    <storysig readit="n" hash="fcc30d421ab50b5739a2c856b05d702831649c6c"/>
+   </feed>
+   <feed hash="845a75a8a7b32d3d7aeb2c03b6bd2ffe3c9a0801">
+    <language></language>
+    <xmlUrl>http://www.bundesliga.de/rss/de/international/rss_news.xml</xmlUrl>
+    <title>Bundesliga.de - News International</title>
+    <description>Immer am Ball. Mit Bundesliga.de</description>
+    <imageUrl></imageUrl>
+    <nick>Bundesliga.de - News International</nick>
+    <webUrl>http://www.bundesliga/de/international/index.php</webUrl>
+    <storysig readit="n" hash="03820f1c903300476c3a80e022843f9c04ab6370"/>
+    <storysig readit="n" hash="1198713940a1fbfcebb599107d7b7e7d38f80e8d"/>
+    <storysig readit="n" hash="28f2bf046dbc18324365d7743832cf737d4eeb84"/>
+    <storysig readit="y" hash="30eb3cd52de87d9afec6e0a3d90c358f6ba59e17"/>
+    <storysig readit="n" hash="455e69183bfc1396b6fde09755e263317bc1e387"/>
+    <storysig readit="y" hash="59858a63501bca3efae3c1ee610d4a4ac41d1a5f"/>
+    <storysig readit="n" hash="67ac24f90f3c13f80912d73127e687fd0f9204dc"/>
+    <storysig readit="n" hash="6bbc878818046c38e99477089263e0ab0bc52cc2"/>
+    <storysig readit="n" hash="70c2155f7b4b49dd2ff8ea99fd2685bb654371f3"/>
+    <storysig readit="n" hash="929447e1cc9546c9e6871b54f612e7a5dc92c784"/>
+    <storysig readit="n" hash="935de54cd8ffb36a50aff559129ea36789f6f242"/>
+    <storysig readit="n" hash="97fdb24139330748af61797646ca8d4236ff58cc"/>
+    <storysig readit="n" hash="ac5ddf1b99842c97a3f490e24ad0387dea341287"/>
+    <storysig readit="n" hash="b7f144ace751fc6fb9865bea206735416f557654"/>
+    <storysig readit="n" hash="bb35499da4827313423ef84644563962d2c92aca"/>
+    <storysig readit="n" hash="c1b30bb2f59c9179413465822914742bb1bc226e"/>
+    <storysig readit="n" hash="c3a3fb603599dc9c30bcf92f16d65ef22e06ec13"/>
+    <storysig readit="n" hash="cf7af4471d15c013191404d820058d0835c28668"/>
+    <storysig readit="n" hash="e1da620bf1ec718c0332e2efae5466ad1c338b10"/>
+    <storysig readit="n" hash="f88a4b3bd46e6f33d45934a03e49066050546262"/>
+   </feed>
+  </folder>
+  <feed hash="6b850ab2f95f7f8a9bbd2fa3d5e832de8089b86e">
+   <language></language>
+   <xmlUrl>http://newsfeed.zeit.de/sport/index</xmlUrl>
+   <title>Zeit Sport</title>
+   <description>Sport</description>
+   <imageUrl></imageUrl>
+   <nick>Zeit Sport</nick>
+   <webUrl>http://www.zeit.de/sport/index</webUrl>
+   <storysig readit="n" hash="14844bfe17824047363590508a552f8ded01a9b2"/>
+   <storysig readit="n" hash="24b3ccd6997d2f9f3621d608a3e17dfa26968ce9"/>
+   <storysig readit="n" hash="485e6761d3cb98b11c81e6068d67f800b5286891"/>
+   <storysig readit="n" hash="660f418b2e77650b9e38d11e20d22fad494b33b2"/>
+   <storysig readit="n" hash="68b7ec96b5f6a53b007a14c87eff8ea2ba1fc08a"/>
+   <storysig readit="n" hash="8c032b1b7fcd203fa1ebebd3d830a090be317254"/>
+   <storysig readit="n" hash="997cf8bbf433de359422842d1f01b9458fb32a4e"/>
+   <storysig readit="n" hash="9c0d027da6dbb1cf5149531a380bb23dbe37268c"/>
+   <storysig readit="n" hash="a4b990b8b986b04dfe741c5fd8c42e982f986dc6"/>
+   <storysig readit="y" hash="a584538e430196d22c3ab9061179fe3951ce480d"/>
+   <storysig readit="y" hash="aedce694d66057ea184c0c0ddebb4a0af874c59e"/>
+   <storysig readit="n" hash="c04d5fdbbf9b32444672f99833d478fb01690d4a"/>
+   <storysig readit="n" hash="d4d783623d7c23460afc1860b1f7c626a632c2fb"/>
+   <storysig readit="n" hash="f8887c1ed7054a13d91c91e61a6b08858050b518"/>
+  </feed>
+  <feed hash="3266b73f0224651ba2d9a9dee205869065acaf64">
+   <language></language>
+   <xmlUrl>http://feeds.timesonline.co.uk/c/32313/f/463695/index.rss</xmlUrl>
+   <title>Sports News from Times Online</title>
+   <description>Sports News from Times Online</description>
+   <imageUrl></imageUrl>
+   <nick>London TImes Sports</nick>
+   <webUrl>http://www.timesonline.co.uk</webUrl>
+   <storysig readit="y" hash="08d5f7309374d2930924ed8ceb591a4cfc07c57a"/>
+   <storysig readit="n" hash="36fe02e5dbe9b7ebf3a30f590d28481a584c2175"/>
+   <storysig readit="n" hash="485c1c7c4274339a2d74f344028a6001685b181c"/>
+   <storysig readit="n" hash="4a1f43ce184b2b65838706ba1846d45ac983c0d3"/>
+   <storysig readit="y" hash="4c8894ca35e284ae51db5a8b973c1786f645186e"/>
+   <storysig readit="n" hash="67ad39fe838f363dc454d41dbef804df817e2bd0"/>
+   <storysig readit="n" hash="69e86495c0828ef48753248f2d203dabf7000ee0"/>
+   <storysig readit="n" hash="6a2474050a57e2ced3509331158f8bcd69cdfdfa"/>
+   <storysig readit="y" hash="6d8a0b3ddebc3f850d7eab240c363a00b6cda888"/>
+   <storysig readit="n" hash="7a56dad42aa03f88bfdbe0f08372e8f009c4f76c"/>
+   <storysig readit="n" hash="83b462c856c5c5335db0532d8713574bc7c4f4c4"/>
+   <storysig readit="n" hash="884581c4809ad796a662039cefed2d7b38cd1590"/>
+   <storysig readit="n" hash="8b1de75af23be938ca24ba8ec81a4c95c2893b83"/>
+   <storysig readit="n" hash="9d469f18a3b8988da71cd6629da2879d2e7eb273"/>
+   <storysig readit="y" hash="9d4b88cb49324767eca01077d8826f890b6c523f"/>
+   <storysig readit="n" hash="9e0d32bd98ce3aabeb608110536e763cf12514c2"/>
+   <storysig readit="n" hash="aa30360d426a564e43e9ebab97602d1f4676b30b"/>
+   <storysig readit="n" hash="af79f8a96163a8231e8dfa92ba38c9cabfd6380f"/>
+   <storysig readit="y" hash="bdff611207b293bf36167e8e3ee2bd43211518f5"/>
+   <storysig readit="n" hash="c12a2b39da3a5dd27a36362a12059f258244007c"/>
+   <storysig readit="n" hash="c4650351d05f25564f3b6a570b24da4b6aa70d6c"/>
+   <storysig readit="y" hash="c593d8d13d605c3431e38ad526b2b40b5955f012"/>
+   <storysig readit="n" hash="cc39286773935a8b5849a30dd826ed1877c75bcb"/>
+   <storysig readit="n" hash="da5431706f29bf1ee8190d8452f37c729f98323f"/>
+   <storysig readit="n" hash="df38bd66f7f46b192e531c011d1aa058d5706f0b"/>
+  </feed>
+  <feed hash="68bc9686cc1fd278e16a1a42f3b3037fc0ac22f6">
+   <language></language>
+   <xmlUrl>http://www.faz.net/s/Rub9F27A221597D4C39A82856B0FE79F051/Tpl~Epartner~SRss_.xml</xmlUrl>
+   <title>Sport - FAZ.NET</title>
+   <description>FAZ.NET - Erfrischt den Kopf</description>
+   <imageUrl></imageUrl>
+   <nick>Sport - FAZ.NET</nick>
+   <webUrl>http://www.faz.net</webUrl>
+   <storysig readit="n" hash="1471c0578aecc4f8159cebab47dd41d179b4a1a5"/>
+   <storysig readit="n" hash="1f11863133a5723c4c3adc35474cf5a3ed998b8f"/>
+   <storysig readit="n" hash="20091d5e335053c77a141358f417190391c7732b"/>
+   <storysig readit="n" hash="28c7b43d781a5b68d4ede1d56fe92b4b24f0112b"/>
+   <storysig readit="n" hash="32998f18ae3eff6866a146b4704681a90681227b"/>
+   <storysig readit="n" hash="4e1ab8aa174e7346389e7c950abbf37405626fd4"/>
+   <storysig readit="n" hash="6db849a780d4a63c6ea1bdc12202d769989f81c9"/>
+   <storysig readit="n" hash="915454e51564317564645d0e0f9c16eed99ee014"/>
+   <storysig readit="n" hash="9157be27337a24d4323b6815f0597b3d16f12001"/>
+   <storysig readit="n" hash="97258e2aeacbd0fef57a70ee385c5ec43b4ca1ed"/>
+   <storysig readit="n" hash="a1269db52f9ef9f2cdcf7b9cbdf9bc14dfac5511"/>
+   <storysig readit="y" hash="b444ebf94a2774d60e682674f247935024b6ac72"/>
+   <storysig readit="n" hash="cd7466486924932bd9e571297c712ee96ce19123"/>
+   <storysig readit="n" hash="d1ac234a7b7b06f4e746bf7fa7de12025b15352f"/>
+   <storysig readit="n" hash="f0b9cf27b42db5d654a3d2fb960e48516df72f09"/>
+  </feed>
+  <feed hash="e559fea4010ade9980652b3d16c7bdccb8a66019">
+   <language></language>
+   <xmlUrl>http://rss.cnn.com/rss/si_topstories.rss</xmlUrl>
+   <title>SI.com</title>
+   <description>SI.com is the league leader in original in-depth coverage of professional, local, college and international sports. And we're updated continuously, delivering the level of rich in-depth coverage Sports Illustrated fans demand, at the speed of CNN.</description>
+   <imageUrl></imageUrl>
+   <nick>SI.com</nick>
+   <webUrl>http://sportsillustrated.cnn.com/?xid=si_topstories</webUrl>
+   <storysig readit="n" hash="15d30f486b34d7117ef92987718ff517883cd7d8"/>
+   <storysig readit="n" hash="296551d2f3439da7c0840be5066ae46d9515b540"/>
+   <storysig readit="n" hash="58e92fa01a4a3ccb0bb3cc83a4e3e5a8fb258a8f"/>
+   <storysig readit="n" hash="65a7ff58d9a739c4ee6f2091eaf3f4692f35708b"/>
+   <storysig readit="n" hash="68f60facfce439fdf42023849819e78885b1561d"/>
+   <storysig readit="y" hash="6908b5d12692a7719d8c92630147edf6f6002c94"/>
+   <storysig readit="n" hash="700adb7778092ff6d15b5e6e552b6fddc5aeb0ef"/>
+   <storysig readit="n" hash="87bef311f29acb66ec45d2bc056c76f142535288"/>
+   <storysig readit="n" hash="94a6e40f69ed612d92421eceb914ffcb324b7208"/>
+   <storysig readit="n" hash="ec7864c47885ca19798b79bd0d2c017fa7132bd4"/>
+  </feed>
+  <feed hash="771a4fdf897d552a3d20cc11a0be4d14d8b8ee1e">
+   <language></language>
+   <xmlUrl>http://www.nzz.ch/nachrichten/sport?rss=true</xmlUrl>
+   <title>NZZ Online: Sport, Aktuell</title>
+   <description>Aktuell</description>
+   <imageUrl></imageUrl>
+   <nick>NZZ Online: Sport, Aktuell</nick>
+   <webUrl>http://www.nzz.ch/nachrichten/sport/aktuell</webUrl>
+   <storysig readit="n" hash="0a7536db6ad4828455eaa5762c6b32b30b211793"/>
+   <storysig readit="y" hash="0d907fe893623731a2d5fcdce0fce94f04240683"/>
+   <storysig readit="n" hash="475f13f6569be9fb10a87b3ae7f96aebe52821b8"/>
+   <storysig readit="n" hash="5083c1689c295c90bf0ebf4f63a8d76cd82c2696"/>
+   <storysig readit="n" hash="6f67dd02706971a5cd92ddf1fbb264931ee2825f"/>
+   <storysig readit="n" hash="a1e9ca065f24435070192c62b6c026fdaa50aa1f"/>
+   <storysig readit="n" hash="a219533d88deaadd82b856f735760caad1a634cf"/>
+   <storysig readit="n" hash="ca2718b126eab6541fca16c0754ecb005ea0b7d5"/>
+   <storysig readit="y" hash="caa82bb458bfd4411bf4cba3414cda89adf843d6"/>
+   <storysig readit="n" hash="f105994eb94a98d739f4ab452c516872179347ff"/>
+   <storysig readit="n" hash="f6a8415039649b63d5e5c7e647acfce71c4837f5"/>
+  </feed>
+  <feed hash="747b7d504eb79e07907ca754a3e81359279abf3b">
+   <language></language>
+   <xmlUrl>http://rssfeed.sueddeutsche.de/c/795/f/448242/index.rss</xmlUrl>
+   <title>Sport-Artikel / sueddeutsche.de</title>
+   <description>sueddeutsche.de</description>
+   <imageUrl></imageUrl>
+   <nick>Sport-Artikel / sueddeutsche.de</nick>
+   <webUrl>http://www.sueddeutsche.de/</webUrl>
+   <storysig readit="n" hash="02acf9ffdd522fc1ecf868ce0d9583892286a993"/>
+   <storysig readit="y" hash="0744d9b56110fa8584e1a4f53814efe2a91ed16d"/>
+   <storysig readit="n" hash="0a56337c51040228cf3ed532493aca76a129b706"/>
+   <storysig readit="y" hash="1786a00dbce0c354695a70e35d56cf45cdd204ad"/>
+   <storysig readit="n" hash="18a968c5a35645e8f538f443fd21b198ee3070ec"/>
+   <storysig readit="n" hash="1b0ff53f83201cd387fc51937c06ac8efe293482"/>
+   <storysig readit="n" hash="26de59c0473a1175757e81e6409d89454898b998"/>
+   <storysig readit="n" hash="370791a760bdc0cf54c68facf4efd82ffb49d7ad"/>
+   <storysig readit="n" hash="3f430bc86a60e0a024a6f640198990710e068f4a"/>
+   <storysig readit="y" hash="5d9c49a0dd1f40e378ed58f6573d569e165cd1a5"/>
+   <storysig readit="y" hash="6a23b984266d233aeb4d360769449fb7663fa764"/>
+   <storysig readit="n" hash="6aeac320dd94f79d01d5fbe40a9e7652921c0344"/>
+   <storysig readit="y" hash="72d990aa2f1fd0d9e2bf48b6026071e275996052"/>
+   <storysig readit="n" hash="762284b75f220250f55f29ef2ff0c5b08f084ca5"/>
+   <storysig readit="n" hash="7abafcb659ee0aa9375b4f949691bd60e314ee72"/>
+   <storysig readit="n" hash="82ea3482981cf5ef7819fb5588077b1a65ce1483"/>
+   <storysig readit="n" hash="9324d30ae7ae579ebc5d03ab26770bd8b2e614ae"/>
+   <storysig readit="n" hash="a8f15ecb54c05b803e1eb138e5511cd20d22faca"/>
+   <storysig readit="y" hash="b1a54ef0fccda048ce3e6eccda6b71dcfce35cd1"/>
+   <storysig readit="y" hash="b87ad686c9c87a327f126976937916ec4292b32a"/>
+   <storysig readit="y" hash="c53281a11d31b543fedc060b40703d2a1d7ea4e5"/>
+   <storysig readit="y" hash="e4ab64e3b7841ad15e83b187c570d5e110b5a9ed"/>
+   <storysig readit="n" hash="e4d17d40bc71ce1dad9c34953eb19d9e67a70378"/>
+   <storysig readit="n" hash="e9e58dcb73b979959ffda426410a4df3ee8474d4"/>
+   <storysig readit="n" hash="f81418fe82f96164c58a3a3118ebfa20762d7679"/>
+  </feed>
+  <feed hash="31d2eeb3a45ce0f66d1415010446ec8bb5d3f5af">
+   <language></language>
+   <xmlUrl>http://www.welt.de/sport/?service=Rss</xmlUrl>
+   <title>WELT ONLINE - Sport</title>
+   <description>WELT ONLINE informiert Sie laufend aktuell, mit ausfÃ¼hrlichen Hintergrundberichten, lokalen Ausgaben und stÃ¤ndig aktuellen Schwerpunkten. Damit Sie tÃ¤glich umfassend informiert sind.</description>
+   <imageUrl></imageUrl>
+   <nick>WELT ONLINE - Sport</nick>
+   <webUrl>http://www.welt.de/sport/</webUrl>
+   <storysig readit="n" hash="01a377c40785912b09b6389d9813bc71351f2d0c"/>
+   <storysig readit="n" hash="0757d4307253060927237415583c2f8264d34953"/>
+   <storysig readit="n" hash="157248cc1ad6e3108469d4c3328ac01586774b42"/>
+   <storysig readit="n" hash="20469f30319e52d2be00734a757b7db5473ecf7b"/>
+   <storysig readit="n" hash="26eb37be0f0996943a5465aebf8e0be60b131743"/>
+   <storysig readit="n" hash="449fb9663eb739ffa119469769ccd1143262ccab"/>
+   <storysig readit="n" hash="468449ee54fced6657fb385af0f34a889e4b5473"/>
+   <storysig readit="n" hash="47cf7f2968cd3148d3ae4aa4b39105c5b381244b"/>
+   <storysig readit="n" hash="50ece35431fe7e6ce3742d051d67ec418f9b7255"/>
+   <storysig readit="n" hash="6cc50eb9b2d2eebd557784d9f7a8d47e7125850d"/>
+   <storysig readit="n" hash="7e7adbaac6ed3fc58cee0d0d2e1b2487749e7b68"/>
+   <storysig readit="n" hash="8483528670a649448fe6c5b1a0ff07313a75207b"/>
+   <storysig readit="n" hash="886a27e8020b25cc4276605429d2efdfe1b1a235"/>
+   <storysig readit="y" hash="8978ba7d93cc4dd192f54fda5824fa77ccab3111"/>
+   <storysig readit="y" hash="8f9ab22ac689b6253c14d042c0e536d1aac1ce18"/>
+   <storysig readit="n" hash="95f1de675e9dc6fe1b2c453e045ba7e527affe8a"/>
+   <storysig readit="n" hash="981508fcb0fc5a989abea0d129a51c3b2c0403e4"/>
+   <storysig readit="n" hash="99299a969c987b4ce645fe566358d98921bc7bba"/>
+   <storysig readit="n" hash="99327e0a66dde60288c182d19c2d421fea1d8d47"/>
+   <storysig readit="n" hash="9b708acdba938f7155c99bed4118132076163751"/>
+   <storysig readit="n" hash="9f9d34c935565377bda03117bc7b8f0940bf160f"/>
+   <storysig readit="n" hash="ab44739e5a3850846d43ee2b36f2604fb0c03f64"/>
+   <storysig readit="n" hash="bb7da10c36cf4345551b3c1746ea1ec1b046b704"/>
+   <storysig readit="n" hash="bc6e93c2225735dc2c5bc8b70c887ce9d730e193"/>
+   <storysig readit="y" hash="bcd91aafb726f64549283c458255399b9025f8de"/>
+   <storysig readit="n" hash="c7fbd70f30a5fecfc1499ca55ebca6ec5ec84ff6"/>
+   <storysig readit="n" hash="fb21fdaf2043b1677b041d2e600cb617f32a0b9e"/>
+  </feed>
+ </folder>
+ <folder name="Science and Technology" hash="">
+  <folder name="Space &amp; Aero" hash="">
+   <feed hash="da39a3ee5e6b4b0d3255bfef95601890afd80709">
+    <language></language>
+    <xmlUrl>http://earthobservatory.nasa.gov/Feeds/rss/eo.rss</xmlUrl>
+    <title>NASA Earth Observatory</title>
+    <description>Your source for monitoring regional and global changes on our planet through images and stories.</description>
+    <imageUrl></imageUrl>
+    <nick>NASA Earth Observatory</nick>
+    <webUrl>http://earthobservatory.nasa.gov/</webUrl>
+   </feed>
+   <feed hash="64f22bc69885f3ebdec4568c6e59fe5850b7d0b3">
+    <language></language>
+    <xmlUrl>http://www.nasa.gov/rss/image_of_the_day.rss</xmlUrl>
+    <title>NASA Image of the Day</title>
+    <description>The latest NASA "Image of the Day" image.</description>
+    <imageUrl></imageUrl>
+    <nick>NASA Image of the Day</nick>
+    <webUrl>http://www.nasa.gov/multimedia/imagegallery/index.html</webUrl>
+    <storysig readit="y" hash="315bd25093f4360c1e585f97809fd4a124baaee3"/>
+   </feed>
+   <feed hash="8a4ca928aab27b48c5a21115c626a402973306d3">
+    <language></language>
+    <xmlUrl>http://sitelife.aviationweek.com/ver1.0/Blog/BlogRss?plckBlogId=Blog:04ce340e-4b63-4d23-9695-d49ab661f385</xmlUrl>
+    <title>On Space</title>
+    <description>On Space</description>
+    <imageUrl></imageUrl>
+    <nick>Aviation Week Space</nick>
+    <webUrl>http://www.aviationweek.com/aw/blogs/space/index.jsp?plckBlogPage=Blog</webUrl>
+    <storysig readit="y" hash="0197b80299fbe6e9b007ca4d2384fac96baaa91e"/>
+    <storysig readit="y" hash="0963a45482f6413e9bfdcadfe062761ae09b6d8a"/>
+    <storysig readit="n" hash="218c56e965023d32ae5fef6f50a6ff56b3f6f3c6"/>
+    <storysig readit="y" hash="30393667be5e6a671bb3d6215c64153d3e895c3b"/>
+    <storysig readit="n" hash="6254b2a9a64e6babb8ffda15727fea6faaf00717"/>
+    <storysig readit="y" hash="9b0f7f196c5167e12133a047568873149fbeab0c"/>
+    <storysig readit="n" hash="9cf1667fa6d5dbc67a0d6b393a355736fa2cb621"/>
+    <storysig readit="n" hash="bd9f5539978cb61ea7a1eff2686aa5e628cfba3f"/>
+    <storysig readit="y" hash="d3bca82d7163084811634fd7cdf78cc867af466d"/>
+    <storysig readit="n" hash="f6d0dfae7328de4c995582deb7f16e6d676b0842"/>
+   </feed>
+   <feed hash="8ab1e270b9857b7f9d53c52e9782bbce9b8270ac">
+    <language></language>
+    <xmlUrl>http://www.nasa.gov/rss/breaking_news.rss</xmlUrl>
+    <title>NASA Breaking News</title>
+    <description>A RSS news feed containing the latest NASA news articles and press releases.</description>
+    <imageUrl></imageUrl>
+    <nick>NASA Breaking News</nick>
+    <webUrl>http://www.nasa.gov/audience/formedia/features/index.html</webUrl>
+    <storysig readit="n" hash="2420389a6c0443c938b8a6ce410ed6c1aacb497b"/>
+    <storysig readit="n" hash="31d9845c147903f2a369936ad83ba107906ef3f7"/>
+    <storysig readit="y" hash="593442f62ab9328a353b832eec68c2cbc487ea55"/>
+    <storysig readit="n" hash="6d5a2fd4c534d154e9399f1d6745919c143174c5"/>
+    <storysig readit="n" hash="83d0d89ac544136aeca50265eaddcc33da1088d4"/>
+    <storysig readit="n" hash="979765368f6202a4f3679a009e7649ee429205ba"/>
+    <storysig readit="n" hash="9b6fe14929ac3c5f3fdf7fdae0bbc9e482111309"/>
+    <storysig readit="n" hash="a671dff3e524126df7eafc602e2d7c625f4ad5fe"/>
+    <storysig readit="n" hash="b79f2e96870035237b5d07120ba243afbb01845e"/>
+    <storysig readit="n" hash="dea322a1ef12fdfbdd0386c1eebded2e85c7e99e"/>
+   </feed>
+   <feed hash="3d0091efffaecea35e3b3fb279dabf48fb2994fc">
+    <language></language>
+    <xmlUrl>http://sitelife.aviationweek.com/ver1.0/Blog/BlogRss?plckBlogId=Blog:27ec4a53-dcc8-42d0-bd3a-01329aef79a7</xmlUrl>
+    <title>Ares</title>
+    <description>A Defense Technology Blog</description>
+    <imageUrl></imageUrl>
+    <nick>Ares</nick>
+    <webUrl>http://www.aviationweek.com/aw/blogs/defense/index.jsp?plckBlogPage=Blog</webUrl>
+    <storysig readit="n" hash="4a4c03e3dd3381403e896303532293580c9b2287"/>
+    <storysig readit="y" hash="597c2399c09bf281eba2ffbc7bbd96e5625577b1"/>
+    <storysig readit="n" hash="62a9a81a7ee9ab262404941365e47012270dc4d1"/>
+    <storysig readit="n" hash="77374177f8e45f1e0713afe52534684dd86df6e5"/>
+    <storysig readit="y" hash="a11995ae0a3be81a3dc780760eb775d21bc97a7d"/>
+    <storysig readit="n" hash="b3dee80625f05758bf5c30915a071bebbdd4630a"/>
+    <storysig readit="n" hash="bb910fffc7ebe54153411b3ad7c5e8e7d7f684da"/>
+    <storysig readit="y" hash="c5940caf20c45404da7046ee240485ad8716a21d"/>
+    <storysig readit="n" hash="f65b041d99be4a099206c228699a87cdd1befbe0"/>
+    <storysig readit="y" hash="fe547f3f54c92f3b9f545ae8036e7b60ef04e3cc"/>
+   </feed>
+   <feed hash="090f36b45edf34a7ebc06ef7c921d0f3aeb9225c">
+    <language></language>
+    <xmlUrl>http://sitelife.aviationweek.com/ver1.0/Blog/BlogRss?plckBlogId=Blog:2f16318d-d960-4e49-bc9f-86f1805f2c7f</xmlUrl>
+    <title>Business Aviation Now</title>
+    <description>Business Aviation Now</description>
+    <imageUrl></imageUrl>
+    <nick>Business Aviation Now</nick>
+    <webUrl>http://www.aviationweek.com/aw/blogs/business_aviation/index.jsp?plckBlogPage=Blog</webUrl>
+    <storysig readit="n" hash="0dbf1e6df50b6253a832c56f840919d7369d58d5"/>
+    <storysig readit="n" hash="193eb57d9f049d87bed434fcc0dc6dbedb0158e8"/>
+    <storysig readit="n" hash="4f75458d77af519c8ac04fb0961885771d9fb636"/>
+    <storysig readit="n" hash="9cf85f2e0e4b6cda26c017a089083f88b033989a"/>
+    <storysig readit="y" hash="9e732ceabfd5a1296fd789a135b2d4803220d221"/>
+    <storysig readit="n" hash="d5a78cd951333ec8ea0835ff7a4d4b7c97834012"/>
+    <storysig readit="n" hash="d880f80dec758ecfe15901d2a06c706cc453aa90"/>
+    <storysig readit="n" hash="e0577bd94bfbe974d315fc2b19fa8e25761b5749"/>
+    <storysig readit="n" hash="eabcef03b61afcb3834cab8f24bbb7ca64816b39"/>
+    <storysig readit="n" hash="fac10684914b01068355eb4a4f78c1275d5f7b29"/>
+   </feed>
+   <feed hash="585582702a53a7ba4ec15d5f73c2f95a10534236">
+    <language></language>
+    <xmlUrl>http://sitelife.aviationweek.com/ver1.0/Blog/BlogRss?plckBlogId=Blog:a68cb417-3364-4fbf-a9dd-4feda680ec9c</xmlUrl>
+    <title>Leading Edge</title>
+    <description>AW &amp; ST On Technology</description>
+    <imageUrl></imageUrl>
+    <nick>Leading Edge</nick>
+    <webUrl>http://www.aviationweek.com/aw/blogs/aviation_week/on_space_and_technology/index.jsp?plckBlogPage=Blog</webUrl>
+    <storysig readit="y" hash="44d7d4d70ff044206c94352dd41ec4e5c4402597"/>
+    <storysig readit="y" hash="6ad406ae319b70b4a3f8069b666f13a1a6b6cb51"/>
+    <storysig readit="y" hash="7a0b320576644853bd425cc98850a02835165517"/>
+    <storysig readit="y" hash="9bad87596d759975ab60074f0dd1eb962016bb58"/>
+    <storysig readit="y" hash="ad1c699a1f0a9b54d92b6ff761b8d258733d4b5b"/>
+   </feed>
+   <feed hash="f0f53eed473321e97634b40722d00cf370187810">
+    <language></language>
+    <xmlUrl>http://cosmiclog.msnbc.msn.com/rss.aspx</xmlUrl>
+    <title>Cosmic Log</title>
+    <description>Explorations in space and science</description>
+    <imageUrl></imageUrl>
+    <nick>Cosmic Log</nick>
+    <webUrl>http://cosmiclog.msnbc.msn.com/default.aspx</webUrl>
+    <storysig readit="n" hash="1128e4922501e0e33643dfcdde90a37920d34d69"/>
+    <storysig readit="n" hash="11529df86b97679101db896e16df2a8983a268c3"/>
+    <storysig readit="n" hash="126e3a46828a43ef9fb8bd2c606f3906e6e60e4a"/>
+    <storysig readit="n" hash="19fc7e17578794b1d6bd4a36636f190714c30d9d"/>
+    <storysig readit="n" hash="2c7be8b4b13ba052752aacfe59f9e584f9967923"/>
+    <storysig readit="n" hash="32fecc421f44a3a68efba94310b2dd90addbc4c7"/>
+    <storysig readit="n" hash="3537bc307bbb848a724cdb971097508d649d66eb"/>
+    <storysig readit="n" hash="3a319ede3b88dd3f199b3c8c13c11c608da4f177"/>
+    <storysig readit="n" hash="3c3a7ab63a3bc1df0d032c39e4330b6f1aa19161"/>
+    <storysig readit="n" hash="3e2a9e891259cdaf1f2735ecb6f431606924f715"/>
+    <storysig readit="n" hash="41d85d6e7e123e438b81eb5f1021e18d9c1685b8"/>
+    <storysig readit="n" hash="51324a689793cb0446f9ee983dc947fe4b55cc47"/>
+    <storysig readit="n" hash="5527278047e6eeed9214abb5e7074d17a88f1ea0"/>
+    <storysig readit="n" hash="6fa511708cfeda60d0549e4a40ed54b4075094c7"/>
+    <storysig readit="y" hash="82098f63b7dcbb1de167f6b58bf382c7e7695e87"/>
+    <storysig readit="n" hash="85ad90d9ec8afe6fa78d1826ce8a776c30d6caca"/>
+    <storysig readit="n" hash="954a883286b63e423ce193165e67ea000cb35608"/>
+    <storysig readit="n" hash="afd938b8adb56c6370f4b277c1c119c82155e519"/>
+    <storysig readit="n" hash="bc55e0508350ccb7cf7d2c8f514884f71eb8e9c7"/>
+    <storysig readit="y" hash="c79bf45ec6dab247928c8ca2989ff029ac0d12e1"/>
+    <storysig readit="n" hash="d41588ab332fb87e893261c15d1e8683f23cf0e9"/>
+    <storysig readit="n" hash="da40481b26228ef0abdd5740173395532efefa59"/>
+    <storysig readit="n" hash="de5bad1a0fff95286aa74dc228b61e1dbb6846b6"/>
+    <storysig readit="n" hash="e17e47b025c9285a4808048b4c59ae578bef8482"/>
+    <storysig readit="n" hash="e519081a41811744229bf9b7c282ae083fcb5ad3"/>
+   </feed>
+   <feed hash="5ced85b7d3f727697f35d6f0153d84e033bb255a">
+    <language></language>
+    <xmlUrl>http://www.federalspace.ru/rss/en-news/</xmlUrl>
+    <title>FederalSpace.ru : News</title>
+    <description>News on the web-site of the Russian Fedederal Space Agency (Roscosmos)</description>
+    <imageUrl></imageUrl>
+    <nick>FederalSpace.ru : News</nick>
+    <webUrl>http://www.federalspace.ru/?lang=en</webUrl>
+    <storysig readit="n" hash="0594ce11cfa04a4f05fe20ed6b0102ff8883c424"/>
+    <storysig readit="n" hash="05f4f3314ac6d381d3476715582ef586027299ce"/>
+    <storysig readit="y" hash="29f83107f5e5d71454186e33efefa1b67a05f3d8"/>
+    <storysig readit="n" hash="2a2ab2ec64f31932b061ab521a63c03b7bbd94d3"/>
+    <storysig readit="n" hash="35497f7f56eeecd6c45be967432931780a503040"/>
+    <storysig readit="n" hash="5e8e153f93d0d03a3974dad6d108c8a3b0614ddf"/>
+    <storysig readit="n" hash="698f75d358629ab2b9bbb99644faa237bea28579"/>
+    <storysig readit="n" hash="7bff05084337f8c315e100706c2f978aabb5fd2a"/>
+    <storysig readit="n" hash="80502c5484e09822076022407a019b4fedc82565"/>
+    <storysig readit="n" hash="8928b1a32276eb76cce24088b39616c757122c02"/>
+    <storysig readit="n" hash="9f7853747e47324198d530ff908adf0531c51063"/>
+    <storysig readit="n" hash="ad6ab7f3c9082b49cb39c2c0611ddd7f24100ff0"/>
+    <storysig readit="y" hash="bdf778c4c80ca147665f2ce9317b31817df050b1"/>
+    <storysig readit="n" hash="cf54c609263947a40e5430979f5bd82aa5ef9993"/>
+    <storysig readit="n" hash="e26e3cbdb59f4182f20bb7483cd9b4cbb52587b0"/>
+    <storysig readit="n" hash="e3d1f844ccbd6437e6f8620ed5f8d39a1aa8168c"/>
+    <storysig readit="n" hash="e494365ad4f56fa7f4a5b255afa173bce785c380"/>
+    <storysig readit="n" hash="e561043231371b4367a81bf07f3aa08bc9d5cfe5"/>
+    <storysig readit="n" hash="f7af2de465c4c0215bcc1d14f051504675b5b329"/>
+    <storysig readit="y" hash="fa75d4273c260ec272c78c6db649a654a4ea5518"/>
+   </feed>
+  </folder>
+  <folder name="Various" hash="">
+   <feed hash="95b6dbca874aecc220a0de35212b61b6204d925e">
+    <language></language>
+    <xmlUrl>http://www.darpa.mil/news.xml</xmlUrl>
+    <title>Defense Advanced Research Projects Agency News</title>
+    <description>Recent news from the Defense Advanced Research Projects Agency  (DARPA)</description>
+    <imageUrl></imageUrl>
+    <nick>Defense Advanced Research Projects Agency News</nick>
+    <webUrl>http://www.darpa.mil</webUrl>
+    <storysig readit="n" hash="008b5a1921d92a9d26651f5866ec9637d5922476"/>
+    <storysig readit="n" hash="0129e2d992ffe9b127e63c622391b2a60af0e289"/>
+    <storysig readit="n" hash="071ca664d383de60d08fef30e36590f17da0a37d"/>
+    <storysig readit="n" hash="0a8aaaad3c88e347d608b4fab7b0c1ca78b29f85"/>
+    <storysig readit="n" hash="0df8ad68f4e120c0d7e5de96e18b86d6ea349693"/>
+    <storysig readit="n" hash="0eb54a15ff8dce8f38f7613df10e8f3e76fd5161"/>
+    <storysig readit="n" hash="0ff7245e1f2fcd28ddd6b2db82bcbd63b45d85ba"/>
+    <storysig readit="n" hash="1056067bf6ccba75768ca31790cea5994dae48ce"/>
+    <storysig readit="n" hash="15586cba88fd0b5924a9964bbe560c7754fd471d"/>
+    <storysig readit="n" hash="15f32da141a9210cca3676643f3772bdeb13f691"/>
+    <storysig readit="n" hash="1614f7d89b0889a0017c5b7ff1f021f40e7934c2"/>
+    <storysig readit="n" hash="17df660175d36e5cf7b38d445ddfa3d4295a0c16"/>
+    <storysig readit="n" hash="1b8b710688f961fb58a4c4e0c1826e425c35a403"/>
+    <storysig readit="n" hash="1d3e09c7777cc50e13a4ba62dbcb595454f41481"/>
+    <storysig readit="n" hash="1e43bd94d2a7f71ae5e4d3a6b4f3b9d34dc63c2d"/>
+    <storysig readit="n" hash="204d7036d20efe0b2b3af068f9d5cbad8f0e9290"/>
+    <storysig readit="n" hash="20ff00fcf0c62f0f8b1f86be655399d4d1e1b920"/>
+    <storysig readit="n" hash="225cd589b4f174d46b96920d315cec4ba25c4d2e"/>
+    <storysig readit="n" hash="263c39f50abfeadd6da7b2516dd57166c2392d94"/>
+    <storysig readit="n" hash="27dad31eef61c50cd54f40f852b5989aee16bf92"/>
+    <storysig readit="n" hash="294971a5f77e3fb2ef039914ec0a74839d941dae"/>
+    <storysig readit="n" hash="32ca4181ac8d5b87e8121d05121c1039d436b5f8"/>
+    <storysig readit="n" hash="32d05a261ce46e11fcb2e08f20d813cd5b639471"/>
+    <storysig readit="n" hash="336405eab387cca52a888f8c7fe4db19f22c3967"/>
+    <storysig readit="n" hash="3d865a4c1f59ab8d12b417fc7f215280de1a6e5f"/>
+    <storysig readit="n" hash="458ae1a05878d0485ba18acab92834124e32885a"/>
+    <storysig readit="n" hash="47f383249f3770121fdc17dcad6976e68c551e96"/>
+    <storysig readit="y" hash="48a2fe091be438788a833ae36030d447681c58be"/>
+    <storysig readit="n" hash="524f2615c72543ac86db070a8f0fa26a13d1a983"/>
+    <storysig readit="n" hash="53e026ef9cb5fff0f924fa9b594a2380687bd05f"/>
+    <storysig readit="n" hash="556c53cf900eadea0d323eb95753f0b079700afe"/>
+    <storysig readit="n" hash="55dd4bc9851385ab202c50b9e17635fa779eaede"/>
+    <storysig readit="y" hash="59f1c1f061028adbe568c8a8e34b80a95663635a"/>
+    <storysig readit="n" hash="5a99cc38c958c6db8f399935f36380e025769569"/>
+    <storysig readit="n" hash="5c26c351de19e660bd696935e4e1f691052d713b"/>
+    <storysig readit="n" hash="5e4ca6cc435cf300e7b608100faab6392acbff86"/>
+    <storysig readit="y" hash="68c92695c1338560e9314e362641def7b229eb43"/>
+    <storysig readit="n" hash="69e7c5cfa87a14637c81f8133771e71e1fb50aff"/>
+    <storysig readit="n" hash="6c993dd3961d98f18dc5a285fd74010d324f7477"/>
+    <storysig readit="n" hash="6e0d7059a7c362d3964e59c36478365dc85dced6"/>
+    <storysig readit="n" hash="6fb7ffc21a583d6f96bbca1c0d0c6668a01a3b96"/>
+    <storysig readit="n" hash="71d37ca713c0fc7e2eed5b5625cccb02562642b7"/>
+    <storysig readit="n" hash="71e3a6977a21363e38acb14394000b72d24399d4"/>
+    <storysig readit="n" hash="74ccfed84c92286974e4e6fcdce8eb714ee35661"/>
+    <storysig readit="n" hash="76e0be0259b37503aef6f9a11f8b6d5811d0887f"/>
+    <storysig readit="n" hash="79e87f60d782cf3ccfd6acec78d7a9bae6229ddf"/>
+    <storysig readit="n" hash="7abe8b736e52a909d8fda38a85789a16163aafc3"/>
+    <storysig readit="n" hash="8388b8d41fa3778f83523ff69986916546865392"/>
+    <storysig readit="n" hash="84f303296e64c7c5064df8df13efea19e50905c2"/>
+    <storysig readit="n" hash="85b6a49fc6cb00503b5a39006f93a0862100efc3"/>
+    <storysig readit="n" hash="862a076e435d010c78f4e074377cdd544152558c"/>
+    <storysig readit="n" hash="950ab9cae17a2e74ac10023f6e13bd96a5ba4a02"/>
+    <storysig readit="n" hash="962ce516b387ffe69b39f3d914ac3575d5fa572c"/>
+    <storysig readit="n" hash="9be63b44ede7ec8097ad9e6d21fc213cbaa39ee3"/>
+    <storysig readit="n" hash="9c8294fd66b1228ed54d9fdcf9b776001612f405"/>
+    <storysig readit="n" hash="9f0d12efad646d3c78e32b90f3669b31f11aa814"/>
+    <storysig readit="y" hash="a372c872caff9810347205bb12b912768acc7173"/>
+    <storysig readit="n" hash="a5b5fa13521b516650730bf20f7cdf499c5a6172"/>
+    <storysig readit="n" hash="a78668412ea8ab24982cc964a6651d346f4c70a8"/>
+    <storysig readit="n" hash="a985aa4dedff4097afb28c80df7353330989a3ea"/>
+    <storysig readit="n" hash="a9e40a7a92f6af7a51871342d5c8d2727942f5db"/>
+    <storysig readit="n" hash="ab0e9ef20a181adac0b5fcdce526af24725b99ed"/>
+    <storysig readit="n" hash="b0a9d11be366642df75041494a1c0ac9391d80dd"/>
+    <storysig readit="y" hash="b0be86b523ddd52a17719425bc2957021ed0d4d1"/>
+    <storysig readit="n" hash="b0e71294c6d29659ce03ede08adbc26426e86d49"/>
+    <storysig readit="n" hash="b783e4c709e25737b7fa08f2696364732aba33c6"/>
+    <storysig readit="y" hash="bba5ced98d35a142b2685a3ac5dfb95c48776d9a"/>
+    <storysig readit="y" hash="be5b0c922fdae5e2c9904b2ed332ff71ca28228e"/>
+    <storysig readit="n" hash="bfb340c030cf0b1817d31bc0e21ad607560b4626"/>
+    <storysig readit="n" hash="c5801f33a0c1aa8e47434b9fb75c38584f0f1a15"/>
+    <storysig readit="n" hash="c5b3580dd2a1a5083fd6980cfbf2470dc8558a88"/>
+    <storysig readit="n" hash="ce79964f8bf230c6cab50e5d05e908cefde7aab7"/>
+    <storysig readit="n" hash="cf4fad454c9fe8d81bee603f52e84e11307da0b1"/>
+    <storysig readit="n" hash="d179cd70873c482487b972401be6f92a5ea0973a"/>
+    <storysig readit="n" hash="d2ef6fcb14d3b29dcd2104c243e0a64c2677f047"/>
+    <storysig readit="n" hash="d7d39e2384eff028a1ee33d95b63c6fcdcaebcae"/>
+    <storysig readit="n" hash="d810956da5e94af29490120cb44ee79de92504f0"/>
+    <storysig readit="n" hash="daf1b15476c4062acd6a9b5ea436111e2316f190"/>
+    <storysig readit="n" hash="db32607046c78ff05f18e2c31a9150e670728350"/>
+    <storysig readit="n" hash="e537315bf12e978aa30ac8197887d106544f147d"/>
+    <storysig readit="n" hash="e7004511f93047304a97a73329ebdaa1e9b2251f"/>
+    <storysig readit="n" hash="ebf5c698c0196214e6b11ccd98ce476df20d9aad"/>
+    <storysig readit="n" hash="edc0798c81282ad8d53aeacbf8baa76c5efe6cc8"/>
+    <storysig readit="n" hash="ee4296b361cefdbe01723c6fcbc9392f0bd53e37"/>
+    <storysig readit="y" hash="ef712e2ad527a9924491794695ea5f0d226b1a2d"/>
+    <storysig readit="n" hash="f06886569827e0e2208d1339a6f4b45de338ed75"/>
+    <storysig readit="n" hash="f0dfa0d61c8d3b350f2dba1fd140229ed229d88d"/>
+    <storysig readit="n" hash="f3940cc02577a231953964596fcf6183a95e2f91"/>
+    <storysig readit="n" hash="fc8ca933ccc611066511a55f5da5d08fbd458d80"/>
+   </feed>
+   <feed hash="da39a3ee5e6b4b0d3255bfef95601890afd80709">
+    <language></language>
+    <xmlUrl>http://www.nzz.ch/nachrichten/wissenschaft?rss=true</xmlUrl>
+    <title>NZZ Online: Wissenschaft</title>
+    <description>Wissenschaft</description>
+    <imageUrl></imageUrl>
+    <nick>NZZ Online: Wissenschaft</nick>
+    <webUrl>http://www.nzz.ch/nachrichten/wissenschaft</webUrl>
+   </feed>
+   <feed hash="89a7a6a337dc05211c50259bf38bde0f5b3bdec0">
+    <language></language>
+    <xmlUrl>http://feeds.reuters.com/reuters/scienceNews</xmlUrl>
+    <title>Reuters: Science News</title>
+    <description>Reuters: Science News</description>
+    <imageUrl></imageUrl>
+    <nick>Reuters: Science News</nick>
+    <webUrl>http://www.reuters.com</webUrl>
+    <storysig readit="n" hash="2e61f3e110ee1c20eae4d8947a5280e4d2f50105"/>
+    <storysig readit="n" hash="3b600cf405b3db7d4021acfd8522d140eddf5efe"/>
+    <storysig readit="n" hash="4701e8d63457caeef2952908604229a86a1b1cd3"/>
+    <storysig readit="n" hash="4e42e5b66b4abd94dbedfc0b8f9d7d80a2609322"/>
+    <storysig readit="n" hash="51c761e088d1b9e024ee0dd431d75c4d7967f61c"/>
+    <storysig readit="n" hash="94a4975ed66b16484e2045fa098521e618ea5f2d"/>
+    <storysig readit="n" hash="be769140a10585393ed28259b6736af8c29ce200"/>
+    <storysig readit="n" hash="bf7679bf14b9ee110ec0f5240809409bc7d1b3d5"/>
+    <storysig readit="y" hash="e5105e1cf584af716190bca9bc77a938e8c4a5ff"/>
+    <storysig readit="n" hash="f3671169413367f6f46a5047c21d5299c68f8b60"/>
+   </feed>
+   <feed hash="bc98014c6f629f885251faf7047a067dc12a6e71">
+    <language></language>
+    <xmlUrl>http://www.sciencemag.org/rss/current.xml</xmlUrl>
+    <title>Science: Current Issue</title>
+    <description>Science: Current Issue</description>
+    <imageUrl></imageUrl>
+    <nick>Science: Current Issue</nick>
+    <webUrl>http://www.sciencemag.org</webUrl>
+    <storysig readit="n" hash="0219232f3d2a705d9e85ddd283f4024a7ec889f2"/>
+    <storysig readit="n" hash="05584113210ae8343bfd22e33b4cd44eebb657cf"/>
+    <storysig readit="n" hash="05ec2e986b67d03236b8f99d3b4b63f19f88cd29"/>
+    <storysig readit="n" hash="0918529e83532b0aa56ae327f92a9f3d5889f70e"/>
+    <storysig readit="n" hash="0fa23936d437e79621cbfa86d347a8af89c7eabb"/>
+    <storysig readit="n" hash="154c033dd37404da9b30c56d9368bba75e486a82"/>
+    <storysig readit="n" hash="23c00115e3f3e333b8ee5c504bbb20079fc3e8e4"/>
+    <storysig readit="n" hash="23fd13ab078e39095181b796afd04b91e21deb27"/>
+    <storysig readit="n" hash="243d974724675e6c230512c3c47a545b6f67d17a"/>
+    <storysig readit="n" hash="271bed7b5d1de544d342dab1f3e119463fb16de4"/>
+    <storysig readit="n" hash="27adb539bbbbaee659bfb5012887f56fc3b25b5d"/>
+    <storysig readit="n" hash="286a529823e85befa89620eb439916b338780b6c"/>
+    <storysig readit="n" hash="28fc97abed540bbc08d353ef1d8ffc1bb8e6e871"/>
+    <storysig readit="n" hash="2b11b3cb8f7151b47baf18ca6f526d5d9b92889a"/>
+    <storysig readit="n" hash="349e665c41b0424980c92e0477a70ebdeea201be"/>
+    <storysig readit="n" hash="376ff5553edaabbc661bf9e0452d08a7534555ac"/>
+    <storysig readit="n" hash="381d20a66e1ef9a83b8a91dcdedc8bee2fd22b67"/>
+    <storysig readit="n" hash="47e98d3c2239687296e585e91584ec7bf97885ed"/>
+    <storysig readit="n" hash="488fbfabc11d75fdff1225f2b55c3f8bfa9ae083"/>
+    <storysig readit="n" hash="4add561114002c8cb3ccb9f2c148b183089558b3"/>
+    <storysig readit="n" hash="4ed175439d78b08c8b160ed9d0691c37275e1c03"/>
+    <storysig readit="n" hash="523cca911206685a2b3d4cf8f8ab8312412ec024"/>
+    <storysig readit="n" hash="5be156197afb182dc3690a36c08ef8d46f6cb556"/>
+    <storysig readit="n" hash="6068108a70be0194dd7b343a69b884fb44cd26ce"/>
+    <storysig readit="n" hash="62c446046ab8dcc342c41bd1fa53e8546df577b6"/>
+    <storysig readit="n" hash="680490cc3657263acc0dd5f0210b23501aedaa3e"/>
+    <storysig readit="n" hash="7be2d9c4794f82a66a5d2618c77cd8f65a1d5b1f"/>
+    <storysig readit="n" hash="7cb5f07925af99cecb6f90cd38b496e46278597e"/>
+    <storysig readit="n" hash="7f2041d8a05c514223e4b3fc2c1eaeb06879f73e"/>
+    <storysig readit="n" hash="805fa65d79a2176839e03dcfb7552bb89cd86093"/>
+    <storysig readit="n" hash="85bd75e874e742c1ef956458e768a8f5debcc14a"/>
+    <storysig readit="n" hash="8e7c3372a3dd5a4237dcf81a75c56025f27bf3ab"/>
+    <storysig readit="n" hash="90bfd9812da1c6b91df749585775890a2a1286f4"/>
+    <storysig readit="n" hash="9b0f9fed8ff70a7a983834b8e3ef00d7078dadd9"/>
+    <storysig readit="n" hash="9becd01851be87da62a89793ecce3bb5d228780f"/>
+    <storysig readit="n" hash="9e4cc679e7c4ad8496dc0e862b99e4b82eb490b7"/>
+    <storysig readit="n" hash="a809decfd162a7bea6603056b85ba835fca4dd3d"/>
+    <storysig readit="n" hash="bdab6178515e716a2223b5273a5b00936e00a9c7"/>
+    <storysig readit="n" hash="c476536f171a9928649ed7ab1d323136453ade2a"/>
+    <storysig readit="n" hash="c59efe23f7a7b237a4f18eeedd8610a5404962e7"/>
+    <storysig readit="n" hash="c827716ca47d56700806576f1056acd041578f42"/>
+    <storysig readit="n" hash="ca65b3b4d960a9f07a6531ea466f15032d1e761e"/>
+    <storysig readit="n" hash="ccb0050b4a8f6b4659d46f7d467e755625e761e3"/>
+    <storysig readit="n" hash="d85d975e7f2bba5eb98ac5b7c1b7b37319c41ef6"/>
+    <storysig readit="n" hash="de7a5f9fc52ba254d2cbdfb66b216925bd7712ab"/>
+    <storysig readit="y" hash="e04caa4064f1ce45cad9257305748cdc0726512e"/>
+    <storysig readit="n" hash="e9898ca33af38f4ffd723afd127b8af94043778c"/>
+    <storysig readit="n" hash="f2832e3b688b918aa53af47e0277b98ee2fa53d8"/>
+   </feed>
+   <feed hash="e1c6241cdcbf6d82f3c93d8ecf86e554cf91518f">
+    <language></language>
+    <xmlUrl>http://rss.slashdot.org/Slashdot/slashdotScience</xmlUrl>
+    <title>Slashdot: Science</title>
+    <description>Slashdot: Science</description>
+    <imageUrl></imageUrl>
+    <nick>Slashdot: Science</nick>
+    <webUrl>http://science.slashdot.org/</webUrl>
+    <storysig readit="y" hash="02281b1b245e69278b34a3956e2cc7e0d91c7d65"/>
+    <storysig readit="n" hash="0cea4a24b54aad17a5ea8cfa99730c5da845b4c6"/>
+    <storysig readit="n" hash="1055fdac6bd2640a09d56f7aba86e958199581b1"/>
+    <storysig readit="y" hash="236ae9a7fb611a6ed6426f9801c4b7867528835e"/>
+    <storysig readit="n" hash="326e1c28ac2cc29d75b59cfb6b699e308eaff0d8"/>
+    <storysig readit="n" hash="3b73f642e1c3f1c97c79f570ee9cf13560421792"/>
+    <storysig readit="n" hash="50df05566320b6963b4dd89bdd86ae57752eab8b"/>
+    <storysig readit="n" hash="58ed6cd851284ef06935bdbd8979d4d8d8a71c5c"/>
+    <storysig readit="n" hash="602d1d1d40337d833efa8f149be630c6ce01396d"/>
+    <storysig readit="n" hash="75e1f05e55b5c11eea096ac924f10e031beff1d7"/>
+    <storysig readit="n" hash="8257dcc541f8d4086803617e51a9e205f46c2067"/>
+    <storysig readit="n" hash="8a7155d8619e41f456dcef6a82f9390a81104235"/>
+    <storysig readit="n" hash="8f173552342330568471c3cf0e8b7425e546b646"/>
+    <storysig readit="n" hash="9cdecb7e7693f4f57f77a917970140d73b05f749"/>
+    <storysig readit="y" hash="ed1289957b5cc3b08f535baad9dbe7d783e3748b"/>
+   </feed>
+   <feed hash="da39a3ee5e6b4b0d3255bfef95601890afd80709">
+    <language></language>
+    <xmlUrl>http://timesonline.typepad.com/science/rss.xml</xmlUrl>
+    <title>Times Online - Eureka Zone - WBLG</title>
+    <description>Times Online - Eureka Zone - WBLG</description>
+    <imageUrl></imageUrl>
+    <nick>Times Online - Eureka Zone - WBLG</nick>
+    <webUrl>http://timesonline.typepad.com/science/</webUrl>
+   </feed>
+   <feed hash="1d5288525c271582ed5cb40d5fec21e5f1d9c16f">
+    <language></language>
+    <xmlUrl>http://www.welt.de/wissenschaft/?service=Rss</xmlUrl>
+    <title>WELT ONLINE - Wissenschaft</title>
+    <description>WELT ONLINE - Wissenschaft</description>
+    <imageUrl></imageUrl>
+    <nick>WELT ONLINE - Wissenschaft</nick>
+    <webUrl>http://www.welt.de/wissenschaft/</webUrl>
+    <storysig readit="n" hash="04b8d4ec4e221167ddbb39e3f4923155d3d12859"/>
+    <storysig readit="y" hash="2f3b026000a96d3caa567033b7877b1d31d0cd6c"/>
+    <storysig readit="y" hash="366160a779aec404de1c58c9e3c9654f75fb9de5"/>
+    <storysig readit="y" hash="38b4c2a5b23de729d8ff5427469b39be870d18a7"/>
+    <storysig readit="n" hash="39ad3fc32a4252bcdfe23bb44277e32e2541e470"/>
+    <storysig readit="n" hash="4237b775acaf33d17ff3127f053415f1e22bd85f"/>
+    <storysig readit="n" hash="4538dd49601d3e28c7f8bb3580dff3f6a6570afe"/>
+    <storysig readit="n" hash="45779dca80192d15e6fe8013cf578cbfc0507adf"/>
+    <storysig readit="n" hash="50d0206eb1c4c435f9db0907cd1f7c9832881a23"/>
+    <storysig readit="n" hash="5130ca985fa172cda12bf11b4697be8cac1899cc"/>
+    <storysig readit="n" hash="5459bf386e71a1a03e1eec745a782e4f11887d68"/>
+    <storysig readit="n" hash="5ff4facefb4b3a9032485a9be9b5ccf1d63a6938"/>
+    <storysig readit="n" hash="6566002562858c753c386867d78dd190b5701068"/>
+    <storysig readit="n" hash="6d5cb3782d0fcd75cf6c2594c7e6c21d6bf1e344"/>
+    <storysig readit="n" hash="746210f25c518ac4bebb369c2b6193b685280116"/>
+    <storysig readit="n" hash="78889c338baecb7b320a666f185d75b426124c8f"/>
+    <storysig readit="n" hash="7a14ce0a560df8cb42d07c74d0ec34eddfeb2bd3"/>
+    <storysig readit="n" hash="807e08a6bd105343524eaf6e8df0253d19c9f2f8"/>
+    <storysig readit="y" hash="93e1ebcfa956ef1bb3412efb72aeb99be97c4f98"/>
+    <storysig readit="y" hash="95cfd0306245f171717be22aeb889892c2ed1dfa"/>
+    <storysig readit="n" hash="a55fb0629f8760ce2a98738ad08519419b55d863"/>
+    <storysig readit="n" hash="b3baccc5f0c9c58b2f239f1eccacaa9703ffa0c9"/>
+    <storysig readit="n" hash="b616dbb62185e3df5d15c5a1fb4b2160e463a6de"/>
+    <storysig readit="n" hash="c8fbf9b0297285ce0aabc09d731dcd1a014aec54"/>
+    <storysig readit="n" hash="d384cb69c6ad9f758091d1ff95c96fe0c6c75740"/>
+    <storysig readit="n" hash="df30eb664555961bdff0141a18906c808f447853"/>
+    <storysig readit="n" hash="ed0b9ca06bd47c8de293456b0ebbc4d0f618f649"/>
+    <storysig readit="y" hash="f23e9b5f4645a4865fc448e4bded9acd4190b378"/>
+    <storysig readit="n" hash="fd2a99c756f6c15eddda927eb484f2f21f86ba0b"/>
+   </feed>
+   <feed hash="170a8d7c32b9d84e8987ade9d17746e47efd5505">
+    <language></language>
+    <xmlUrl>http://newsfeed.zeit.de/wissen/index</xmlUrl>
+    <title>Wissen from die Zeit</title>
+    <description>Wissen</description>
+    <imageUrl></imageUrl>
+    <nick>Zeit Wissen</nick>
+    <webUrl>http://www.zeit.de/wissen/index</webUrl>
+    <storysig readit="y" hash="0b237a496cc01487952a39014a141766e0863f70"/>
+    <storysig readit="y" hash="2879ce38ffed889d9310f5b9247a5c5084103128"/>
+    <storysig readit="y" hash="2fb04617bf88e2e4c6d6cdd8025aa98e9af2016b"/>
+    <storysig readit="y" hash="30f13c6304def1ddb725e4d1f13913e20d7f4e2e"/>
+    <storysig readit="y" hash="3d3904f609ac1b464aaeb488e78900be071b1ccc"/>
+    <storysig readit="y" hash="63db03b80c9189d174044ed3cae6e570953ac8ad"/>
+    <storysig readit="y" hash="69b953ac2bad89eabc21308bea651f4ae032ada2"/>
+    <storysig readit="n" hash="7417342c33d8ac7ab9c93552a9ed7e365f3045eb"/>
+    <storysig readit="n" hash="753a285e5e7d5b47193f741a1e86de77d5e2731b"/>
+    <storysig readit="y" hash="98ca074bc325812d2350075e3fe30ef2bb5f6328"/>
+    <storysig readit="y" hash="d1842583c2cf5643f01d78168fad0045e978a795"/>
+    <storysig readit="y" hash="d4aba15dd81399ed6ab19ffd0fef9c8dad434dec"/>
+    <storysig readit="y" hash="e69ff2ef56a21a83312d1dce83d573033901b075"/>
+    <storysig readit="y" hash="efae59407fd003f9f8a2038a49d4cfa2a04e9da6"/>
+   </feed>
+   <feed hash="c43482d286e3037a9a0b59079e7c711f1709c892">
+    <language></language>
+    <xmlUrl>http://www.faz.net/s/Rub7F4BEE0E0C39429A8565089709B70C44/Tpl~Epartner~SRss_.xml</xmlUrl>
+    <title>Wissen - FAZ.NET</title>
+    <description>Wissen - FAZ.NET</description>
+    <imageUrl></imageUrl>
+    <nick>Wissen - FAZ.NET</nick>
+    <webUrl>http://www.faz.net</webUrl>
+    <storysig readit="n" hash="1432f386dda8553420e41290e20ace25e72774a8"/>
+    <storysig readit="n" hash="1b058812ab47c8b3990830131af1ecf2a850881c"/>
+    <storysig readit="n" hash="2e79d697466dcdb70d0176f0f535a1443f149434"/>
+    <storysig readit="n" hash="437765436fec7899b17f3e9ea7ba8eb878e08a83"/>
+    <storysig readit="n" hash="7d0f99f6646fabd54f80fbff73dfc0474e0d0ea0"/>
+    <storysig readit="y" hash="80cc67fe14d1bb0d442b025c8e50b1ed49182932"/>
+    <storysig readit="n" hash="9b7a4c01206d780fead395d1904d141b6b86644c"/>
+    <storysig readit="n" hash="9f3dfb7a0f0325f8835bb129a13fdf3102a05cbb"/>
+    <storysig readit="n" hash="a52ec69eb3258e48c803745593161f51e4ee82e6"/>
+    <storysig readit="n" hash="a94cd2c6e145bac4a4c22939c3c1d29c109d17b0"/>
+    <storysig readit="n" hash="b3fe6476f75c9b2c4f46033c1921dbc38a91707a"/>
+    <storysig readit="n" hash="d982de3f7a682198f7ce35be55322c62335e97b0"/>
+    <storysig readit="n" hash="daccb3cc0308a692d2ecd6f6770532b078fbd588"/>
+    <storysig readit="n" hash="e1c7a7eb3291a97fcb7e5860aec5217ffc94a7bc"/>
+    <storysig readit="n" hash="f3e0a654a313285340f381a4f440378c65acc51c"/>
+   </feed>
+   <feed hash="5c14fd67fd353a19787bfd3e007b20b5349f6f38">
+    <language></language>
+    <xmlUrl>http://feeds.nationalgeographic.com/ng/News/News_Main</xmlUrl>
+    <title>National Geographic News</title>
+    <description>National Geographic News</description>
+    <imageUrl></imageUrl>
+    <nick>National Geographic News</nick>
+    <webUrl>http://news.nationalgeographic.com</webUrl>
+    <storysig readit="n" hash="17144703a19d35f29f013d24ae4d4877a88b2e3b"/>
+    <storysig readit="y" hash="351f8763138fb92ba1e2a2fa044f8afefd6e2650"/>
+    <storysig readit="y" hash="4935168d480a3d89153f74cc02c8fbe4d4c79efb"/>
+    <storysig readit="y" hash="4eb5216c07c6097a2b250253c03ef81cc349623b"/>
+    <storysig readit="n" hash="598d50d1b6a9eb3027b9a8e4de7268cf13d94be7"/>
+    <storysig readit="n" hash="6fad911afb7413a95e65f93b0c687ad2b29f65cd"/>
+    <storysig readit="y" hash="78309f6f53e44ad0f7edfbc26030734e506ad17c"/>
+    <storysig readit="y" hash="7df654848c6d4a60b728d74338ad8cdf7c3b134c"/>
+    <storysig readit="y" hash="8b3d0da637e43d714b449bbf8f4e5365d5c2e356"/>
+    <storysig readit="y" hash="9c401b9d3ff0e9bb488c059f4afc28178041d792"/>
+    <storysig readit="y" hash="a7ddc2093866fba6be293219a8378d3367e81ac2"/>
+    <storysig readit="n" hash="b8843b95aebc265800d6691b02ec3aadc460d27a"/>
+    <storysig readit="n" hash="e35b8fdac3e4ccdaa2d53de9aeda80744ead866d"/>
+    <storysig readit="n" hash="e4f1113c4b95d117bcf4694135dd4116da2d95db"/>
+    <storysig readit="n" hash="e8db118523877fb65db322e56b21de01c4b90980"/>
+    <storysig readit="y" hash="ec165ee1ea82ea6cd5484aef1970c8accc996e45"/>
+   </feed>
+  </folder>
+  <feed hash="55bdcefd4c9609c8cc0715a5bf4b522da6eb3f1b">
+   <language></language>
+   <xmlUrl>http://export.arxiv.org/rss/cs</xmlUrl>
+   <title>cs updates on arXiv.org</title>
+   <description>Computer Science (cs) updates on the arXiv.org e-print archive</description>
+   <imageUrl></imageUrl>
+   <nick>arXiv cs updates</nick>
+   <webUrl>http://arxiv.org/</webUrl>
+   <storysig readit="n" hash="0a5db5b85795b56bb0e39b204a0e79454bb513c5"/>
+   <storysig readit="y" hash="1c26060bdf2e0e0c4cf4b2b35f72dcc99399db7b"/>
+   <storysig readit="n" hash="2180548add058206f37e6172da4fd6de8b99f0ba"/>
+   <storysig readit="y" hash="223490c91e61c8c3c38097fdeacaee2906663e9b"/>
+   <storysig readit="n" hash="284799a8b16a59490b32654d319941cbb91e8fe5"/>
+   <storysig readit="n" hash="2952f58fac91beda1d8dbfe57b92391c1cb7dc68"/>
+   <storysig readit="n" hash="35bbde9db505da644a409c8d6238df5e7a719ca3"/>
+   <storysig readit="n" hash="39273336db2ddb4d06ba6f75e98a4c7b58feee25"/>
+   <storysig readit="n" hash="3e1db9652dab760fc808511675ff5e6c18f8884f"/>
+   <storysig readit="y" hash="539d262bd7537268fdf4a8d39c9ec1d69c33faa2"/>
+   <storysig readit="n" hash="5806bbd5f855dc14c5493d65ea8be4887b5a0d11"/>
+   <storysig readit="n" hash="592b84d8a7b95b5df9c416d1b8ed4e96605f2a70"/>
+   <storysig readit="n" hash="5b38855e65447fe2b537215f1a11319f120264b2"/>
+   <storysig readit="y" hash="5c74d020ac3b5c1bef54588c2bfb61e09deff6ae"/>
+   <storysig readit="y" hash="5c9a974a5a71d988019d819c37b40f8a24094dcd"/>
+   <storysig readit="n" hash="5d0c75edaed12724d263e67acf0b8a14562aa2a9"/>
+   <storysig readit="n" hash="5ddfbe4b258ef83025d29cd9868ae7f388e30d5f"/>
+   <storysig readit="n" hash="5f8be1e5e26d124a42081c5d660204abd24e4095"/>
+   <storysig readit="n" hash="6b6fe63ce6f293b55519750233a2b94cc05efd9c"/>
+   <storysig readit="n" hash="6b98a7a0cccfa383a6728f6ea6bfc5c3b75f8a4d"/>
+   <storysig readit="n" hash="79fd7b5424ed68eb30a64b381de5c218741b0d26"/>
+   <storysig readit="n" hash="801fc350201a3ed9e2c07cd33204616f1365b6a4"/>
+   <storysig readit="n" hash="82aaadcab9173b2125a88faedb77b5b973be9d63"/>
+   <storysig readit="n" hash="892f8b0cad80fd86dc1a3eee022638ec45d618e9"/>
+   <storysig readit="n" hash="91375976f0e531bc9ade98ff9126e3b97bd475ac"/>
+   <storysig readit="n" hash="92616201a4631aca984f14721f2a5f1b1ac3fc27"/>
+   <storysig readit="n" hash="947add2a1d02e7781919f7808502ad92b0adcb25"/>
+   <storysig readit="y" hash="95d918eaa5379290c1e821d3b2c545493d97d54a"/>
+   <storysig readit="y" hash="99fa6d77f8fd40a2448ec068c64fe893cfd8e649"/>
+   <storysig readit="y" hash="9c12e2213da028ccadfc25a0bc5c6d4777221352"/>
+   <storysig readit="n" hash="a9ddb92d42f03ac2956159afa9a023a11f965c0e"/>
+   <storysig readit="n" hash="afa7ca3bf86f02aef3de8cf2edb36eaf2b1cd91c"/>
+   <storysig readit="y" hash="bdbb958c87f87f34f8f91225651c19f38bdb3d44"/>
+   <storysig readit="n" hash="c5f4ee2ce7436dcfccd8f2b76fe221f2d8f76f16"/>
+   <storysig readit="n" hash="c6f414963a297f791898facf4a4cb53f5fff4688"/>
+   <storysig readit="n" hash="d0a2fdb3002f5b4464ad2714721eca1739e5e8ca"/>
+   <storysig readit="n" hash="de209cf97d66ee1bb871024ebe4c99cb32e6ed0d"/>
+   <storysig readit="n" hash="df9ba946a949f6d8a0ff73c03b0b56dc530387a1"/>
+   <storysig readit="n" hash="e0f550ec0cb8227610fc689d04dcf5ffa05ce186"/>
+   <storysig readit="n" hash="ecfe4d365ac6a5715223929eb49fbbf69c3fa1f2"/>
+   <storysig readit="n" hash="f0bd1a3ed78283b6f376977510786839cea2f084"/>
+   <storysig readit="n" hash="f1d334dcee8adb770539e0ecc0c8e4ee465a2ccd"/>
+   <storysig readit="n" hash="ff78bcabe4c682c1120ce7ff0240ab91b7f231cb"/>
+  </feed>
+  <feed hash="6acf64a1feb015db0981a6601a7178c3a5707c79">
+   <language></language>
+   <xmlUrl>http://export.arxiv.org/rss/nlin</xmlUrl>
+   <title>nlin updates on arXiv.org</title>
+   <description>Nonlinear Sciences (nlin) updates on the arXiv.org e-print archive</description>
+   <imageUrl></imageUrl>
+   <nick>arXiv nlin updates</nick>
+   <webUrl>http://arxiv.org/</webUrl>
+   <storysig readit="n" hash="12053959eb72858fc53612881d6748639918869f"/>
+   <storysig readit="n" hash="205da7308c4aa118631da8e891804c0587e95d00"/>
+   <storysig readit="n" hash="280227717346b25a7220856467802c86f12b05f9"/>
+   <storysig readit="n" hash="28d3282a69177a4d096bd435f9ba842200554eed"/>
+   <storysig readit="n" hash="6168759f87bfdc00aa7a05bbc17ff2599cb35948"/>
+   <storysig readit="n" hash="b7b47c5f6f4b281b10e8b18f6062350bc3470a0c"/>
+   <storysig readit="y" hash="bc42ee908b42522f6581408e1c9e47e0c6cb1b29"/>
+   <storysig readit="n" hash="df9ba946a949f6d8a0ff73c03b0b56dc530387a1"/>
+   <storysig readit="n" hash="fd56f17443f5888d84c80430e9d69b2a64c07346"/>
+  </feed>
+  <feed hash="e472211db0c3d264b063e68f3f950532a5a38eb9">
+   <language></language>
+   <xmlUrl>http://export.arxiv.org/rss/astro-ph</xmlUrl>
+   <title>astro-ph updates on arXiv.org</title>
+   <description>Astrophysics (astro-ph) updates on the arXiv.org e-print archive</description>
+   <imageUrl></imageUrl>
+   <nick>arXiv astro-ph updates</nick>
+   <webUrl>http://arxiv.org/</webUrl>
+   <storysig readit="n" hash="000047be1a0696ceea0c48d7bcd4c85f7b893d13"/>
+   <storysig readit="n" hash="004ace3038c743612b7021f4227fe9678a00915e"/>
+   <storysig readit="n" hash="02c2d7dbd18579900079b5b510bcca6ead84553f"/>
+   <storysig readit="n" hash="09341e96ccb7cfdbabaaed5d0a91f32499c67579"/>
+   <storysig readit="n" hash="0951fdabed60d534b97099ff5b040ba20a12ca24"/>
+   <storysig readit="n" hash="0bddbefa345310ab98c1f9520a354a74a9a60d13"/>
+   <storysig readit="n" hash="0e8239057c528b35a755c12a0c48b4474ce03812"/>
+   <storysig readit="n" hash="1b0f6858d9016148152b735b250fa4625545eb80"/>
+   <storysig readit="y" hash="216adf65171d19bd32e5f5b9ad5e8d6128f42eb8"/>
+   <storysig readit="n" hash="22c0cdf2cac26247e9e3bc09fc6652333f4f7cc7"/>
+   <storysig readit="n" hash="23724c4101e7f608c7aa80e8a548afca68552f21"/>
+   <storysig readit="n" hash="25f86dee2443b28af7d4381e2e3feb14130f61df"/>
+   <storysig readit="n" hash="272b11e30114fee7d5a245dbcd25f01cefdecd33"/>
+   <storysig readit="n" hash="286c94b306e42436fa4c4ae2bdfc5a13514e9096"/>
+   <storysig readit="n" hash="2a8bef1f6f436ba700d1576c459b44d26b482de7"/>
+   <storysig readit="n" hash="2c02862896e249da329ff18201540133a3d5653d"/>
+   <storysig readit="n" hash="30e50cb47e1a58c38ac98b0f5c4280c621c9cca7"/>
+   <storysig readit="n" hash="3899e89a58b37506ed396310404e4a1918769958"/>
+   <storysig readit="n" hash="3a6028cdef8f74297ed91f5b5fb0092e9c01a001"/>
+   <storysig readit="n" hash="492a361e58e7e20f650bce05db2caf812edc7157"/>
+   <storysig readit="n" hash="4a0fe7534fce9c7a6ff3453bd6b6c71567d87848"/>
+   <storysig readit="n" hash="4d73e5f67cc943f2688223087f749b27aadc6d8c"/>
+   <storysig readit="n" hash="4e9602de55c9fed4cb1beb1f7ef76e6a2822656c"/>
+   <storysig readit="n" hash="534273f947a13282db8aa7cc6c45ad9c3291e10d"/>
+   <storysig readit="n" hash="54b5bea6bf2eb30885907cda92f81f0d8be38a84"/>
+   <storysig readit="n" hash="59099c0ca1a448e330fd5ad096299137a7c5dc88"/>
+   <storysig readit="n" hash="5ea352fc127e3d226d7c92634b0287a39b7f97dd"/>
+   <storysig readit="n" hash="6599f67b17f1015c9600d2d176b8d18dce85dd6c"/>
+   <storysig readit="n" hash="6d5af177daf3a81575f45198089d070eda116f9b"/>
+   <storysig readit="n" hash="6e6557ad30c2938dfec6937cbb7dfde7316f5b07"/>
+   <storysig readit="n" hash="73f28d2680db6314b11651c364ec3a0550d30bea"/>
+   <storysig readit="n" hash="73fb963fa69dc2cdcc83ebe6a0e01b500e87c8a8"/>
+   <storysig readit="n" hash="756664860448be04b9f67e6ed3afd49780d6d451"/>
+   <storysig readit="n" hash="7ad410f7b89bb23cdfcc5ab3581811ae2d2c3907"/>
+   <storysig readit="n" hash="876d86e809cf42bff7fc057d55874f12bf5ced5e"/>
+   <storysig readit="n" hash="87730d514de459334892896c3e4071a39dea8fd7"/>
+   <storysig readit="n" hash="883e8fa8429bbcb4cb41c3863b4a2e0f1e8ba777"/>
+   <storysig readit="n" hash="8a78ca61ed32f24b7a5ee416b3217239c8a6ca84"/>
+   <storysig readit="n" hash="8fcb745adc9d4e8def355edb7ea49a13d5352486"/>
+   <storysig readit="n" hash="93103d227adcab0b938895a20bfa514feac043c9"/>
+   <storysig readit="n" hash="97686f86e8c897f5f68d164ca1be312937ba434d"/>
+   <storysig readit="n" hash="97756fef80580525cb6ebfffc59a38b671b64ec8"/>
+   <storysig readit="n" hash="98250c0d925520f66b20bc741dc777458f95f5e2"/>
+   <storysig readit="n" hash="9a7374f39871b176f2572faa661e4dd8ebd3d874"/>
+   <storysig readit="n" hash="9c69a02c73c2cfa6a35afa729ea6777748194933"/>
+   <storysig readit="n" hash="9c9455b597029365d46fae96ea8674cb1e02f883"/>
+   <storysig readit="n" hash="9e174cb5545b104c2cb93c5c95996cc99999cefd"/>
+   <storysig readit="n" hash="a003ad33174cdbb868874781d0a18daec648d4fb"/>
+   <storysig readit="n" hash="a239963dfce9213ce182ef255cd9df72385a68fb"/>
+   <storysig readit="n" hash="af8a90548d84ab3b771f97c46b88e216272df16e"/>
+   <storysig readit="n" hash="b10ae947190b6997b401e70d80bebd345dc761d2"/>
+   <storysig readit="n" hash="b459f94cef22f4bbd4843a699bafb8650de58112"/>
+   <storysig readit="n" hash="b708067db83ff46ff0db38812ffdbe0cb4a631a1"/>
+   <storysig readit="n" hash="b7acab5367831d7598742367b0b5c3b7756fbeec"/>
+   <storysig readit="n" hash="b7dbc8f4c5483e55f493eb65a63770da4dface59"/>
+   <storysig readit="n" hash="b88112fd009860da50f6e790c41e3ea4a4b8c742"/>
+   <storysig readit="n" hash="b943bf0910d019edac789d3380e8e479a9fea7e8"/>
+   <storysig readit="n" hash="bc6086f8b0b140d5e38db079de76113e27bd478a"/>
+   <storysig readit="n" hash="bc87204a8350790ef97e8f8b8211f07301b87d75"/>
+   <storysig readit="n" hash="be2c6b110e11209d7e4eeae9ca25af7478052881"/>
+   <storysig readit="n" hash="c0a7993bacc9a80c80ae1d449e0be2c0260eb677"/>
+   <storysig readit="n" hash="c387b1e63a5b28eaba52c240659fbccf540e3d6d"/>
+   <storysig readit="n" hash="c4c604b751e9d95a7669b176cccde1d6130675d1"/>
+   <storysig readit="n" hash="c84add6a55ad96dd2abff9204d6c0fe86a896749"/>
+   <storysig readit="n" hash="cc793940a9f8b59bc3007af16e108c244aebc1c4"/>
+   <storysig readit="n" hash="cf0e0a0c064d8c07417358adebdf5e4d9800228d"/>
+   <storysig readit="n" hash="d0abba8384c5b32c34bc629982b1d86ddcbfe9b7"/>
+   <storysig readit="n" hash="d1d0897b36a8ea5c18e4ced3ccac03a2d73973e9"/>
+   <storysig readit="n" hash="d596984412606e88ae9e097a521521d0e9c902b4"/>
+   <storysig readit="n" hash="db57112fdaf9c3cfdf094268e8de8777ae9682d4"/>
+   <storysig readit="n" hash="e35861683ce8bd666deee46284d0c33192307cc0"/>
+   <storysig readit="n" hash="e4884a55efa5e51ebad1d1402c837ea27f8e8444"/>
+   <storysig readit="n" hash="e57717648643a275dc4b06c843751b4308ae4539"/>
+   <storysig readit="n" hash="ebaea40ccf5e99178bb849bbb7f236526ff44fc0"/>
+   <storysig readit="n" hash="ebde36842c26aa187c2e82257dcfb933e21f3913"/>
+   <storysig readit="n" hash="f0882ad00bdbd72367c364f9fec1a134f4242138"/>
+   <storysig readit="n" hash="f85de73b66d5de1f4f9f09e71cb108eb070aa4e9"/>
+   <storysig readit="n" hash="f9156dac0a62426daf759833ba19cb106dbcb0c1"/>
+  </feed>
+ </folder>
+ <folder name="Blogs and Commentary" hash="">
+  <feed hash="8ae994805de6b1f583e18d2a46563e45dd0aca7a">
+   <language></language>
+   <xmlUrl>http://rss.slashdot.org/Slashdot/slashdotYourRightsOnline</xmlUrl>
+   <title>Slashdot: Your Rights Online</title>
+   <description>News for nerds, stuff that matters</description>
+   <imageUrl></imageUrl>
+   <nick>Slashdot: Your Rights Online</nick>
+   <webUrl>http://yro.slashdot.org/</webUrl>
+   <storysig readit="y" hash="03bd72f70a65db459568cc0260ca431f8793cb22"/>
+   <storysig readit="n" hash="0e37d7fca145abd68f7733bf84e62695882e125a"/>
+   <storysig readit="n" hash="29d82a5d297d9a5c28481d5175e96dd5e0bfc567"/>
+   <storysig readit="n" hash="2b6223bf826ad1db6ab4679870520ab78ade231e"/>
+   <storysig readit="n" hash="2ea4a88b33c77252ba81003f836b11f033e3476c"/>
+   <storysig readit="n" hash="3ee439af9362344990ccbda83916f8e4aa0f8f8a"/>
+   <storysig readit="n" hash="4dcc59801a9dd29a98afacb7da330c07234fb946"/>
+   <storysig readit="n" hash="5fb1e2ad30d34956b721a340e3b7c616c6eb35bd"/>
+   <storysig readit="n" hash="647c29491bc5ee0bf089c1e16af1f08e0855b85b"/>
+   <storysig readit="n" hash="794fc5b9c5dcf1decc8040eeb75455d252e4ba50"/>
+   <storysig readit="n" hash="9c6086b0333b3fbb4f09121be84d33c6f93b01ac"/>
+   <storysig readit="n" hash="b463f0181febbced77e462cea0d76e18986e65f7"/>
+   <storysig readit="n" hash="c30fd8b70016716d089e07471530b4c44a9fe5a6"/>
+   <storysig readit="n" hash="cc885a5bd884cbc43fc38444520ef87b29ef552a"/>
+   <storysig readit="n" hash="f0a5359aefdcb47d9ba30f9706feacc059376d4c"/>
+  </feed>
+  <feed hash="100d80e7c7062a9939b9f7539a88c75aafe8ddc1">
+   <language></language>
+   <xmlUrl>http://lemons4freedom.blogspot.com/atom.xml</xmlUrl>
+   <title>lemons4freedom</title>
+   <description>Treat your body with nature!!!</description>
+   <imageUrl></imageUrl>
+   <nick>lemons4freedom</nick>
+   <webUrl>http://www.blogger.com/feeds/8600777309173766491/posts/default?start-index=26&amp;max-results=25</webUrl>
+   <storysig readit="y" hash="073737d86aefe610a46f858f928c80ce03aa2922"/>
+   <storysig readit="y" hash="15dfe21123ae9881e2cc20619f477fed38f290f7"/>
+   <storysig readit="y" hash="15fee42b20b12cdb27bf68931543b189c6fcc4eb"/>
+   <storysig readit="y" hash="1d3a79c5fba83d9d1f44e239643567916f750d51"/>
+   <storysig readit="y" hash="1e061ab6f4288da6e2020f8cf1055787af879177"/>
+   <storysig readit="y" hash="1eb794ad217101fe3781f929d3fe80f6af8fd2f2"/>
+   <storysig readit="y" hash="28fb3b32ef932e3cb59323fd41d2513c844b8bbb"/>
+   <storysig readit="y" hash="31d04dba46c894e36fdda572db6dfcf5cd69f68d"/>
+   <storysig readit="y" hash="3418ec9d97d0888362fa3f67c8cb70346da072e5"/>
+   <storysig readit="y" hash="40497da5230fb15632cec7494ba2bc65735d2785"/>
+   <storysig readit="y" hash="4463cb6725c10fbbbb4dc1243bead64589d6091d"/>
+   <storysig readit="y" hash="4942027b7ed3e3d9df6576ada92b680a8cea6181"/>
+   <storysig readit="y" hash="602545ef97828e880fb6e610092a8db20579d1ab"/>
+   <storysig readit="y" hash="726b623c7def693cb56d7fd0b8ed4fa1411a176b"/>
+   <storysig readit="y" hash="7555814f4ced13eb45ede5826987cf3b3aaea526"/>
+   <storysig readit="y" hash="92914d60ab4a6614d7e6a71975d390c03f2e7290"/>
+   <storysig readit="y" hash="9da9ce0544b255bbe9aff473ef836f52e3bb7a03"/>
+   <storysig readit="y" hash="a02b18d32f36bcd9a2c286ddf1201d48f04ad1d4"/>
+   <storysig readit="y" hash="c15ef45f251fe02ec195fcee470d4d4769bc3a24"/>
+   <storysig readit="y" hash="c1b7e24ed0503e8491de4a69a0b5bbe66516070e"/>
+   <storysig readit="y" hash="cca2a66e017d666bc764f97159219eb34f8a1c9a"/>
+   <storysig readit="y" hash="d8f0119f935ff7fdb08482df584491c8b1924812"/>
+   <storysig readit="y" hash="dc14125a978c8d7083800e2399a36d70c815b283"/>
+   <storysig readit="y" hash="dd718a8452af1ebaf5fcbb78b1447bb99e8c6b43"/>
+   <storysig readit="y" hash="fa04c813cb103907a383e9a3901ad9f286dec452"/>
+  </feed>
+  <feed hash="766941014ce8bed0a901f25fc085a6ddee2e6bb5">
+   <language></language>
+   <xmlUrl>http://weeklyb.blogspot.com/atom.xml</xmlUrl>
+   <title>Weekly-Bernd</title>
+   <description>Bernd's notes, I will attempt to make these notes roughly once a week, very roughly. More like, when something note-worthy happens. Or when some old issue warrants reminders. Or when I just feel like it.
+</description>
+   <imageUrl></imageUrl>
+   <nick>Weekly-Bernd</nick>
+   <webUrl>http://www.blogger.com/feeds/7296322/posts/default?start-index=26&amp;max-results=25</webUrl>
+   <storysig readit="y" hash="08f41333f0b113d1893c32ade902e2618dd0fa9f"/>
+   <storysig readit="y" hash="1517543b5d119e0b1d64fb44638e36174e099ddc"/>
+   <storysig readit="y" hash="17f24831169f091cfa516db8c2af2a9b3ba56d43"/>
+   <storysig readit="n" hash="1c851bb269aa5d7c9055e2dcd1546003201f455b"/>
+   <storysig readit="y" hash="1f0823032ae17bb9cb460c596409d034d524cb94"/>
+   <storysig readit="y" hash="207a3d91a3e4cd2dfe676aa56ce1a22e837cb621"/>
+   <storysig readit="y" hash="38381cd9eeeed3288a32b05ba6a34feb717e8eb4"/>
+   <storysig readit="y" hash="3a4b8ef643f2e287dd7764f58d36ec8bbf869421"/>
+   <storysig readit="y" hash="3a7830e8e64a4240c54fd7926c71427d1dd01e4f"/>
+   <storysig readit="y" hash="3f7c57b56c01ee214de54ef104dea89389057899"/>
+   <storysig readit="y" hash="4438e006f60985697ecd337823da1a53793a248b"/>
+   <storysig readit="y" hash="62ec3b560381185883c741e0859d763ec8123078"/>
+   <storysig readit="y" hash="6c6921e9070d4ea141ec0c11afc6439b2f130346"/>
+   <storysig readit="y" hash="904ccd2de331b384b75078ac54e3b7bf1453f939"/>
+   <storysig readit="y" hash="9813d5c200f26e48e6d9a2d3bc2eba089348bfa0"/>
+   <storysig readit="y" hash="b12a7b87d323093969d7c8b7502671082c4a3842"/>
+   <storysig readit="y" hash="b53832c28ac6a7e9dcaaa730156538f7131ce77a"/>
+   <storysig readit="y" hash="b8fc44f51f165f08e89e1ae3de6c2156bd8e063b"/>
+   <storysig readit="y" hash="b99d9b57d36caf70aa5df43968236e417712ec51"/>
+   <storysig readit="y" hash="bbbaa1e0843faec548fdd2fa2ef5b9d1368bc12b"/>
+   <storysig readit="y" hash="c6d98c8bd17ee16d132b8735a1fc30c645344ccd"/>
+   <storysig readit="y" hash="c906cde16df9c9dad86e045732ad909bfed6706b"/>
+   <storysig readit="y" hash="d3b3a2eb25c08eb6e1ccc71269be57da7dc9e25e"/>
+   <storysig readit="y" hash="eb1a7a550990a1a8cd5422701936b71718f0fd31"/>
+   <storysig readit="y" hash="fdb6a1438e51634f3dff8588d3f4dbd6cb217352"/>
+  </feed>
+  <feed hash="da39a3ee5e6b4b0d3255bfef95601890afd80709">
+   <language></language>
+   <xmlUrl>http://dailygrail.com/rss.xml</xmlUrl>
+   <title>TDG - Science, Magick, Myth and History</title>
+   <description></description>
+   <imageUrl></imageUrl>
+   <nick>TDG - Science, Magick, Myth and History</nick>
+   <webUrl>http://dailygrail.com</webUrl>
+  </feed>
+  <feed hash="da39a3ee5e6b4b0d3255bfef95601890afd80709">
+   <language></language>
+   <xmlUrl>http://www.bernd-stramm.com/rssnews.php</xmlUrl>
+   <title>www.bernd-stramm.com News </title>
+   <description>News from Bernd's Website</description>
+   <imageUrl></imageUrl>
+   <nick>Bernd's News </nick>
+   <webUrl>http://www.bernd-stramm.com</webUrl>
+  </feed>
+  <feed hash="da39a3ee5e6b4b0d3255bfef95601890afd80709">
+   <language></language>
+   <xmlUrl>http://www.bernd-stramm.com/news.xml</xmlUrl>
+   <title>http://www.bernd-stramm.com News </title>
+   <description>News from Bernd's Website</description>
+   <imageUrl></imageUrl>
+   <nick>Bernd's Old News </nick>
+   <webUrl>http://www.bernd-stramm.com</webUrl>
+  </feed>
+  <feed hash="8dadb97b830432d46f4e620bcb49696582c7704e">
+   <language></language>
+   <xmlUrl>http://www.welt.de/debatte/kolumnen/zippert_zappt/?service=Rss</xmlUrl>
+   <title>WELT ONLINE - Zippert zappt</title>
+   <description>WELT ONLINE informiert Sie laufend aktuell, mit ausfÃ¼hrlichen Hintergrundberichten, lokalen Ausgaben und stÃ¤ndig aktuellen Schwerpunkten. Damit Sie tÃ¤glich umfassend informiert sind.</description>
+   <imageUrl></imageUrl>
+   <nick>Zippert zappt</nick>
+   <webUrl>http://www.welt.de/debatte/kolumnen/zippert_zappt/</webUrl>
+   <storysig readit="n" hash="1b18e5edecae856541dab0e3ce01f58846bd3410"/>
+   <storysig readit="n" hash="2fd500000abfe6c2a363b6422a7995605e6967df"/>
+   <storysig readit="n" hash="40038abfa7e2182cbf78ef88e6eba510f565b791"/>
+   <storysig readit="y" hash="4e123f5c97e323e3b8fe6158e172772bc5ca2290"/>
+   <storysig readit="n" hash="7cfb08f15cba2d6648f76f52cf776c15d5530ac7"/>
+   <storysig readit="n" hash="a118a8ca75f45c75ebf6e4a2afe692fc28564438"/>
+   <storysig readit="n" hash="c73796430c640fd2fc999fbfa003ab512a50ef9b"/>
+   <storysig readit="n" hash="ccc47a442a3b22625d82a6586320ee63a747ef78"/>
+   <storysig readit="n" hash="ceb534ed760041578ffb8f8966fd72e42af1addf"/>
+   <storysig readit="n" hash="dceb91b5054642d79e302e7fb8d2d65979e8cf8e"/>
+   <storysig readit="n" hash="ed8b19262a2cddeb9ca34eabf03c109bf0cb7008"/>
+   <storysig readit="n" hash="f8ad0c1a4347a8ae523eed7df38870dcdc91ed0d"/>
+  </feed>
+  <feed hash="6951f6e013f67741ed7578239bc8d50803a104a1">
+   <language></language>
+   <xmlUrl>http://berndhs.wordpress.com/feed/</xmlUrl>
+   <title>Bernd's Blog</title>
+   <description>Just another WordPress.com site</description>
+   <imageUrl></imageUrl>
+   <nick>Bernd's Blog</nick>
+   <webUrl>http://berndhs.wordpress.com</webUrl>
+   <storysig readit="y" hash="3ddac19aabec3b1ad01f04a266e8fe07256d2235"/>
+   <storysig readit="n" hash="6e5162e072b8d1da3b791d1a1cdd522e839707a1"/>
+  </feed>
+ </folder>
+ <folder name="Europe" hash="">
+  <folder name="UK" hash=""/>
+  <folder name="DE" hash="">
+   <feed hash="acdb3d08a396e35c548f80e1376f84c0d23b4c58">
+    <language></language>
+    <xmlUrl>http://newsfeed.zeit.de/index</xmlUrl>
+    <title>ZEIT ONLINE Startseite</title>
+    <description>ZEIT ONLINE Startseite</description>
+    <imageUrl></imageUrl>
+    <nick>ZEIT ONLINE Startseite</nick>
+    <webUrl>http://www.zeit.de/index</webUrl>
+    <storysig readit="n" hash="06ee76090e4886a23fcb7f8d1b3d32e11c1c75ce"/>
+    <storysig readit="n" hash="0e560e9ad448fbd7e604a7eed6382147470a7861"/>
+    <storysig readit="n" hash="11d7c8a1122ddf4e4c47a48309a5ea405490cc4b"/>
+    <storysig readit="n" hash="1aa6cd151a8bb1db329d053957b2d6305200fc8f"/>
+    <storysig readit="n" hash="23c2c59162782e4e47a1082fadc4c8dd22edcbd4"/>
+    <storysig readit="n" hash="39de4e993ae098e52d31bc5b9aa652ff1ccd5ce5"/>
+    <storysig readit="n" hash="4ab2cabeada5386997c15098fa4b35172cfe7050"/>
+    <storysig readit="n" hash="4c360412954e6303bbdf4e4d9e3927f692a1ed09"/>
+    <storysig readit="n" hash="4c43c8e87749ff0290a247e066acfbc3f77ba063"/>
+    <storysig readit="n" hash="5683bdf348444d37adff15a73bb743bc82bec245"/>
+    <storysig readit="n" hash="648ee0f8c898d4eaca539694e234180090d526ee"/>
+    <storysig readit="n" hash="837d488907398d8dff6cce89e403f96cea53cc8e"/>
+    <storysig readit="n" hash="86efed431801b140d6535e6c0083ccb824735afb"/>
+    <storysig readit="n" hash="906c8d5a17aa1273eb762af5bbb691451af4b868"/>
+    <storysig readit="n" hash="9f29bed2a3699c79ad1daafa453206083d185cfc"/>
+    <storysig readit="n" hash="acec105bc78095134817ab81b81b55ae714fc5ef"/>
+    <storysig readit="n" hash="c4cb39f68e11af8902339fdee88218eb466ee42e"/>
+    <storysig readit="y" hash="cb58c3d2e684e1a1c9a44b92e6b3d02f1149a0a3"/>
+    <storysig readit="n" hash="cdb36cd942463eb7ee205cec856afaec42249ce8"/>
+    <storysig readit="n" hash="ce8a28c381d4f21628c57e91294350a745a46d6b"/>
+    <storysig readit="n" hash="d0a1c4c0784900792183f5edf304f5776042b86d"/>
+    <storysig readit="n" hash="ddff1d8fd2a9f4a80a46438a4d6c0f1a7e6f13e1"/>
+    <storysig readit="n" hash="e5f68c24583309605e18fc685b26848f6fbb8f68"/>
+    <storysig readit="n" hash="ed8c3b5de9b05bdfb2aaced19598c5eb9ebc1584"/>
+    <storysig readit="n" hash="f4777ba807efb03ad4f8ee52d5192c0f34a0d47b"/>
+   </feed>
+   <feed hash="0c4150ad62d76890d75e7f21011bc469682d6b22">
+    <language></language>
+    <xmlUrl>http://rssfeed.sueddeutsche.de/c/795/f/448238/index.rss</xmlUrl>
+    <title>Politik-Artikel / sueddeutsche.de</title>
+    <description>sueddeutsche.de</description>
+    <imageUrl></imageUrl>
+    <nick>SZ Politik</nick>
+    <webUrl>http://www.sueddeutsche.de/</webUrl>
+    <storysig readit="y" hash="1d07a6d368f90cd7a1719dfb6e25aae035a7a1da"/>
+    <storysig readit="y" hash="28284eb99c4735d1d4523d5087b466ba1aa94517"/>
+    <storysig readit="y" hash="3510d3db06fd60c895ee6145ad7fc257565a5a1e"/>
+    <storysig readit="y" hash="352b123f40bc421267154abb548841393386cfbe"/>
+    <storysig readit="y" hash="3dad0627590a80b4a70047e451b2a10aa6388e2c"/>
+    <storysig readit="y" hash="596568cafe70740e82846dc196474e473bb61a5d"/>
+    <storysig readit="y" hash="621a0d68ced878ab50aff46591f24e4b0132b959"/>
+    <storysig readit="y" hash="78229ae58f1b9cd4792c2221c938cea89be22b1e"/>
+    <storysig readit="y" hash="8273df078c1c70620ee7bc129a2dbe65a9aa0388"/>
+    <storysig readit="y" hash="839b8bbc3f8a15244725411068a49c161ed7c91f"/>
+    <storysig readit="y" hash="8861505bebef563e0ac7dc2cf47852fe2680f612"/>
+    <storysig readit="y" hash="890913df7d1f19633dfa93c42dd05aba03625701"/>
+    <storysig readit="y" hash="905bce1ce3423b055dc65de133e57f3114f74593"/>
+    <storysig readit="y" hash="aa9fb7a0081c7105cbf1d456058478ea37c7616c"/>
+    <storysig readit="y" hash="d0f8e0c36d04f0542324f8ed69b104d6c8969959"/>
+    <storysig readit="y" hash="da7e4c6b98f63ec34f5763ea2d59663a194c8e21"/>
+    <storysig readit="y" hash="df4f9f4007723f0de952a1d7067d92e6ec6a7025"/>
+    <storysig readit="y" hash="e4c8d6601d199545c6f6823c85a64d8dbc446383"/>
+    <storysig readit="y" hash="e7f1a426059dbaff5427918a4c8d1ce76024ae08"/>
+    <storysig readit="y" hash="ec011f3871f810f826ef7a11a2ba082cc2178a43"/>
+    <storysig readit="y" hash="eca95ef9e6119da8b3fbdffa11be7e67ac1f72a3"/>
+    <storysig readit="y" hash="f02910787c9944c42278d1fa7a35abc8ebe4a7ce"/>
+    <storysig readit="y" hash="f518cff6411d5f0ba9d519590ec8eedc746804e4"/>
+    <storysig readit="y" hash="fad4b336299717cc0ad44021b00d3a6b60a08164"/>
+    <storysig readit="y" hash="ff4094edf50a8525e59512c257f5baf8a5084259"/>
+   </feed>
+   <feed hash="151c1dadc2913198446765bf032b17e69b8a3fbc">
+    <language></language>
+    <xmlUrl>http://topthemenrss.sueddeutsche.de/pf/449042/http://rss.sueddeutsche.de/rss/Topthemen</xmlUrl>
+    <title>Topthemen / sueddeutsche.de</title>
+    <description>sueddeutsche.de</description>
+    <imageUrl></imageUrl>
+    <nick>SZ top themen</nick>
+    <webUrl>http://www.sueddeutsche.de/</webUrl>
+    <storysig readit="y" hash="374784344532eb580c1da53c06b6464f223c694b"/>
+    <storysig readit="y" hash="3ead51e81d0f2b472ebd9829ad2cded74995fbf5"/>
+    <storysig readit="n" hash="5bf603990e24ed32a439f8423b7c141797544d8b"/>
+    <storysig readit="n" hash="8190364d8a63708898ab85d3a20a455560cfe56f"/>
+    <storysig readit="n" hash="835c346e14e67a6e8fe520e8b8f40e34005d84e8"/>
+    <storysig readit="y" hash="88e249466009946c27b0f2c29be58c4572d455c4"/>
+    <storysig readit="n" hash="8a05f4254883d1836552b7bd6e49db20dee52bd9"/>
+    <storysig readit="y" hash="8de43b4eb306012934c2bb049e9501a167f541d3"/>
+    <storysig readit="n" hash="96ae21f885570cf1d538d1f492e684e755512570"/>
+    <storysig readit="n" hash="989a7c018f3cab190db876fa17c3d2b3417bfa27"/>
+    <storysig readit="n" hash="b15c77197b9e81994a243064a8b52687df52429e"/>
+    <storysig readit="n" hash="c10cdcb28247ac9ecfff7d9eccc4871eb7232c8c"/>
+    <storysig readit="y" hash="de93a3587f3afbd717c749008208062a5a7788aa"/>
+    <storysig readit="n" hash="e7ae3d6fea8b63b62ab7c07297bffa22717cf264"/>
+    <storysig readit="n" hash="febb30eff1362732f1607bcaffcdbf44cf9ef57a"/>
+   </feed>
+   <feed hash="d3daac09e17b36b572a187da6e9ce27bbb102d76">
+    <language></language>
+    <xmlUrl>http://www.welt.de/?service=Rss</xmlUrl>
+    <title>WELT ONLINE</title>
+    <description>WELT ONLINE informiert Sie laufend aktuell, mit ausfÃ¼hrlichen Hintergrundberichten, lokalen Ausgaben und stÃ¤ndig aktuellen Schwerpunkten. Damit Sie tÃ¤glich umfassend informiert sind.</description>
+    <imageUrl></imageUrl>
+    <nick>WELT ONLINE</nick>
+    <webUrl>http://www.welt.de/</webUrl>
+    <storysig readit="y" hash="0442269d41b07866eb185eef46bca5dd741c1dee"/>
+    <storysig readit="n" hash="05750f9cd76ee1e089ee40b994fcf2fe16bd71fa"/>
+    <storysig readit="n" hash="16eec4344ba025d255bfc496462b77f63870fbc4"/>
+    <storysig readit="n" hash="60545b7dcbbece2d85dc42f082e2d3983291db99"/>
+    <storysig readit="n" hash="61def170aec61d8a34d7a2892d37728054c61f54"/>
+    <storysig readit="n" hash="641ecde02a151c6f721ecb4a0a1a24e139dd028e"/>
+    <storysig readit="y" hash="c600bde03d8fa41f92719f259eb3229850967d36"/>
+   </feed>
+   <feed hash="97a0438e5e41e9b86b72498cceb0c98545df5aac">
+    <language></language>
+    <xmlUrl>http://www.welt.de/Eil/?service=Rss</xmlUrl>
+    <title>WELT ONLINE - Eil</title>
+    <description>WELT ONLINE informiert Sie laufend aktuell, mit ausfÃ¼hrlichen Hintergrundberichten, lokalen Ausgaben und stÃ¤ndig aktuellen Schwerpunkten. Damit Sie tÃ¤glich umfassend informiert sind.</description>
+    <imageUrl></imageUrl>
+    <nick>WELT ONLINE - Eil</nick>
+    <webUrl>http://www.welt.de/Eil/</webUrl>
+    <storysig readit="n" hash="17dff488eefef0d3d1692a00c9b85f74d082956c"/>
+    <storysig readit="y" hash="1b39766ee31debd236af68aae3a9b2f8c0bd760c"/>
+    <storysig readit="n" hash="2460631571d36f51abd0d856459c0ad7d52f1da5"/>
+    <storysig readit="n" hash="7c0da56b41a7affc5b25419cb38fc41907d5e6fa"/>
+    <storysig readit="n" hash="d823da706f7058bf517660c280f3609ac1624507"/>
+    <storysig readit="n" hash="db26b9e490a8ec0e1a6fea974595d0db75780a15"/>
+    <storysig readit="n" hash="fade458b6edf4585ab5576b4674c04b4e410c19b"/>
+   </feed>
+   <feed hash="98e954b6b85f173e3e7dff6c4b44ce3d9143df79">
+    <language></language>
+    <xmlUrl>http://www.faz.net/s/RubA24ECD630CAE40E483841DB7D16F4211/Tpl~Epartner~SRss_.xml</xmlUrl>
+    <title>Politik - FAZ.NET</title>
+    <description>FAZ.NET - Erfrischt den Kopf</description>
+    <imageUrl></imageUrl>
+    <nick>Politik - FAZ.NET</nick>
+    <webUrl>http://www.faz.net</webUrl>
+    <storysig readit="y" hash="149a11cb662127bf643ebd00d448f1ea5a57cbdf"/>
+    <storysig readit="y" hash="17e606fc98105792f192933f162e80a9826308a0"/>
+    <storysig readit="y" hash="1df3cb8566f5e9f2f62897a51976eaca328f5738"/>
+    <storysig readit="y" hash="24c397acf527278064c48bf11c628c066711b20e"/>
+    <storysig readit="y" hash="31428232c7977548be61619db5b9587c9d3ced4d"/>
+    <storysig readit="y" hash="4d3f0a54726887e7796a919950452ca501438685"/>
+    <storysig readit="y" hash="5677dd30654074e688643a9fdd4b7af8d57dce90"/>
+    <storysig readit="y" hash="68c365599f5b230f69b906fadc003a3abbde5470"/>
+    <storysig readit="y" hash="6e3c1222d6f85bc0ac2f55f604e3cc272ab9b99b"/>
+    <storysig readit="y" hash="6f0ce43aaba0c2446fb52e79fffa47330145299d"/>
+    <storysig readit="y" hash="8dfab94609fd33f19cf8064fc0a91756b1bc99a2"/>
+    <storysig readit="y" hash="9176dd4bbeb842acc5d495be7bf0e68c25bab993"/>
+    <storysig readit="y" hash="a9d82fca9491c1bc8e1e7027a5be6df4f043707b"/>
+    <storysig readit="y" hash="b2142fbf95e425a048fe7951af63c0e24a441128"/>
+    <storysig readit="y" hash="bbd2d2a8bcc98c44fe552c626bebbefcbe2f1887"/>
+   </feed>
+  </folder>
+  <folder name="Rest" hash="">
+   <feed hash="0759f2d7858c4fa95c7de84a1952903898cbb24c">
+    <language></language>
+    <xmlUrl>http://www.nzz.ch/nachrichten/startseite?rss=true</xmlUrl>
+    <title>NZZ Online: Startseite</title>
+    <description>Startseite</description>
+    <imageUrl></imageUrl>
+    <nick>NZZ Online: Startseite</nick>
+    <webUrl>http://www.nzz.ch/nachrichten/startseite</webUrl>
+    <storysig readit="n" hash="123d10e0d1411c4a31a8f45e50a8db2c61238ee6"/>
+    <storysig readit="n" hash="1f829cb092228acf52749f6f22a008749a99424d"/>
+    <storysig readit="n" hash="3bbfc7f6ede607a26cc06db5803aa061448089e8"/>
+    <storysig readit="y" hash="57ab50f3e35a95494dd46a455780f4b2f5b5d1ab"/>
+    <storysig readit="n" hash="678764b31fa2686ce5bc407d2ac8b339ef58e31e"/>
+    <storysig readit="n" hash="8037592dbeaa1d52f0c8dd2796bb4c98dd6f9dff"/>
+    <storysig readit="n" hash="8497ed952e9a6f3861675a0f5c8da2c772cabf9e"/>
+    <storysig readit="n" hash="88dc2e2d28e316720bf42701bc8d2c6262e12ba6"/>
+    <storysig readit="y" hash="9d8df43fd62fe5aa4bbad050b2cf84d4275a6f82"/>
+    <storysig readit="n" hash="c5e999b992695813c4c54e94dfab05e94a21fdc0"/>
+    <storysig readit="n" hash="d0e348a848d152bacf507a894da2f226052bf53b"/>
+   </feed>
+   <feed hash="da39a3ee5e6b4b0d3255bfef95601890afd80709">
+    <language></language>
+    <xmlUrl>http://www.nzz.ch/nachrichten/international?rss=true</xmlUrl>
+    <title>NZZ Online: International</title>
+    <description>International</description>
+    <imageUrl></imageUrl>
+    <nick>NZZ Online: International</nick>
+    <webUrl>http://www.nzz.ch/nachrichten/international</webUrl>
+   </feed>
+  </folder>
+ </folder>
+ <folder name="Americas" hash="">
+  <folder name="USA" hash="">
+   <feed hash="de7fc5e84f0a986239946182a9755909245af8d3">
+    <language></language>
+    <xmlUrl>http://feeds.latimes.com/latimes/news/local?format=xml</xmlUrl>
+    <title>L.A. Times - California | Local News</title>
+    <description>
+                    
+                        Headlines from latimes.com
+                    
+                    
+                </description>
+    <imageUrl></imageUrl>
+    <nick>L.A. Times - California | Local News</nick>
+    <webUrl>http://www.latimes.com/news/local/?track=rss</webUrl>
+    <storysig readit="n" hash="1c49da719613b971a9618854fb0063645efd6c7d"/>
+    <storysig readit="n" hash="25f1dad0fbe99cde0993f0c1c468290be340e914"/>
+    <storysig readit="n" hash="55513d0e5d34ae093784239d9625c2acd3da5108"/>
+    <storysig readit="n" hash="5d21321a75c0901b0542a886b75669aa9625a162"/>
+    <storysig readit="n" hash="6752acdd921d6be67ace146ad02682848adc1d8f"/>
+    <storysig readit="n" hash="73ef3654ea81f577aa3c137636adb1b4f175162a"/>
+    <storysig readit="y" hash="7e8f535e100651895b5f00121da1f11e9abdf89a"/>
+    <storysig readit="n" hash="872e5fe6dc892a4b3d7d36c64b656a20211f0c92"/>
+    <storysig readit="n" hash="91c4480ee2834908d363c689ab1e8e9bdef346c0"/>
+    <storysig readit="n" hash="bef05929306281dc1784ea3675f2471f2470d7ed"/>
+   </feed>
+   <feed hash="2dd5a61a8356544ef9db052c7f22692bae0e4e65">
+    <language></language>
+    <xmlUrl>http://feeds.washingtonpost.com/wp-dyn/rss/world/europe/index_xml</xmlUrl>
+    <title>Wash Post Europe</title>
+    <description>The Washington Post provides the latest information and analysis of breaking Europe news stories.</description>
+    <imageUrl></imageUrl>
+    <nick>Wash Post Europe</nick>
+    <webUrl>http://www.washingtonpost.com/wp-dyn/content/world/europe/index.html?wprss=rss_world/europe</webUrl>
+    <storysig readit="n" hash="400a38d8154db2ad983b1eb8f615efb8d5bf11ad"/>
+    <storysig readit="n" hash="48537d2ec4d6e432092c98df8e3ef5df3949e9c9"/>
+    <storysig readit="y" hash="49ec80b2818514f0b8a30e19cb1fe564c6b2e3c8"/>
+    <storysig readit="n" hash="7243831c84b0a7c9407bad51e663e5766a901c07"/>
+    <storysig readit="n" hash="8738b7eb41d76419fc2f6c9418d0122dfac4cd83"/>
+    <storysig readit="y" hash="90d089a092279ff65329a998d044577dbfb2ca64"/>
+    <storysig readit="n" hash="98b4d4d03165370c31beaae468190608f2cc9633"/>
+    <storysig readit="n" hash="aef79004f02d96ec3bf544c5323335ddbb80bf42"/>
+    <storysig readit="n" hash="c24c1184831ab0338f08eb5d298d1ea0552deebd"/>
+    <storysig readit="n" hash="d3e5dbe33e9945a5fd227823d66998ed847677a7"/>
+    <storysig readit="n" hash="e1d9bc0163ea57179a02d8ac12c3a8675ad98993"/>
+   </feed>
+   <feed hash="32649d59ee76fa5319670f35adc622e0e1b67780">
+    <language></language>
+    <xmlUrl>http://feeds.latimes.com/latimes/news/nationworld/nation?format=xml</xmlUrl>
+    <title>L.A. Times - National News</title>
+    <description>
+                    
+                        Headlines from latimes.com
+                    
+                    
+                </description>
+    <imageUrl></imageUrl>
+    <nick>L.A. Times - National News</nick>
+    <webUrl>http://www.latimes.com/news/nationworld/nation/?track=rss</webUrl>
+    <storysig readit="n" hash="1d3ff859097b22695e89171dbb2cc31a40979f08"/>
+    <storysig readit="n" hash="3b8d5f702f661a84bf20e05f8274af99573bfc74"/>
+    <storysig readit="n" hash="3faffa143bd2a8fb2219a96d6febd87ac5774b91"/>
+    <storysig readit="y" hash="742cf1b23a6d0a342a84b26be6c9dec70cd55ec8"/>
+    <storysig readit="n" hash="84dd905057ad7f04af6c3c836ed4c64d11cac918"/>
+    <storysig readit="n" hash="880f292fe40e80ffbd82bc95dc8a6fe20b1c87d7"/>
+    <storysig readit="y" hash="8831475b87d61f577d1e1e9cd64784f9e8f40240"/>
+    <storysig readit="n" hash="bfcba73f84c5373c304d4e63b81a7ccbc7b2cb7b"/>
+    <storysig readit="n" hash="d13de04d62067c3bc64f52bf6675e8e73673489c"/>
+    <storysig readit="n" hash="df31b73868e3682420a09dc71f6bfd9fa3ee1303"/>
+   </feed>
+   <feed hash="a7ef95e6deb5400f2f4448c7c015f07256052386">
+    <language></language>
+    <xmlUrl>http://www.washingtonpost.com/wp-dyn/rss/linkset/2005/03/24/LI2005032401639.xml</xmlUrl>
+    <title>washingtonpost.com - David Ignatius Archive</title>
+    <description>David Ignatius writes about international affairs and U.S. foreign policy for The Washington Post op-ed page.</description>
+    <imageUrl></imageUrl>
+    <nick>washingtonpost.com - David Ignatius Archive</nick>
+    <webUrl>http://www.washingtonpost.com?nav=rss_opinion/columns</webUrl>
+    <storysig readit="n" hash="0177b4566d38ab0854574837f9bcd89db3dac9e4"/>
+    <storysig readit="n" hash="0efdb48a5192bf168f46a67ec1acd9f719e040e8"/>
+    <storysig readit="n" hash="23cf16d3e406675b8d9586f66747211a8ab28700"/>
+    <storysig readit="n" hash="27324a7e466cb5af0c20a19ba8ff6942876bdc7f"/>
+    <storysig readit="n" hash="289e998ee4c206a5add063bd20c454e663d894ae"/>
+    <storysig readit="n" hash="2df22a0ceb2c55773da3351e4368cb7729decb48"/>
+    <storysig readit="n" hash="5b2d2c708988b11ab209ea3a585c5cb1da04e876"/>
+    <storysig readit="n" hash="619fcd6b9ca2c28e8724ed1bd66713848525b4b4"/>
+    <storysig readit="n" hash="652e44e1e6a9c774d91739859c4ca5adbb412ceb"/>
+    <storysig readit="n" hash="6d1f49bb1074e1f564e7d4268426c725ddd668b9"/>
+    <storysig readit="n" hash="6eaf543552aff76ffc562fff1a5a29fb7f4ce46e"/>
+    <storysig readit="n" hash="737b9aba2660817f4fd31b7560d5285489564dc4"/>
+    <storysig readit="n" hash="75350de30349d5730e651757cbbd1f92326264ac"/>
+    <storysig readit="n" hash="8142a873d1c1fd8ab80df995aad5c20e740c5a67"/>
+    <storysig readit="n" hash="84f64d1998d69dfc32a3b85fac1b4d82b0fafa0d"/>
+    <storysig readit="n" hash="89b6a825ec394ba429196040925652fda6a0ef03"/>
+    <storysig readit="n" hash="8aeb9bddffccd7d0cc6644d102df8a36f29b6dbd"/>
+    <storysig readit="n" hash="9420cf3f8adff0c0cd60406b6ca90905ef948684"/>
+    <storysig readit="n" hash="a36c645da2dcb797e423226b2dc867ec0ddee9d9"/>
+    <storysig readit="n" hash="a8e18aa07d4cb8a459b82ef25bc1d2f75884d9ac"/>
+    <storysig readit="n" hash="a9ebd9edd706ea9666b58038cd8c59702d217565"/>
+    <storysig readit="n" hash="ad54e0de6ecd2f272bbfd9b1c0544a7a37d5f01a"/>
+    <storysig readit="n" hash="ad662b524e6704d572251f3fdbd2f6888649924f"/>
+    <storysig readit="n" hash="b143c5d058e00b956144793a341f440e7b210d72"/>
+    <storysig readit="y" hash="b508224c0b26094d6d21d45f9636078c35163388"/>
+    <storysig readit="n" hash="b8823c3b50ba973ad70fa2902b0d2ec944091306"/>
+    <storysig readit="n" hash="c5da9cf4d0d3b0ae275b3b2317585ebe4eccaaee"/>
+    <storysig readit="n" hash="c6db95e3cfce3bbba40a1f29cb8989c47982e20b"/>
+    <storysig readit="n" hash="cc522c000fa36b5daddc51cf2a99b529b8b9f326"/>
+    <storysig readit="n" hash="daf85c84d67abca4febe2d029829a6f8ebbb2067"/>
+    <storysig readit="n" hash="ef3265dd769d5db85544637592e593e46082a50c"/>
+    <storysig readit="n" hash="f21d7c73fa197722e960243fe7900423fa1d658c"/>
+    <storysig readit="n" hash="f8956e2a5b588dad2ecfce3bcc8436ea3335d8b3"/>
+    <storysig readit="n" hash="fad4ae3d2edb292e31cb377bd4d9bd7b0b1c98b8"/>
+    <storysig readit="n" hash="ff09a940d2c9382ba72d040f21ee4fc2546eaf40"/>
+   </feed>
+   <feed hash="2365386a51c65ec4566223ff48d2a92c98ea5b17">
+    <language></language>
+    <xmlUrl>http://www.washingtonpost.com/wp-dyn/rss/linkset/2005/03/24/LI2005032400143.xml</xmlUrl>
+    <title>washingtonpost.com - Intelligence</title>
+    <description></description>
+    <imageUrl></imageUrl>
+    <nick>washingtonpost.com - Intelligence</nick>
+    <webUrl>http://www.washingtonpost.com?nav=rss_nation/special</webUrl>
+    <storysig readit="n" hash="0c56305b165f9260f9912dfdea8ed7b4d6d0594e"/>
+    <storysig readit="n" hash="0d8cd39d993741e38a84f16bce991f987ce472cd"/>
+    <storysig readit="y" hash="4236f62ef69145c35261fe4d7bae1578de9c7045"/>
+    <storysig readit="n" hash="44bdf3254d4851f75e1e22fcf215bd22cec95a0b"/>
+    <storysig readit="n" hash="4f832f566e6ca1bd005c6e8674501fbfc069e6d4"/>
+    <storysig readit="n" hash="5944a361e8e62714d42ef64206d787fc6d0b31cc"/>
+    <storysig readit="n" hash="7e12b517e66325a283f20987b67895ad4bbcf154"/>
+    <storysig readit="n" hash="8785f04b8a24f250a861db796ad705e4cc837557"/>
+    <storysig readit="n" hash="8eb95a638e7c8ee7cc112a4918109295c8a3e6d0"/>
+    <storysig readit="n" hash="98fc36098e53a6fc0be929cb2f56cb14df501d2e"/>
+    <storysig readit="n" hash="9adb6c2426d418394920bc8454ee868c0e4dc5c1"/>
+    <storysig readit="n" hash="9fc32cb3db7ae69a0203f63e26c091feb7479d73"/>
+    <storysig readit="n" hash="aa0d3db4b7f9a762e15ef48d92fcd8773fd8efb8"/>
+    <storysig readit="n" hash="abce34eaeb6e0949796603e2e4c9f9f08b1f144c"/>
+    <storysig readit="n" hash="b0eecc99849d24f471a06b9169ec063a34b522eb"/>
+    <storysig readit="n" hash="c0fbc7a616199e46e7ba0dafe2e2f70c0d55ad92"/>
+    <storysig readit="n" hash="d459e8a9c0e0c9f9d88693a805b274288aa9af52"/>
+    <storysig readit="n" hash="df11a5a48172a0ae15c2777a1b3a4738e25c750b"/>
+    <storysig readit="n" hash="e53663b8cb2bf01efb935957c08f5709c1c798ee"/>
+    <storysig readit="n" hash="f05bc6bcc6e5f7d205e3e7a5ae291641c44d5893"/>
+   </feed>
+   <feed hash="11e6ff92409c91c3887623410dda1dfca80e1b69">
+    <language></language>
+    <xmlUrl>http://rss.csmonitor.com/feeds/csm</xmlUrl>
+    <title>Christian Science Monitor | All Stories</title>
+    <description>Read the front page stories of csmonitor.com.</description>
+    <imageUrl></imageUrl>
+    <nick>Christian Science Monitor | All Stories</nick>
+    <webUrl>http://www.csmonitor.com</webUrl>
+    <storysig readit="n" hash="04a84063a88aab607873021e0c66e46c4cc12a6c"/>
+    <storysig readit="n" hash="06ceb3b65603cf57c58bd9f1141a6b3ebf261bd1"/>
+    <storysig readit="n" hash="1556366d3149ac1ad25528890a35f69aa6658121"/>
+    <storysig readit="n" hash="22a4c92a3df7c6e5903a21132dadc7b916f19b1b"/>
+    <storysig readit="n" hash="22a6d744313e7312b79227905ae472b76b9865fc"/>
+    <storysig readit="n" hash="23dc8592d071b1613e964e12fed1dd1b8d16f39b"/>
+    <storysig readit="n" hash="264d50ee0a3e7086737505591dc715b132889756"/>
+    <storysig readit="n" hash="2f78a629ec3817ff33c7f7b9f023bffa8d21f35e"/>
+    <storysig readit="n" hash="377326607d51d8bfa3e71be6110a36876022b9b5"/>
+    <storysig readit="n" hash="3d8616f30cae7acfab1c3674d2fcc75ed535b39f"/>
+    <storysig readit="n" hash="4d2b564d7b829024f3a05dc2705ed947d7af5f69"/>
+    <storysig readit="n" hash="4db742e5bf661aad7460289a34d712ecf015a9d4"/>
+    <storysig readit="y" hash="5758bb0a792d3da39449637dcd13b5007b806cbf"/>
+    <storysig readit="n" hash="5a5d382f937044d032f1f8ef9c0b8a98b79c51e2"/>
+    <storysig readit="n" hash="5d69c5dd36c5315b158b609301a7ec1f87585f2b"/>
+    <storysig readit="n" hash="5db550d9983cac4617146c27a62591e87c769276"/>
+    <storysig readit="y" hash="6292b7af34d7c267df93fb8d3df582d859a8c78a"/>
+    <storysig readit="n" hash="7053762679ec4848d52f49214b8908bc33321c1f"/>
+    <storysig readit="n" hash="7500a1708b5647d1d8b568ae2292f3d4cf277de8"/>
+    <storysig readit="n" hash="7acd902398026a08dcb44939b69fb29971907ea4"/>
+    <storysig readit="n" hash="7eb05ffc80e331a4ede69b5bc8a827c0878d0120"/>
+    <storysig readit="n" hash="7fb50a63b5104333b033759b1027f75b47393871"/>
+    <storysig readit="n" hash="86a8efc6a2ae251eec42020e70bbd6a13fb9a923"/>
+    <storysig readit="n" hash="86e235d46770734120b598dec9ac740d5e7669ab"/>
+    <storysig readit="n" hash="8ef6c51e26b246711d1d979f5c6a1c6c7c9a14f0"/>
+    <storysig readit="n" hash="9654433ed60359615bf7a2c74e8e52f0eaf0dcdc"/>
+    <storysig readit="n" hash="97e14a96c4e2145c3ed456852a57e2ab61ae7e7f"/>
+    <storysig readit="n" hash="9bff1acd72a73a13ca836a64b4bf58c719868200"/>
+    <storysig readit="n" hash="a1ea47fcccbf7933e3779d33259359bb4cf6bd10"/>
+    <storysig readit="n" hash="a312d5594a90c833be78a4806ee6780a4218a3b7"/>
+    <storysig readit="n" hash="a84ad94d64c37a488e3e382cf2c39460e03c0de7"/>
+    <storysig readit="n" hash="aa78d94a965ea71635ffb05b774536724a72d3b7"/>
+    <storysig readit="n" hash="c77e0f25ab9d0e8fc23ebc972b4552ada1e26b06"/>
+    <storysig readit="n" hash="cf2e92763ba5c575502c195881dab1b39ba87e81"/>
+    <storysig readit="n" hash="d45c0f4706eec676e2b1b61734f8177bdcb199be"/>
+    <storysig readit="n" hash="d907cf89b60bdd90f55dde23e0333892edc2e2ee"/>
+    <storysig readit="n" hash="e0c22b8837345c3391b2e2c6cf9ac6139e79b0ff"/>
+    <storysig readit="n" hash="fb03c451708ce1630dad2f2ecdee00802c32ac0a"/>
+    <storysig readit="n" hash="ff41c7fa8cf746e9cd628b2ba0624b16338e8eea"/>
+    <storysig readit="n" hash="ffe075e4a717ba12004f66a6a76cffe10c891382"/>
+   </feed>
+   <feed hash="dc65e538988461d64d0ca6a189126a0c0868c1b8">
+    <language></language>
+    <xmlUrl>http://www.miamiherald.com/news/americas/index.xml</xmlUrl>
+    <title>MiamiHerald.com: Americas</title>
+    <description>News, sports and entertainment from MiamiHerald.com</description>
+    <imageUrl></imageUrl>
+    <nick>MiamiHerald.com: Americas</nick>
+    <webUrl>http://www.miamiherald.com/news/americas/index.html</webUrl>
+    <storysig readit="n" hash="08d586457c11e2fdc401ed453f502b4cb117da09"/>
+    <storysig readit="n" hash="08f4098cabec1fee470a69ca89f38c8edae65437"/>
+    <storysig readit="n" hash="0e485a637c77e1461491b6f9bb127ee9fea184bc"/>
+    <storysig readit="n" hash="0f57c16dfc13873c15dda7440f048441120a4773"/>
+    <storysig readit="n" hash="10a233e94e44c8dec3c4beb20795b2821badf78a"/>
+    <storysig readit="n" hash="10e022e570e6c3ca5a6500ad9ac5b8fddae7655a"/>
+    <storysig readit="n" hash="15b2b25e70eb782430006eb4bba8731104c2dfbf"/>
+    <storysig readit="n" hash="17733d43bf11eb932afa982f07dc216d8165a450"/>
+    <storysig readit="n" hash="19b588f85eb4ddadc67ecb6a9afd3694704046f0"/>
+    <storysig readit="n" hash="1ca512dfbf945f26d3661f90d5f8b86797ef2c52"/>
+    <storysig readit="n" hash="1ccfb9168d7985b678842ae485abdb4cc8af9ca9"/>
+    <storysig readit="n" hash="1f822f8d210cf4a06b2221a5d401aef9af9078f0"/>
+    <storysig readit="n" hash="2057addefad36dcdc47db622e9329aba390dd636"/>
+    <storysig readit="n" hash="2938c5cb8cea714bcf16cb6c7deae90cda19609b"/>
+    <storysig readit="n" hash="2a44ef8758d4a8180a71ac00f74cc1a34143105e"/>
+    <storysig readit="n" hash="2a6d2dbd1f716b8556edbf2263e5a8437eb23514"/>
+    <storysig readit="n" hash="308bd6169f51bc37be818e6162b558804b682c5e"/>
+    <storysig readit="n" hash="31483421494f76f5363bb1df14a3b6844fd523c5"/>
+    <storysig readit="n" hash="3524dce5a4337a1d3e94b7c70b636bf9575e415d"/>
+    <storysig readit="n" hash="433eb2fd03e8e5bfd816359024fcecf6109a8ccd"/>
+    <storysig readit="n" hash="470183aa06d155bd52a2c81e78cc507b2390bbd9"/>
+    <storysig readit="n" hash="4cf98cdff30f90ab0f3800a167a1534b00f4f494"/>
+    <storysig readit="n" hash="4f04a8c9c7f5ecef4941b5dca750f4336d7cadc5"/>
+    <storysig readit="n" hash="58685c94fdfcf329d8aee5cc89a982e339ec52ef"/>
+    <storysig readit="n" hash="5a6746dc55fb29090bca992ca147f1738fc76ddb"/>
+    <storysig readit="n" hash="5af979c22dc9da224ddb0a540c89a61d196597b8"/>
+    <storysig readit="n" hash="5d704236d52e40367bd727a2465e8164bba78b8a"/>
+    <storysig readit="n" hash="5df67cc727c14d9075216ed25987cf70cc62ccf0"/>
+    <storysig readit="n" hash="5fae8e8f66ed18ad2a31405472d171c780025216"/>
+    <storysig readit="n" hash="61c71c7ca48b18b36e5a64dcd8a939479c3972f7"/>
+    <storysig readit="n" hash="6747a48e8e14b78763ba9a084bfdd899024ba1f5"/>
+    <storysig readit="n" hash="68deb3a70feee2a1bb4ffba4d9a45d1f2b07790f"/>
+    <storysig readit="n" hash="6f44170b7ce605a9bcdc723c18de75c3808f1a04"/>
+    <storysig readit="n" hash="71545f7d1dcee4189f4a779b576fbddff2b66f7c"/>
+    <storysig readit="n" hash="719666f3c553e40585b73154498bf91d84a9dc99"/>
+    <storysig readit="n" hash="75b5b57f447098f384b15c2fefb89060c6896c17"/>
+    <storysig readit="n" hash="79691b97c79eb61d7b64536073d1d4591cc82fd5"/>
+    <storysig readit="n" hash="7c8e4f642a9dbdbf3faf34802cb8297d5a861dbf"/>
+    <storysig readit="n" hash="8734ec77a585dc6066ca79920c3d084189ada78c"/>
+    <storysig readit="y" hash="89d3857fc69255a0f4d754b84d1c7b8dbb1c9608"/>
+    <storysig readit="n" hash="8a943fa8e388386c266b82367f84137298ee58cb"/>
+    <storysig readit="n" hash="8d12565c172ca7a6b71fc88a3290ac3113cc5f90"/>
+    <storysig readit="n" hash="8d5e9cb60f3a2156bec0bcb320d487ae3a60350b"/>
+    <storysig readit="n" hash="8db57c7e1dba308625e602a374e6cde1dc3bb873"/>
+    <storysig readit="n" hash="8df024608efdd67b7b03c436fe13e65a8454423b"/>
+    <storysig readit="n" hash="8f2ab38a77ae40cd695dd1dc8efd6741acbd2f5b"/>
+    <storysig readit="n" hash="8fd0fbc6d5d4164eff5c062b8270bcfa4456302c"/>
+    <storysig readit="n" hash="91c85595bdf32a58f04e68f16738889f3a082d7c"/>
+    <storysig readit="n" hash="94a6d13934711dd5d80c2d1e0b25b7ae0942bf9e"/>
+    <storysig readit="n" hash="955eccb8957821f4235eef274cb3a82b4b829315"/>
+    <storysig readit="n" hash="9a33cdb34f6f871f273ee792e9b384d2a047b398"/>
+    <storysig readit="n" hash="9a95a6bffb5b4465904d43c837c2cb014c2ffd62"/>
+    <storysig readit="n" hash="9b526ab0997cd97f81c929358da442beb44be4b5"/>
+    <storysig readit="n" hash="a4a6ec343ff16517e08e8f77bfd226f6d27cb3ba"/>
+    <storysig readit="n" hash="a6d2315d7363129e5c175a3cf9a477d4f6291c78"/>
+    <storysig readit="n" hash="a99a6bc98ef7468fc565bfc6822b18dabb403342"/>
+    <storysig readit="n" hash="aa00d67081fdf83100bd56fdf92f21d0be6b2103"/>
+    <storysig readit="n" hash="af3303a9cae7b640de5767df6616b47c48b9f9b3"/>
+    <storysig readit="n" hash="b1a3df256cfd6d8d9faf2f072b736cf9879664dd"/>
+    <storysig readit="n" hash="bbd1b47816175aeb427737ec132408932d8a7d2c"/>
+    <storysig readit="n" hash="bc3ee37654a17ae759c2b3aae02a3831e91dfdfd"/>
+    <storysig readit="n" hash="bec14d935a04794ba53ad2ae15b2e54a111315e8"/>
+    <storysig readit="n" hash="bf74280d7718884a4efc5f26737466e1d94c8195"/>
+    <storysig readit="n" hash="bfbad5e65b283f25f7caf5a774fba225d4217ca2"/>
+    <storysig readit="n" hash="c23e382037d0ec7732613d0f1dc9f67ebd3b5118"/>
+    <storysig readit="n" hash="c57aa08201458659707feb54ff5a7b86f3c12c40"/>
+    <storysig readit="n" hash="cc499e5b4220618bcd20a5faf686d6bbdf084f8a"/>
+    <storysig readit="n" hash="cd0506230f2bc0f25274283f8c77f841ebd4ff19"/>
+    <storysig readit="n" hash="cdc38b9f900fa9b22073ff22191f551284306ebf"/>
+    <storysig readit="n" hash="cdf0a41728eb5cabfd4df05e2c726f602e3a90e2"/>
+    <storysig readit="n" hash="d1d441d5c93f7eb0112a465be009a036a8a932e7"/>
+    <storysig readit="n" hash="d1f75825e1d4282feba7d76e160883056b479872"/>
+    <storysig readit="n" hash="d25d52e78764dce5c0451df348205031eac155ad"/>
+    <storysig readit="y" hash="d294570f3b7d43adf5aa59e77e106efd8dc6bfd4"/>
+    <storysig readit="n" hash="d63a9752e45fc55919d8004acef98e9723af53fd"/>
+    <storysig readit="n" hash="d6fd55fbb9cfb8a9bc7cc2d88b9c710d5e81a0d9"/>
+    <storysig readit="n" hash="df6c180f34b43d47c3ff67848ced805ff82a12e7"/>
+    <storysig readit="n" hash="e29f565c1e6ca107438591a224c54b7e37ab22a4"/>
+    <storysig readit="n" hash="e4e6bcc3bac440c0ae2073b877343ffdfd53960d"/>
+    <storysig readit="n" hash="e6e32a7469c6db241a81bfff861a1b911fed7b0d"/>
+    <storysig readit="n" hash="e81d8ab7998ba3826e992b6b82e8786811e6335e"/>
+    <storysig readit="n" hash="e86bb9368af77ecc270a9d3da8eb76ef71eba6b5"/>
+    <storysig readit="n" hash="eb59ab1d03683cb749a656120eb929a55d11297d"/>
+    <storysig readit="n" hash="ec456977cb4ba3f5a21abb63ce3a4ad8f02fc557"/>
+    <storysig readit="n" hash="ef532e6810f21b99b462552fd513a244a297ffcb"/>
+    <storysig readit="n" hash="f94044ed436f552eba4fe78f39f4d8ee1835cc8f"/>
+    <storysig readit="n" hash="fc42e786c38fd6c784f275af58d038cdf032143d"/>
+    <storysig readit="n" hash="fd1758ab0ff0e0bc14df150cba581b06ae5f4410"/>
+   </feed>
+  </folder>
+  <folder name="Canada" hash="">
+   <feed hash="ccd825741a5a258c67cd2e228c61fe947526d1ab">
+    <language></language>
+    <xmlUrl>http://www.stcatharinesstandard.ca/rss/</xmlUrl>
+    <title>St. Catharines Standard</title>
+    <description>St. Catharines Standard</description>
+    <imageUrl></imageUrl>
+    <nick>St. Catharines Standard</nick>
+    <webUrl>http://www.stcatharinesstandard.ca</webUrl>
+    <storysig readit="n" hash="04dc01bb5fdda638adfa70250bfab759a329431a"/>
+    <storysig readit="y" hash="08bb05a91e5e0fe8bd1cb1f0352c970a2ccf10ec"/>
+    <storysig readit="n" hash="20d828fc75ae117c5e83a4cfe58c74181b59e733"/>
+    <storysig readit="n" hash="27e3dc77d9b1f651d8988ca5415078eda298deac"/>
+    <storysig readit="n" hash="2db50f7a1ad49ad528764ddfe98214341ab7d362"/>
+    <storysig readit="y" hash="38d869da35db622351a0b874dc14b7d25f045426"/>
+    <storysig readit="y" hash="3d44095ef2acce3a1efff5eab174fad0d6439fce"/>
+    <storysig readit="n" hash="454f80c53753e12877e94bb01878f38811dfb613"/>
+    <storysig readit="n" hash="5567f27c435884c40631693a0dc42bb2dfdb41ca"/>
+    <storysig readit="n" hash="569e003cb50bbb0ef0af7ce9076c9686e49c236c"/>
+    <storysig readit="n" hash="5a37faf0ee6eaea1aa521ec174fa314ed63b8020"/>
+    <storysig readit="n" hash="6ea5aaa0db51a6a7c6b498d19bab253ba0062829"/>
+    <storysig readit="n" hash="80627b5ae41c84df94056b29ce8716bbc64116a2"/>
+    <storysig readit="n" hash="8a892e5e3ab88c72fea4f29e283cb8250940f810"/>
+    <storysig readit="n" hash="98131444e84879ceef36ec8ad1a26895eda1025a"/>
+    <storysig readit="n" hash="9aad547ef2c85a2069898b014272064cccd0a942"/>
+    <storysig readit="n" hash="a11d8134cf60c636d3067dd33f1b4ff5ea931d22"/>
+    <storysig readit="y" hash="a2c2987ba0b43be5de4e4176d072ee822827381e"/>
+    <storysig readit="n" hash="aab8ae42e8c349499d6b6819bf8606a4a9a61093"/>
+    <storysig readit="n" hash="b00dfd2d09be864cdec88b9d6f6a97bfec3a0d8b"/>
+    <storysig readit="n" hash="bb5959509253033d3fb4f36e6580386f72ec498c"/>
+    <storysig readit="n" hash="c0523432fa53f6ff46185c750c845cdf3bf7c1d6"/>
+    <storysig readit="n" hash="c3ebc32bd8452185a63bd5bd89e1990a1d57934f"/>
+    <storysig readit="n" hash="c563f2b6e814517221db2f44ca9889cc66e58c61"/>
+    <storysig readit="n" hash="cfe0e18ce5a4f5777fcc5f24271a6a5e8d2d8cdc"/>
+    <storysig readit="n" hash="d0890358ca1ad3dd19882b447fe8c72d38e71612"/>
+    <storysig readit="n" hash="dc0f2ca40e8d256aca7c932e83b90668ad1a3708"/>
+    <storysig readit="n" hash="e0abb5b496adc4a0fab11822ecc29f8fe40f6a17"/>
+    <storysig readit="n" hash="e1deaaf0b13f9af8da85d4d30195545321bd7464"/>
+    <storysig readit="n" hash="eac604b1af7a8a6a3568d64bdfe6054adce13ed6"/>
+   </feed>
+   <feed hash="f43cacc0791bd114419182aaec0fbe72f4d85eab">
+    <language></language>
+    <xmlUrl>http://www.thestar.com/rss?categories=311</xmlUrl>
+    <title>thestar.com - Ontario</title>
+    <description>thestar.com - Ontario</description>
+    <imageUrl></imageUrl>
+    <nick>thestar.com - Ontario</nick>
+    <webUrl>http://www.thestar.com</webUrl>
+    <storysig readit="y" hash="10d0b8b0aa1c4635281d2802c5ba17497f8ae739"/>
+    <storysig readit="n" hash="34e0fac231ebdba88e7a7a0c725dd46b63b1f062"/>
+    <storysig readit="n" hash="4c57787e5efc2effb3358dd9587732b02f40f52e"/>
+    <storysig readit="n" hash="5098124a81480375e54598d99dd3ca7c3efbcd00"/>
+    <storysig readit="n" hash="69575c5532225d10c6c89dab4e02ce020463324e"/>
+    <storysig readit="n" hash="bf5d14092a523d0d8489cc70aef977e59d207a65"/>
+    <storysig readit="n" hash="c1f00570d18c68d57c8eea9ef4302144a058ad95"/>
+    <storysig readit="n" hash="eb534b2d9334998faf2d7bdad2749cd56599212e"/>
+    <storysig readit="n" hash="f72d1585b6f9c3453cb47e4721bb6d6e53d1bef7"/>
+    <storysig readit="n" hash="fd9f872809a6a14122bed02d941a97db88bc7a8a"/>
+   </feed>
+   <feed hash="408bf88569f97397eda4363f337281894e5d5e34">
+    <language></language>
+    <xmlUrl>http://www.theglobeandmail.com/news/national/ontario/?service=rss</xmlUrl>
+    <title>The Globe and Mail - Ontario RSS feed</title>
+    <description>The Globe and Mail - Ontario RSS feed</description>
+    <imageUrl></imageUrl>
+    <nick>The Globe and Mail - Ontario RSS feed</nick>
+    <webUrl>http://www.theglobeandmail.com/news/national/ontario/</webUrl>
+    <storysig readit="n" hash="29f321093c58cea0f83440e81ed651208c5ac58f"/>
+    <storysig readit="n" hash="2db6261e0e0cf324294311b9a0fdb6d8bf77fd21"/>
+    <storysig readit="n" hash="32e85ebdb1ce927572362f6f085eba39a476ca54"/>
+    <storysig readit="n" hash="4e35a8dc2d93ea4ede83f5c31eb23fdb2a3a0001"/>
+    <storysig readit="n" hash="61f6ea439d30a9a6c3b1fb5da12f8a098b4fd573"/>
+    <storysig readit="n" hash="6973e30cf8c04905640029fb00aa1e8c5ca2eb73"/>
+    <storysig readit="n" hash="705db230786b879bbe34f33f960faa40aa019d56"/>
+    <storysig readit="n" hash="73330461780d5ee0e0f53fba33748424ef0b23db"/>
+    <storysig readit="n" hash="78358cd5932702a635fed3ca65de063d368d40c7"/>
+    <storysig readit="n" hash="8fbf8cafaee5e28d9fa04edc4811b6b0ee340de9"/>
+    <storysig readit="n" hash="96b9095b1856a229e3f1fc699712b4acf8ba230d"/>
+    <storysig readit="y" hash="a45e7830c732d7b38773899d0988afa1250aea2c"/>
+    <storysig readit="n" hash="af697b476a611c1e2a4ef81c3d69fafbc43c211f"/>
+    <storysig readit="n" hash="e60f252e7bf4119a79ab87a3c762426aa3134411"/>
+    <storysig readit="n" hash="f4251aded1ddb4498c77b5286969f07d6b733c4e"/>
+   </feed>
+   <feed hash="6379c319dc046abb13f791f33e6ffd03e2ba7710">
+    <language></language>
+    <xmlUrl>http://www.theglobeandmail.com/news/national/?service=rss</xmlUrl>
+    <title>The Globe and Mail - National RSS feed</title>
+    <description>The Globe and Mail - National RSS feed</description>
+    <imageUrl></imageUrl>
+    <nick>The Globe and Mail - National RSS feed</nick>
+    <webUrl>http://www.theglobeandmail.com/news/national/</webUrl>
+    <storysig readit="n" hash="1629b095cc60a7dc1eb725b401c764891ee92389"/>
+    <storysig readit="n" hash="1df1231c780fdbaffc28ed03351b21bc8b522875"/>
+    <storysig readit="n" hash="2a59291f4e61ad99f9b4a2d2f287f0c69ac941d2"/>
+    <storysig readit="y" hash="358ea2df1a233b222d606d91791cf5dcbf47d5f3"/>
+    <storysig readit="n" hash="488ab3fcc2b55341fac56285f33ea4879ecdef30"/>
+    <storysig readit="y" hash="559e63fc8c1fb088337dece780ed8610e3146395"/>
+    <storysig readit="n" hash="571a86ff919c154ef7a81d48a3ad619f74b9c8f0"/>
+    <storysig readit="n" hash="66cd03fb85187bd13845f831e1154f5237e7832d"/>
+    <storysig readit="n" hash="8e583ce8455b6f1d1691a6b600d6e8511f8032c0"/>
+    <storysig readit="n" hash="9f09315139bbb388a0fa929e69b7792274739c47"/>
+    <storysig readit="n" hash="aad40b52100b231dad99d4da4e9002ce4e1338d7"/>
+    <storysig readit="n" hash="b746c6209a738905346bebe8bf06987460a1cb38"/>
+    <storysig readit="n" hash="f199a1409bd4c3aef271be34f6879e942e935870"/>
+    <storysig readit="n" hash="f598e4815112149c920ce71d1a37cd74a281ed13"/>
+    <storysig readit="n" hash="f833da80ceb23411b4556fbde3ad66966c24bf44"/>
+   </feed>
+   <feed hash="8cf3cead7678d116719f731f625b682b599266fc">
+    <language></language>
+    <xmlUrl>http://www.thestar.com/rss/97467?</xmlUrl>
+    <title>Canada Top Stories</title>
+    <description>Canada Top Stories</description>
+    <imageUrl></imageUrl>
+    <nick>To Star Canada Top Stories</nick>
+    <webUrl>http://www.thestar.com</webUrl>
+    <storysig readit="y" hash="2f31a4459917b6d5df3352f0b3097af2fa211930"/>
+    <storysig readit="n" hash="311c7f1ea92a165fd0847eee74eef3ee5f4cc7ae"/>
+    <storysig readit="n" hash="500d65713bf71e78f619666b4d062f6419211838"/>
+    <storysig readit="n" hash="5bc20cacb57099a30017e201bce3e9816303fbd1"/>
+   </feed>
+  </folder>
+ </folder>
+ <folder name="Weather" hash="">
+  <feed hash="cb54fe02c515a755166f2e9a82b1f424c284b2c7">
+   <language></language>
+   <xmlUrl>http://text.weatheroffice.gc.ca/rss/city/on-14_e.xml</xmlUrl>
+   <title>Welland - Weather - Environment Canada</title>
+   <description>Current weather conditions, forecasts and warnings for: Welland</description>
+   <imageUrl></imageUrl>
+   <nick>Welland Env Canada</nick>
+   <webUrl>http://www.weatheroffice.gc.ca</webUrl>
+   <storysig readit="n" hash="3a7e8764d0fbb6133e9981acc597d811a9566545"/>
+   <storysig readit="n" hash="533fd727e94f8c285a863dcc54401859a39bfb60"/>
+   <storysig readit="n" hash="643ada0531972b1f4a9868ffa7b3cf446f19ebac"/>
+   <storysig readit="n" hash="7730d37f3bb9c0a894ade3057b0b7ce63291b5a1"/>
+   <storysig readit="n" hash="803caf68b456f4cf2d10f70096a49b34d7b05e8e"/>
+   <storysig readit="n" hash="82788a86a9437f77baab20dbd56dd4a2c0d63817"/>
+   <storysig readit="n" hash="85ae650f754aec328dfc8264bb4376b719ed8078"/>
+   <storysig readit="y" hash="bbadf64ea61e95066fba2be3753382154d37980e"/>
+   <storysig readit="n" hash="db011235fb4fb8e626e74fd0bb28715a9a4a31dd"/>
+   <storysig readit="n" hash="df0f2eab12a442391e03f1b13465b957b0190d1e"/>
+  </feed>
+  <feed hash="2d8ee20a26aa7c4fd8ec3af7cf85757aad985b6d">
+   <language></language>
+   <xmlUrl>http://rss.theweathernetwork.com/weather/caon0736</xmlUrl>
+   <title>The Weather Network - Welland, Ontario</title>
+   <description>The Weather Network - Canada's number one source for weather information in both the cable and web spaces. </description>
+   <imageUrl></imageUrl>
+   <nick>TWN Welland</nick>
+   <webUrl>http://www.theweathernetwork.com/index.php?product=weather&amp;placecode=caon0736&amp;ref=current_obs</webUrl>
+   <storysig readit="n" hash="0cf438e9375974c74f45767c768551511284e656"/>
+   <storysig readit="n" hash="32e2e2b1e153c6522fe95b3ed0003964bbbb544d"/>
+   <storysig readit="n" hash="385ba27c4cbf8e2051e0dfae4adf1c1fdcf361a0"/>
+   <storysig readit="y" hash="ba316da0749a7354cc2e7c565cc4ecc97c94f104"/>
+  </feed>
+  <feed hash="8ad57ee888c65d26d993c0078350d968055502ed">
+   <language></language>
+   <xmlUrl>http://www.nhc.noaa.gov/gtwo.xml</xmlUrl>
+   <title>National Hurricane Center Graphical Tropical Weather Outlooks</title>
+   <description>National Hurricane Center Graphical Tropical Weather Outlooks</description>
+   <imageUrl></imageUrl>
+   <nick>Hurricanes from NOAA</nick>
+   <webUrl>http://www.nhc.noaa.gov/</webUrl>
+   <storysig readit="y" hash="0f81d623801635b42128483ef7d49fcc67f552a0"/>
+   <storysig readit="n" hash="a804e40bffd54f78e1d01768dc490340fc582127"/>
+  </feed>
+  <feed hash="89b3d328e50d7091d074fbd6116dfa0c3f4edf3f">
+   <language></language>
+   <xmlUrl>http://www.ec.gc.ca/scitech/default.asp?lang=En&amp;SyndFeed=DBB82193-0FA6-4641-AB57-C1BBD41ED987</xmlUrl>
+   <title>What's new in Environment Canada Science and Technology </title>
+   <description></description>
+   <imageUrl></imageUrl>
+   <nick>What's new in Environment Canada Science and Technology </nick>
+   <webUrl>http://www.ec.gc.ca/scitech/default.asp?lang=En&amp;SyndFeed=DBB82193-0FA6-4641-AB57-C1BBD41ED987</webUrl>
+   <storysig readit="n" hash="2561992efd4c3440bc111113cd887871bc148b3a"/>
+   <storysig readit="n" hash="827bbe78a52e5fd1e5a40a4154454ea60ad0d097"/>
+   <storysig readit="y" hash="9bffaf2c4367a1d3a47f06b30a8edd42236b5a0f"/>
+   <storysig readit="n" hash="ae507c6c14d98c33c4bc518242afa6b1e4ebbf67"/>
+   <storysig readit="n" hash="dcaa7731c83997252f346f73905e75abc2741791"/>
+  </feed>
+  <feed hash="2fa6619ad332af1e34e91b4da963b5eed97853fe">
+   <language></language>
+   <xmlUrl>http://www.spc.noaa.gov/products/spcrss.xml</xmlUrl>
+   <title>SPC Forecast Products</title>
+   <description>Storm Prediction Center</description>
+   <imageUrl></imageUrl>
+   <nick>SPC Forecast Products</nick>
+   <webUrl>http://www.spc.noaa.gov/</webUrl>
+   <storysig readit="n" hash="2d3ee5f2d7b6516e3d1a4f024171e48d23345bb7"/>
+   <storysig readit="n" hash="3a711331b0c1af42e0570395d6ad8d3406a2a735"/>
+   <storysig readit="y" hash="608345f680ca299b2ae46ad114eb336041390506"/>
+   <storysig readit="n" hash="8879e8b61739d3b472d1da01a1ae680237b57758"/>
+  </feed>
+  <feed hash="e351e6dd88659eaed8592c3b9baaf1f95abb97d5">
+   <language></language>
+   <xmlUrl>http://www.spc.noaa.gov/products/spcmdrss.xml</xmlUrl>
+   <title>SPC Mesoscale Discussions</title>
+   <description>Storm Prediction Center</description>
+   <imageUrl></imageUrl>
+   <nick>SPC Mesoscale Discussions</nick>
+   <webUrl>http://www.spc.noaa.gov/</webUrl>
+   <storysig readit="y" hash="844fc32f4943cfe6c82553c2b24178a5ac61a5fe"/>
+  </feed>
+ </folder>
+ <feed hash="15659e6dd1eab3d81ce9138892fa252eee56b089">
+  <language></language>
+  <xmlUrl>http://qt-apps.org/qt-apps-content.rdf</xmlUrl>
+  <title>Qt-Apps.org Content</title>
+  <description>Qt-Apps.org: New applications for Qt</description>
+  <imageUrl></imageUrl>
+  <nick>Qt-Apps.org Content</nick>
+  <webUrl>http://qt-apps.org</webUrl>
+  <storysig readit="n" hash="0144bcd12f9450553d2f651a7d11dfee3babc0b9"/>
+  <storysig readit="y" hash="0f706cdc8e01e195cbb7905e5cf07d87432f4ade"/>
+  <storysig readit="n" hash="1adfffcd76470b2a94c3dfcc08c50d30729ea95b"/>
+  <storysig readit="n" hash="381ec7eab7b344b5a14037362dc4092b34d1863c"/>
+  <storysig readit="n" hash="3b0a0d2193c78e7cb6269ab6f400048c4506a06f"/>
+  <storysig readit="n" hash="46cf837600242b304184ca9e83e827987e52762f"/>
+  <storysig readit="n" hash="514af2cbb399dd7c0aa341d8ed8156ee573f2591"/>
+  <storysig readit="n" hash="53314ec626a26712dac474bb35e1d6f20baf65b7"/>
+  <storysig readit="n" hash="6c0db25d5061f105f1e38914ad74e9d16f9bd3a1"/>
+  <storysig readit="n" hash="73d227b0e27dcb50926c20319b471a43a842fc61"/>
+  <storysig readit="n" hash="8af1debc252c79b728687b45ee9840071511e9a0"/>
+  <storysig readit="n" hash="8ed1cb5af18424d84f135cecfa5b015a5264d337"/>
+  <storysig readit="n" hash="925cd4585fd78fb837dd2d16f96850ff10939eba"/>
+  <storysig readit="n" hash="a0537109c6601ebb5f9fb6d36c8cf02e30efd11f"/>
+  <storysig readit="n" hash="a3306be78bef22690062cdb1f8286a520f03fc3a"/>
+  <storysig readit="n" hash="a3cac1e5ee2904bb36f9179490c4860d5a1c4ad9"/>
+  <storysig readit="n" hash="a9345676ff01af069022189d299716b8b3e3ca0c"/>
+  <storysig readit="n" hash="bd9d9b2f4473f6eedb30f169923dd22816ce11d2"/>
+  <storysig readit="n" hash="c1751c81f28cdc06b7f1f9a0c96c02c14b85f805"/>
+  <storysig readit="n" hash="d8e8eb920b0f238b5072e3d490449524e9ec792b"/>
+ </feed>
+ <feed hash="cf1b2ec8b60f88c39b7292e49ada582234e16076">
+  <language></language>
+  <xmlUrl>http://feeds.feedburner.com/blogspot/tRaA?format=xml</xmlUrl>
+  <title>Google Analytics Blog</title>
+  <description>The latest news, tips and resources straight from the Google Analytics team.</description>
+  <imageUrl></imageUrl>
+  <nick>Google Analytics Blog</nick>
+  <webUrl>http://www.blogger.com/feeds/3580069/posts/default?start-index=26&amp;max-results=25&amp;redirect=false&amp;v=2</webUrl>
+  <storysig readit="y" hash="15d574d571bfd33283b5ed0cb9b243f55387a1bf"/>
+  <storysig readit="y" hash="16b5962ce3806a8a244856cb3cd1bbc7ff10abf5"/>
+  <storysig readit="n" hash="1c92aaf2af0d35126c939b5bdf4717fd2b903d3f"/>
+  <storysig readit="y" hash="1d71bc2c8a486f493f55e9a1df8fef6912310ac9"/>
+  <storysig readit="y" hash="2936dbb6e78487047c05d16aecd0300fff953550"/>
+  <storysig readit="n" hash="2bd28762e75529b4b3e14df9409bb6b796bc39d6"/>
+  <storysig readit="y" hash="36b262376e77f039f775a7ebec64d0c384b6d72c"/>
+  <storysig readit="y" hash="38314516dff392f71f035aeaa241c4d69cbb7e1b"/>
+  <storysig readit="y" hash="41251bf90f2f04d136707a859ffb038d4196ff99"/>
+  <storysig readit="y" hash="45f425f8ee48b1aa2c343fc42479b4343ada06a4"/>
+  <storysig readit="n" hash="52f30336f684862a1143aa7982d8c7a128c6ecd0"/>
+  <storysig readit="n" hash="5c4018548735da38bc8daa1abb8b34c371192e91"/>
+  <storysig readit="y" hash="72d59c80ec749971e8a57ea0186ab75b41d57ae3"/>
+  <storysig readit="y" hash="80cda947cff47f53d5b76e9d4e9ed8ca820dabc9"/>
+  <storysig readit="n" hash="8102dd109e86f077374d4114acb7b4b97958afec"/>
+  <storysig readit="y" hash="917a5886e9224b5b286b2e6ae7206d40a3d1dd78"/>
+  <storysig readit="y" hash="9e6b49b2521cc37fe8252f7e4ec39f5910dac6cf"/>
+  <storysig readit="y" hash="a087fd5548d09552cdd54ca53606f9d1ad96ea64"/>
+  <storysig readit="y" hash="acd68bb82c86f64cf526b2796e513a9bbcc872e1"/>
+  <storysig readit="y" hash="b4c98031099ddef01ee050017315c9550f511461"/>
+  <storysig readit="y" hash="b839eef9c0ffc5a5ff8cb632a87c26b5f6ffd1fb"/>
+  <storysig readit="y" hash="ce0bc04146182b15a98e7a59829ccc9a091f3a89"/>
+  <storysig readit="y" hash="e955c2a5519b065679cb4347f22d2eb3e8b4bc86"/>
+  <storysig readit="y" hash="eed3d4ab3f501a57c2ec4f11816b587c93459dd4"/>
+  <storysig readit="y" hash="fb1051de5e4d682e3ad13163ed04c281fac2ff8c"/>
+ </feed>
+ <folder name="SF, OBS, &amp; Co" hash="">
+  <feed hash="637eceb3b097bf9e07eff58b8e0763740c2f6026">
+   <language></language>
+   <xmlUrl>https://hermes.opensuse.org/feeds/25545.rdf</xmlUrl>
+   <title>OBS New Packages created</title>
+   <description>openSUSE Hermes RSS Feed for subscription: OBS New Packages created</description>
+   <imageUrl></imageUrl>
+   <nick>OBS New Packages created</nick>
+   <webUrl>http://hermes.opensuse.org/feeds</webUrl>
+   <storysig readit="n" hash="02cbab6078b86b0bec528136857baa9ed52d2a6d"/>
+   <storysig readit="n" hash="0eba8ca1eb1314db277e3823a643c4a908cc1481"/>
+   <storysig readit="n" hash="0f796d9194770b7e04916a3ea968cc0dc49726ac"/>
+   <storysig readit="n" hash="11d68fe4127cb0eb31b1a52cd7ba39d997db7f03"/>
+   <storysig readit="n" hash="150631ed75aed0f8e220e28089190a7d473cf826"/>
+   <storysig readit="n" hash="188781c726f0a5e2a63f84ab5687480c30fd1d6f"/>
+   <storysig readit="n" hash="197b80e9b3f43aa363005df3508413494909dabe"/>
+   <storysig readit="n" hash="1abb59f16540bb7d7d602d0b69d8617123816a31"/>
+   <storysig readit="n" hash="1bba6cec42d4deefa3745c52a3e511dfb1d38d97"/>
+   <storysig readit="n" hash="1cac6fdecf2fd4507cb950a20b411a337130f325"/>
+   <storysig readit="n" hash="1e01a11fc74a4b892dcbf7031599617d4ffb8abf"/>
+   <storysig readit="n" hash="25866463ff5bc7a9d0f01ab3f4e67917c8455019"/>
+   <storysig readit="n" hash="270da95cfb75f5e267e2eea6096c33d23dea655e"/>
+   <storysig readit="n" hash="28b0018237c384371626cc0e4e868cffaa2cabe1"/>
+   <storysig readit="n" hash="2a2492c559865f665011def7cfb44416c8ca7be6"/>
+   <storysig readit="n" hash="2b265468e65cb1f2fb91c8062f2aad96b8538b8a"/>
+   <storysig readit="n" hash="2ca6dfae21214f77b0752dc69e1e95c2b7fa0253"/>
+   <storysig readit="n" hash="2f8eb4c6ebaca7639af34ca6e642f1da1fb53e32"/>
+   <storysig readit="n" hash="30f35802ff07559eda76db054f8b3866bfb5d2f4"/>
+   <storysig readit="n" hash="31af831563bce727258c76e2d0dbf25dd7877259"/>
+   <storysig readit="n" hash="381db2b35baced65c7b3c572b25927aa16af8584"/>
+   <storysig readit="n" hash="39017f1bf3e8a675c21cb728867a198da50b437d"/>
+   <storysig readit="n" hash="3a39ad94a5869bd2b0e032617fe8657ccd259ec8"/>
+   <storysig readit="n" hash="3b7bbe62fc4f29ece89ce4bf6848af29b7d4a5db"/>
+   <storysig readit="n" hash="3db9fa0457dacbab434dd67e3ac8f56bf0b97c58"/>
+   <storysig readit="n" hash="461cebb47fab21739fa3a6f0d7e280dcd413112b"/>
+   <storysig readit="n" hash="46441ee22b99abedcc5c64405f4d4bd8633c2632"/>
+   <storysig readit="n" hash="49a8bf06e5094caca6412dd09408523733e14a9b"/>
+   <storysig readit="n" hash="4c1549ce4f5a1ad456c35a4721c22d931530bb1c"/>
+   <storysig readit="n" hash="4c1d65ec65be59fa096f02620007562e4e1945e1"/>
+   <storysig readit="n" hash="4f23d314c6b2d9cfb0f4e3ef62a5e59380475974"/>
+   <storysig readit="n" hash="4fc45bb910a827f4217ee442ad25750398fb1c8f"/>
+   <storysig readit="n" hash="56b00ebf0b082774b6372ddd232cbf8812bb545a"/>
+   <storysig readit="n" hash="56b9856c6152bdde20980374fdba5e044bfc72ca"/>
+   <storysig readit="n" hash="5951c7385e1accc0339788dfa3e4eef53e3cbde3"/>
+   <storysig readit="n" hash="59f35b6397322d522ca4f548c8e63b9a92564051"/>
+   <storysig readit="n" hash="5b2811cf3d1eb0f7586f7c0563f3d0361c0931f0"/>
+   <storysig readit="n" hash="5dcae20d236182ae70c5572b4e785b00a114c85d"/>
+   <storysig readit="n" hash="5dfb1ed0d6c15d4b4d46fa21bd3a9944b6174e73"/>
+   <storysig readit="n" hash="60d009caf655f9c8c22e9b2e5a68ae11d01d9014"/>
+   <storysig readit="n" hash="66a174181566aca6ef0639fd29dac622303c9990"/>
+   <storysig readit="n" hash="6985407ade126a6021f2da8d8a3637938ace4201"/>
+   <storysig readit="n" hash="6aeb44d007b8f4bcdd593bcb7b13f1ef3ab6baac"/>
+   <storysig readit="n" hash="6be98bcbc1df5838f5723d3a1dedfcbbcd244495"/>
+   <storysig readit="n" hash="6f5c5e32c9fa1de765673d80487d1215f4255bb1"/>
+   <storysig readit="n" hash="712e3f27626872ba4fd9ff88b6bcdef44808ed01"/>
+   <storysig readit="n" hash="71c1186b65ee3c5478dd38c4656aabd962f03041"/>
+   <storysig readit="n" hash="7403745631127b00801f497aa0361c30a946a047"/>
+   <storysig readit="n" hash="7536d27ec8bdb33236cccea7dcc4e9cd3535c2e3"/>
+   <storysig readit="n" hash="76c6f242c60776366ebcb968bab30a0beb3dabfe"/>
+   <storysig readit="n" hash="79e0cf6645ce8b557d2bfec824fbd685d08127ba"/>
+   <storysig readit="n" hash="7a2ce76718b31b60cd8a302ac8cd75b4c22823b6"/>
+   <storysig readit="n" hash="7afb3ec91c31c8fa2f4f1b3d06cf9ec977faf92c"/>
+   <storysig readit="n" hash="7d8d176791d8a99e6a4837439390f59c2d60eb12"/>
+   <storysig readit="n" hash="8309497dcbe74bf18be6f2a3061edfe2937e4605"/>
+   <storysig readit="n" hash="87a5add243f5ad285005d5894bdf19c2fb7317b6"/>
+   <storysig readit="n" hash="8b3787d6477cf9d1607a44d8830ffd6ea503dd39"/>
+   <storysig readit="n" hash="8bafbfe87f31cc7c54ae15bac1b9c0e5d399ab1a"/>
+   <storysig readit="n" hash="8c246b40e2cb0fe452cb4168cb61bd4a6465f730"/>
+   <storysig readit="n" hash="8e4a611225c17c1715913426d180b9b865d45750"/>
+   <storysig readit="n" hash="9059a36151dd45f611c1880643a186278264cae5"/>
+   <storysig readit="n" hash="90fa0cb6cb9a05e0e5c93afbdd913f16514b1aa7"/>
+   <storysig readit="n" hash="91b30d7ee4e082af408c231fcf5977dfabe99333"/>
+   <storysig readit="n" hash="9759998c74821a3219b3911ec47b87a55bda1f40"/>
+   <storysig readit="y" hash="98f329239b04b19e72de57ed05c00256ee1e0499"/>
+   <storysig readit="n" hash="99f7fce66dc1fe1e127ca73e28c03fa5631d32b8"/>
+   <storysig readit="n" hash="9b761accaabff53c7c7a17e4160c175afaea472c"/>
+   <storysig readit="n" hash="a5ec051724da3824790d16ab1f56370e5cf27b75"/>
+   <storysig readit="n" hash="ab0bc3e0e261ff4fdefc2b9b58f6180ebfc6eb3c"/>
+   <storysig readit="n" hash="ae65c3a2e067c63c431ad263d2521af4fa7cf2a2"/>
+   <storysig readit="n" hash="ae876cacc5fe0b66f44b2eced1ed4b5be06c5101"/>
+   <storysig readit="n" hash="af94b77d9cafa0814ec976a8d560f82cc7cbfbc2"/>
+   <storysig readit="n" hash="b0aaadbbd1c5eea228a82eef8153576313ead9e3"/>
+   <storysig readit="n" hash="b3da67543d70d82ccf74bd42bf53dcf32ca08a90"/>
+   <storysig readit="n" hash="b446be4db2b994a00aac2d29147fa2997185c925"/>
+   <storysig readit="n" hash="b4831646507ad8d1da60f504cb9e1365402f7453"/>
+   <storysig readit="n" hash="bdf1c693a77d5bed30bbf24c1f50db97cd5c37ba"/>
+   <storysig readit="n" hash="c46ccb191f8e779ef6360154e6ef42a2123cb586"/>
+   <storysig readit="n" hash="c74052930c851372bcaa1c9b0dad8f331f612da8"/>
+   <storysig readit="n" hash="c75de594b5ebad6408aa698b90a34651f1077888"/>
+   <storysig readit="n" hash="ccaf287b9400fa586e605922083d54839c5c40e1"/>
+   <storysig readit="n" hash="ceaacd1be950b0559f46335da5d0f62ae46c991f"/>
+   <storysig readit="n" hash="ceeedf32d3c4c8dfe10ea06114f0c8d7cedab17a"/>
+   <storysig readit="n" hash="cf4bd0b92d36016c196da1dfbcbf4d9b2998d890"/>
+   <storysig readit="n" hash="d70dede482ea7d942f6443db25f6265cdef9e87f"/>
+   <storysig readit="n" hash="d7829e56a1ebb47e645f931fed4b6279d935d909"/>
+   <storysig readit="n" hash="d7af72a7ad26c497fcb2db9570fb105f7a2074f3"/>
+   <storysig readit="n" hash="d84acf797f1f1cb10ed85849b05e45b26e6c9ede"/>
+   <storysig readit="n" hash="d985f1470796543361aca3c1b956b43e210477c1"/>
+   <storysig readit="n" hash="de945c9d227edbcd1c4c4d6f5ce530845fa067bd"/>
+   <storysig readit="n" hash="e1ab4d62a9cbc76688c5845a92b46f9194dbc5a0"/>
+   <storysig readit="n" hash="e37391bc5c8c317c8823b5cb777aa6aa729fb7e3"/>
+   <storysig readit="n" hash="e9888366f1177f98adb88ca30201ef88cd3d1914"/>
+   <storysig readit="n" hash="e9daa27833ce483735734f65eb129c479983d2f4"/>
+   <storysig readit="n" hash="eb82ee5d31cfda8babb63a651e03e4855093ec85"/>
+   <storysig readit="n" hash="ef6ca5f4a326c392d1df4991651d07960a20da06"/>
+   <storysig readit="n" hash="f32dc0c28f54535f1611381239f298c4099a7305"/>
+   <storysig readit="n" hash="f7acbc0296ef24c66edcf65e40ac3242571e71aa"/>
+   <storysig readit="n" hash="ff14f6af8ef5e546160204a486d60aa888b141dc"/>
+  </feed>
+  <feed hash="0ba6d05efa99ac23704042a695221c8622607064">
+   <language></language>
+   <xmlUrl>http://sourceforge.net/api/file/index/project-id/294061/rss</xmlUrl>
+   <title>DRSS downloads</title>
+   <description>Files from DRSS. A simple RSS news reader for Linux and Windows.</description>
+   <imageUrl></imageUrl>
+   <nick>DRSS downloads</nick>
+   <webUrl>http://sourceforge.net/api/file/index/project-id/294061/rss</webUrl>
+   <storysig readit="y" hash="1e872d93cea672a3cd3bc7521c80c54047f8e531"/>
+   <storysig readit="y" hash="1ec9d07a71da62db708858bbf13fec696c8a729e"/>
+   <storysig readit="y" hash="20753b8edfded4216747df49417b6bb1527bcf29"/>
+   <storysig readit="y" hash="2d7623284719aaa0eeef6a245f39fbbdc7f81347"/>
+   <storysig readit="y" hash="678d2410137e1d2cee4b0535ec514095ae598fe3"/>
+   <storysig readit="y" hash="6be29ced900382ce1ad6b8a8da5530074afd5be6"/>
+   <storysig readit="y" hash="71ae6f77585ead9a77c23bc716ccc906db1533bc"/>
+   <storysig readit="y" hash="72c3809c26d02f90c88e77dbe4fe3f65f556bc7d"/>
+   <storysig readit="y" hash="8202606a6d39e7550760a4623df8a48e2af20914"/>
+   <storysig readit="y" hash="84f78510994fcde681a7ae0002fc59c33ddbc73b"/>
+   <storysig readit="y" hash="a6aa2d4841f8108bb743df21ab7edcc8e6e34234"/>
+   <storysig readit="n" hash="adf2f4561888252a6f6e5f02c17b45df442191ff"/>
+   <storysig readit="y" hash="cd8a6c9faa70cf18a41784af6060f25912c0594c"/>
+   <storysig readit="y" hash="e15c827b358d9fd28a0de4d7d7ba1ba413e722ac"/>
+  </feed>
+  <feed hash="af50a269b824fb24fea2eff2070d05f1fba5a468">
+   <language></language>
+   <xmlUrl>http://sourceforge.net/export/rss2_keepsake.php?group_id=294061</xmlUrl>
+   <title>SourceForge.net - Recent activity for project: drss</title>
+   <description>Recent activity for the project drss</description>
+   <imageUrl></imageUrl>
+   <nick>Activity drss</nick>
+   <webUrl>http://sourceforge.net/export/rss2_keepsake.php?group_id=294061</webUrl>
+   <storysig readit="y" hash="65e60bf868c9e32a2171bd89de8ebe89d1c19144"/>
+  </feed>
+  <feed hash="da39a3ee5e6b4b0d3255bfef95601890afd80709">
+   <language></language>
+   <xmlUrl>http://sourceforge.net/projects/drss/reviews_feed.rss</xmlUrl>
+   <title>Project Reviews for DRSS</title>
+   <description>Project Reviews for DRSS</description>
+   <imageUrl></imageUrl>
+   <nick>Project Reviews for DRSS</nick>
+   <webUrl>http://sourceforge.net/projects/drss/</webUrl>
+  </feed>
+  <feed hash="3ab7d2eb329951ad8c147783aeac8ddb456ec431">
+   <language></language>
+   <xmlUrl>http://drss.git.sourceforge.net/git/gitweb.cgi?p=drss/drss;a=rss</xmlUrl>
+   <title>SourceForge - drss/drss/rss log</title>
+   <description>drss git log</description>
+   <imageUrl></imageUrl>
+   <nick>DRSS Git Log</nick>
+   <webUrl>http://drss.git.sourceforge.net/git/gitweb.cgi?p=drss/drss;a=summary</webUrl>
+   <storysig readit="y" hash="11f346b333df3f837750759e9babaa3d7c5da3e9"/>
+   <storysig readit="y" hash="191ac7a114aa9bdec760fb11d3fae26ecae810bf"/>
+   <storysig readit="y" hash="23e7641b6d9d3797f6cad8172462e46bbfcce33b"/>
+   <storysig readit="y" hash="2c95e9e2633e69ff58e42bce6e54488e2c5fb93a"/>
+   <storysig readit="y" hash="404d881ae9cd35ac08c108458faec9c3dfef0f74"/>
+   <storysig readit="y" hash="4d8ce4eb9a796f353267ff5402cbfddba69dc222"/>
+   <storysig readit="n" hash="4e9219d05f5b03ab239256ddafa49e47f22f872e"/>
+   <storysig readit="y" hash="504a9ffa9afaf75a8c34c1722f161a620a03a055"/>
+   <storysig readit="y" hash="614a46a8ab2effe2d8e22c6f96dd4ef8aeb8f728"/>
+   <storysig readit="y" hash="633a414cd0fd9477fd891f65dbd6d36f70169020"/>
+   <storysig readit="n" hash="67ea7f5d6b14e93ab39a07e593277e07c58f69cc"/>
+   <storysig readit="y" hash="6dbd65717317e6ab3e4ec2bf36643d54c94ae5a7"/>
+   <storysig readit="y" hash="6fce1dddaf3c1925cce96c345d23b855aa794c67"/>
+   <storysig readit="y" hash="761f9fe6ec4f9c01a50380a79a1a293834f2a30e"/>
+   <storysig readit="y" hash="917b9039b0bc5cfccf4d4e98d6174fb8fbc31821"/>
+   <storysig readit="n" hash="aea7e08a055982f97bfaa1bd5610c161cdd182c0"/>
+   <storysig readit="n" hash="bfbc6e43debc72ccb154f3e6bb208a42721ab601"/>
+   <storysig readit="y" hash="d3828021c653da2b8d5466305dc5ff61628fbc28"/>
+   <storysig readit="y" hash="e5a390731b450b459109ff5c012d067893b920f3"/>
+   <storysig readit="y" hash="f8d4fca46eed617cef797eb19e1ea9c8e25b137b"/>
+  </feed>
+  <feed hash="da39a3ee5e6b4b0d3255bfef95601890afd80709">
+   <language></language>
+   <xmlUrl>https://sourceforge.net/export/rss2_keepsake.php?group_id=332142</xmlUrl>
+   <title>SourceForge.net - Recent activity for project: egalite</title>
+   <description>Recent activity for the project egalite</description>
+   <imageUrl></imageUrl>
+   <nick>Egalite SF.net</nick>
+   <webUrl>http://sourceforge.net/export/rss2_keepsake.php?group_id=332142</webUrl>
+  </feed>
+ </folder>
+ <feed hash="b743b1a6353ecb495ec2ad14dd80144454452846">
+  <language></language>
+  <xmlUrl>http://rss.cnn.com/rss/cnn_world.rss</xmlUrl>
+  <title>CNN.com - World</title>
+  <description>CNN.com delivers up-to-the-minute news and information on the latest top stories, weather, entertainment, politics and more.</description>
+  <imageUrl></imageUrl>
+  <nick>CNN.com - World</nick>
+  <webUrl>http://www.cnn.com/WORLD/?eref=rss_world</webUrl>
+  <storysig readit="y" hash="0c56cf68c9e276d1cfaeb7567d94a6e48cbe7e91"/>
+  <storysig readit="n" hash="156889df147cb5f1b02194a3fb73608a306c803b"/>
+  <storysig readit="n" hash="419a4a06ff5f3c5ecc150710ed2111167719e1e6"/>
+  <storysig readit="n" hash="4a8e67a2a2c5e6986a719b713f3712d006064d78"/>
+  <storysig readit="y" hash="88f3cfd18e687f36113d695fd86b8f7765271f8d"/>
+  <storysig readit="y" hash="92749c9bf5f1c7a924093de57ef55e429de157ac"/>
+  <storysig readit="n" hash="b73edb8f25ce3133f1fa74a3c448ef66753e7784"/>
+  <storysig readit="n" hash="c0b16887ef311fc6c8a8b3c715090af9f0475fdd"/>
+  <storysig readit="y" hash="c61eb878a4bc1a8b92a32427a7bb8b647b05b30d"/>
+  <storysig readit="y" hash="dbb6940fc85b644d7496e2a779daee18eb816787"/>
+ </feed>
+ <folder name="Official Feeds" hash="">
+  <feed hash="da39a3ee5e6b4b0d3255bfef95601890afd80709">
+   <language></language>
+   <xmlUrl>http://www.whitehouse.gov/feed/blog</xmlUrl>
+   <title>White House.gov Blog Feed</title>
+   <description></description>
+   <imageUrl></imageUrl>
+   <nick>White House.gov Blog Feed</nick>
+   <webUrl>http://www.whitehouse.gov/blog</webUrl>
+  </feed>
+  <feed hash="70dc5c365814f3f850cfabf7920c70f0161a1fea">
+   <language></language>
+   <xmlUrl>http://www.whitehouse.gov/feed/press</xmlUrl>
+   <title>White House.gov Press Office Feed</title>
+   <description></description>
+   <imageUrl></imageUrl>
+   <nick>White House.gov Press Office Feed</nick>
+   <webUrl>http://www.whitehouse.gov/feed/press/%2A</webUrl>
+   <storysig readit="n" hash="1172757b4543465135950e5afcff6950ca00d0df"/>
+   <storysig readit="n" hash="125b1e6ba1d716b59a539029321f42095b403b75"/>
+   <storysig readit="n" hash="1581dd8a5d2aed080d469f8365311e082a5a3175"/>
+   <storysig readit="n" hash="1cf4bf1b9998ec8176348df53d30a474721900a4"/>
+   <storysig readit="n" hash="21fb817f3dd1f46f512dc769b5279513473b9851"/>
+   <storysig readit="n" hash="3054b30d195e46b82b01ec3431d1b1677405ffb2"/>
+   <storysig readit="n" hash="31f58bdb466f11057418b344bbd04929cf35b960"/>
+   <storysig readit="n" hash="3f34eb776785071bf6a2576da6570bff4b24a7cf"/>
+   <storysig readit="n" hash="41291dc74cd1f6114d137a915ca144262384b156"/>
+   <storysig readit="n" hash="492b21e430239810e52955d1366756380de2ff47"/>
+   <storysig readit="n" hash="6067b99d71abf386dca747246944db1a97eaa6db"/>
+   <storysig readit="n" hash="61fbc45e94d1e76127cf12885ef6f76bee79faf7"/>
+   <storysig readit="n" hash="6ab1d815b5963e88e0ad2c83313f5234e7891572"/>
+   <storysig readit="n" hash="6c13a329c7e0bbfbc2f38e3b05f3c52785a3f974"/>
+   <storysig readit="n" hash="6c2cbdaecb7d4a844523f70a3cd51802c526b350"/>
+   <storysig readit="n" hash="751b31cde10d02d848c57f24a92836b3665ca30a"/>
+   <storysig readit="n" hash="76367efe56ea0725561320d14e32dde4f28f7a59"/>
+   <storysig readit="n" hash="76dac0e85bf6ed1edf9d0d41a011f784568aa3dd"/>
+   <storysig readit="n" hash="797b96d22ef5e12ac541999c7ac8e576f8b7e773"/>
+   <storysig readit="n" hash="84b08e27220d752c223b6d2a970ba994fce084aa"/>
+   <storysig readit="n" hash="903dc20162cab860a248c0cc43b2dd55de5fc126"/>
+   <storysig readit="n" hash="a13487f7e0afee6388def53c7fbb72cd9283b8ab"/>
+   <storysig readit="n" hash="a8a582796db50bd6c9c8873dc746d70e63688416"/>
+   <storysig readit="n" hash="d3d61a68f3f4c604eb57ed6c65122d1fd0d6fa17"/>
+   <storysig readit="n" hash="d83aa628ad4de73f5bd77886ad6d2e33b59ce37a"/>
+   <storysig readit="n" hash="df2c613914e08ccca96b47885e6d0a59f294f44f"/>
+   <storysig readit="n" hash="e30d4fbc2123043155369fef2109721295ec3492"/>
+   <storysig readit="n" hash="f4d1145e87d00456e786e5555f5b28c0fc818634"/>
+   <storysig readit="n" hash="f5d8cf16102b9239fa349b9a879bac45db898e3e"/>
+   <storysig readit="y" hash="f8e60436936048dcfef6efe1e685e2bc5668f65a"/>
+  </feed>
+  <feed hash="71c521d817b3e71d12d24902cffb3ba1460782db">
+   <language></language>
+   <xmlUrl>http://www.pm.gc.ca/RSSFeeds/news/Notices_e.xml</xmlUrl>
+   <title>Stephen Harper / Prime Minister</title>
+   <description>Stephen Harper / Prime Minister</description>
+   <imageUrl></imageUrl>
+   <nick>Stephen Harper / Prime Minister</nick>
+   <webUrl>http://pm.gc.ca/</webUrl>
+   <storysig readit="y" hash="0a5e58d24e47eb49aed5294d4d6333c36ce2142e"/>
+   <storysig readit="y" hash="14c8b234326607a84227919368dc4eebf952c843"/>
+   <storysig readit="y" hash="1a665f41dd063f853053d397fa6fda52726fa410"/>
+   <storysig readit="y" hash="2e18443139cb3bea18ef580382659a62379c453e"/>
+   <storysig readit="y" hash="3d162ff1e7dc8858ec08d0d1cbebed90b4fb03a1"/>
+   <storysig readit="y" hash="4003bace7fe98364ad61244c272020515a8a4ef8"/>
+   <storysig readit="y" hash="4255a4354e48104a38dba7bab68a440390d97846"/>
+   <storysig readit="y" hash="4453d65ea80ab12bd20c6aaa4efeeac3b307fca9"/>
+   <storysig readit="y" hash="49fd2a499d9cdced8e3a71717605f89ddb639f0c"/>
+   <storysig readit="y" hash="5b81aa0ef3c4f818a9506dcae69bc8d1104cb44f"/>
+   <storysig readit="y" hash="5e5714cc024fb76744c855b8c2d0211c151d1e14"/>
+   <storysig readit="y" hash="64514f313fe5ecbcddcd5eda21c5153c4eda742d"/>
+   <storysig readit="y" hash="6b3906ca93a7b2baa98847b37f642470634f9a84"/>
+   <storysig readit="y" hash="761d3c677a3df71b690ecb7c248d0309396a41f7"/>
+   <storysig readit="y" hash="795922fd24977128806f02ba4cf1002f2013487f"/>
+   <storysig readit="y" hash="90895456e2cde4f38617b5e0d72e9cb295dbb80d"/>
+   <storysig readit="y" hash="913b75e56299ae70bcf5ef74c0fe93d085af7908"/>
+   <storysig readit="y" hash="a13aa07c8cc3b75a587a6058e844ed94d5b26c4b"/>
+   <storysig readit="y" hash="a74e90098ba62f49205b7797cc84fe8a759b6027"/>
+   <storysig readit="y" hash="aec1e92265bbd9df703eab203d76ad541fd7d809"/>
+   <storysig readit="y" hash="b90df15078f5640138d47991353d91410dfbff10"/>
+   <storysig readit="y" hash="bc996a65f09e4a4140bb78e015e2e792afb83d88"/>
+   <storysig readit="y" hash="c4669635a8ebfa70b69a81ac0b1d6434afb15d40"/>
+   <storysig readit="y" hash="c5326ad3f58e89b0ee380309706c831bcea6808c"/>
+   <storysig readit="y" hash="dca63c0d78085da54e054548d7ae77e1361c35c0"/>
+   <storysig readit="y" hash="e1ef02b0781d81fe5b15323c72dee49f2bfcdd01"/>
+   <storysig readit="y" hash="e237f16359134de0c54eb15dcb93997808750742"/>
+   <storysig readit="y" hash="ee277452e19a30f19dc83b7c378681b1fc11200d"/>
+   <storysig readit="y" hash="f3273cb8bc28af7fbb7190d653567648acba6fe1"/>
+   <storysig readit="y" hash="f774270efc0e3e2d3848ef22b41aa2fcc5623ada"/>
+   <storysig readit="y" hash="fbc4213eba5717c53ed775013d0bc987c3024738"/>
+   <storysig readit="y" hash="fc5fbef5fe8f036ae360f9188779301e9357130c"/>
+  </feed>
+  <feed hash="2a463b385ae534e25cfe83cb0e7f171b8532d69e">
+   <language></language>
+   <xmlUrl>http://www.pm.gc.ca/RSSFeeds/news/Statements_e.xml</xmlUrl>
+   <title>Stephen Harper / Prime Minister</title>
+   <description>Stephen Harper / Prime Minister</description>
+   <imageUrl></imageUrl>
+   <nick>Stephen Harper / Prime Minister</nick>
+   <webUrl>http://pm.gc.ca/</webUrl>
+   <storysig readit="y" hash="05c05a103bde56e4b0e411a76b66173f79b05bee"/>
+   <storysig readit="y" hash="26f6cf1da1efd5fa2fdb6b3628d652a85890c2a0"/>
+   <storysig readit="y" hash="27ecae3b2a1d346b20e6d08dae0ee91d7aaab3e1"/>
+   <storysig readit="y" hash="34fe4a1cb27af2f226b04ee7ce7918ac0a98b9a6"/>
+   <storysig readit="y" hash="40ff05522edfb2320beddb879d736dcf02c7af48"/>
+   <storysig readit="y" hash="521fa6e57852d12664446692db04443ec6c3b999"/>
+   <storysig readit="y" hash="5c7d11a7659481e408dc4ec0a1310b10e5f279ec"/>
+   <storysig readit="y" hash="6c4731090205b1bf880f4283a5cb01a19b5c4554"/>
+   <storysig readit="y" hash="72e89c39aaf216981b5fa6f8622ecf37e89ebe2e"/>
+   <storysig readit="y" hash="730ac2df670393a7ed5b30f1c3654caf4cc57474"/>
+   <storysig readit="y" hash="76907385eb43faa88a03431a412046eb72bb7eeb"/>
+   <storysig readit="y" hash="7d94a82c35521f288bad1b1790bc525a266b2607"/>
+   <storysig readit="y" hash="7e705d5e3018c987df26e0cbf58604c1a8cf67e5"/>
+   <storysig readit="y" hash="8b23454ccecaa53383c25a34a3d617f1b97a295f"/>
+   <storysig readit="y" hash="8b495a155fbf201f034cfab4c6047a553ab71aac"/>
+   <storysig readit="y" hash="a340262fb5ea7423ca905198d4d0ac7c94338716"/>
+   <storysig readit="y" hash="a8c7fa87fccf07ec56492513c2819d4204f950d4"/>
+   <storysig readit="y" hash="ab96f2c3610998c4b99748572804cf3f6e96747b"/>
+   <storysig readit="y" hash="b16c83a461aab5962c2abbdc44fcaea642e2a726"/>
+   <storysig readit="y" hash="b42a967ca2e3d1ab78c169c473dc8db745ea3ce5"/>
+   <storysig readit="y" hash="c7eb9e793b1cae4469cd2e84f64e78525c62fe19"/>
+   <storysig readit="y" hash="ca83966546dda03031366aaa411e98e4ece0bd01"/>
+   <storysig readit="y" hash="d082bcee3167ed235ed957ea5a4727d32b28b8ba"/>
+   <storysig readit="y" hash="db0b8822d3469e88e47bf2423d00ab2952a4eda9"/>
+   <storysig readit="y" hash="f669475388dcc3e9129f159a7360e4d0d88ed107"/>
+   <storysig readit="y" hash="fb7df5c3595104b418993a76aa7e4f3929cf4b26"/>
+  </feed>
+  <feed hash="241c2357861a65c9d119e6aa614198d1d964c5c6">
+   <language></language>
+   <xmlUrl>http://www.pm.gc.ca/RSSFeeds/news/News_Releases_e.xml</xmlUrl>
+   <title>Stephen Harper / Prime Minister</title>
+   <description>Stephen Harper / Prime Minister</description>
+   <imageUrl></imageUrl>
+   <nick>Stephen Harper / Prime Minister</nick>
+   <webUrl>http://pm.gc.ca/</webUrl>
+   <storysig readit="y" hash="050f1b569cfaae3fe8ca1e112eddb450a2f1a4f6"/>
+   <storysig readit="y" hash="0b77e7e19361ea49bec1e3eeb7ec58474af7a2fa"/>
+   <storysig readit="y" hash="119790034ecf7dfbe8e54346afd7b94e14e0b8a5"/>
+   <storysig readit="y" hash="12e63196acf04b836ec31b133cc6baed255b7f55"/>
+   <storysig readit="y" hash="162666c8fac6665f5e7810a3128d702d4dd4323d"/>
+   <storysig readit="y" hash="176b4077e9e2d985806ed8bdbb069ed1007002cc"/>
+   <storysig readit="y" hash="2563b442896599f9c751f565d29f8eefb840e5f0"/>
+   <storysig readit="y" hash="2646f508e13a6ec48be4e508fcb55a2f784c6618"/>
+   <storysig readit="y" hash="26487c72368c8835271aca956f31ff2aba8a6371"/>
+   <storysig readit="y" hash="2ac7f7b17426052a6c7e45b0dee962e861997631"/>
+   <storysig readit="y" hash="2f0d6751334f6e208cffc2e81bb3cf5401aba478"/>
+   <storysig readit="y" hash="3b4b28eecce77b6782460c80a34992ac37db14c0"/>
+   <storysig readit="y" hash="4150daf08e8a272f92afd8e8d9ae156034ea8f2d"/>
+   <storysig readit="y" hash="4228fb1179b157fdec65ac09ceb02c9712d38190"/>
+   <storysig readit="y" hash="44d7836cef1f61ec145fb6366036e67409bf1301"/>
+   <storysig readit="y" hash="457c34da60a8a692810ebd4b696d40bf4bc51521"/>
+   <storysig readit="y" hash="49855219cba3d9108b759c71c23f5157bafde362"/>
+   <storysig readit="y" hash="4b84bf7097913bf830c41fcacb027f01128ab01f"/>
+   <storysig readit="y" hash="4c84e5258f6f445175b72ae758fb6df86db3de4b"/>
+   <storysig readit="y" hash="5268cc0c8c4519598675a638ffca88aa0f925656"/>
+   <storysig readit="y" hash="57aa418534285bbce45f3cf9c836578136ab8cab"/>
+   <storysig readit="y" hash="5aedf83ff457d26510bb583cbcafa200af0ec549"/>
+   <storysig readit="y" hash="5d68b2ec4054ceb0bcb04473e02bbce8e3d5e34d"/>
+   <storysig readit="y" hash="5ea67e5a0ee133c476617f9a185b695094bdb119"/>
+   <storysig readit="y" hash="74849d8558bda56c35573f7af2bfe215513062aa"/>
+   <storysig readit="y" hash="780f56ed5c2f0e6b88a0fc5b812f852ac70fcd6e"/>
+   <storysig readit="y" hash="7ad589be3c980b56b6c80e15fd47c3afee138a07"/>
+   <storysig readit="y" hash="82e3291a6bb089d8bc60a742061c8ffbca5eebc0"/>
+   <storysig readit="y" hash="88f5d4688a61051c9fb66e47e9f4f2e7cc8948c9"/>
+   <storysig readit="y" hash="94366b4221820de0e6373cff0ca17425018f28a5"/>
+   <storysig readit="y" hash="9a3d57594f75be0136edaf3459c8988b27fed224"/>
+   <storysig readit="y" hash="9f94485c9907673dd66daa6441fc9a34406476d0"/>
+   <storysig readit="y" hash="a03a6aebfdb1bcbf36dc2945343ab0996e1be39f"/>
+   <storysig readit="y" hash="a25c12516ef37827000777ae640c60a7927673d8"/>
+   <storysig readit="y" hash="aac3f0e9216613e61ea690ddb2b78adf37db7b30"/>
+   <storysig readit="y" hash="b469aa3e5bc6522ed2338e545d7207af000a10fd"/>
+   <storysig readit="y" hash="b6323a6b4b6f16132f2a6c649be2628754301e38"/>
+   <storysig readit="y" hash="b65df8366c20d250b7f3ba913528ccc2d7012681"/>
+   <storysig readit="y" hash="b7bcb50f8d443677e3e2e2bd1bba0c0a9777a92f"/>
+   <storysig readit="y" hash="bdc1e4a30a4ed4005f1534ef6995ee0ef15b461e"/>
+   <storysig readit="y" hash="bea49c58f83f031cf6a61e2fcb41259d21b89c29"/>
+   <storysig readit="y" hash="c7eaadc7f66c9fb54cd5ea6e41c012169f42ce16"/>
+   <storysig readit="y" hash="d1aa2ecb5cb571c64581da06642ff6fa77105c2b"/>
+   <storysig readit="y" hash="d632e1d46ab7f5ad8efd9ba51bea13ea9f070f5a"/>
+   <storysig readit="y" hash="de6a86306c10e64f368923313f4fe666e708a046"/>
+   <storysig readit="y" hash="e36fa7aa6553adc880de8d361bc4cb76c396973c"/>
+   <storysig readit="y" hash="e3dd10f25cd75cea5a0e4937ef864e21659de29b"/>
+   <storysig readit="y" hash="efb3cb4bb9521b5844f9f16d5eef4afa45559fd2"/>
+   <storysig readit="y" hash="efb8ea53b62acd94eef0d43b41fd8eb03304fc7f"/>
+   <storysig readit="y" hash="f0c87fea5b3ea82507881bbfcbe3646c4b32af9b"/>
+   <storysig readit="y" hash="f281215f799f051f8d6a279348261d7f7fa74bfa"/>
+   <storysig readit="y" hash="f2f659138c2da71621c937fe96c8c0c8661b9afe"/>
+   <storysig readit="y" hash="f6bff9fc9dad16304dcafdc96c8473966747c806"/>
+   <storysig readit="y" hash="fcb4d369b5b71689b7e263db24e7584b45c85aae"/>
+   <storysig readit="y" hash="fdbe40ae8305e92b4c4127210973072480f590e0"/>
+   <storysig readit="y" hash="ff24d4551f7c625d9a45be2c174425cf23fb3a53"/>
+  </feed>
+ </folder>
+ <feed hash="575764577aaa37327d6095a1e5cf2dfe3545728a">
+  <language></language>
+  <xmlUrl>http://maemo.org/news/items.xml</xmlUrl>
+  <title>news</title>
+  <description></description>
+  <imageUrl></imageUrl>
+  <nick>Maemo News</nick>
+  <webUrl>http://maemo.org/news/</webUrl>
+  <storysig readit="n" hash="2b75bfa4f63c9d8ff4f119c1805b6828fb2e72a1"/>
+  <storysig readit="n" hash="2eb51ef56fef8ff5e38b6e669daebe5b7cb1b9d3"/>
+  <storysig readit="n" hash="3609919f8587760121242aa9ad9e1e8ed745a917"/>
+  <storysig readit="n" hash="600543d379d6ad1c375a676a0d9f089ca9cd29cb"/>
+  <storysig readit="n" hash="79692493b98d7f21f21a0aeb541f2a48b237d4a5"/>
+  <storysig readit="n" hash="80b330776e9e0c3c43f636654ea48fc7d0ae7b6f"/>
+  <storysig readit="y" hash="87488d6b5d8dcd93fb0fae324cfa2c94e36541df"/>
+  <storysig readit="n" hash="8ef0fb4607f854d84cc1704f48615b86b76ab67d"/>
+  <storysig readit="n" hash="911ff4c67aa98820cbbc30ab6967f5b31dab1372"/>
+  <storysig readit="n" hash="b42ef5a4324802fcf202780cd29026bf3a53b832"/>
+  <storysig readit="n" hash="c3ab29eb1a33ce87bf44e1e9e52dc60f8fa7207e"/>
+  <storysig readit="n" hash="de76b53ef2f2dc6e8ee54c2efac5b2308aac9974"/>
+ </feed>
+ <feed hash="aa5ee314581644b76e06ca04777e5758c4451740">
+  <language></language>
+  <xmlUrl>http://twit.tv/node/4350/feed</xmlUrl>
+  <title>FLOSS Weekly</title>
+  <description></description>
+  <imageUrl></imageUrl>
+  <nick>FLOSS Weekly</nick>
+  <webUrl>http://twit.tv/node/4350/feed</webUrl>
+  <storysig readit="n" hash="0091a4e308cbb2c297ec4b2f618d70518e6bfdff"/>
+  <storysig readit="n" hash="17ba485067d9837ef405fe0b1b66ab90b72c1d26"/>
+  <storysig readit="n" hash="1e5a7aafdec2b5459ef8ea23ff2733b004f0fb23"/>
+  <storysig readit="n" hash="1f741acae24e5788373926583fb23d4454474d73"/>
+  <storysig readit="n" hash="32c3bdc40cccc13db41f588139a349aac22011e8"/>
+  <storysig readit="n" hash="3c94ae6d189d352b77c85be01ee79da5aec12dcd"/>
+  <storysig readit="n" hash="4ec71deee23b6fba6538fdfe503a72939f67eaa8"/>
+  <storysig readit="n" hash="5577c81606b571974321f5e2689b67bbec41a7f5"/>
+  <storysig readit="n" hash="55d86223ab32a9fc6a7f38881e8e2b4d5ac916e9"/>
+  <storysig readit="n" hash="590a29ce35c3cc9a847f3c41f4751909df5f7196"/>
+  <storysig readit="n" hash="690d8ecedec36a3d75ebc81eeaddcfb9a956f826"/>
+  <storysig readit="n" hash="8afe69f4ee6ff5338c130c1f4bb82b42d968587b"/>
+  <storysig readit="y" hash="8bcef957b59c7d3104d0b4c81b2a9ebdc3e5d3d7"/>
+  <storysig readit="n" hash="a28e9af128f345b590e7ea575a8e94d70a2c51f4"/>
+  <storysig readit="y" hash="ab8d44f2f9f0b574728ed04876111e66dc41de81"/>
+  <storysig readit="n" hash="b6b1bd5fbca843d6194c920778c526089dcc164b"/>
+  <storysig readit="n" hash="b6fde754d07c58c9ebf8f5e19ab1b0d2fa651f67"/>
+  <storysig readit="n" hash="bd6134dd758277f2ce78c10a95fbd3916915d712"/>
+  <storysig readit="n" hash="bfdefcec0c62fcd7a585fe454224b0d59d7353f0"/>
+  <storysig readit="n" hash="ce83886e1704979d02cbb8740fd45885d75ce6d3"/>
+ </feed>
+ <feed hash="da1f0febd2d5e0c8ba1a8f357e9dbb655b10abf6">
+  <language></language>
+  <xmlUrl>http://twit.tv/blog/feed</xmlUrl>
+  <title>TWiT.TV blogs</title>
+  <description>Home to the world's most fascinating netcasts: this WEEK in TECH, MacBreak Weekly, Windows Weekly, Security Now, net@night, and the Daily GizWiz.</description>
+  <imageUrl></imageUrl>
+  <nick>TWiT.TV blogs</nick>
+  <webUrl>http://twit.tv/blog</webUrl>
+  <storysig readit="n" hash="4a8125a4d8dd81a2dce46e4ea4cdfc56d96668d7"/>
+  <storysig readit="n" hash="7d64d6ea79e5581cb947a22e58e00034a3c3a543"/>
+  <storysig readit="n" hash="9303153813336408ab19b9d7a5f53cee26b5892c"/>
+  <storysig readit="n" hash="9a678189cd4635e28be676bf17c7a2cf0ce06128"/>
+  <storysig readit="y" hash="ad804d6ea7aecd7aeff64cb4634c3236012ba36f"/>
+  <storysig readit="n" hash="c944740aae6348807ed978472710f2f993eb501b"/>
+  <storysig readit="n" hash="c99ea1b4d6f5d5b60170ba39781a387bda119185"/>
+  <storysig readit="n" hash="c9a498374a4fd11c5006c23315b845439cd39b01"/>
+  <storysig readit="n" hash="df5c88009932387ef3ef0b6ecce6b80233f53b42"/>
+  <storysig readit="n" hash="f6539853c9ef30f10f5da0de4d9cf363e6e20f59"/>
+ </feed>
+ <feed hash="96dc7fee9d49d25d51503c9715b8615e45c5bda3">
+  <language></language>
+  <xmlUrl>http://feeds.reuters.com/reuters/technologyNews</xmlUrl>
+  <title>Reuters: Technology News</title>
+  <description>Reuters.com is your source for breaking news, business, financial and investing news, including personal finance and stocks.  Reuters is the leading global provider of news, financial information and technology solutions to the world's media, financial institutions, businesses and individuals.</description>
+  <imageUrl></imageUrl>
+  <nick>Reuters: Technology News</nick>
+  <webUrl>http://www.reuters.com</webUrl>
+  <storysig readit="n" hash="1e4768e473fc5ec22b278b863675a8bea6ac90d3"/>
+  <storysig readit="n" hash="25db83d3f2650051bdb64163d727ce0c46e55a58"/>
+  <storysig readit="n" hash="2e0c9df0c9e45f5bdfda4b6a81e214fa261d957d"/>
+  <storysig readit="n" hash="490cd41e744ba817425f1fe4264a838a42c4c947"/>
+  <storysig readit="n" hash="74ef3c4caabf8fca870c740d8718c7d930425377"/>
+  <storysig readit="n" hash="886c32ce8b3cdec45457eae726c34164949cda3f"/>
+  <storysig readit="y" hash="9e6dc57b05c38fa54bf905e590c1b181152a3bed"/>
+  <storysig readit="n" hash="a0b004e31300ebf6e66904c70f0766e2e1261987"/>
+  <storysig readit="n" hash="c53f0e738fe3744bc508eeb5d5da0baee9374536"/>
+  <storysig readit="n" hash="d38d9ab8fc730d18606fcb15264349c247dd98c7"/>
+ </feed>
+ <feed hash="">
+  <language></language>
+  <xmlUrl>http://feeds.reuters.com/reuters/internetNews</xmlUrl>
+  <title>Reuters: Internet News</title>
+  <description>Reuters.com is your source for breaking news, business, financial and investing news, including personal finance and stocks.  Reuters is the leading global provider of news, financial information and technology solutions to the world's media, financial institutions, businesses and individuals.</description>
+  <imageUrl></imageUrl>
+  <nick>Reuters: Internet News</nick>
+  <webUrl>http://www.reuters.com</webUrl>
+  <storysig readit="n" hash="0498ca747c29540e4681fd081c9bc4fb695a2388"/>
+  <storysig readit="n" hash="0fb2fa458a992732abca0a0f137587f5a0dd2c02"/>
+  <storysig readit="n" hash="5d2571eb64ca6b06dc974b7302cc43935c4645f6"/>
+  <storysig readit="y" hash="7da200610522f39bff21ea18234ab69a71950d9e"/>
+  <storysig readit="n" hash="8ca370e3fa19f1abd1dc29809baceaeb7c779d1c"/>
+  <storysig readit="n" hash="9aae93fb29c8bdbe313126fffe898ad2d51ad201"/>
+  <storysig readit="n" hash="c5ff60542a8b22414ad7f2de1e255c907e6105f4"/>
+  <storysig readit="n" hash="edceb1c5f8b7d62a792e56d5611ab1cf3f28b918"/>
+  <storysig readit="n" hash="f9f438a25da9273bb60ba7bee40063ed0d5cc473"/>
+  <storysig readit="n" hash="fa44d97d84e35f0078ff3af67168b51742290583"/>
+ </feed>
+</drssfeedlist>
