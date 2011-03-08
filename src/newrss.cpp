@@ -44,7 +44,8 @@ NewRss::NewRss (QWidget *parent)
    feedIF (0),
    qnam (0),
    feedlistParser (0),
-   feedUrlString ("http://www.atomenabled.org/atom.xml")
+   feedUrlString ("http://www.atomenabled.org/atom.xml"),
+   feeds (this)
 {
   qnam = new QNetworkAccessManager;
   feedlistParser = new FeedlistParser (this);
@@ -78,7 +79,8 @@ void
 NewRss::Run ()
 {
   context = ui.qmlView->rootContext ();
-  context->setContextProperty ("displayModel", &headlines);
+  context->setContextProperty ("feedIndexModel", &headlines);
+  context->setContextProperty ("feedListModel", &feeds);
   ui.qmlView->setSource (QUrl::fromLocalFile("qml/mainview.qml"));
   context->setContextProperty("feedIF",feedIF);
   qmlRoot = ui.qmlView->rootObject();
@@ -90,6 +92,7 @@ NewRss::Run ()
                Q_ARG (QVariant, (ui.qmlView->size().height())-2));
   HideList ("FeedIndex");
   ShowList ("FeedList");
+  topFolder.clear ();
   show ();
 }
 
@@ -118,6 +121,8 @@ NewRss::Connect ()
            this, SLOT (FinishedNet (QNetworkReply *)));
   connect (feedIF, SIGNAL (ShowStory (const QString &)),
            this, SLOT (ShowStory (const QString &)));
+  connect (feedIF, SIGNAL (ShowFeed (const QString &)),
+           this, SLOT (ShowFeed (const QString &)));
   connect (feedIF, SIGNAL (ShowList (const QString &)),
            this, SLOT (ShowList (const QString &)));
   connect (feedIF, SIGNAL (HideList (const QString &)),
@@ -151,6 +156,14 @@ NewRss::ShowStory (const QString & id)
   }
   QMetaObject::invokeMethod (qmlRoot, "setTheHtml",
                  Q_ARG (QVariant, htmlString));
+}
+
+void
+NewRss::ShowFeed (const QString & id)
+{
+  QString urlString = feeds.FeedRef(id).values["xmlurl"];
+  headlines.clear ();
+  LoadFeed (urlString);
 }
 
 void
@@ -203,6 +216,14 @@ NewRss::LoadFeed2 ()
 {
   if (qnam) {
     qnam->get (QNetworkRequest (QUrl ("http://www.atomenabled.org/atom.xml")));
+  }
+}
+
+void
+NewRss::LoadFeed (const QString & urlString)
+{
+  if (qnam) {
+    qnam->get (QNetworkRequest (QUrl (urlString)));
   }
 }
 
@@ -264,7 +285,22 @@ void
 NewRss::LoadList ()
 {
   if (feedlistParser) {
-    feedlistParser->Read ();
+    topFolder.clear ();
+    feedlistParser->Read (topFolder);
+    FillFeedModel (topFolder, feeds);
+  }
+}
+
+void
+NewRss::FillFeedModel (const Folder & folder, FeedlistModel & model)
+{
+  int nfee = folder.childFeeds.count();
+  for (int i=0; i<nfee; i++) {
+    model.addFeed (folder.childFeeds.at(i));
+  }
+  int nfol = folder.childFolders.count();
+  for (int i=0; i<nfol; i++) {
+    FillFeedModel (folder.childFolders.at(i), model);
   }
 }
 

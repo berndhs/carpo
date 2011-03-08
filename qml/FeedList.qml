@@ -25,6 +25,7 @@ import QtQuick 1.0
 
 Rectangle {
   property real normalWidth: parent.width
+  property real shrinkDelay: 500
   z: -1
   signal selected (int idx, string i, string t)
   signal reportOrientation (int orient)
@@ -58,25 +59,25 @@ Rectangle {
     id: shrinkWidth
     running: false
     to: 0
-    duration: 1000
+    duration: shrinkDelay
   }
   PropertyAnimation on scale { 
     id: shrinkScale
     running: false
     to: 0
-    duration: 1000
+    duration: shrinkDelay
   }
   PropertyAnimation on width { 
     id: expandWidth
     running: false
     to: normalWidth
-    duration: 1000
+    duration: shrinkDelay
   }
   PropertyAnimation on scale { 
     id: expandScale
     running: false
     to: 1
-    duration: 1000
+    duration: shrinkDelay
   }
   Component {
     id: verticalDelegate
@@ -142,7 +143,7 @@ Rectangle {
     orientation: ListView.Vertical
     delegate: verticalDelegate
     snapMode: ListView.NoSnap
-    model: displayModel
+    model: feedListModel
     highlight: Rectangle { color: "oldlace"; radius: 5 }
   }
 }

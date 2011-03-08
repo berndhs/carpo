@@ -1,5 +1,5 @@
-#ifndef DELIBERATE_FEEDLIST_H
-#define DELIBERATE_FEEDLIST_H
+#ifndef DELIBERATE_FEEDLIST_MODEL_H
+#define DELIBERATE_FEEDLIST_MODEL_H
 
 
 /****************************************************************
@@ -23,57 +23,44 @@
  *  Boston, MA  02110-1301, USA.
  ****************************************************************/
 
-
+#include <QAbstractListModel>
+#include <QStringList>
 #include <QString>
 #include <QMap>
-#include <QList>
-#include <QTextStream>
+#include "feedlist.h"
 
 namespace deliberate
 {
-
-class StoryMark
+class FeedlistModel : public QAbstractListModel
 {
+Q_OBJECT
+
 public:
 
-  QString  readit;
-  QString  hash;
+  FeedlistModel (QObject *parent=0);
+  int rowCount (const QModelIndex & index = QModelIndex()) const;
+  QVariant data (const QModelIndex & index, int role = Qt::DisplayRole) const;
 
-  friend QTextStream & operator<< (QTextStream & stream, 
-                                   const StoryMark & sm);
-};
+  void addFeed (const Feed & newFeed);
 
-class Feed 
-{
-public:
+  Feed & FeedRef (const QString & id);
 
+private:
 
-  QMap <QString, QString>  values;
-  QList <StoryMark>       storyMarks;
+  enum DataType {
+     Type_Ident = Qt::UserRole+1,
+     Type_Title = Qt::UserRole+2
+  };
 
-  void StreamOut (QTextStream & stream) const;
+  QStringList   idents;
+  QStringList   titles;
 
-  friend QTextStream & operator<< (QTextStream & stream,
-                                   const Feed & feed);
+  QMap <QString, Feed>  feedMap;
 
-};
+  static int    nextId;
 
-class Folder
-{
-public:
-
-  void clear ();
-
-  QString        name;
-  QString        hash;
-  QList <Feed>   childFeeds;
-  QList <Folder> childFolders;
-
-  friend QTextStream & operator<< (QTextStream & stream,
-                                   const Folder & folder);
 };
 
 } // namespace
-
 
 #endif

@@ -70,12 +70,13 @@
   FeedIndex {
     id: feedIndexArea
     height: indexHeight
-    normalWidth: 0.5*parent.width
-    width: 0.5*parent.width
+    normalWidth: parent.width
+    width: normalWidth
+    scale: 1
     border.color: "blue"
     border.width: 3
     onSelected: { 
-      feedIF.clickedOn (idx, i,t) ; 
+      feedIF.storyClicked (idx, i,t) ; 
       feedIF.report (" list current " + feedIndexArea.reportCurrent() )
     }
     onReportOrientation: { feedIF.listOrientation (orient) }
@@ -84,12 +85,13 @@
     id: feedListArea
     anchors.left: feedIndexArea.right
     height: indexHeight
-    normalWidth: 0.5*parent.width
-    width: 0.5*parent.width
+    normalWidth: parent.width
+    width: 0
+    scale: 0
     border.color: "red"
     border.width: 3
     onSelected: { 
-      feedIF.clickedOn (idx, i,t) ; 
+      feedIF.feedClicked (idx, i,t) ; 
       feedIF.report (" list current " + feedIndexArea.reportCurrent() )
     }
     onReportOrientation: { feedIF.listOrientation (orient) }
@@ -105,10 +107,10 @@
     anchors.rightMargin: embedMargin
     Text {
       id: letters
-      text: "Toggle Feed-List / Feed-Index view --- Rows: " + displayModel.rowCountText()
+      text: "Toggle Feed-List / Feed-Index view "
     }
     function refreshCount () {
-      letters.text = "Rows now " + displayModel.rowCountText()
+      letters.text = "Toggle Feed-List / Feed-Index " 
     }
     MouseArea {
       anchors.fill: parent

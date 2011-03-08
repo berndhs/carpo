@@ -21,6 +21,7 @@ public:
   QVariant data (const QModelIndex & index, int role = Qt::DisplayRole) const;
   void addLine (const QString & ident, const QString & title);
   QString addNewLine (const QString & title);
+  void    clear ();
 
   Q_INVOKABLE QString rowCountText ();
 

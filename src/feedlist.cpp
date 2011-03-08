@@ -50,6 +50,13 @@ Feed::StreamOut (QTextStream & stream) const
   stream << ") ) ";
 }
 
+void
+Folder::clear ()
+{
+  childFeeds.clear ();
+  childFolders.clear (); 
+}
+
 QTextStream &
 operator<< (QTextStream & stream, const Feed & feed)
 {

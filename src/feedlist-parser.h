@@ -43,7 +43,7 @@ public:
 
   FeedlistParser (QObject *parent=0);
 
-  void Read ();
+  void Read (Folder & topFolder);
 
 private:
 
@@ -51,7 +51,8 @@ private:
 
   static QXmlStreamReader::TokenType   ReadNext (QXmlStreamReader & xread);
 
-  void                          ParseFeedlist (QXmlStreamReader & xread);
+  void                          ParseFeedlist (QXmlStreamReader & xread,
+                                               Folder & topFolder);
   void                          ParseFeed (QXmlStreamReader & xread,
                                            Feed & feed);
   void                          ParseFolder (QXmlStreamReader & xread,

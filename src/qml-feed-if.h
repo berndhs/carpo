@@ -17,7 +17,10 @@ public:
 
   FeedInterface (QObject *parent = 0);
 
-  Q_INVOKABLE void clickedOn (int index, const QString & day, const QString & meal);
+  Q_INVOKABLE void storyClicked (int index, const QString & ident, 
+                                            const QString & title);
+  Q_INVOKABLE void feedClicked (int index, const QString & ident, 
+                                            const QString & title);
   Q_INVOKABLE void listOrientation (int orient);
   Q_INVOKABLE void report (const QString & msg);
   Q_INVOKABLE void toggleLists ();
@@ -25,6 +28,7 @@ public:
 signals:
 
   void ShowStory (const QString & id);
+  void ShowFeed (const QString & id);
   void ShowList  (const QString & list);
   void HideList (const QString & list);
 

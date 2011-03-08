@@ -52,7 +52,7 @@ FeedlistParser::InitFuncPtrs ()
 }
 
 void
-FeedlistParser::Read ()
+FeedlistParser::Read (Folder & topFolder)
 {
   qDebug () << "FeedlistParser::Read " ;
   QFile file ("drss_feeds.xml");
@@ -76,7 +76,7 @@ FeedlistParser::Read ()
       tag = xread.name().toString().toLower();
       qDebug () << " Top  start of " << tag;
       if (tag == "drssfeedlist") {
-        ParseFeedlist (xread);
+        ParseFeedlist (xread, topFolder);
       }
       break;
     case QXmlStreamReader::EndElement:
@@ -91,11 +91,11 @@ FeedlistParser::Read ()
 }
 
 void
-FeedlistParser::ParseFeedlist (QXmlStreamReader & xread)
+FeedlistParser::ParseFeedlist (QXmlStreamReader & xread,
+                               Folder & topFolder)
 {
   bool done (false);
   QString tag;
-  Folder  topFolder;
   while (!done) {
     Folder subFolder;
     Feed   feed;
@@ -129,8 +129,6 @@ FeedlistParser::ParseFeedlist (QXmlStreamReader & xread)
     }
   }
   qDebug () << " ======== done Feedlist";
-  QTextStream sout (stdout);
-  sout << topFolder << endl;
 }
 
 void

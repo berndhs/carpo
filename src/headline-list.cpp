@@ -23,6 +23,13 @@ HeadlineList::rowCount (const QModelIndex & parent) const
   return idents.count();
 }
 
+void
+HeadlineList::clear ()
+{
+  idents.clear ();
+  titles.clear ();
+}
+
 QString
 HeadlineList::rowCountText ()
 {
