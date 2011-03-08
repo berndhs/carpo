@@ -86,6 +86,11 @@ NewRss::Run ()
   qmlRoot = ui.qmlView->rootObject();
   QSize defaultSize = size();
   QSize newsize = Settings().value ("sizes/main", defaultSize).toSize();
+  newsize.rwidth() -= 10;
+  newsize.rheight() -= 10;
+  resize (newsize);
+  newsize.rwidth() += 10;
+  newsize.rheight() += 10;
   resize (newsize);
   QMetaObject::invokeMethod (qmlRoot, "setSize",
                Q_ARG (QVariant, (ui.qmlView->size().width()-2)),

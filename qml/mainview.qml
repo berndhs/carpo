@@ -109,10 +109,10 @@
     anchors.rightMargin: embedMargin
     Text {
       id: letters
-      text: "Toggle Feed-List / Feed-Index view "
+      text: "<b>Click to Toggle</b> Feed-List / Feed-Index view "
     }
     function refreshCount () {
-      letters.text = "Toggle Feed-List / Feed-Index " 
+      letters.text = "<b>Click to Toggle</b> Feed-List / Feed-Index " 
     }
     MouseArea {
       anchors.fill: parent
