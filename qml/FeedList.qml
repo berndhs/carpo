@@ -39,10 +39,12 @@ Rectangle {
     return feedList.currentIndex
   }
   function shrink () {
-    shrinkIt.running = true; 
+    shrinkWidth.running = true; 
+    shrinkScale.running = true; 
   }
   function expand () {
-    expandIt.running = true;
+    expandWidth.running = true;
+    expandScale.running = true;
   }
   color: "transparent"
   anchors.top: parent.top
@@ -53,15 +55,27 @@ Rectangle {
   width: parent.width
 
   PropertyAnimation on width { 
-    id: shrinkIt
+    id: shrinkWidth
+    running: false
+    to: 0
+    duration: 1000
+  }
+  PropertyAnimation on scale { 
+    id: shrinkScale
     running: false
     to: 0
     duration: 1000
   }
   PropertyAnimation on width { 
-    id: expandIt
+    id: expandWidth
     running: false
     to: normalWidth
+    duration: 1000
+  }
+  PropertyAnimation on scale { 
+    id: expandScale
+    running: false
+    to: 1
     duration: 1000
   }
   Component {
@@ -69,7 +83,6 @@ Rectangle {
     Item {
       width: 300; height: 60
       Column { 
-        anchors.left: idCol.right
         anchors.leftMargin: 4
         Text { text: '<b>' + title + '</b>' } 
       }
@@ -85,7 +98,6 @@ Rectangle {
     Item {
       width: 300; height: 60
       Row { 
-        anchors.top: idCol.bottom
         anchors.topMargin: 4
         Text { text: '<b>' + title + '</b>' } 
       }

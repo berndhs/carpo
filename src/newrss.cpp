@@ -170,13 +170,13 @@ NewRss::HideList (const QString & list)
 void
 NewRss::ShrinkIndex ()
 {
-  QMetaObject::invokeMethod (qmlRoot, "shrinkIndex");
+  HideList ("FeedIndex");
 }
 
 void
 NewRss::ExpandIndex ()
 {
-  QMetaObject::invokeMethod (qmlRoot, "expandIndex");
+  ShowList ("FeedIndex");
 }
 
 void
