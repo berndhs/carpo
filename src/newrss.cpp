@@ -54,12 +54,7 @@ NewRss::NewRss (QWidget *parent)
                         "<body><h1>HTML String number %1</h1></body>"
                         "</html>");
   feedIF = new FeedInterface (this);
-  QSize defaultSize = size();
-  QSize newsize = Settings().value ("sizes/main", defaultSize).toSize();
-  resize (newsize);
-  QMetaObject::invokeMethod (qmlRoot, "setSize",
-               Q_ARG (QVariant, (ui.qmlView->size().width()-2)),
-               Q_ARG (QVariant, (ui.qmlView->size().height())-2));
+  restoreGeometry(Settings().value("geometry").toByteArray());
   Connect ();
 }
 
@@ -78,24 +73,22 @@ NewRss::AddConfigMessages (const QStringList & messages)
 void
 NewRss::Run ()
 {
+  qDebug () << " NewRss::Run";
   context = ui.qmlView->rootContext ();
   context->setContextProperty ("feedIndexModel", &headlines);
   context->setContextProperty ("feedListModel", &feeds);
   ui.qmlView->setSource (QUrl::fromLocalFile("qml/mainview.qml"));
   context->setContextProperty("feedIF",feedIF);
   qmlRoot = ui.qmlView->rootObject();
-  QSize defaultSize = size();
-  QSize newsize = Settings().value ("sizes/main", defaultSize).toSize();
-  newsize.rwidth() -= 10;
-  newsize.rheight() -= 10;
-  resize (newsize);
-  newsize.rwidth() += 10;
-  newsize.rheight() += 10;
-  resize (newsize);
-  QMetaObject::invokeMethod (qmlRoot, "setSize",
-               Q_ARG (QVariant, (ui.qmlView->size().width()-2)),
-               Q_ARG (QVariant, (ui.qmlView->size().height())-2));
-  HideList ("FeedIndex");
+  qDebug () << " top size " << size();
+  qDebug () << " qml size " << ui.qmlView->size();
+  qDebug () << " try to set size " << ui.qmlView->size() ;
+  qDebug () << "      on root object " << qmlRoot;
+  if (qmlRoot) {
+    QMetaObject::invokeMethod (qmlRoot, "setSize",
+                 Q_ARG (QVariant, (ui.qmlView->size().width()-2)),
+                 Q_ARG (QVariant, (ui.qmlView->size().height())-2));
+  }
   ShowList ("FeedList");
   topFolder.clear ();
   show ();
@@ -200,8 +193,7 @@ NewRss::ExpandIndex ()
 void
 NewRss::Quit ()
 {
-  QSize currentSize = size();
-  Settings().setValue ("sizes/main",currentSize);
+  Settings().setValue("geometry", saveGeometry());
   Settings().sync();
   if (app) {
     app->quit();
@@ -278,8 +270,11 @@ NewRss::resizeEvent (QResizeEvent *event)
   if (!event) {
     return;
   }
+  qDebug () << " NewRss::resizeEvent";
+  qDebug () << "     top size " << size();
+  qDebug () << "     qml size " << ui.qmlView->size();
   QMainWindow::resizeEvent (event);
-  if (context) {
+  if (qmlRoot) {
     QMetaObject::invokeMethod (qmlRoot, "setSize",
                  Q_ARG (QVariant, (ui.qmlView->size().width()-2)),
                  Q_ARG (QVariant, (ui.qmlView->size().height())-2));

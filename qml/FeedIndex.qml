@@ -36,6 +36,7 @@ Rectangle {
   function flipOrientation () {
     storyList.flipOrientation ()
   }
+  function currentOrientation () { return storyList.orientation }
   function reportCurrent () {
     return storyList.currentIndex
   }
@@ -82,7 +83,7 @@ Rectangle {
   Component {
     id: verticalDelegate
     Item {
-      width: 300; height: 60
+      width: normalWidth; height: 60
       Column { 
         anchors.leftMargin: 4
         Text { text: '<b>' + title + '</b>' } 
@@ -97,10 +98,10 @@ Rectangle {
   Component {
     id: horizontalDelegate
     Item {
-      width: 300; height: 60
+      width: normalWidth/4; height: 60
       Row { 
         anchors.topMargin: 4
-        Text { text: '<b>' + title + '</b>' } 
+        Text { width:parent.width; elide: Text.ElideRight; text: '<b>' + title + '</b>' } 
       }
       MouseArea {
         anchors.fill: parent

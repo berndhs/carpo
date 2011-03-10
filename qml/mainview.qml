@@ -29,23 +29,31 @@
  Rectangle {
   id: displayArea
 
-  property string urlString : "http://fiji.reflective-computing.com"
   property real embedMargin : 2
-  property real indexHeight : 200
+  property real verticalIndexHeight: 240
+  property real horizontalIndexHeight: 80
+  property real indexHeight : verticalIndexHeight
+  property real displayWidth: 500
+  property real displayHeight: 400
 
   function setTheHtml (theHtml) {
     storyView.storyHtml = theHtml
-    specialLabel.refreshCount() 
-    specialLabel.color = "red"
+    controlPanel.refreshCount() 
+    controlPanel.color = "red"
   }
   function setSize (w, h) {
-    width = w
-    height = h
+    console.log (" setSize " + w + " " + h)
+    displayWidth = w
+    displayHeight = h
   }
   function turnIndex () {
-    feedIF.report ("turnIndex called")
     feedIndexArea.flipOrientation()
-    feedIF.report ("turnIndex finishing")
+    feedListArea.flipOrientation()
+    if (feedIndexArea.currentOrientation() == ListView.Horizontal) {
+      indexHeight = horizontalIndexHeight 
+    } else {
+      indexHeight = verticalIndexHeight
+    }
   }
   function shrinkFeedIndex () {
     feedIndexArea.shrink ()
@@ -60,74 +68,91 @@
     feedListArea.expand ()
   }
   function toggleLists () {
+    console.log ("toggleLists")
+    console.log ("Widths: Index " + feedIndexArea.width + " list " + feedListArea.width)
     feedIF.toggleLists ()
   }
 
-  width: 400; height: 400
   color: "transparent"
   border.color: "black"
+  width: displayWidth
+  height: displayHeight
 
-  FeedIndex {
-    id: feedIndexArea
-    height: indexHeight
-    normalWidth: parent.width
-    width: normalWidth
-    scale: 1
-    border.color: "blue"
-    border.width: 3
-    clip: true
-    onSelected: { 
-      feedIF.storyClicked (idx, i,t) ; 
-      feedIF.report (" list current " + feedIndexArea.reportCurrent() )
-    }
-    onReportOrientation: { feedIF.listOrientation (orient) }
-  }
-  FeedList {
-    id: feedListArea
-    anchors.left: feedIndexArea.right
-    height: indexHeight
-    normalWidth: parent.width
-    width: 0
-    scale: 0
-    border.color: "red"
-    border.width: 3
-    clip: true
-    onSelected: { 
-      feedIF.feedClicked (idx, i,t) ; 
-      feedIF.report (" list current " + feedIndexArea.reportCurrent() )
-    }
-    onReportOrientation: { feedIF.listOrientation (orient) }
+  ControlPanel { 
+    id: controlPanel
   }
   Rectangle {
-    id: specialLabel
-    height: 20
-    width: parent.width - 2*embedMargin
-    color: "cyan"
-    border.color: "black"
-    anchors.top: feedIndexArea.bottom
-    anchors.leftMargin: embedMargin
-    anchors.rightMargin: embedMargin
-    Text {
-      id: letters
-      text: "<b>Click to Toggle</b> Feed-List / Feed-Index view "
-    }
-    function refreshCount () {
-      letters.text = "<b>Click to Toggle</b> Feed-List / Feed-Index " 
-    }
+    id: indexBox
+    anchors.top: controlPanel.bottom
+    height: indexHeight
+    width: parent.width
+    color: "transparent"
     MouseArea {
       anchors.fill: parent
-      onClicked: { toggleLists () }
+      onClicked: { console.log ("clicked main index box") }
+    }
+    FeedList {
+      id: feedListArea
+      height: indexHeight
+      normalWidth: parent.width
+      anchors.top: indexBox.top
+      width: normalWidth
+      scale: 1
+      color: "yellow"
+      z:5
+      border.color: "red"
+      border.width: 3
+      clip: true
+      MouseArea {
+        anchors.fill: parent
+        onClicked: console.log ("clicked Feed List Box " + mouseX + mouseY)
+      }
+      onSelected: { 
+        feedIF.feedClicked (idx, i,t) 
+        feedIF.report (" list current " + feedIndexArea.reportCurrent() )
+      }
+      onReportOrientation: { feedIF.listOrientation (orient) }
+    }
+    FeedIndex {
+      id: feedIndexArea
+      height: indexHeight
+      normalWidth: parent.width
+      anchors.top: indexBox.top
+      anchors.left: feedListArea.right
+      width: 0
+      scale: 0
+      color: "cyan"
+      border.color: "blue"
+      border.width: 3
+      clip: true
+      MouseArea {
+        anchors.fill: parent
+        onClicked: console.log ("clicked Feed Index Box " + mouseX + mouseY)
+      }
+      onSelected: { 
+        feedIF.storyClicked (idx, i,t) 
+        feedIF.report (" list current " + feedIndexArea.reportCurrent() )
+      }
+      onReportOrientation: { feedIF.listOrientation (orient) }
     }
   }
   StoryView {
     id: storyView
     z: 3
-    anchors.top: specialLabel.bottom
+    anchors.top: indexBox.bottom
     anchors.leftMargin: embedMargin
     anchors.rightMargin: embedMargin
     height: 500
    
     storyHtml: "<p>default <b>html</b>.</p>"
+  }
+  Connections {
+    target: controlPanel
+    onControlSelect: {
+      console.log ("Connections clicked " + whereX + " " + whereY)
+      console.log (" index width " + feedIndexArea.width)
+      toggleLists() 
+    }
   }
   
  }

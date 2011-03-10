@@ -67,7 +67,6 @@ qDebug () << "headline data " << index << role;
   } else {
     retval = QVariant ();
   } 
-  qDebug () << " HeadlineList::data returning " << retval;
   return retval;
 }
 

@@ -90,7 +90,6 @@ Flickable {
              // got to topleft
              flickable.contentX = 0
              flickable.contentY = 0
-             if (url != null) { header.editUrl = url.toString(); }
          }
 
          onDoubleClick: {
