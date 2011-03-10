@@ -15,6 +15,11 @@ Q_OBJECT
 
 public:
 
+  enum ListChoice {
+    Choice_List = 0,
+    Choice_Index
+  };
+
   FeedInterface (QObject *parent = 0);
 
   Q_INVOKABLE void storyClicked (int index, const QString & ident, 
@@ -25,6 +30,8 @@ public:
   Q_INVOKABLE void report (const QString & msg);
   Q_INVOKABLE void toggleLists ();
 
+  void SetActive (ListChoice active);
+
 signals:
 
   void ShowStory (const QString & id);
@@ -34,11 +41,6 @@ signals:
 
 
 private:
-
-  enum ListChoice {
-    Choice_List = 0,
-    Choice_Index
-  };
 
   ListChoice    activeList;
   ListChoice    hiddenList;

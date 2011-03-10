@@ -70,7 +70,6 @@ void
 FeedlistModel::addFeed (const Feed & newFeed)
 {
   QString ident (QString ("Feed_%1").arg(nextId++));
-  qDebug () << " adding feed " << ident << newFeed.values["title"];
   feedMap[ident] = newFeed;
   beginInsertRows (QModelIndex(), rowCount(), rowCount());
   idents << ident;

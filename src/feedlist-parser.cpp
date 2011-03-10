@@ -54,7 +54,7 @@ FeedlistParser::InitFuncPtrs ()
 void
 FeedlistParser::Read (Folder & topFolder)
 {
-  qDebug () << "FeedlistParser::Read " ;
+  //qDebug () << "FeedlistParser::Read " ;
   QFile file ("drss_feeds.xml");
   bool ok = file.open (QFile::ReadOnly);
   if (!ok) {
@@ -62,7 +62,7 @@ FeedlistParser::Read (Folder & topFolder)
   }
   QXmlStreamReader  xread (&file);
   
-  qDebug () << " parser says " << ok;
+ // qDebug () << " parser says " << ok;
   bool done (false);
   QString tag;
   while (!done) {
@@ -81,10 +81,10 @@ FeedlistParser::Read (Folder & topFolder)
       break;
     case QXmlStreamReader::EndElement:
       tag = xread.name().toString();
-      qDebug () << " Top   end of " << tag;
+      //qDebug () << " Top   end of " << tag;
       break;
     default:
-      qDebug () << " Top other token";
+      //qDebug () << " Top other token";
       break;
     }
   }
@@ -124,11 +124,11 @@ FeedlistParser::ParseFeedlist (QXmlStreamReader & xread,
       }
       break;
     default:
-      qDebug () << " Feedlist other token";
+     // qDebug () << " Feedlist other token";
       break;
     }
   }
-  qDebug () << " ======== done Feedlist";
+  //qDebug () << " ======== done Feedlist";
 }
 
 void
@@ -148,7 +148,7 @@ FeedlistParser::ParseFeed (QXmlStreamReader & xread, Feed & feed)
     switch (token) {
     case QXmlStreamReader::StartElement:
       tag = xread.name().toString().toLower();
-      qDebug () << " Feed  start of " << tag;
+      //qDebug () << " Feed  start of " << tag;
       if (fileParse.contains (tag)) {
         fileParse[tag](tag, xread,feed);
       } else {
@@ -157,16 +157,17 @@ FeedlistParser::ParseFeed (QXmlStreamReader & xread, Feed & feed)
       break;
     case QXmlStreamReader::EndElement:
       tag = xread.name().toString().toLower();
-      qDebug () << " Feed   end of " << tag;
+      //qDebug () << " Feed   end of " << tag;
       if (tag == "feed") {
         done = true;
       }
       break;
     default:
-      qDebug () << " Feed other token";
+      //qDebug () << " Feed other token";
       break;
     }
   }
+  #if 0
   qDebug () << " ........ done Feed";
   qDebug () << feed.values;
   int ns = feed.storyMarks.count();
@@ -174,6 +175,7 @@ FeedlistParser::ParseFeed (QXmlStreamReader & xread, Feed & feed)
     qDebug () << "   storysig " << feed.storyMarks.at(s).readit 
                                 << feed.storyMarks.at(s).hash;
   }
+  #endif
 }
 
 void
@@ -182,7 +184,7 @@ FeedlistParser::ParseFolder (QXmlStreamReader & xread, Folder & folder)
   QXmlStreamAttributes atts = xread.attributes();
   folder.name = atts.value ("name").toString();
   folder.hash = atts.value ("hash").toString();
-  qDebug () << " Folder name " << folder.name << " hash " << folder.hash;
+  //qDebug () << " Folder name " << folder.name << " hash " << folder.hash;
   bool done (false);
   QString tag;
   while (!done) {
@@ -196,7 +198,7 @@ FeedlistParser::ParseFolder (QXmlStreamReader & xread, Folder & folder)
     switch (token) {
     case QXmlStreamReader::StartElement:
       tag = xread.name().toString().toLower();
-      qDebug () << " Folder  start of " << tag;
+      //qDebug () << " Folder  start of " << tag;
       if (tag == "feed") {
         ParseFeed (xread, feed);
         folder.childFeeds.append (feed);
@@ -207,17 +209,17 @@ FeedlistParser::ParseFolder (QXmlStreamReader & xread, Folder & folder)
       break;
     case QXmlStreamReader::EndElement:
       tag = xread.name().toString().toLower();
-      qDebug () << " Folder   end of " << tag;
+      //qDebug () << " Folder   end of " << tag;
       if (tag == "folder") {
         done = true;
       }
       break;
     default:
-      qDebug () << " Folder other token";
+      //qDebug () << " Folder other token";
       break;
     }
   }
-  qDebug () << " -------- done Folder";
+  //qDebug () << " -------- done Folder";
 }
 
 QXmlStreamReader::TokenType
@@ -225,7 +227,7 @@ FeedlistParser::ReadNext (QXmlStreamReader & xread)
 {
   QXmlStreamReader::TokenType  tokt;
   tokt = xread.readNext ();
-  qDebug () << "ReadNext token  " << tokt << xread.tokenString();
+  //qDebug () << "ReadNext token  " << tokt << xread.tokenString();
   return tokt;
 }
 
@@ -240,7 +242,7 @@ FeedlistParser::ParseTextElement (const QString & tag,
     return;
   }
   QString text = xread.text().toString();
-  qDebug () << " text element text " << text;
+  //qDebug () << " text element text " << text;
   feed.values[tag] = text;
 }
 

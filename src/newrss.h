@@ -59,7 +59,6 @@ private slots:
 
   void Quit ();
   void Load ();
-  void RowsInserted (const QModelIndex & index, int start, int end);
   void LoadFeed1 ();
   void LoadFeed2 ();
   void LoadList ();

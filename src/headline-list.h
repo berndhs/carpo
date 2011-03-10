@@ -28,6 +28,8 @@ public:
   bool removeRows (int begin, int end, 
                    const QModelIndex & parent = QModelIndex());
 
+  int count () { return idents.count(); }
+
 private:
 
   enum DataType {

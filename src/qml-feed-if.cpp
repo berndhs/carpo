@@ -58,5 +58,22 @@ FeedInterface::toggleLists ()
   emit ShowList (listNames[activeList]);
 }
 
+void
+FeedInterface::SetActive (ListChoice active)
+{
+  activeList = active;
+  switch (activeList) {
+  case Choice_Index:
+    hiddenList = Choice_List;
+  break;
+  case Choice_List:
+    hiddenList = Choice_Index;
+    break;
+  default:
+    hiddenList = Choice_List;
+    break;
+  }
+}
+
 
 } // namespace

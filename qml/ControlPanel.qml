@@ -26,25 +26,56 @@
 Rectangle {
 
   signal controlSelect (real whereX, real whereY)
+  signal flipSelect (real whereX, real whereY)
+  signal toggleViewSelect (real whereX, real whereY)
+
   id: controlPanel
   height: 20
-  width: parent.width - 2*embedMargin
-  color: "cyan"
+  z: 1
+  property real extraMargin: 20
+  width: parent.width - 2*embedMargin - 2*extraMargin
+  color: "transparent"
   border.color: "black"
-  anchors.leftMargin: embedMargin
-  anchors.rightMargin: embedMargin
-  Text {
-    id: letters
-    text: "<b>Click to Toggle</b> Feed-List / Feed-Index view "
-  }
-  function refreshCount () {
-    letters.text = "<b>Click to Toggle</b> Feed-List / Feed-Index " 
-  }
+  anchors.left: parent.left
+  anchors.leftMargin: embedMargin + extraMargin
+  anchors.rightMargin: embedMargin + extraMargin
   MouseArea {
     anchors.fill: parent
     onClicked: { 
       console.log("Click Control Box " + mouseX + " " + mouseY)
       controlSelect (mouseX, mouseY) 
-   }
+    }
+  }
+  Rectangle {
+    id: flipper
+    width: parent.width/2
+    height: parent.height
+    z: 2
+    anchors.left: parent.left
+    color: "cyan"
+    MouseArea {
+      anchors.fill: flipper
+      onClicked: { 
+        console.log("Click Flipper Box " + mouseX + " " + mouseY)
+        flipSelect (mouseX, mouseY) 
+      }
+    }
+    Text { text: "Flip Horizontal/Vertical" }
+  }
+  Rectangle {
+    id: turner
+    width: parent.width/2
+    height: parent.height
+    z: 2
+    anchors.left: flipper.right
+    color: "red"
+    MouseArea {
+      anchors.fill: turner
+      onClicked: { 
+        console.log("Click Turner Box " + mouseX + " " + mouseY)
+        toggleViewSelect (mouseX, mouseY) 
+      }
+    }
+    Text { text: "<b>Toggle</b> Feed-List / Feed-Index view " }
   }
 }

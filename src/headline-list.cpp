@@ -52,7 +52,6 @@ HeadlineList::rowCountText ()
 QVariant 
 HeadlineList::data (const QModelIndex & index, int role) const
 {
-qDebug () << "headline data " << index << role;
   if (!index.isValid()) {
     return QVariant();
   }

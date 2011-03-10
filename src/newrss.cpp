@@ -101,10 +101,6 @@ NewRss::Connect ()
            this, SLOT (Quit()));
   connect (ui.actionLoad, SIGNAL (triggered()),
            this, SLOT (Load ()));
-  connect (&headlines, 
-           SIGNAL (rowsInserted ( const QModelIndex & , int , int)),
-           this,
-           SLOT (RowsInserted ( const QModelIndex &, int, int)));
   connect (ui.actionLoadRss, SIGNAL (triggered()),
            this, SLOT (LoadFeed1()));
   connect (ui.actionLoadAtom, SIGNAL (triggered()),
@@ -128,12 +124,6 @@ NewRss::Connect ()
 }
 
 void
-NewRss::RowsInserted (const QModelIndex & index, int start, int end)
-{
-  qDebug () << "NewRss::RowsInserted " << index << start << end;
-}
-
-void
 NewRss::Load ()
 {
 qDebug () << "NewRss::Load " << context << qmlRoot;
@@ -147,6 +137,7 @@ qDebug () << "NewRss::Load " << context << qmlRoot;
 void
 NewRss::ShowStory (const QString & id)
 {
+  qDebug () << " NewRss::ShowStory";
   if (stories.contains(id)) {
     htmlString = stories[id];
   } else {
@@ -159,6 +150,7 @@ NewRss::ShowStory (const QString & id)
 void
 NewRss::ShowFeed (const QString & id)
 {
+  qDebug () << " NewRss::ShowFeed";
   QString urlString = feeds.FeedRef(id).values["xmlurl"];
   headlines.clear ();
   LoadFeed (urlString);
@@ -238,6 +230,11 @@ NewRss::FinishedNet (QNetworkReply * reply)
   }
   if (entries.count() > 0) {
     ParseStories (entries, "content");
+  }
+  if (headlines.count() > 0) {
+    ShowList ("FeedIndex");
+    HideList ("FeedList");
+    feedIF->SetActive (FeedInterface::Choice_Index);
   }
 }
 

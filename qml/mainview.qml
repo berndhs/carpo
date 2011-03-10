@@ -38,8 +38,6 @@
 
   function setTheHtml (theHtml) {
     storyView.storyHtml = theHtml
-    controlPanel.refreshCount() 
-    controlPanel.color = "red"
   }
   function setSize (w, h) {
     console.log (" setSize " + w + " " + h)
@@ -100,7 +98,7 @@
       scale: 1
       color: "yellow"
       z:5
-      border.color: "red"
+      border.color: "transparent"
       border.width: 3
       clip: true
       MouseArea {
@@ -122,7 +120,7 @@
       width: 0
       scale: 0
       color: "cyan"
-      border.color: "blue"
+      border.color: "transparent"
       border.width: 3
       clip: true
       MouseArea {
@@ -148,10 +146,14 @@
   }
   Connections {
     target: controlPanel
-    onControlSelect: {
+    onToggleViewSelect: {
       console.log ("Connections clicked " + whereX + " " + whereY)
       console.log (" index width " + feedIndexArea.width)
       toggleLists() 
+    }
+    onFlipSelect: {
+      console.log ("Flip selected " + whereX + " " + whereY)
+      turnIndex ()
     }
   }
   
