@@ -85,8 +85,8 @@ Rectangle {
     Item {
       width: normalWidth; height: itemHeight
       Column { 
-        anchors.leftMargin: 4
-        Text { text: '<b>' + title + '</b>' } 
+        anchors.topMargin: 4
+        Text {  width:normalWidth; wrapMode:Text.Wrap; text:  title } 
       }
       MouseArea {
         anchors.fill: parent
@@ -98,10 +98,10 @@ Rectangle {
   Component {
     id: horizontalDelegate
     Item {
-      width: normalWidth/4; height: itemHeight
+      width: normalWidth/3; height: itemHeight
       Row { 
-        anchors.topMargin: 4
-        Text { width:parent.width; elide: Text.ElideRight; text: '<b>' + title + '</b>' } 
+        anchors.leftMargin: 4
+        Text { width:normalWidth/3; wrapMode:Text.Wrap;  text: title } 
       }
       MouseArea {
         anchors.fill: parent
