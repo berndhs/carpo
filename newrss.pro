@@ -32,9 +32,11 @@ CONFIG += debug_and_release
 
 INCLUDEPATH += src
 
-MAKEFILE = Make_$${MYNAME}
 !include ("options.pri") {
   message ("no options.pri, using defaults")
+  MAKEFILE = Makefile
+} else {
+  MAKEFILE = Make_$${MYNAME}
 }
 
 CONFIG(debug, debug|release) {
