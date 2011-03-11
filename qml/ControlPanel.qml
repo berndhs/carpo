@@ -36,7 +36,6 @@ Rectangle {
   property real extraMargin: 20
   width: parent.width - 2*embedMargin - 2*extraMargin
   color: "transparent"
-  border.color: "black"
   anchors.left: parent.left
   anchors.leftMargin: embedMargin + extraMargin
   anchors.rightMargin: embedMargin + extraMargin
@@ -61,7 +60,7 @@ Rectangle {
         flipSelect (mouseX, mouseY) 
       }
     }
-    Text { text: "Horiz <->Vert" }
+    Text { text: "Horiz <->Vert"; anchors.centerIn: parent }
   }
   Rectangle {
     id: turner
@@ -77,7 +76,7 @@ Rectangle {
         toggleViewSelect (mouseX, mouseY) 
       }
     }
-    Text { text: "List <-> Index" }
+    Text { text: "List <-> Index"; anchors.centerIn: parent }
   }
   Rectangle {
     id: morer
@@ -93,6 +92,6 @@ Rectangle {
         moreSelect (mouseX, mouseY) 
       }
     }
-    Text { text: "More" }
+    Text { color:"red"; text: "More"; anchors.centerIn: parent }
   }
 }

@@ -72,7 +72,6 @@
   }
 
   color: "transparent"
-  border.color: "black"
   width: displayWidth
   height: displayHeight
 
@@ -98,8 +97,6 @@
       scale: 1
       color: "yellow"
       z:5
-      border.color: "transparent"
-      border.width: 3
       clip: true
       MouseArea {
         anchors.fill: parent
@@ -120,8 +117,6 @@
       width: 0
       scale: 0
       color: "cyan"
-      border.color: "transparent"
-      border.width: 3
       clip: true
       MouseArea {
         anchors.fill: parent

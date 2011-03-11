@@ -25,7 +25,8 @@ import QtQuick 1.0
 
 Rectangle {
   property real normalWidth: parent.width
-  property real shrinkDelay: 500
+  property real shrinkDelay: 250
+  property real itemHeight: 32
   signal selected (int idx, string i, string t)
   signal reportOrientation (int orient)
 
@@ -82,7 +83,7 @@ Rectangle {
   Component {
     id: verticalDelegate
     Item {
-      width: normalWidth; height: 60
+      width: normalWidth; height: itemHeight
       Column { 
         anchors.leftMargin: 4
         Text { text: '<b>' + title + '</b>' } 
@@ -97,7 +98,7 @@ Rectangle {
   Component {
     id: horizontalDelegate
     Item {
-      width: normalWidth/4; height: 60
+      width: normalWidth/4; height: itemHeight
       Row { 
         anchors.topMargin: 4
         Text { width:parent.width; elide: Text.ElideRight; text: '<b>' + title + '</b>' } 
