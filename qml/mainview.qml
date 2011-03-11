@@ -155,6 +155,9 @@
       console.log ("Flip selected " + whereX + " " + whereY)
       turnIndex ()
     }
+    onMoreSelect: {
+      console.log ("More Selected " + whereX + " " + whereY)
+    }
   }
   
  }

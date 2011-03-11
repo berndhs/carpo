@@ -28,6 +28,7 @@ Rectangle {
   signal controlSelect (real whereX, real whereY)
   signal flipSelect (real whereX, real whereY)
   signal toggleViewSelect (real whereX, real whereY)
+  signal moreSelect (real whereX, real whereY)
 
   id: controlPanel
   height: 20
@@ -48,34 +49,50 @@ Rectangle {
   }
   Rectangle {
     id: flipper
-    width: parent.width/2
+    width: parent.width/3
     height: parent.height
     z: 2
     anchors.left: parent.left
     color: "cyan"
     MouseArea {
-      anchors.fill: flipper
+      anchors.fill: parent
       onClicked: { 
         console.log("Click Flipper Box " + mouseX + " " + mouseY)
         flipSelect (mouseX, mouseY) 
       }
     }
-    Text { text: "Flip Horizontal/Vertical" }
+    Text { text: "Horiz <->Vert" }
   }
   Rectangle {
     id: turner
-    width: parent.width/2
+    width: parent.width/3
     height: parent.height
     z: 2
     anchors.left: flipper.right
     color: "red"
     MouseArea {
-      anchors.fill: turner
+      anchors.fill: parent
       onClicked: { 
         console.log("Click Turner Box " + mouseX + " " + mouseY)
         toggleViewSelect (mouseX, mouseY) 
       }
     }
-    Text { text: "<b>Toggle</b> Feed-List / Feed-Index view " }
+    Text { text: "List <-> Index" }
+  }
+  Rectangle {
+    id: morer
+    width: parent.width/3
+    height: parent.height
+    z: 2
+    anchors.left: turner.right
+    color: "green"
+    MouseArea {
+      anchors.fill: parent
+      onClicked: { 
+        console.log("Click More Box " + mouseX + " " + mouseY)
+        moreSelect (mouseX, mouseY) 
+      }
+    }
+    Text { text: "More" }
   }
 }

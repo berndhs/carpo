@@ -29,8 +29,12 @@
 #include <QDomNode>
 #include <QObject>
 #include <QDebug>
+#include <QMessageBox>
+#include <QSize>
+#include <QFile>
 
 #include "deliberate.h"
+#include "version.h"
 
 namespace deliberate
 {
@@ -55,6 +59,12 @@ NewRss::NewRss (QWidget *parent)
                         "</html>");
   feedIF = new FeedInterface (this);
   restoreGeometry(Settings().value("geometry").toByteArray());
+  qDebug () << "QML size " << Settings().value("sizes/qml").toSize();
+  if (Settings().contains ("sizes/qml")) {
+    QSize qmlsize = Settings().value("sizes/qml").toSize();
+    qDebug () << " Found QML saved size " << qmlsize;
+    ui.qmlView->resize (qmlsize);
+  }
   Connect ();
 }
 
@@ -99,18 +109,12 @@ NewRss::Connect ()
 {
   connect (ui.actionQuit, SIGNAL (triggered()),
            this, SLOT (Quit()));
-  connect (ui.actionLoad, SIGNAL (triggered()),
-           this, SLOT (Load ()));
-  connect (ui.actionLoadRss, SIGNAL (triggered()),
-           this, SLOT (LoadFeed1()));
-  connect (ui.actionLoadAtom, SIGNAL (triggered()),
-           this, SLOT (LoadFeed2()));
   connect (ui.actionLoadList, SIGNAL (triggered()),
            this, SLOT (LoadList ()));
-  connect (ui.actionShrinkIndex, SIGNAL (triggered()),
-           this, SLOT (ShrinkIndex ()));
-  connect (ui.actionExpandIndex, SIGNAL (triggered()),
-           this, SLOT (ExpandIndex ()));
+  connect (ui.actionAbout, SIGNAL (triggered()),
+           this, SLOT (ShowAbout()));
+  connect (ui.actionLicense, SIGNAL (triggered()),
+           this, SLOT (ShowLicense()));
   connect (qnam, SIGNAL (finished (QNetworkReply *)),
            this, SLOT (FinishedNet (QNetworkReply *)));
   connect (feedIF, SIGNAL (ShowStory (const QString &)),
@@ -123,16 +127,6 @@ NewRss::Connect ()
            this, SLOT (HideList (const QString &)));
 }
 
-void
-NewRss::Load ()
-{
-qDebug () << "NewRss::Load " << context << qmlRoot;
-  if (context) {
-    if (qmlRoot) {
-      QMetaObject::invokeMethod (qmlRoot, "turnIndex");
-    }
-  }
-}
 
 void
 NewRss::ShowStory (const QString & id)
@@ -164,6 +158,24 @@ NewRss::ShowList (const QString & list)
 }
 
 void
+NewRss::ShowAbout ()
+{
+  QString about (QString("<pre>\n%1\n</pre>").arg(ProgramVersion::Version()));
+  QMetaObject::invokeMethod (qmlRoot, "setTheHtml",
+                 Q_ARG (QVariant, about));
+}
+
+void
+NewRss::ShowLicense ()
+{
+  QFile licfile (":/help/LICENSE.txt");
+  licfile.open (QFile::ReadOnly);
+  QByteArray lictext = licfile.readAll();
+  QMetaObject::invokeMethod (qmlRoot, "setTheHtml",
+                Q_ARG (QVariant, "<pre>\n" + lictext + "\n</pre>\n"));
+}
+
+void
 NewRss::HideList (const QString & list)
 {
   QMetaObject::invokeMethod (qmlRoot, 
@@ -186,25 +198,10 @@ void
 NewRss::Quit ()
 {
   Settings().setValue("geometry", saveGeometry());
+  Settings().setValue("sizes/qml", ui.qmlView->size());
   Settings().sync();
   if (app) {
     app->quit();
-  }
-}
-
-void
-NewRss::LoadFeed1 ()
-{
-  if (qnam) {
-    qnam->get (QNetworkRequest (QUrl ("http://xkcd.com/rss.xml")));
-  }
-}
-
-void
-NewRss::LoadFeed2 ()
-{
-  if (qnam) {
-    qnam->get (QNetworkRequest (QUrl ("http://www.atomenabled.org/atom.xml")));
   }
 }
 
@@ -219,10 +216,7 @@ NewRss::LoadFeed (const QString & urlString)
 void
 NewRss::FinishedNet (QNetworkReply * reply)
 {
-  qDebug () << " NewRss::FinishedNet " << reply;
-  bool ok = feedDoc.setContent (reply);
-  qDebug () << "   parse " << ok;
-  qDebug () << "   document " << feedDoc.toString ();
+  feedDoc.setContent (reply);
   QDomNodeList items = feedDoc.elementsByTagName ("item");
   QDomNodeList entries = feedDoc.elementsByTagName ("entry");
   if (items.count() > 0) {
@@ -245,7 +239,6 @@ NewRss::ParseStories (QDomNodeList & items, const QString & contentTag)
   for (int i=0; i<ni; i++) {
     QDomNode item = items.at(i);
     if (item.isElement()) {
-      qDebug () << " Item Element";
       QDomElement elt = item.toElement();
       QDomNodeList titles = elt.elementsByTagName ("title");
       QDomNodeList descrs = elt.elementsByTagName (contentTag);
@@ -276,6 +269,23 @@ NewRss::resizeEvent (QResizeEvent *event)
                  Q_ARG (QVariant, (ui.qmlView->size().width()-2)),
                  Q_ARG (QVariant, (ui.qmlView->size().height())-2));
   }
+}
+
+void
+NewRss::closeEvent (QCloseEvent *event)
+{
+  QMessageBox::StandardButton select = 
+    QMessageBox::question (this, "Exit", "Really",
+                  QMessageBox::No | QMessageBox::Close);
+  qDebug () << " Exit select " << select;
+  if (select != QMessageBox::Close) {
+    event->ignore();
+    return;
+  }
+  Settings().setValue("geometry", saveGeometry());
+  Settings().setValue("sizes/qml", ui.qmlView->size());
+  Settings().sync();
+  QMainWindow::closeEvent (event);
 }
 
 void

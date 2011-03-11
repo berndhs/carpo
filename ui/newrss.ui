@@ -20,7 +20,11 @@
   <widget class="QWidget" name="centralwidget">
    <layout class="QGridLayout" name="gridLayout">
     <item row="0" column="0">
-     <widget class="QDeclarativeView" name="qmlView"/>
+     <widget class="QDeclarativeView" name="qmlView">
+      <property name="resizeMode">
+       <enum>QDeclarativeView::SizeRootObjectToView</enum>
+      </property>
+     </widget>
     </item>
    </layout>
   </widget>
@@ -51,22 +55,11 @@
     <property name="title">
      <string>Load</string>
     </property>
-    <addaction name="actionLoad"/>
-    <addaction name="actionLoadRss"/>
-    <addaction name="actionLoadAtom"/>
     <addaction name="actionLoadList"/>
-   </widget>
-   <widget class="QMenu" name="menuTest">
-    <property name="title">
-     <string>Test</string>
-    </property>
-    <addaction name="actionShrinkIndex"/>
-    <addaction name="actionExpandIndex"/>
    </widget>
    <addaction name="menuAgenda"/>
    <addaction name="menuHelp"/>
    <addaction name="menuLoad_Html"/>
-   <addaction name="menuTest"/>
   </widget>
   <action name="actionSettings">
    <property name="text">
@@ -108,7 +101,7 @@
     <string>Revive Expired</string>
    </property>
   </action>
-  <action name="actionLoad">
+  <action name="actionFlip">
    <property name="text">
     <string>Flip</string>
    </property>

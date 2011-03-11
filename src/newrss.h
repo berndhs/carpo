@@ -33,6 +33,7 @@
 #include <QNetworkReply>
 #include <QDomDocument>
 #include <QResizeEvent>
+#include <QCloseEvent>
 #include "headline-list.h"
 #include "qml-feed-if.h"
 #include "ui_newrss.h"
@@ -58,21 +59,21 @@ public:
 private slots:
 
   void Quit ();
-  void Load ();
-  void LoadFeed1 ();
-  void LoadFeed2 ();
   void LoadList ();
   void FinishedNet (QNetworkReply * reply);
   void ShowStory (const QString & id);
   void ShowFeed (const QString & id);
   void ShowList (const QString & list);
   void HideList (const QString & list);
+  void ShowAbout ();
+  void ShowLicense ();
   void ShrinkIndex ();
   void ExpandIndex ();
 
 protected:
 
   void resizeEvent (QResizeEvent *event);
+  void closeEvent  (QCloseEvent *event);
 
 private:
 
