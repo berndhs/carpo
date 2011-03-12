@@ -58,7 +58,7 @@ NewRss::NewRss (QWidget *parent)
                         "<body><h1>HTML String number %1</h1></body>"
                         "</html>");
   feedIF = new FeedInterface (this);
-  controlIF = new ControlInterface (this);
+  controlIF = new ControlInterface (this, &feeds);
   restoreGeometry(Settings().value("geometry").toByteArray());
   qDebug () << "QML size " << Settings().value("sizes/qml").toSize();
   if (Settings().contains ("sizes/qml")) {
@@ -164,12 +164,14 @@ NewRss::EditFeed (const QString & id)
   QString nick = feed.values["nick"];
   QString siteUrl = feed.values["weburl"];
   QString title = feed.values["title"];
+  QString descr = feed.values["description"];
   QMetaObject::invokeMethod (qmlRoot, "displayEditFeed",
+                 Q_ARG (QVariant, id),
                  Q_ARG (QVariant, urlString),
                  Q_ARG (QVariant, title),
                  Q_ARG (QVariant, siteUrl),
-                 Q_ARG (QVariant, nick));
-  qDebug () << " NewRss::EditFeed " << feed.values;
+                 Q_ARG (QVariant, nick),
+                 Q_ARG (QVariant, descr));
 }
 
 void
@@ -331,6 +333,12 @@ NewRss::FillFeedModel (const Folder & folder, FeedlistModel & model)
   for (int i=0; i<nfol; i++) {
     FillFeedModel (folder.childFolders.at(i), model);
   }
+}
+
+void
+NewRss::SaveFeedListModel ()
+{
+  qDebug () << "NewRss::SaveFeedListModel";
 }
 
 } // namespace

@@ -3,43 +3,68 @@
 import QtQuick 1.0
 
 Rectangle {
-  function startNew (url) {
+  function displayNew (url) {
     console.log ("Start NEw Feed " + url)
-    displayEditFeed (url, "", "", "")
+    displayEditFeed ("", url, "", "", "", "")
+    saveButton.show ()
   }
-  function displayEditFeed (theFeedUrl, theTitle, theSite, theNick) {
+  function displayEditFeed (theFeedId, theFeedUrl, theTitle, theSite, theNick, theDescr) {
+    feedId = theFeedId
     feedNick.textValue = theNick
-    feedUrl.textValue = theSite
+    siteUrl.textValue = theSite
     addrInput.urlString = theFeedUrl
     feedTitle.textValue = theTitle
+    feedDescription.textValue = theDescr
     choiceButtons.visible = false
     feedDetails.visible = true
+    saveButton.show ()
   }
   function clear () {
-    choiceButtons.visible = true
-    feedDetails.visible = false
+    feedId = ""
     feedNick.textValue = ""
-    feedUrl.textValue = ""
+    siteUrl.textValue = ""
     addrInput.urlString = ""
     feedTitle.textValue = ""
+    feedDescription.textValue = ""
+    choiceButtons.visible = true
+    feedDetails.visible = false
+    saveButton.hide ()
   }
+  signal startNewFeed (string url)
+  signal saveFeed (string ident, string feedUrl, string title, string siteUrl, string nick, string descr)
   id: feedEdit
   property real normalWidth: parent.width
   property real urlMargin: 6
+  property string feedId: ""
   width: 200
   height: 200
   radius: 5
   color: "palegoldenrod"
+  ChoiceButton {
+    id:saveButton
+    labelText: "Save Feed"
+    height: 0
+    visible: false
+    function show () { height = 32; visible = true }
+    function hide () { height = 0; visible = false }
+    onClicked: {
+      console.log ("Save Feed")
+      saveFeed (feedId, addrInput.urlString, feedTitle.textValue, siteUrl.textValue,
+                feedNick.textValue, feedDescription.textValue)
+    }
+  }
   AddressInput { 
     id: addrInput
     labelText: "Addr:"
     width: parent.width - parent.urlMargin
+    anchors.top: parent.top
+    anchors.topMargin: saveButton.height
   }
   Flow {
     id:choiceButtons
     visible:true
     anchors { 
-      top: parent.top; topMargin: addrInput.height + 6 ; 
+      top: addrInput.bottom; topMargin: 6 
       horizontalCenter: parent.horizontalCenter
     }
     width: childrenRect.width
@@ -48,7 +73,7 @@ Rectangle {
       id: choiceNew
       labelText: "New Feed"
       onClicked: {
-        startNew (addrInput.urlString)
+        startNewFeed (addrInput.urlString)
       }
     }
   }
@@ -57,28 +82,34 @@ Rectangle {
     color: "transparent"
     visible: false
     width: parent.width
+    height: childrenRect.height
     anchors {
-      top: parent.top; topMargin: addrInput.height + 6 
+      top: addrInput.bottom; topMargin:  6 
     }
     LineInput {
       id: feedNick
       width:parent.width
-      labelText: "Nick"
+      labelText: " Nick "
     }
     LineInput {
       id: feedTitle
       width:parent.width
       anchors.top: feedNick.bottom
-      labelText: "Title"
+      labelText: " Title "
     }
     LineInput {
-      id: feedUrl
+      id: siteUrl
       width:parent.width
       anchors.top: feedTitle.bottom
-      labelText: "Site Url"
+      labelText: " Site Url "
+    }
+    BoxInput {
+      id: feedDescription
+      width:parent.width
+      anchors.top: siteUrl.bottom
+      labelText: " Description "
     }
   }
-  Text { anchors.centerIn: parent; text: "Edit Feed Element" }
   Connections {
     target: addrInput
     onUrlEntered: {

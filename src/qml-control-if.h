@@ -26,8 +26,8 @@
 
 #include <QObject>
 #include <QVariant>
-#include <QMap>
 #include <QString>
+#include "feedlist-model.h"
 
 namespace deliberate 
 {
@@ -38,21 +38,31 @@ Q_OBJECT
 
 public:
 
-  ControlInterface (QObject *parent = 0);
+  ControlInterface (QObject *parent = 0, FeedlistModel *feedList=0);
 
   Q_INVOKABLE void setEditingFeed (bool editing);
   Q_INVOKABLE void feedClicked (int index, const QString & ident, 
                                             const QString & title);
   Q_INVOKABLE bool editingFeed ();
+  Q_INVOKABLE void saveFeed (const QString & feedId,
+                             const QString & feedUrl,
+                             const QString & title,
+                             const QString & siteUrl,
+                             const QString & nick,
+                             const QString & description);
+
+  void SetFeeds (FeedlistModel * feedList);
 
 signals:
 
   void ShowFeed (const QString & feedId);
   void EditFeed (const QString & feedId);
+  void ListUpdated ();
 
 private:
 
   bool     isEditingFeed;
+  FeedlistModel   *feeds;
 
 };
 

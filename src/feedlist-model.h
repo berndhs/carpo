@@ -44,6 +44,7 @@ public:
   void addFeed (const Feed & newFeed);
 
   Feed & FeedRef (const QString & id);
+  bool   contains (const QString & id) const;
 
 private:
 

@@ -27,10 +27,18 @@
 namespace deliberate
 {
 
-ControlInterface::ControlInterface (QObject *parent)
+ControlInterface::ControlInterface (QObject *parent,
+                                    FeedlistModel * feedList)
   :QObject(parent),
-   isEditingFeed (false)
+   isEditingFeed (false),
+   feeds (feedList)
 {
+}
+
+void
+ControlInterface::SetFeeds (FeedlistModel * feedList)
+{
+  feeds = feedList;
 }
 
 void
@@ -57,6 +65,36 @@ ControlInterface::feedClicked (int index, const QString & ident,
   } else {
     emit ShowFeed (ident);
   }
+}
+
+void
+ControlInterface::saveFeed (const QString & feedId,
+                             const QString & feedUrl,
+                             const QString & title,
+                             const QString & siteUrl,
+                             const QString & nick,
+                             const QString & description)
+{
+  if (!feeds) {
+    return;
+  }
+  if (feeds->contains (feedId)) {
+    Feed & feedRef = feeds->FeedRef(feedId);
+    feedRef.values["xmlurl"] = feedUrl;
+    feedRef.values["title"] = title;
+    feedRef.values["weburl"] = siteUrl;
+    feedRef.values["nick"] = nick;
+    feedRef.values["description"] = description;
+  } else {
+    Feed newFeed;
+    newFeed.values["xmlurl"] = feedUrl;
+    newFeed.values["title"] = title;
+    newFeed.values["weburl"] = siteUrl;
+    newFeed.values["nick"] = nick;
+    newFeed.values["description"] = description;
+    feeds->addFeed (newFeed);
+  }
+  emit ListUpdated ();
 }
 
 } // namespace

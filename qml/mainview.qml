@@ -70,8 +70,9 @@
     console.log ("Widths: Index " + feedIndexArea.width + " list " + feedListArea.width)
     feedIF.toggleLists ()
   }
-  function displayEditFeed (feedUrl, feedTitle, siteUrl, nickText) {
-    feedEdit.displayEditFeed (feedUrl, feedTitle, siteUrl, nickText)
+  function displayEditFeed (feedId, feedUrl, feedTitle, siteUrl, nickText, theDescription) {
+    feedEdit.displayEditFeed (feedId, feedUrl, feedTitle, siteUrl, nickText, theDescription)
+    indexBox.height = 0
   }
 
   color: "transparent"
@@ -158,6 +159,13 @@
       height: storyView.height - 4
       z: 4
       anchors {top: parent.top; horizontalCenter: parent.horizontalCenter }
+      onStartNewFeed: {
+        feedEdit.displayNew (url)
+        indexBox.height = 0
+      }
+      onSaveFeed: {
+        controlIF.saveFeed (ident, feedUrl, title, siteUrl, nick, descr)
+      }
     }
   }
   Connections {
@@ -179,7 +187,11 @@
       console.log ("area w " + feedEditArea.width + " visi " + feedEditArea.visible )
       console.log (" edit visi " + feedEdit.visible + " width " + feedEdit.width)
       console.log (" area " + feedEditArea + " edit " + feedEdit)
-      if (feedEdit.visible) { feedEdit.clear() }
+      if (feedEdit.visible) { 
+        feedEdit.clear() 
+      } else {
+        indexBox.height = indexHeight
+      }
       controlIF.setEditingFeed (feedEdit.visible)
     }
   }

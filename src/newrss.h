@@ -71,6 +71,7 @@ private slots:
   void ShowLicense ();
   void ShrinkIndex ();
   void ExpandIndex ();
+  void SaveFeedListModel ();
 
 protected:
 

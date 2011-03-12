@@ -47,6 +47,12 @@ FeedlistModel::rowCount (const QModelIndex & parent) const
   return idents.count();
 }
 
+bool
+FeedlistModel::contains (const QString & id) const
+{
+  return feedMap.contains (id);
+}
+
 QVariant 
 FeedlistModel::data (const QModelIndex & index, int role) const
 {
