@@ -77,6 +77,7 @@
 
   ControlPanel { 
     id: controlPanel
+    visible: true
   }
   Rectangle {
     id: indexBox
@@ -90,6 +91,7 @@
     }
     FeedList {
       id: feedListArea
+      visible: true
       height: indexHeight
       normalWidth: parent.width
       anchors.top: indexBox.top
@@ -110,6 +112,7 @@
     }
     FeedIndex {
       id: feedIndexArea
+      visible: true
       height: indexHeight
       normalWidth: parent.width
       anchors.top: indexBox.top
@@ -131,6 +134,7 @@
   }
   StoryView {
     id: storyView
+    visible: true
     z: 3
     anchors.top: indexBox.bottom
     anchors.leftMargin: embedMargin
@@ -138,6 +142,14 @@
     height: 500
    
     storyHtml: "<p>default <b>html</b>.</p>"
+  }
+  FeedEdit {
+    id: feedEdit
+    width: storyView.width/2
+    height: storyView.height/2
+    visible: false
+    z: 4
+    anchors.centerIn: storyView
   }
   Connections {
     target: controlPanel
@@ -151,7 +163,7 @@
       turnIndex ()
     }
     onMoreSelect: {
-      console.log ("More Selected " + whereX + " " + whereY)
+      feedEdit.visible = ! feedEdit.visible
     }
   }
   
