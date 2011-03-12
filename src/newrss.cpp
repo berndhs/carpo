@@ -159,8 +159,17 @@ NewRss::ShowFeed (const QString & id)
 void
 NewRss::EditFeed (const QString & id)
 {
-  QString urlString = feeds.FeedRef(id).values["xmlurl"];
-  qDebug () << " NewRss::EditFeed from " << urlString;
+  Feed & feed = feeds.FeedRef (id);
+  QString urlString = feed.values["xmlurl"];
+  QString nick = feed.values["nick"];
+  QString siteUrl = feed.values["weburl"];
+  QString title = feed.values["title"];
+  QMetaObject::invokeMethod (qmlRoot, "displayEditFeed",
+                 Q_ARG (QVariant, urlString),
+                 Q_ARG (QVariant, title),
+                 Q_ARG (QVariant, siteUrl),
+                 Q_ARG (QVariant, nick));
+  qDebug () << " NewRss::EditFeed " << feed.values;
 }
 
 void

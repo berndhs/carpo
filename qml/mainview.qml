@@ -70,6 +70,9 @@
     console.log ("Widths: Index " + feedIndexArea.width + " list " + feedListArea.width)
     feedIF.toggleLists ()
   }
+  function displayEditFeed (feedUrl, feedTitle, siteUrl, nickText) {
+    feedEdit.displayEditFeed (feedUrl, feedTitle, siteUrl, nickText)
+  }
 
   color: "transparent"
   width: displayWidth
