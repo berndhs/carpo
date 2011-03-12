@@ -26,14 +26,14 @@ Rectangle {
     color: "wheat"
     height: 48
     radius: parent.radius - 1
-    Text { 
+    Rectangle { 
       height: 32
       id: labelText
-      text: "Address:"
+      width: childrenRect.width
+      color:parent.color
+      Text { text: "Address:"; anchors.verticalCenter: parent.verticalCenter }
       anchors.left: parent.left 
-      //anchors.verticalCenter: parent.verticalCenter
-      anchors.top: parent.top
-      anchors.topMargin: 2*bigBox.urlMargin + 2
+      anchors.verticalCenter: parent.verticalCenter
     }
     Rectangle {
       height: labelText.height
