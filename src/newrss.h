@@ -36,6 +36,7 @@
 #include <QCloseEvent>
 #include "headline-list.h"
 #include "qml-feed-if.h"
+#include "qml-control-if.h"
 #include "ui_newrss.h"
 #include "feedlist-parser.h"
 #include "feedlist.h"
@@ -63,6 +64,7 @@ private slots:
   void FinishedNet (QNetworkReply * reply);
   void ShowStory (const QString & id);
   void ShowFeed (const QString & id);
+  void EditFeed (const QString & id);
   void ShowList (const QString & list);
   void HideList (const QString & list);
   void ShowAbout ();
@@ -93,6 +95,7 @@ private:
 
   HeadlineList         headlines;
   FeedInterface       *feedIF;
+  ControlInterface    *controlIF;
 
   QNetworkAccessManager *qnam;
   QDomDocument           feedDoc;

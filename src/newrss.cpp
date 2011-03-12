@@ -58,6 +58,7 @@ NewRss::NewRss (QWidget *parent)
                         "<body><h1>HTML String number %1</h1></body>"
                         "</html>");
   feedIF = new FeedInterface (this);
+  controlIF = new ControlInterface (this);
   restoreGeometry(Settings().value("geometry").toByteArray());
   qDebug () << "QML size " << Settings().value("sizes/qml").toSize();
   if (Settings().contains ("sizes/qml")) {
@@ -88,7 +89,8 @@ NewRss::Run ()
   context->setContextProperty ("feedIndexModel", &headlines);
   context->setContextProperty ("feedListModel", &feeds);
   ui.qmlView->setSource (QUrl::fromLocalFile("qml/mainview.qml"));
-  context->setContextProperty("feedIF",feedIF);
+  context->setContextProperty ("feedIF",feedIF);
+  context->setContextProperty ("controlIF",controlIF);
   qmlRoot = ui.qmlView->rootObject();
   qDebug () << " top size " << size();
   qDebug () << " qml size " << ui.qmlView->size();
@@ -125,6 +127,10 @@ NewRss::Connect ()
            this, SLOT (ShowList (const QString &)));
   connect (feedIF, SIGNAL (HideList (const QString &)),
            this, SLOT (HideList (const QString &)));
+  connect (controlIF, SIGNAL (ShowFeed (const QString &)),
+           this, SLOT (ShowFeed (const QString &)));
+  connect (controlIF, SIGNAL (EditFeed (const QString &)),
+           this, SLOT (EditFeed (const QString &)));
 }
 
 
@@ -148,6 +154,13 @@ NewRss::ShowFeed (const QString & id)
   QString urlString = feeds.FeedRef(id).values["xmlurl"];
   headlines.clear ();
   LoadFeed (urlString);
+}
+
+void
+NewRss::EditFeed (const QString & id)
+{
+  QString urlString = feeds.FeedRef(id).values["xmlurl"];
+  qDebug () << " NewRss::EditFeed from " << urlString;
 }
 
 void

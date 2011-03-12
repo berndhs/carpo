@@ -3,65 +3,51 @@
 import QtQuick 1.0
 
 Rectangle {
-
-  id: bigBox
-  signal urlEntered(string url)
-  signal urlChanged
+  function startNew (url) {
+    console.log ("Start NEw Feed " + url)
+  }
+  function editOld () {
+    console.log ("Edit Old Feed")
+  }
+  id: feedEdit
   property real normalWidth: parent.width
   property real urlMargin: 6
   width: 200
   height: 200
   radius: 5
   color: "lightcoral"
-
-  Rectangle {
-    id: addressInputBox
-
+  AddressInput { 
+    id: addrInput
+    labelText: "Addr:"
     width: parent.width - parent.urlMargin
-    anchors {
+  }
+  Flow {
+    anchors { 
+      top: parent.top; topMargin: addrInput.height + 6 ; 
       horizontalCenter: parent.horizontalCenter
-      top: parent.top
-      topMargin: 2
     }
-    color: "wheat"
-    height: 48
-    radius: parent.radius - 1
-    Rectangle { 
-      height: 32
-      id: labelText
-      width: childrenRect.width
-      color:parent.color
-      Text { text: "Address:"; anchors.verticalCenter: parent.verticalCenter }
-      anchors.left: parent.left 
-      anchors.verticalCenter: parent.verticalCenter
+    width: childrenRect.width
+    spacing: 4
+    ChoiceButton {
+      id: choiceOld
+      labelText: "Choose From List"
+      onClicked: {
+        editOld ()
+      }
     }
-    Rectangle {
-      height: labelText.height
-      width: parent.width - labelText.width - anchors.leftMargin -2
-      anchors.left: labelText.right
-      anchors.leftMargin: 2
-      anchors.verticalCenter: parent.verticalCenter
-      color: "white"
-      radius: parent.radius - 1
-
-      TextInput {
-        id: urlText
-        horizontalAlignment: TextEdit.AlignLeft
-
-        //onTextChanged: bigBox.urlChanged()
-        Keys.onEnterPressed: {
-          bigBox.urlEntered(urlText.text)
-        }
-        Keys.onReturnPressed: {
-          bigBox.urlEntered(urlText.text)
-        }
-        anchors {
-          left: parent.left; right: parent.right; leftMargin: 18; rightMargin: 18
-          verticalCenter: parent.verticalCenter
-        }
+    ChoiceButton {
+      id: choiceNew
+      labelText: "New Feed"
+      onClicked: {
+        startNew (addrInput.urlString)
       }
     }
   }
-
-  Text { anchors.centerIn: parent; text: "Feed Edit Element" }
+  Text { anchors.centerIn: parent; text: "Edit Feed Element" }
+  Connections {
+    target: addrInput
+    onUrlEntered: {
+      console.log ("entered URL " + url) 
+    }
+  } 
 }

@@ -74,6 +74,7 @@ HEADERS = \
           src/version.h \
           src/headline-list.h \
           src/qml-feed-if.h \
+          src/qml-control-if.h \
           src/feedlist-parser.h \
           src/feedlist.h \
           src/feedlist-model.h \
@@ -87,6 +88,7 @@ SOURCES = \
           src/version.cpp \
           src/headline-list.cpp \
           src/qml-feed-if.cpp \
+          src/qml-control-if.cpp \
           src/feedlist-parser.cpp \
           src/feedlist.cpp \
           src/feedlist-model.cpp \

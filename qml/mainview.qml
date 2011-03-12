@@ -105,8 +105,7 @@
         onClicked: console.log ("clicked Feed List Box " + mouseX + mouseY)
       }
       onSelected: { 
-        feedIF.feedClicked (idx, i,t) 
-        feedIF.report (" list current " + feedIndexArea.reportCurrent() )
+        controlIF.feedClicked (idx, i,t) 
       }
       onReportOrientation: { feedIF.listOrientation (orient) }
     }
@@ -127,7 +126,6 @@
       }
       onSelected: { 
         feedIF.storyClicked (idx, i,t) 
-        feedIF.report (" list current " + feedIndexArea.reportCurrent() )
       }
       onReportOrientation: { feedIF.listOrientation (orient) }
     }
@@ -144,12 +142,12 @@
     storyHtml: "<p>default <b>html</b>.</p>"
   }
   FeedEdit {
-    id: feedEdit
-    width: storyView.width/2
-    height: storyView.height/2
+    id: feedEdit 
+    width: storyView.width - 4
+    height: storyView.height - 4
     visible: false
     z: 4
-    anchors.centerIn: storyView
+    anchors { top: storyView.top; horizontalCenter: storyView.horizontalCenter }
   }
   Connections {
     target: controlPanel
@@ -164,6 +162,7 @@
     }
     onMoreSelect: {
       feedEdit.visible = ! feedEdit.visible
+      controlIF.setEditingFeed (feedEdit.visible)
     }
   }
   
