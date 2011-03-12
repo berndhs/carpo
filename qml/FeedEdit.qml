@@ -5,9 +5,7 @@ import QtQuick 1.0
 Rectangle {
   function startNew (url) {
     console.log ("Start NEw Feed " + url)
-  }
-  function editOld () {
-    console.log ("Edit Old Feed")
+    displayEditFeed (url, "", "", "")
   }
   function displayEditFeed (theFeedUrl, theTitle, theSite, theNick) {
     feedNick.textValue = theNick
@@ -17,13 +15,21 @@ Rectangle {
     choiceButtons.visible = false
     feedDetails.visible = true
   }
+  function clear () {
+    choiceButtons.visible = true
+    feedDetails.visible = false
+    feedNick.textValue = ""
+    feedUrl.textValue = ""
+    addrInput.urlString = ""
+    feedTitle.textValue = ""
+  }
   id: feedEdit
   property real normalWidth: parent.width
   property real urlMargin: 6
   width: 200
   height: 200
   radius: 5
-  color: "lightcoral"
+  color: "palegoldenrod"
   AddressInput { 
     id: addrInput
     labelText: "Addr:"
@@ -38,13 +44,6 @@ Rectangle {
     }
     width: childrenRect.width
     spacing: 4
-    ChoiceButton {
-      id: choiceOld
-      labelText: "Choose From List"
-      onClicked: {
-        editOld ()
-      }
-    }
     ChoiceButton {
       id: choiceNew
       labelText: "New Feed"

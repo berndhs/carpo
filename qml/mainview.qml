@@ -144,13 +144,21 @@
    
     storyHtml: "<p>default <b>html</b>.</p>"
   }
-  FeedEdit {
-    id: feedEdit 
-    width: storyView.width - 4
-    height: storyView.height - 4
-    visible: false
-    z: 4
+  Flickable {
+    id: feedEditArea
+    width: storyView.width
+    height: storyView.height
+    z: storyView.z +1
+    contentWidth: feedEdit.width; contentHeight: feedEdit.height
     anchors { top: storyView.top; horizontalCenter: storyView.horizontalCenter }
+    visible: false
+    FeedEdit {
+      id: feedEdit 
+      width: storyView.width - 4
+      height: storyView.height - 4
+      z: 4
+      anchors {top: parent.top; horizontalCenter: parent.horizontalCenter }
+    }
   }
   Connections {
     target: controlPanel
@@ -164,7 +172,14 @@
       turnIndex ()
     }
     onMoreSelect: {
-      feedEdit.visible = ! feedEdit.visible
+      var visi = !feedEdit.visible
+      console.log ("Visi temp " + visi)
+      feedEdit.visible = visi
+      feedEditArea.visible = visi
+      console.log ("area w " + feedEditArea.width + " visi " + feedEditArea.visible )
+      console.log (" edit visi " + feedEdit.visible + " width " + feedEdit.width)
+      console.log (" area " + feedEditArea + " edit " + feedEdit)
+      if (feedEdit.visible) { feedEdit.clear() }
       controlIF.setEditingFeed (feedEdit.visible)
     }
   }
