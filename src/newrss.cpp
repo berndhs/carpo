@@ -22,8 +22,9 @@
  *  Boston, MA  02110-1301, USA.
  ****************************************************************/
 
-
+#include <Qt>
 #include <QDeclarativeContext>
+#include <QDeclarativeEngine>
 #include <QGraphicsObject>
 #include <QDomElement>
 #include <QDomNode>
@@ -95,6 +96,14 @@ NewRss::Run ()
   ui.qmlView->setSource (QUrl::fromLocalFile("qml/mainview.qml"));
   context->setContextProperty ("feedIF",feedIF);
   context->setContextProperty ("controlIF",controlIF);
+  qDebug () << " NewRss  context base url " << context->baseUrl();
+  qDebug () << " NewRss  engine import paths "
+            << ui.qmlView->engine()->importPathList();         
+  qDebug () << " NewRss  engine plugin paths "
+            << ui.qmlView->engine()->pluginPathList();
+  qmlRoot = ui.qmlView->rootObject();       
+  qDebug () << " NewRss  engine base url "
+            << ui.qmlView->engine()->baseUrl();
   qmlRoot = ui.qmlView->rootObject();
   qDebug () << " top size " << size();
   qDebug () << " qml size " << ui.qmlView->size();
@@ -139,6 +148,8 @@ NewRss::Connect ()
            this, SLOT (EditFeed (const QString &)));
   connect (controlIF, SIGNAL (ListUpdated ()),
            this, SLOT (SaveFeedListModel ()));
+  connect (controlIF, SIGNAL (ProbeFeed (const QString &)),
+           this, SLOT (ProbeFeed (const QString &)));
 }
 
 
@@ -178,6 +189,12 @@ void
 NewRss::EditFeed (const QString & id)
 {
   Feed & feed = feeds.FeedRef (id);
+  DisplayEditFeed (id, feed);
+}
+
+void
+NewRss::DisplayEditFeed (const QString & id, const Feed & feed)
+{
   QString urlString = feed.values["xmlurl"];
   QString nick = feed.values["nick"];
   QString siteUrl = feed.values["weburl"];
@@ -251,13 +268,56 @@ void
 NewRss::LoadFeed (const QString & urlString)
 {
   if (qnam) {
-    qnam->get (QNetworkRequest (QUrl (urlString)));
+    QNetworkReply * netreply = qnam->get (QNetworkRequest (QUrl (urlString)));
+    DrssNetReply * dreply = new DrssNetReply (netreply, 
+                                      DrssNetReply::Kind_GetFeed);
+    expectReplies[netreply] = dreply;
+  }
+}
+
+void
+NewRss::ProbeFeed (const QString & urlString)
+{
+  if (qnam) {
+    QNetworkReply * netreply = qnam->get (QNetworkRequest (QUrl (urlString)));
+    DrssNetReply * dreply = new DrssNetReply (netreply, 
+                                      DrssNetReply::Kind_Probe);
+    expectReplies[netreply] = dreply;
   }
 }
 
 void
 NewRss::FinishedNet (QNetworkReply * reply)
 {
+  if (reply) {
+    if (expectReplies.contains (reply)) {
+      DrssNetReply * dreply = expectReplies[reply];
+      if (dreply) {
+        DrssNetReply::Kind  kind = dreply->kind();
+        switch (kind) {
+        case DrssNetReply::Kind_GetFeed:
+          GetFeedReply (dreply->netReply());
+          break;
+        case DrssNetReply::Kind_Probe:
+          ProbeReply (dreply->netReply());
+          break;
+        default:
+          qDebug () << " bad network reply kind " << reply << kind;
+          break;
+        }
+        expectReplies.remove (reply);
+        delete dreply;
+      }
+    }
+  }
+}
+
+void
+NewRss::GetFeedReply (QNetworkReply * reply)
+{
+  if (!reply) {
+    return;
+  }
   feedDoc.setContent (reply);
   QDomNodeList items = feedDoc.elementsByTagName ("item");
   QDomNodeList entries = feedDoc.elementsByTagName ("entry");
@@ -272,6 +332,133 @@ NewRss::FinishedNet (QNetworkReply * reply)
     HideList ("FeedList");
     feedIF->SetActive (FeedInterface::Choice_Index);
   }
+}
+
+void
+NewRss::ProbeReply (QNetworkReply * reply)
+{
+  QDomDocument probeDoc;
+  probeDoc.setContent (reply);
+  QDomElement root = probeDoc.documentElement ();
+  QString tag = root.tagName();
+  Feed newFeed;
+  newFeed.values["xmlurl"] = reply->url().toString();
+  bool foundData (false);
+  if (tag == "rss" || tag.startsWith ("rdf")) {  // probaly RSS
+    for (QDomElement rssel = root.firstChildElement();
+         !rssel.isNull();
+         rssel = rssel.nextSiblingElement()) {
+      tag = rssel.tagName();
+      if (tag == "channel") {
+        foundData = PopulateFromRssDoc (rssel, newFeed);
+      } 
+      if (foundData) {
+        break;
+      }
+    }
+  } else if (tag == "feed") {
+    foundData = PopulateFromAtomDoc (root, newFeed);
+  }
+  if (foundData) {
+    DisplayEditFeed ("", newFeed);
+  }
+}
+
+bool
+NewRss::PopulateFromRssDoc (QDomElement & el, Feed & feed)
+{
+  static QString tag_title("title");
+  static QString tag_link("link");
+  static QString tag_description("description");
+  QString t;
+  QString weblink;
+  QString title;
+  QString description (tr("cannot find RSS feed data"));
+  bool foundsomething(false);
+  for (QDomElement child = el.firstChildElement();
+       !child.isNull();
+       child = child.nextSiblingElement()) {
+    t = child.tagName();
+    if (t == tag_title) {
+      title = child.text();
+      foundsomething = true;
+    } else if (t == tag_link) {
+      weblink = child.text();
+      foundsomething = true;
+    } else if (t == tag_description) {
+      description = child.text();
+    }
+  }
+  feed.values["title"] = title;
+  feed.values["weburl"] = weblink;
+  feed.values["description"] = description;
+  return foundsomething;
+}
+
+
+bool
+NewRss::PopulateFromAtomDoc (QDomElement & el, Feed & feed)
+{
+  QString t;
+  static QString tag_title("title");
+  static QString tag_link("link");
+  static QString tag_author("author");
+  static QString tag_subtitle("subtitle");
+  QString xmllink;
+  QString weblink;
+  QString title;
+  QString author;
+  QString description (tr(""));
+  bool foundsomething(false);
+  for (QDomElement child = el.firstChildElement();
+       !child.isNull();
+       child = child.nextSiblingElement()) {
+    t = child.tagName();
+    if (t == tag_title) {
+      title = child.text();
+      foundsomething = true;
+    } else if (t == tag_link) {
+      foundsomething |= ParseAtomLinkElem (child, xmllink, weblink);
+    } else if (t == tag_author) {
+      foundsomething |= ParseAtomAuthorElem (child, author);
+    } else if (t == tag_subtitle) {
+      description = child.text();
+    }
+  }
+  feed.values["title"] = title;
+  feed.values["weburl"] = weblink;
+  feed.values["description"] = description;
+  return foundsomething;
+}
+
+bool 
+NewRss::ParseAtomLinkElem (QDomElement & el, QString & xml, QString & web)
+{
+   QString relAttr = el.attribute("rel");
+   bool ok(false);
+   if (relAttr == "self") {
+     xml = el.attribute("href");
+     ok = true;
+   } else {
+     web = el.attribute("href");
+     ok = true;
+   }
+   return ok;
+}
+
+bool
+NewRss::ParseAtomAuthorElem (QDomElement &el, QString & name)
+{
+  bool ok(false);
+  for (QDomElement child = el.firstChildElement();
+       !child.isNull();
+       child = child.nextSiblingElement()) {
+    if (child.tagName() == "name") {
+      name = child.text();
+      ok = name.length() > 0;
+    }
+  }
+  return ok;
 }
 
 void

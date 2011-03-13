@@ -32,6 +32,7 @@
 #include <QNetworkRequest>
 #include <QNetworkReply>
 #include <QDomDocument>
+#include <QDomElement>
 #include <QResizeEvent>
 #include <QCloseEvent>
 #include "headline-list.h"
@@ -41,6 +42,7 @@
 #include "feedlist-parser.h"
 #include "feedlist.h"
 #include "feedlist-model.h"
+#include "drss-netreply.h"
 
 class QDeclarativeContext;
 
@@ -73,6 +75,7 @@ private slots:
   void ShrinkIndex ();
   void ExpandIndex ();
   void SaveFeedListModel ();
+  void ProbeFeed (const QString & urlString);
 
 protected:
 
@@ -85,6 +88,13 @@ private:
   void  ParseStories (QDomNodeList & items, const QString & contentTag);
   void  FillFeedModel (const Folder & folder, FeedlistModel & model);
   void  LoadFeed (const QString & urlString);
+  void  GetFeedReply (QNetworkReply * reply);
+  void  ProbeReply (QNetworkReply * reply);
+  bool  PopulateFromRssDoc (QDomElement & el, Feed & feed);
+  bool  PopulateFromAtomDoc (QDomElement & el, Feed & feed);
+  bool  ParseAtomAuthorElem (QDomElement &el, QString & name);
+  bool  ParseAtomLinkElem (QDomElement & el, QString & xml, QString & web);
+  void  DisplayEditFeed (const QString & id, const Feed & feed);
 
 
   QApplication  *app;
@@ -110,6 +120,8 @@ private:
   FeedlistModel             feeds;
   QMap <QString, QString>  stories;
   QMap <QString, QStringList> storyLinks;
+
+  QMap <QNetworkReply *, DrssNetReply *>  expectReplies;
 
 }; 
 

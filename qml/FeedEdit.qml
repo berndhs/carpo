@@ -6,8 +6,7 @@ Rectangle {
   function displayNew (url) {
     console.log ("Start NEw Feed " + url)
     displayEditFeed ("", url, "", "", "", "")
-    saveButton.show ()
-    deleteButton.show ()
+    saveButtonRow.show ()
   }
   function displayEditFeed (theFeedId, theFeedUrl, theTitle, theSite, theNick, theDescr) {
     feedId = theFeedId
@@ -18,8 +17,7 @@ Rectangle {
     feedDescription.textValue = theDescr
     choiceButtons.visible = false
     feedDetails.visible = true
-    saveButton.show ()
-    deleteButton.show ()
+    saveButtonRow.show ()
   }
   function clear () {
     feedId = ""
@@ -30,11 +28,11 @@ Rectangle {
     feedDescription.textValue = ""
     choiceButtons.visible = true
     feedDetails.visible = false
-    saveButton.hide ()
-    deleteButton.hide ()
+    saveButtonRow.hide ()
   }
   signal startNewFeed (string url)
   signal deleteFeed (string ident)
+  signal probeFeed (string url)
   signal saveFeed (string ident, string feedUrl, string title, string siteUrl, 
                    string nick, string descr)
   id: feedEdit
@@ -45,34 +43,48 @@ Rectangle {
   height: 200
   radius: 5
   color: "palegoldenrod"
-  ChoiceButton {
-    id:saveButton
-    labelText: "Save Feed"
-    height: 0
-    visible: false
-    color: "green"
+  Rectangle {
+    function show () { height = 32; visible = true }
+    function hide () { height = 0; visible = false }
+    id: saveButtonRow
+    height: 0;
+    visible: false;
+    width: childrenRect.width;
     anchors.top: parent.top
     anchors.topMargin: 10
-    function show () { height = 32; visible = true }
-    function hide () { height = 0; visible = false }
-    onClicked: {
-      console.log ("Save Feed")
-      saveFeed (feedId, addrInput.urlString, feedTitle.textValue, siteUrl.textValue,
+    color: "transparent"
+    ChoiceButton {
+      id:saveButton
+      labelText: "Save Feed"
+      height: parent.height
+      color: "green"
+      onClicked: {
+        console.log ("Save Feed")
+        saveFeed (feedId, addrInput.urlString, feedTitle.textValue, siteUrl.textValue,
                 feedNick.textValue, feedDescription.textValue)
+      }
+    } 
+    ChoiceButton {
+      id:deleteButton
+      labelText: "Delete Feed"
+      height: parent.height
+      color: "red"
+      anchors { left: saveButton.right; verticalCenter: saveButton.verticalCenter }
+      onClicked: {
+        console.log ("Delete Feed")
+        deleteFeed (feedId)
+      }
     }
-  }
-  ChoiceButton {
-    id:deleteButton
-    labelText: "Delete Feed"
-    height: 0
-    visible: false
-    color: "red"
-    anchors { left: saveButton.right; verticalCenter: saveButton.verticalCenter }
-    function show () { height = 32; visible = true }
-    function hide () { height = 0; visible = false }
-    onClicked: {
-      console.log ("Delete Feed")
-      deleteFeed (feedId)
+    ChoiceButton {
+      id:probeButton
+      labelText: "Probe Feed"
+      height: parent.height
+      color: "yellow"
+      anchors { left: deleteButton.right; verticalCenter: deleteButton.verticalCenter }
+      onClicked: {
+        console.log ("Probe Feed")
+        probeFeed (addrInput.urlString)
+      }
     }
   }
   AddressInput { 

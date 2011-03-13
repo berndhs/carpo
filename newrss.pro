@@ -79,6 +79,7 @@ HEADERS = \
           src/feedlist.h \
           src/feedlist-model.h \
           src/feedlist-writer.h \
+          src/drss-netreply.h \
 
 
 SOURCES = \
@@ -94,4 +95,5 @@ SOURCES = \
           src/feedlist.cpp \
           src/feedlist-model.cpp \
           src/feedlist-writer.cpp \
+          src/drss-netreply.cpp \
 

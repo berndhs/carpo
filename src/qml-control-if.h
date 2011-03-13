@@ -51,6 +51,7 @@ public:
                              const QString & nick,
                              const QString & description);
   Q_INVOKABLE void removeFeed (const QString & feedId);
+  Q_INVOKABLE void probeFeed (const QString & url);
 
   void SetFeeds (FeedlistModel * feedList);
 
@@ -58,6 +59,7 @@ signals:
 
   void ShowFeed (const QString & feedId);
   void EditFeed (const QString & feedId);
+  void ProbeFeed (const QString & url);
   void ListUpdated ();
 
 private:

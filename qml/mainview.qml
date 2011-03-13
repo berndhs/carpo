@@ -158,7 +158,7 @@
     anchors.top: indexBox.bottom
     anchors.leftMargin: embedMargin
     anchors.rightMargin: embedMargin
-    height: 500
+    height: parent.height - controlPanel.height - indexBox.height
    
     storyHtml: "<p>default <b>html</b>.</p>"
   }
@@ -186,6 +186,9 @@
       onDeleteFeed: {
         controlIF.removeFeed (ident)
         showEdit (false)
+      }
+      onProbeFeed: {
+        controlIF.probeFeed (url)
       }
     }
   }

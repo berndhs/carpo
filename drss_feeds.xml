@@ -258,15 +258,6 @@
   <language></language>
  </feed>
  <feed hash="">
-  <title>Cammas - Groupama news</title>
-  <webUrl>http://www.cammas-groupama.com</webUrl>
-  <xmlUrl>http://www.cammas-groupama.com/en/utilitaires/archives/actus_fr.xml</xmlUrl>
-  <description>All Franck Cammas's  and multihulls Groupama news </description>
-  <imageUrl></imageUrl>
-  <nick>Cammas</nick>
-  <language></language>
- </feed>
- <feed hash="">
   <title>kicker online: Teamnews - Borussia Dortmund</title>
   <webUrl>http://rss.kicker.derss.kicker.de/team/borussiadortmund</webUrl>
   <xmlUrl>http://rss.kicker.de/team/borussiadortmund</xmlUrl>
@@ -782,42 +773,6 @@
   <language></language>
  </feed>
  <feed hash="">
-  <title>Project Reviews for DRSS</title>
-  <webUrl>http://sourceforge.net/projects/drss/</webUrl>
-  <xmlUrl>http://sourceforge.net/projects/drss/reviews_feed.rss</xmlUrl>
-  <description>Project Reviews for DRSS</description>
-  <imageUrl></imageUrl>
-  <nick>Project Reviews for DRSS</nick>
-  <language></language>
- </feed>
- <feed hash="">
-  <title>SourceForge - drss/drss/rss log</title>
-  <webUrl>http://drss.git.sourceforge.net/git/gitweb.cgi?p=drss/drss;a=summary</webUrl>
-  <xmlUrl>http://drss.git.sourceforge.net/git/gitweb.cgi?p=drss/drss;a=rss</xmlUrl>
-  <description>drss git log</description>
-  <imageUrl></imageUrl>
-  <nick>DRSS Git Log</nick>
-  <language></language>
- </feed>
- <feed hash="">
-  <title>SourceForge.net - Recent activity for project: egalite</title>
-  <webUrl>http://sourceforge.net/export/rss2_keepsake.php?group_id=332142</webUrl>
-  <xmlUrl>https://sourceforge.net/export/rss2_keepsake.php?group_id=332142</xmlUrl>
-  <description>Recent activity for the project egalite</description>
-  <imageUrl></imageUrl>
-  <nick>Egalite SF.net</nick>
-  <language></language>
- </feed>
- <feed hash="">
-  <title>White House.gov Blog Feed</title>
-  <webUrl>http://www.whitehouse.gov/blog</webUrl>
-  <xmlUrl>http://www.whitehouse.gov/feed/blog</xmlUrl>
-  <description></description>
-  <imageUrl></imageUrl>
-  <nick>White House.gov Blog Feed</nick>
-  <language></language>
- </feed>
- <feed hash="">
   <title>White House.gov Press Office Feed</title>
   <webUrl>http://www.whitehouse.gov/feed/press/%2A</webUrl>
   <xmlUrl>http://www.whitehouse.gov/feed/press</xmlUrl>
@@ -827,30 +782,12 @@
   <language></language>
  </feed>
  <feed hash="">
-  <title>Stephen Harper / Prime Minister</title>
-  <webUrl>http://pm.gc.ca/</webUrl>
-  <xmlUrl>http://www.pm.gc.ca/RSSFeeds/news/Notices_e.xml</xmlUrl>
-  <description>Stephen Harper / Prime Minister</description>
+  <title>Christian Science Monitor | All Stories</title>
+  <webUrl>http://www.csmonitor.com</webUrl>
+  <xmlUrl>http://rss.csmonitor.com/feeds/csm</xmlUrl>
+  <description>Read the front page stories of csmonitor.com.</description>
   <imageUrl></imageUrl>
-  <nick>Stephen Harper / Prime Minister</nick>
-  <language></language>
- </feed>
- <feed hash="">
-  <title>Stephen Harper / Prime Minister</title>
-  <webUrl>http://pm.gc.ca/</webUrl>
-  <xmlUrl>http://www.pm.gc.ca/RSSFeeds/news/Statements_e.xml</xmlUrl>
-  <description>Stephen Harper / Prime Minister</description>
-  <imageUrl></imageUrl>
-  <nick>Stephen Harper / Prime Minister</nick>
-  <language></language>
- </feed>
- <feed hash="">
-  <title>Stephen Harper / Prime Minister</title>
-  <webUrl>http://pm.gc.ca/</webUrl>
-  <xmlUrl>http://www.pm.gc.ca/RSSFeeds/news/News_Releases_e.xml</xmlUrl>
-  <description>Stephen Harper / Prime Minister</description>
-  <imageUrl></imageUrl>
-  <nick>Stephen Harper / Prime Minister</nick>
+  <nick>CS Monitor everything</nick>
   <language></language>
  </feed>
 </drssfeedlist>

@@ -47,6 +47,7 @@ Flickable {
   anchors.left: parent.left
   anchors.right: parent.right
   width: parent.width
+  height: parent.height
   contentWidth: Math.max(parent.width,theWebView.width)
   contentHeight: Math.max(parent.height,theWebView.height)
   onWidthChanged : {
@@ -58,6 +59,7 @@ Flickable {
   WebView {
     id: theWebView
     settings.autoLoadImages: true
+    settings.pluginsEnabled: true
     html: "<p>default <b>html</b>.</p>"
          onAlert: console.log(message)
 

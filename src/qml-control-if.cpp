@@ -109,4 +109,10 @@ ControlInterface::removeFeed (const QString & feedId)
   }
 }
 
+void
+ControlInterface::probeFeed (const QString & url)
+{
+  emit ProbeFeed (url);
+}
+
 } // namespace
