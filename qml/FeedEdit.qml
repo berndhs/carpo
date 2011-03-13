@@ -109,24 +109,28 @@ Rectangle {
       id: feedNick
       width:parent.width
       labelText: " Nick "
+      labelWidth: feedDescription.labelWidth
     }
     LineInput {
       id: feedTitle
       width:parent.width
       anchors.top: feedNick.bottom
       labelText: " Title "
+      labelWidth: feedDescription.labelWidth
     }
     LineInput {
       id: siteUrl
       width:parent.width
       anchors.top: feedTitle.bottom
       labelText: " Site Url "
+      labelWidth: feedDescription.labelWidth
     }
     BoxInput {
       id: feedDescription
       width:parent.width
       anchors.top: siteUrl.bottom
       labelText: " Description "
+      labelWidth: labelFloatRect.width
     }
   }
   Connections {

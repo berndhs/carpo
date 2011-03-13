@@ -7,6 +7,7 @@ Rectangle {
   property alias textValue: boxText.text
   property alias labelText: boxLabelText.text
   property alias labelWidth: boxLabel.width
+  property alias labelFloatRect: boxLabel.childrenRect
   property alias boxHeight: editBox.height
 
   width: parent.width - parent.urlMargin
@@ -21,7 +22,7 @@ Rectangle {
   Rectangle { 
     height: 32
     id: boxLabel
-    width: childrenRect.width
+    width: 200
     color:parent.color
     Text { id: boxLabelText; text: "Address:"; anchors.verticalCenter: parent.verticalCenter }
     anchors.left: parent.left 

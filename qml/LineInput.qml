@@ -7,6 +7,7 @@ Rectangle {
   property alias textValue: lineText.text
   property alias labelText: lineLabelText.text
   property alias labelWidth: lineLabel.width
+  property alias labelFloatRect: lineLabel.childrenRect
 
   width: parent.width - parent.urlMargin
   anchors {
@@ -19,10 +20,11 @@ Rectangle {
   radius: parent.radius - 1
   Rectangle { 
     height: 32
-    id: lineLabel
-    width: childrenRect.width
+    id: lineLabel  
+    width: 200
     color:parent.color
-    Text { id: lineLabelText; text: "Address:"; anchors.verticalCenter: parent.verticalCenter }
+    Text { id: lineLabelText; text: "Address:"; 
+           anchors.verticalCenter: parent.verticalCenter }
     anchors.left: parent.left 
     anchors.verticalCenter: parent.verticalCenter
   }
