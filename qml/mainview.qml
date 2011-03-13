@@ -74,6 +74,20 @@
     feedEdit.displayEditFeed (feedId, feedUrl, feedTitle, siteUrl, nickText, theDescription)
     indexBox.height = 0
   }
+  function showEdit (visi) {
+    console.log ("Visi temp " + visi)
+    feedEdit.visible = visi
+    feedEditArea.visible = visi
+    console.log ("area w " + feedEditArea.width + " visi " + feedEditArea.visible )
+    console.log (" edit visi " + feedEdit.visible + " width " + feedEdit.width)
+    console.log (" area " + feedEditArea + " edit " + feedEdit)
+    if (feedEdit.visible) { 
+      feedEdit.clear() 
+    } else {
+      indexBox.height = indexHeight
+    }
+    controlIF.setEditingFeed (feedEdit.visible)
+  }
 
   color: "transparent"
   width: displayWidth
@@ -169,6 +183,10 @@
       onSaveFeed: {
         controlIF.saveFeed (ident, feedUrl, title, siteUrl, nick, descr)
       }
+      onDeleteFeed: {
+        controlIF.removeFeed (ident)
+        showEdit (false)
+      }
     }
   }
   Connections {
@@ -183,19 +201,7 @@
       turnIndex ()
     }
     onMoreSelect: {
-      var visi = !feedEdit.visible
-      console.log ("Visi temp " + visi)
-      feedEdit.visible = visi
-      feedEditArea.visible = visi
-      console.log ("area w " + feedEditArea.width + " visi " + feedEditArea.visible )
-      console.log (" edit visi " + feedEdit.visible + " width " + feedEdit.width)
-      console.log (" area " + feedEditArea + " edit " + feedEdit)
-      if (feedEdit.visible) { 
-        feedEdit.clear() 
-      } else {
-        indexBox.height = indexHeight
-      }
-      controlIF.setEditingFeed (feedEdit.visible)
+      showEdit (!feedEdit.visible)
     }
   }
   

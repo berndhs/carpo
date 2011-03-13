@@ -50,6 +50,7 @@ public:
                              const QString & siteUrl,
                              const QString & nick,
                              const QString & description);
+  Q_INVOKABLE void removeFeed (const QString & feedId);
 
   void SetFeeds (FeedlistModel * feedList);
 

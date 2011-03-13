@@ -4,10 +4,15 @@ Rectangle {
   id: button
   signal clicked ()
   property alias labelText : label.text
+  property real commonMargin: 4
   width: 100
   height: 100
   radius: 5
-  color: "red"
+  color: "grey"
+  anchors { 
+    topMargin: commonMargin; bottomMargin: commonMargin; 
+    leftMargin: commonMargin; rightMargin: commonMargin
+  }
   MouseArea {
     anchors.fill: parent
     onClicked: { 

@@ -97,4 +97,16 @@ ControlInterface::saveFeed (const QString & feedId,
   emit ListUpdated ();
 }
 
+void
+ControlInterface::removeFeed (const QString & feedId)
+{
+  if (!feeds) {
+    return;
+  }
+  if (feeds->contains (feedId)) {
+    feeds->removeFeed (feedId);
+    emit ListUpdated ();
+  }
+}
+
 } // namespace

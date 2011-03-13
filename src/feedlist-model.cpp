@@ -83,6 +83,20 @@ FeedlistModel::addFeed (const Feed & newFeed)
   endInsertRows ();
 }
 
+void
+FeedlistModel::removeFeed (const QString & id)
+{
+  int index = idents.indexOf (id);
+  if (index < 0) {
+    return;
+  }
+  beginRemoveRows (QModelIndex(), index, index);
+  idents.removeAll (id);
+  titles.removeAll (feedMap[id].values["title"]);
+  feedMap.remove (id);
+  endRemoveRows();
+}
+
 Feed &
 FeedlistModel::FeedRef (const QString & id)
 {

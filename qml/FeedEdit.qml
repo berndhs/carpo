@@ -7,6 +7,7 @@ Rectangle {
     console.log ("Start NEw Feed " + url)
     displayEditFeed ("", url, "", "", "", "")
     saveButton.show ()
+    deleteButton.show ()
   }
   function displayEditFeed (theFeedId, theFeedUrl, theTitle, theSite, theNick, theDescr) {
     feedId = theFeedId
@@ -18,6 +19,7 @@ Rectangle {
     choiceButtons.visible = false
     feedDetails.visible = true
     saveButton.show ()
+    deleteButton.show ()
   }
   function clear () {
     feedId = ""
@@ -29,8 +31,10 @@ Rectangle {
     choiceButtons.visible = true
     feedDetails.visible = false
     saveButton.hide ()
+    deleteButton.hide ()
   }
   signal startNewFeed (string url)
+  signal deleteFeed (string ident)
   signal saveFeed (string ident, string feedUrl, string title, string siteUrl, string nick, string descr)
   id: feedEdit
   property real normalWidth: parent.width
@@ -45,12 +49,27 @@ Rectangle {
     labelText: "Save Feed"
     height: 0
     visible: false
+    color: "green"
     function show () { height = 32; visible = true }
     function hide () { height = 0; visible = false }
     onClicked: {
       console.log ("Save Feed")
       saveFeed (feedId, addrInput.urlString, feedTitle.textValue, siteUrl.textValue,
                 feedNick.textValue, feedDescription.textValue)
+    }
+  }
+  ChoiceButton {
+    id:deleteButton
+    labelText: "Delete Feed"
+    height: 0
+    visible: false
+    color: "red"
+    anchors { left: saveButton.right; verticalCenter: saveButton.verticalCenter }
+    function show () { height = 32; visible = true }
+    function hide () { height = 0; visible = false }
+    onClicked: {
+      console.log ("Delete Feed")
+      deleteFeed (feedId)
     }
   }
   AddressInput { 

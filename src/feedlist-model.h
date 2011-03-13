@@ -59,6 +59,7 @@ public:
   QVariant data (const QModelIndex & index, int role = Qt::DisplayRole) const;
 
   void addFeed (const Feed & newFeed);
+  void removeFeed (const QString & id);
 
   Feed & FeedRef (const QString & id);
   bool   contains (const QString & id) const;
