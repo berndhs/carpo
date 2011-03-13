@@ -78,6 +78,7 @@ HEADERS = \
           src/feedlist-parser.h \
           src/feedlist.h \
           src/feedlist-model.h \
+          src/feedlist-writer.h \
 
 
 SOURCES = \
@@ -92,4 +93,5 @@ SOURCES = \
           src/feedlist-parser.cpp \
           src/feedlist.cpp \
           src/feedlist-model.cpp \
+          src/feedlist-writer.cpp \
 

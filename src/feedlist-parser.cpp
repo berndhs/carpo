@@ -52,10 +52,10 @@ FeedlistParser::InitFuncPtrs ()
 }
 
 void
-FeedlistParser::Read (Folder & topFolder)
+FeedlistParser::Read (Folder & topFolder, const QString & filename)
 {
   //qDebug () << "FeedlistParser::Read " ;
-  QFile file ("drss_feeds.xml");
+  QFile file (filename);
   bool ok = file.open (QFile::ReadOnly);
   if (!ok) {
     qDebug () << " cannot open file " << file.fileName();

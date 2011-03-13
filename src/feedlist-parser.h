@@ -43,7 +43,7 @@ public:
 
   FeedlistParser (QObject *parent=0);
 
-  void Read (Folder & topFolder);
+  void Read (Folder & topFolder, const QString & filename);
 
 private:
 

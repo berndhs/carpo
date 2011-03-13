@@ -33,6 +33,8 @@
 #include <QSize>
 #include <QFile>
 
+#include "feedlist-writer.h"
+
 #include "deliberate.h"
 #include "version.h"
 
@@ -48,9 +50,9 @@ NewRss::NewRss (QWidget *parent)
    feedIF (0),
    qnam (0),
    feedlistParser (0),
-   feedUrlString ("http://www.atomenabled.org/atom.xml"),
    feeds (this)
 {
+  feedListFile = "drss_feeds.xml";
   qnam = new QNetworkAccessManager;
   feedlistParser = new FeedlistParser (this);
   ui.setupUi (this);
@@ -131,6 +133,8 @@ NewRss::Connect ()
            this, SLOT (ShowFeed (const QString &)));
   connect (controlIF, SIGNAL (EditFeed (const QString &)),
            this, SLOT (EditFeed (const QString &)));
+  connect (controlIF, SIGNAL (ListUpdated ()),
+           this, SLOT (SaveFeedListModel ()));
 }
 
 
@@ -317,7 +321,7 @@ NewRss::LoadList ()
 {
   if (feedlistParser) {
     topFolder.clear ();
-    feedlistParser->Read (topFolder);
+    feedlistParser->Read (topFolder, feedListFile);
     FillFeedModel (topFolder, feeds);
   }
 }
@@ -339,6 +343,11 @@ void
 NewRss::SaveFeedListModel ()
 {
   qDebug () << "NewRss::SaveFeedListModel";
+  QFile saveFile (feedListFile);
+  saveFile.open (QFile::WriteOnly);
+  FeedlistWriter writer;
+  writer.write (&feeds, &saveFile);
+  saveFile.close ();
 }
 
 } // namespace

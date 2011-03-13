@@ -41,10 +41,10 @@ Rectangle {
       horizontalAlignment: TextEdit.AlignLeft
       wrapMode: TextEdit.Wrap
       Keys.onEnterPressed: {
-        bigBox.urlEntered(lineText.text)
+        bigBox.urlEntered(boxText.text)
       }
       Keys.onReturnPressed: {
-        bigBox.urlEntered(lineText.text)
+        bigBox.urlEntered(boxText.text)
       }
       anchors {
         left: parent.left; right: parent.right; leftMargin: 2; rightMargin:2 

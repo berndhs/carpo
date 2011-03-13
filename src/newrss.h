@@ -103,7 +103,7 @@ private:
 
   FeedlistParser       *feedlistParser;
 
-  QString              feedUrlString;
+  QString              feedListFile;
 
   Folder                   topFolder;
   FeedlistModel             feeds;

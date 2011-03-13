@@ -35,7 +35,24 @@ class FeedlistModel : public QAbstractListModel
 {
 Q_OBJECT
 
+private:
+
+  typedef QMap <QString, Feed>  FeedMapType;
+
 public:
+ 
+  class iterator {
+  public:
+    iterator ();
+    const QString & key ();
+    Feed          & value ();
+    iterator      & operator++ ();  // prefix
+    bool            operator== ( const iterator & other ) const;
+    bool            operator!= ( const iterator & other ) const;
+  private:
+    FeedMapType::iterator it;
+    friend class FeedlistModel;
+  };
 
   FeedlistModel (QObject *parent=0);
   int rowCount (const QModelIndex & index = QModelIndex()) const;
@@ -45,6 +62,9 @@ public:
 
   Feed & FeedRef (const QString & id);
   bool   contains (const QString & id) const;
+ 
+  iterator  begin ();
+  iterator  end ();
 
 private:
 
@@ -53,10 +73,11 @@ private:
      Type_Title = Qt::UserRole+2
   };
 
+
   QStringList   idents;
   QStringList   titles;
 
-  QMap <QString, Feed>  feedMap;
+  FeedMapType   feedMap;
 
   static int    nextId;
 

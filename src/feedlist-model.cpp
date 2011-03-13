@@ -89,4 +89,55 @@ FeedlistModel::FeedRef (const QString & id)
   return feedMap[id];
 }
 
+FeedlistModel::iterator
+FeedlistModel::begin ()
+{
+  iterator tmpIt;
+  tmpIt.it = feedMap.begin();
+  return tmpIt;
+}
+
+FeedlistModel::iterator 
+FeedlistModel::end ()
+{
+  iterator tmpIt;
+  tmpIt.it = feedMap.end();
+  return tmpIt;
+}
+
+FeedlistModel::iterator &
+FeedlistModel::iterator::operator++ ()
+{
+  it++;
+  return *this;
+}
+
+bool
+FeedlistModel::iterator::operator== (const iterator & other) const
+{
+  return it == other.it;
+}
+
+bool
+FeedlistModel::iterator::operator!= (const iterator & other) const
+{
+  return it != other.it;
+}
+
+FeedlistModel::iterator::iterator ()
+{
+}
+
+const QString &
+FeedlistModel::iterator::key ()
+{
+  return it.key();
+}
+
+Feed &
+FeedlistModel::iterator::value ()
+{
+  return it.value ();
+}
+
 } // namespace
