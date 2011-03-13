@@ -140,7 +140,7 @@ Rectangle {
     model: feedIndexModel
     z: 2
     width: parent.width - 2*embedMargin
-    height: parent.width - 2*embedMargin
+    height: parent.height - 2*embedMargin
     clip: false
     currentIndex: -1
     contentWidth: childrenRect.width; contentHeight: childrenRect.height
