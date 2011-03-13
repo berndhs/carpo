@@ -1,6 +1,33 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <drssfeedlist version="2.0">
  <feed hash="">
+  <title>Welland - Weather - Environment Canada</title>
+  <webUrl>http://www.weatheroffice.gc.ca</webUrl>
+  <xmlUrl>http://text.weatheroffice.gc.ca/rss/city/on-14_e.xml</xmlUrl>
+  <description>Current weather conditions, forecasts and warnings for: Welland</description>
+  <imageUrl></imageUrl>
+  <nick>Welland Env Canada</nick>
+  <language></language>
+ </feed>
+ <feed hash="">
+  <title>The Weather Network - Welland, Ontario</title>
+  <webUrl>http://www.theweathernetwork.com/index.php?product=weather&amp;placecode=caon0736&amp;ref=current_obs</webUrl>
+  <xmlUrl>http://rss.theweathernetwork.com/weather/caon0736</xmlUrl>
+  <description>The Weather Network - Canada's number one source for weather information in both the cable and web spaces. </description>
+  <imageUrl></imageUrl>
+  <nick>TWN Welland</nick>
+  <language></language>
+ </feed>
+ <feed hash="">
+  <title>National Hurricane Center Graphical Tropical Weather Outlooks</title>
+  <webUrl>http://www.nhc.noaa.gov/</webUrl>
+  <xmlUrl>http://www.nhc.noaa.gov/gtwo.xml</xmlUrl>
+  <description>National Hurricane Center Graphical Tropical Weather Outlooks</description>
+  <imageUrl></imageUrl>
+  <nick>Hurricanes from NOAA</nick>
+  <language></language>
+ </feed>
+ <feed hash="">
   <title>Qt-Apps.org Content</title>
   <webUrl>http://qt-apps.org</webUrl>
   <xmlUrl>http://qt-apps.org/qt-apps-content.rdf</xmlUrl>
@@ -43,15 +70,6 @@
   <description></description>
   <imageUrl></imageUrl>
   <nick>FLOSS Weekly</nick>
-  <language></language>
- </feed>
- <feed hash="">
-  <title>TWiT.TV blogs</title>
-  <webUrl>http://twit.tv/blog</webUrl>
-  <xmlUrl>http://twit.tv/blog/feed</xmlUrl>
-  <description>Home to the world's most fascinating netcasts: this WEEK in TECH, MacBreak Weekly, Windows Weekly, Security Now, net@night, and the Daily GizWiz.</description>
-  <imageUrl></imageUrl>
-  <nick>TWiT.TV blogs</nick>
   <language></language>
  </feed>
  <feed hash="">
@@ -216,7 +234,7 @@
   <title>WELT ONLINE - Sport</title>
   <webUrl>http://www.welt.de/sport/</webUrl>
   <xmlUrl>http://www.welt.de/sport/?service=Rss</xmlUrl>
-  <description>WELT ONLINE informiert Sie laufend aktuell, mit ausfÃ¼hrlichen Hintergrundberichten, lokalen Ausgaben und stÃ¤ndig aktuellen Schwerpunkten. Damit Sie tÃ¤glich umfassend informiert sind.</description>
+  <description>WELT ONLINE informiert Sie laufend aktuell, mit ausfÃÂ¼hrlichen Hintergrundberichten, lokalen Ausgaben und stÃÂ¤ndig aktuellen Schwerpunkten. Damit Sie tÃÂ¤glich umfassend informiert sind.</description>
   <imageUrl></imageUrl>
   <nick>WELT ONLINE - Sport</nick>
   <language></language>
@@ -438,15 +456,6 @@
   <language></language>
  </feed>
  <feed hash="">
-  <title>Times Online - Eureka Zone - WBLG</title>
-  <webUrl>http://timesonline.typepad.com/science/</webUrl>
-  <xmlUrl>http://timesonline.typepad.com/science/rss.xml</xmlUrl>
-  <description>Times Online - Eureka Zone - WBLG</description>
-  <imageUrl></imageUrl>
-  <nick>Times Online - Eureka Zone - WBLG</nick>
-  <language></language>
- </feed>
- <feed hash="">
   <title>WELT ONLINE - Wissenschaft</title>
   <webUrl>http://www.welt.de/wissenschaft/</webUrl>
   <xmlUrl>http://www.welt.de/wissenschaft/?service=Rss</xmlUrl>
@@ -511,37 +520,10 @@
   <language></language>
  </feed>
  <feed hash="">
-  <title>TDG - Science, Magick, Myth and History</title>
-  <webUrl>http://dailygrail.com</webUrl>
-  <xmlUrl>http://dailygrail.com/rss.xml</xmlUrl>
-  <description></description>
-  <imageUrl></imageUrl>
-  <nick>TDG - Science, Magick, Myth and History</nick>
-  <language></language>
- </feed>
- <feed hash="">
-  <title>www.bernd-stramm.com News </title>
-  <webUrl>http://www.bernd-stramm.com</webUrl>
-  <xmlUrl>http://www.bernd-stramm.com/rssnews.php</xmlUrl>
-  <description>News from Bernd's Website</description>
-  <imageUrl></imageUrl>
-  <nick>Bernd's News </nick>
-  <language></language>
- </feed>
- <feed hash="">
-  <title>http://www.bernd-stramm.com News </title>
-  <webUrl>http://www.bernd-stramm.com</webUrl>
-  <xmlUrl>http://www.bernd-stramm.com/news.xml</xmlUrl>
-  <description>News from Bernd's Website</description>
-  <imageUrl></imageUrl>
-  <nick>Bernd's Old News </nick>
-  <language></language>
- </feed>
- <feed hash="">
   <title>WELT ONLINE - Zippert zappt</title>
   <webUrl>http://www.welt.de/debatte/kolumnen/zippert_zappt/</webUrl>
   <xmlUrl>http://www.welt.de/debatte/kolumnen/zippert_zappt/?service=Rss</xmlUrl>
-  <description>WELT ONLINE informiert Sie laufend aktuell, mit ausfÃ¼hrlichen Hintergrundberichten, lokalen Ausgaben und stÃ¤ndig aktuellen Schwerpunkten. Damit Sie tÃ¤glich umfassend informiert sind.</description>
+  <description>WELT ONLINE informiert Sie laufend aktuell, mit ausfÃÂ¼hrlichen Hintergrundberichten, lokalen Ausgaben und stÃÂ¤ndig aktuellen Schwerpunkten. Damit Sie tÃÂ¤glich umfassend informiert sind.</description>
   <imageUrl></imageUrl>
   <nick>Zippert zappt</nick>
   <language></language>
@@ -586,7 +568,7 @@
   <title>WELT ONLINE</title>
   <webUrl>http://www.welt.de/</webUrl>
   <xmlUrl>http://www.welt.de/?service=Rss</xmlUrl>
-  <description>WELT ONLINE informiert Sie laufend aktuell, mit ausfÃ¼hrlichen Hintergrundberichten, lokalen Ausgaben und stÃ¤ndig aktuellen Schwerpunkten. Damit Sie tÃ¤glich umfassend informiert sind.</description>
+  <description>WELT ONLINE informiert Sie laufend aktuell, mit ausfÃÂ¼hrlichen Hintergrundberichten, lokalen Ausgaben und stÃÂ¤ndig aktuellen Schwerpunkten. Damit Sie tÃÂ¤glich umfassend informiert sind.</description>
   <imageUrl></imageUrl>
   <nick>WELT ONLINE</nick>
   <language></language>
@@ -595,7 +577,7 @@
   <title>WELT ONLINE - Eil</title>
   <webUrl>http://www.welt.de/Eil/</webUrl>
   <xmlUrl>http://www.welt.de/Eil/?service=Rss</xmlUrl>
-  <description>WELT ONLINE informiert Sie laufend aktuell, mit ausfÃ¼hrlichen Hintergrundberichten, lokalen Ausgaben und stÃ¤ndig aktuellen Schwerpunkten. Damit Sie tÃ¤glich umfassend informiert sind.</description>
+  <description>WELT ONLINE informiert Sie laufend aktuell, mit ausfÃÂ¼hrlichen Hintergrundberichten, lokalen Ausgaben und stÃÂ¤ndig aktuellen Schwerpunkten. Damit Sie tÃÂ¤glich umfassend informiert sind.</description>
   <imageUrl></imageUrl>
   <nick>WELT ONLINE - Eil</nick>
   <language></language>
@@ -743,33 +725,6 @@
   <description>Canada Top Stories</description>
   <imageUrl></imageUrl>
   <nick>To Star Canada Top Stories</nick>
-  <language></language>
- </feed>
- <feed hash="">
-  <title>Welland - Weather - Environment Canada</title>
-  <webUrl>http://www.weatheroffice.gc.ca</webUrl>
-  <xmlUrl>http://text.weatheroffice.gc.ca/rss/city/on-14_e.xml</xmlUrl>
-  <description>Current weather conditions, forecasts and warnings for: Welland</description>
-  <imageUrl></imageUrl>
-  <nick>Welland Env Canada</nick>
-  <language></language>
- </feed>
- <feed hash="">
-  <title>The Weather Network - Welland, Ontario</title>
-  <webUrl>http://www.theweathernetwork.com/index.php?product=weather&amp;placecode=caon0736&amp;ref=current_obs</webUrl>
-  <xmlUrl>http://rss.theweathernetwork.com/weather/caon0736</xmlUrl>
-  <description>The Weather Network - Canada's number one source for weather information in both the cable and web spaces. </description>
-  <imageUrl></imageUrl>
-  <nick>TWN Welland</nick>
-  <language></language>
- </feed>
- <feed hash="">
-  <title>National Hurricane Center Graphical Tropical Weather Outlooks</title>
-  <webUrl>http://www.nhc.noaa.gov/</webUrl>
-  <xmlUrl>http://www.nhc.noaa.gov/gtwo.xml</xmlUrl>
-  <description>National Hurricane Center Graphical Tropical Weather Outlooks</description>
-  <imageUrl></imageUrl>
-  <nick>Hurricanes from NOAA</nick>
   <language></language>
  </feed>
  <feed hash="">

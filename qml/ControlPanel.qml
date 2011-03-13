@@ -47,51 +47,42 @@ Rectangle {
     }
   }
   Rectangle {
-    id: flipper
-    width: parent.width/3
+    id: buttonRow
+    width: childrenRect.width
     height: parent.height
-    z: 2
-    anchors.left: parent.left
-    color: "cyan"
-    MouseArea {
-      anchors.fill: parent
-      onClicked: { 
-        console.log("Click Flipper Box " + mouseX + " " + mouseY)
-        flipSelect (mouseX, mouseY) 
+    property real buttonWidth: parent.width/3
+    anchors { horizontalCenter: parent.horizontalCenter ; top: parent.top }
+    Rectangle {
+      id: turner
+      width: parent.buttonWidth
+      height: parent.height
+      z: 2
+      color: "sandybrown"
+      anchors.left: parent.left
+      MouseArea {
+        anchors.fill: parent
+        onClicked: { 
+          console.log("Click Turner Box " + mouseX + " " + mouseY)
+          toggleViewSelect (mouseX, mouseY) 
+        }
       }
+      Text { text: "List <-> Index"; anchors.centerIn: parent }
     }
-    Text { text: "Horiz <->Vert"; anchors.centerIn: parent }
-  }
-  Rectangle {
-    id: turner
-    width: parent.width/3
-    height: parent.height
-    z: 2
-    anchors.left: flipper.right
-    color: "red"
-    MouseArea {
-      anchors.fill: parent
-      onClicked: { 
-        console.log("Click Turner Box " + mouseX + " " + mouseY)
-        toggleViewSelect (mouseX, mouseY) 
+    Rectangle {
+      id: morer
+      width: parent.buttonWidth
+      height: parent.height
+      z: 2
+      anchors.left: turner.right
+      color: "#7FFF00"
+      MouseArea {
+        anchors.fill: parent
+        onClicked: { 
+          console.log("Click More Box " + mouseX + " " + mouseY)
+          moreSelect (mouseX, mouseY) 
+        }
       }
+      Text { color:"red"; text: "More"; anchors.centerIn: parent }
     }
-    Text { text: "List <-> Index"; anchors.centerIn: parent }
-  }
-  Rectangle {
-    id: morer
-    width: parent.width/3
-    height: parent.height
-    z: 2
-    anchors.left: turner.right
-    color: "green"
-    MouseArea {
-      anchors.fill: parent
-      onClicked: { 
-        console.log("Click More Box " + mouseX + " " + mouseY)
-        moreSelect (mouseX, mouseY) 
-      }
-    }
-    Text { color:"red"; text: "More"; anchors.centerIn: parent }
   }
 }

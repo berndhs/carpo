@@ -35,7 +35,8 @@ Rectangle {
   }
   signal startNewFeed (string url)
   signal deleteFeed (string ident)
-  signal saveFeed (string ident, string feedUrl, string title, string siteUrl, string nick, string descr)
+  signal saveFeed (string ident, string feedUrl, string title, string siteUrl, 
+                   string nick, string descr)
   id: feedEdit
   property real normalWidth: parent.width
   property real urlMargin: 6
@@ -50,6 +51,8 @@ Rectangle {
     height: 0
     visible: false
     color: "green"
+    anchors.top: parent.top
+    anchors.topMargin: 10
     function show () { height = 32; visible = true }
     function hide () { height = 0; visible = false }
     onClicked: {
@@ -74,10 +77,10 @@ Rectangle {
   }
   AddressInput { 
     id: addrInput
-    labelText: "Addr:"
+    labelText: " Address "
     width: parent.width - parent.urlMargin
     anchors.top: parent.top
-    anchors.topMargin: saveButton.height
+    anchors.topMargin: saveButton.height + 10
   }
   Flow {
     id:choiceButtons
