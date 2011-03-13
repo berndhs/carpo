@@ -29,6 +29,7 @@ Rectangle {
   property real shrinkDelay: 250
   property real itemHeight: 32
   signal selected (int idx, string i, string t)
+  signal holdit (int idx, string i, string t)
   signal reportOrientation (int orient)
 
   function nextStory () {
@@ -92,6 +93,7 @@ Rectangle {
       MouseArea {
         anchors.fill: parent
         onClicked: { selected (index, ident, title); storyList.currentIndex = index }
+        onPressAndHold: { holdit (index, ident, title); storyList.currentIndex = index }
       }
     }
   }
@@ -107,6 +109,7 @@ Rectangle {
       MouseArea {
         anchors.fill: parent
         onClicked: { selected (index, ident, title); storyList.currentIndex = index }
+        onPressAndHold: { holdit (index, ident, title); storyList.currentIndex = index }
       }
     }
   }

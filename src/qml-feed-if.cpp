@@ -44,6 +44,13 @@ FeedInterface::storyClicked (int index, const QString & id, const QString & titl
 }
 
 void
+FeedInterface::storyHold (int index, const QString & id, const QString & title)
+{
+  qDebug () << "FeedInterface: hold on " << index << id << title;
+  emit ShowStorySite (id);
+}
+
+void
 FeedInterface::feedClicked (int index, const QString & id, const QString & title)
 {
   qDebug () << "FeedInterface: clicked on " << index << id << title;

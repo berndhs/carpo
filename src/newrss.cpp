@@ -32,6 +32,8 @@
 #include <QMessageBox>
 #include <QSize>
 #include <QFile>
+#include <QDesktopServices>
+#include <QUrl>
 
 #include "feedlist-writer.h"
 
@@ -123,6 +125,8 @@ NewRss::Connect ()
            this, SLOT (FinishedNet (QNetworkReply *)));
   connect (feedIF, SIGNAL (ShowStory (const QString &)),
            this, SLOT (ShowStory (const QString &)));
+  connect (feedIF, SIGNAL (ShowStorySite (const QString &)),
+           this, SLOT (ShowStorySite (const QString &)));
   connect (feedIF, SIGNAL (ShowFeed (const QString &)),
            this, SLOT (ShowFeed (const QString &)));
   connect (feedIF, SIGNAL (ShowList (const QString &)),
@@ -149,6 +153,16 @@ NewRss::ShowStory (const QString & id)
   }
   QMetaObject::invokeMethod (qmlRoot, "setTheHtml",
                  Q_ARG (QVariant, htmlString));
+}
+
+void
+NewRss::ShowStorySite (const QString & id)
+{
+  qDebug () << "NewRss::ShowStorySite";
+  if (storyLinks.contains (id)) {
+    QString first = storyLinks[id].first();
+    QDesktopServices::openUrl (QUrl::fromUserInput(first));
+  }
 }
 
 void
@@ -270,12 +284,20 @@ NewRss::ParseStories (QDomNodeList & items, const QString & contentTag)
       QDomElement elt = item.toElement();
       QDomNodeList titles = elt.elementsByTagName ("title");
       QDomNodeList descrs = elt.elementsByTagName (contentTag);
-      int minCount = qMin( titles.count(), descrs.count());
-      for (int t=0; t<minCount; t++) {
-        QString title = titles.at(t).toElement().text();
-        QString descr = descrs.at(t).toElement().text();
+      if (titles.count() > 0 && descrs.count() > 0) {  // should be 1
+        QString title = titles.at(0).toElement().text();
+        QString descr = descrs.at(0).toElement().text();
         QString id = headlines.addNewLine (title);
         stories[id] = descr;
+        QDomNodeList links = elt.elementsByTagName ("link");
+        int nl = links.count();
+        QStringList linkList;
+        for (int i=0; i<nl; i++) {
+          linkList << links.at(i).toElement().text();
+        }
+        if (linkList.count() > 0) {
+          storyLinks[id] = linkList;
+        }
       }
     }
   }

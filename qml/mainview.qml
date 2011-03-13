@@ -131,6 +131,9 @@
       onSelected: { 
         feedIF.storyClicked (idx, i,t) 
       }
+      onHoldit: {
+        feedIF.storyHold (idx, i, t)
+      }
       onReportOrientation: { feedIF.listOrientation (orient) }
     }
   }
