@@ -90,6 +90,7 @@ void
 NewRss::Run ()
 {
   qDebug () << " NewRss::Run";
+  LoadList ();
   context = ui.qmlView->rootContext ();
   context->setContextProperty ("feedIndexModel", &headlines);
   context->setContextProperty ("feedListModel", &feeds);
