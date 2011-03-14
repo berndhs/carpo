@@ -96,6 +96,7 @@ private:
   bool  ParseAtomAuthorElem (QDomElement &el, QString & name);
   bool  ParseAtomLinkElem (QDomElement & el, QString & xml, QString & web);
   void  DisplayEditFeed (const QString & id, const Feed & feed);
+  void  DumpProperties ();
 
 
   QApplication  *app;

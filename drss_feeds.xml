@@ -186,15 +186,6 @@
   <language></language>
  </feed>
  <feed hash="">
-  <title>Sports News from Times Online</title>
-  <webUrl>http://www.timesonline.co.uk</webUrl>
-  <xmlUrl>http://feeds.timesonline.co.uk/c/32313/f/463695/index.rss</xmlUrl>
-  <description>Sports News from Times Online</description>
-  <imageUrl></imageUrl>
-  <nick>London TImes Sports</nick>
-  <language></language>
- </feed>
- <feed hash="">
   <title>Sport - FAZ.NET</title>
   <webUrl>http://www.faz.net</webUrl>
   <xmlUrl>http://www.faz.net/s/Rub9F27A221597D4C39A82856B0FE79F051/Tpl~Epartner~SRss_.xml</xmlUrl>

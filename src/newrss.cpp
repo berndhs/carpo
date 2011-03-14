@@ -25,10 +25,12 @@
 #include <Qt>
 #include <QDeclarativeContext>
 #include <QDeclarativeEngine>
+#include <QDeclarativeItem>
 #include <QGraphicsObject>
 #include <QDomElement>
 #include <QDomNode>
 #include <QObject>
+#include <QObjectList>
 #include <QDebug>
 #include <QMessageBox>
 #include <QSize>
@@ -88,6 +90,25 @@ NewRss::AddConfigMessages (const QStringList & messages)
 }
 
 void
+NewRss::DumpProperties ()
+{
+  QObject *item;
+  QStringList names;
+  names << "displayArea" << "controlPanel" << "indexBox"
+             << "feedListArea" << "feedIndexArea"
+             << "storyView" << "feedEditArea" << "feedEdit";
+  qDebug () << "QML Root " << qmlRoot->objectName();
+  for (int i=0; i<names.count(); i++) {
+    item = qmlRoot->findChild<QObject*>(names.at(i));
+    qDebug () << "QML child " << names.at(i) << item;
+  }
+  QObjectList children = qmlRoot->children ();
+  for (int i=0; i<children.count(); i++) {
+    qDebug () << " child " << i << children.at(i) << children.at(i)->objectName();
+  }
+}
+
+void
 NewRss::Run ()
 {
   qDebug () << " NewRss::Run";
@@ -120,6 +141,7 @@ NewRss::Run ()
   topFolder.clear ();
   show ();
   configEdit.Load ();
+  DumpProperties ();
 }
 
 void

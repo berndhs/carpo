@@ -25,9 +25,9 @@
  import QtQuick 1.0
  import QtWebKit 1.0
 
-
  Rectangle {
   id: displayArea
+  objectName: "displayArea"
 
   property real embedMargin : 2
   property real verticalIndexHeight: 240
@@ -95,10 +95,12 @@
 
   ControlPanel { 
     id: controlPanel
+    objectName: "controlPanel"
     visible: true
   }
   Rectangle {
     id: indexBox
+    objectName: "indexBox"
     anchors.top: controlPanel.bottom
     height: indexHeight
     width: parent.width
@@ -109,6 +111,7 @@
     }
     FeedList {
       id: feedListArea
+      objectName: "feedListArea"
       visible: true
       height: indexHeight
       normalWidth: parent.width
@@ -129,6 +132,7 @@
     }
     FeedIndex {
       id: feedIndexArea
+      objectName: "feedIndexArea"
       visible: true
       height: indexHeight
       normalWidth: parent.width
@@ -153,6 +157,7 @@
   }
   StoryView {
     id: storyView
+    objectName: "storyView"
     visible: true
     z: 3
     anchors.top: indexBox.bottom
@@ -164,6 +169,7 @@
   }
   Flickable {
     id: feedEditArea
+    objectName: "feedEditArea"
     width: storyView.width
     height: storyView.height
     z: storyView.z +1
@@ -172,6 +178,7 @@
     visible: false
     FeedEdit {
       id: feedEdit 
+      objectName: "feedEdit"
       width: storyView.width - 4
       height: storyView.height - 4
       z: 4
@@ -195,12 +202,12 @@
   Connections {
     target: controlPanel
     onToggleViewSelect: {
-      console.log ("Connections clicked " + whereX + " " + whereY)
+      console.log ("Connections clicked " )
       console.log (" index width " + feedIndexArea.width)
       toggleLists() 
     }
     onFlipSelect: {
-      console.log ("Flip selected " + whereX + " " + whereY)
+      console.log ("Flip selected ")
       turnIndex ()
     }
     onMoreSelect: {
