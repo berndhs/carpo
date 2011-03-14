@@ -26,9 +26,9 @@
 Rectangle {
 
   signal controlSelect (real whereX, real whereY)
-  signal flipSelect (real whereX, real whereY)
-  signal toggleViewSelect (real whereX, real whereY)
-  signal moreSelect (real whereX, real whereY)
+  signal toggleViewSelect ()
+  signal moreSelect ()
+  signal maintainSelect ()
 
   id: controlPanel
   height: 20
@@ -50,7 +50,7 @@ Rectangle {
     id: buttonRow
     width: childrenRect.width
     height: parent.height
-    property real buttonWidth: parent.width/3
+    property real buttonWidth: parent.width/4
     anchors { horizontalCenter: parent.horizontalCenter ; top: parent.top }
     Rectangle {
       id: turner
@@ -58,31 +58,44 @@ Rectangle {
       height: parent.height
       z: 2
       color: "sandybrown"
-      anchors.left: parent.left
+      anchors { left: parent.left; leftMargin: 2; rightMargin: 2 }
       MouseArea {
         anchors.fill: parent
         onClicked: { 
-          console.log("Click Turner Box " + mouseX + " " + mouseY)
-          toggleViewSelect (mouseX, mouseY) 
+          toggleViewSelect () 
         }
       }
-      Text { text: "List <-> Index"; anchors.centerIn: parent }
+      Text { text: "List / Index"; anchors.centerIn: parent }
     }
     Rectangle {
-      id: morer
+      id: detailer
       width: parent.buttonWidth
       height: parent.height
       z: 2
-      anchors.left: turner.right
-      color: "#7FFF00"
+      color: "sandybrown"
+      anchors { left: turner.right; leftMargin: 2; rightMargin: 2 }
       MouseArea {
         anchors.fill: parent
         onClicked: { 
-          console.log("Click More Box " + mouseX + " " + mouseY)
-          moreSelect (mouseX, mouseY) 
+          moreSelect () 
         }
       }
-      Text { color:"red"; text: "More"; anchors.centerIn: parent }
+      Text { text: "Detail On/Off"; anchors.centerIn: parent }
+    }
+    Rectangle {
+      id: maintainer
+      width: parent.buttonWidth
+      height: parent.height
+      z: 2
+      color: "sandybrown"
+      anchors { left: detailer.right; leftMargin: 2; rightMargin: 2 }
+      MouseArea {
+        anchors.fill: parent
+        onClicked: { 
+          maintainSelect () 
+        }
+      }
+      Text { text: "Maintenance"; anchors.centerIn: parent }
     }
   }
 }

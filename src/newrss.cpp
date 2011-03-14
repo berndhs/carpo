@@ -53,7 +53,8 @@ NewRss::NewRss (QWidget *parent)
    feedIF (0),
    qnam (0),
    feedlistParser (0),
-   feeds (this)
+   feeds (this),
+   configEdit (this)
 {
   feedListFile = "drss_feeds.xml";
   qnam = new QNetworkAccessManager;
@@ -118,6 +119,7 @@ NewRss::Run ()
   ShowList ("FeedList");
   topFolder.clear ();
   show ();
+  configEdit.Load ();
 }
 
 void

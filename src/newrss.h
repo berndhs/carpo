@@ -43,6 +43,7 @@
 #include "feedlist.h"
 #include "feedlist-model.h"
 #include "drss-netreply.h"
+#include "config-edit.h"
 
 class QDeclarativeContext;
 
@@ -122,6 +123,8 @@ private:
   QMap <QString, QStringList> storyLinks;
 
   QMap <QNetworkReply *, DrssNetReply *>  expectReplies;
+
+  QmlConfigEdit        configEdit;
 
 }; 
 
