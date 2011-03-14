@@ -199,6 +199,16 @@
       }
     }
   }
+  ConfigList {
+    id: configList
+    objectName: "configListObject"
+    visible: false
+    color: "blue"
+    z: feedEditArea.z + 1
+    width:feedEditArea.width
+    height: feedEditArea.height
+    anchors.fill: feedEditArea
+  }
   Connections {
     target: controlPanel
     onToggleViewSelect: {
@@ -206,13 +216,19 @@
       console.log (" index width " + feedIndexArea.width)
       toggleLists() 
     }
-    onFlipSelect: {
-      console.log ("Flip selected ")
-      turnIndex ()
-    }
     onMoreSelect: {
       showEdit (!feedEdit.visible)
     }
+    onMaintainSelect: {
+      var visi = !configList.visible 
+      console.log ("Maintain Selected " + visi)
+      if (visi) {
+        //configIF.loadView ();
+        configIF.testContent ();
+        configList.show ();
+      } else {
+        configList.hide ();
+      }
+    }
   }
-  
  }

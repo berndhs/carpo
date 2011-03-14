@@ -37,6 +37,7 @@
 #include <QFile>
 #include <QDesktopServices>
 #include <QUrl>
+#include <QTimer>
 
 #include "feedlist-writer.h"
 
@@ -97,6 +98,10 @@ NewRss::DumpProperties ()
   names << "displayArea" << "controlPanel" << "indexBox"
              << "feedListArea" << "feedIndexArea"
              << "storyView" << "feedEditArea" << "feedEdit";
+  if (!qmlRoot) {
+    qDebug () << " no QML Root object ";
+    return;
+  }
   qDebug () << "QML Root " << qmlRoot->objectName();
   for (int i=0; i<names.count(); i++) {
     item = qmlRoot->findChild<QObject*>(names.at(i));
@@ -104,7 +109,8 @@ NewRss::DumpProperties ()
   }
   QObjectList children = qmlRoot->children ();
   for (int i=0; i<children.count(); i++) {
-    qDebug () << " child " << i << children.at(i) << children.at(i)->objectName();
+    QObject * obj = children.at(i);
+    qDebug () << " child " << i << obj;
   }
 }
 
@@ -116,9 +122,11 @@ NewRss::Run ()
   context = ui.qmlView->rootContext ();
   context->setContextProperty ("feedIndexModel", &headlines);
   context->setContextProperty ("feedListModel", &feeds);
+  context->setContextProperty ("configModel", &configEdit);
   ui.qmlView->setSource (QUrl::fromLocalFile("qml/mainview.qml"));
   context->setContextProperty ("feedIF",feedIF);
   context->setContextProperty ("controlIF",controlIF);
+  context->setContextProperty ("configIF",&configEdit);
   qDebug () << " NewRss  context base url " << context->baseUrl();
   qDebug () << " NewRss  engine import paths "
             << ui.qmlView->engine()->importPathList();         
@@ -128,6 +136,11 @@ NewRss::Run ()
   qDebug () << " NewRss  engine base url "
             << ui.qmlView->engine()->baseUrl();
   qmlRoot = ui.qmlView->rootObject();
+  if (qmlRoot == 0) {
+    QMessageBox::critical (this, "Fatal", "QML Load Failure");
+    QTimer::singleShot (150, this, SLOT(Quit ()));
+    return;
+  }
   qDebug () << " top size " << size();
   qDebug () << " qml size " << ui.qmlView->size();
   qDebug () << " try to set size " << ui.qmlView->size() ;
@@ -139,9 +152,9 @@ NewRss::Run ()
   }
   ShowList ("FeedList");
   topFolder.clear ();
-  show ();
-  configEdit.Load ();
   DumpProperties ();
+  configEdit.Load ();
+  show ();
 }
 
 void

@@ -31,27 +31,13 @@
 namespace deliberate {
 
 
-class ConfigItem
-{
-public:
-
-  enum Kind {
-    Kind_None = 0,
-    Kind_Header = 1,
-    Kind_Value  = 2,
-    Kind_Bad
-  };
-
-  ConfigItem ();
-  ConfigItem (const QString & ke, const QVariant & val, Kind ki);
-
-  QString            key;
-  QVariant           value;
-  Kind               kind;
-};
-
 class QmlConfigEdit : public QAbstractListModel
 {
+Q_OBJECT
+private:
+
+  class ConfigItem;
+
 public:
 
   QmlConfigEdit (QObject *parent);
@@ -60,21 +46,52 @@ public:
   QVariant data (const QModelIndex & index, int role = Qt::DisplayRole) const;
 
   void Run ();
+  Q_INVOKABLE void loadView ();
+  Q_INVOKABLE void saveView ();
+  Q_INVOKABLE void testContent ();
+
   void Load ();
 
-  void addRow (const ConfigItem & item);
+private slots:
+
+  void didInsertRows  ( const QModelIndex & parent, int start, int end );
+  void didResetModel ();
+  void didChangeData (const QModelIndex & ul, const QModelIndex & lr);
 
 private:
 
+  class ConfigItem
+  {
+  public:
+
+    enum Kind {
+      Kind_None = 0,
+      Kind_Header = 1,
+      Kind_Value  = 2,
+      Kind_Bad
+    };
+
+    ConfigItem ();
+    ConfigItem (const QString & ke, const QVariant & val, Kind ki);
+    ConfigItem (const ConfigItem & other);
+
+    QString            key;
+    QVariant           value;
+    Kind               kind;
+  };
+
+
   enum DataType {
      Type_Key = Qt::UserRole+1,
-     Type_Value = Qt::UserRole+2
+     Type_Value = Qt::UserRole+2,
+     Type_ReadOnly = Qt::UserRole+3
   };
 
 
   void  Save ();
   void  AddHeader (const QString & title);
   void  AddItem   (const QString & key, const QVariant & value);
+  void  addRow (const ConfigItem & item);
 
   QStringList          exemptGroups;
   QList <ConfigItem>   configRows;

@@ -74,7 +74,7 @@ FeedlistParser::Read (Folder & topFolder, const QString & filename)
     switch (token) {
     case QXmlStreamReader::StartElement:
       tag = xread.name().toString().toLower();
-      qDebug () << " Top  start of " << tag;
+      //qDebug () << " Top  start of " << tag;
       if (tag == "drssfeedlist") {
         ParseFeedlist (xread, topFolder);
       }
@@ -107,7 +107,7 @@ FeedlistParser::ParseFeedlist (QXmlStreamReader & xread,
     switch (token) {
     case QXmlStreamReader::StartElement:
       tag = xread.name().toString().toLower();
-      qDebug () << " Feedlist  start of " << tag;
+      //qDebug () << " Feedlist  start of " << tag;
       if (tag == "folder") {
         ParseFolder (xread, subFolder);
         topFolder.childFolders.append (subFolder);
@@ -118,7 +118,7 @@ FeedlistParser::ParseFeedlist (QXmlStreamReader & xread,
       break;
     case QXmlStreamReader::EndElement:
       tag = xread.name().toString().toLower();
-      qDebug () << " Feedlist   end of " << tag;
+      //qDebug () << " Feedlist   end of " << tag;
       if (tag == "drssfeedlist") {
         done = true;
       }
@@ -136,7 +136,7 @@ FeedlistParser::ParseFeed (QXmlStreamReader & xread, Feed & feed)
 {
   QXmlStreamAttributes atts = xread.attributes();
   QString feedHash = atts.value ("hash").toString();
-  qDebug () << " Feed  hash " << feedHash;
+  //qDebug () << " Feed  hash " << feedHash;
   bool done (false);
   QString tag;
   while (!done) {
