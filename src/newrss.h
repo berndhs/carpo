@@ -97,6 +97,7 @@ private:
   bool  ParseAtomLinkElem (QDomElement & el, QString & xml, QString & web);
   void  DisplayEditFeed (const QString & id, const Feed & feed);
   void  DumpProperties ();
+  void  CheckExists (const QString & filename);
 
 
   QApplication  *app;

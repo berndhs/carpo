@@ -49,6 +49,9 @@ public:
   Q_INVOKABLE void loadView ();
   Q_INVOKABLE void saveView ();
   Q_INVOKABLE void testContent ();
+  Q_INVOKABLE void updateValue (const QString & group,
+                                const QString & key,
+                                const QVariant & value);
 
   void Load ();
 
@@ -72,19 +75,25 @@ private:
     };
 
     ConfigItem ();
-    ConfigItem (const QString & ke, const QVariant & val, Kind ki);
+    ConfigItem (const QString & gr,     const QString & ke, 
+                const QVariant & val,   Kind ki,
+                int lev);
     ConfigItem (const ConfigItem & other);
 
+    QString            group;
     QString            key;
     QVariant           value;
     Kind               kind;
+    int                level;
   };
 
 
   enum DataType {
-     Type_Key = Qt::UserRole+1,
-     Type_Value = Qt::UserRole+2,
-     Type_ReadOnly = Qt::UserRole+3
+     Type_Group = Qt::UserRole+100,
+     Type_Key = Qt::UserRole+101,
+     Type_Value = Qt::UserRole+102,
+     Type_HasValue = Qt::UserRole+103,
+     Type_Level = Qt::UserRole+104
   };
 
 

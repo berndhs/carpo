@@ -202,12 +202,14 @@
   ConfigList {
     id: configList
     objectName: "configListObject"
-    visible: false
+    scale: 0
+    isShown: false
     color: "blue"
     z: feedEditArea.z + 1
     width:feedEditArea.width
     height: feedEditArea.height
     anchors.fill: feedEditArea
+    onUpdateConfigItem: { configIF.updateValue (theGroup, theKey, newValue) }
   }
   Connections {
     target: controlPanel
@@ -220,14 +222,13 @@
       showEdit (!feedEdit.visible)
     }
     onMaintainSelect: {
-      var visi = !configList.visible 
+      var visi = configList.isShown
       console.log ("Maintain Selected " + visi)
       if (visi) {
-        //configIF.loadView ();
-        configIF.testContent ();
-        configList.show ();
-      } else {
+        configIF.loadView ();
         configList.hide ();
+      } else {
+        configList.show ();
       }
     }
   }

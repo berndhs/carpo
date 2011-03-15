@@ -25,16 +25,23 @@ import QtQuick 1.0
 
 Rectangle { 
   property real normalWidth: parent.width
+  property real keyFieldWidth: normalWidth*0.4
+  property real valueFieldWidth: normalWidth*0.6
   property real shrinkDelay: 250
   property real itemHeight: 32
+  property bool isShown: true
+  signal updateConfigItem (string theGroup, string theKey, string newValue)
   function hide () {
-    visible = false
+    console.log ("ConfList hide")
+    shrinkScale.running = true
+    isShown = false
   }
   function show () {
-    visible = true
+    console.log ("ConfList show")
+    expandScale.running = true
+    isShown = true
   }
   id: configListRect
-  visible: true
   color: "transparent"
   anchors.top: parent.top
   anchors.left: parent.left
@@ -42,22 +49,74 @@ Rectangle {
   anchors.leftMargin: 0
   width: parent.width
   height: parent.height
+  PropertyAnimation on scale { 
+    id: shrinkScale
+    running: false
+    to: 0
+    duration: shrinkDelay
+  }
+  PropertyAnimation on scale { 
+    id: expandScale
+    running: false
+    to: 1
+    duration: shrinkDelay
+  }
   Component {
     id: verticalConfigDelegate
-    Rectangle {
+    Item {
       width: parent.width; height: itemHeight
       anchors.topMargin: 2
-      color: "cyan"
       Column { 
+        id: keyColumn
         anchors.topMargin: 4
-        
-        Text {  width:300; wrapMode:Text.Wrap
-                text:  confKey + " -> " + confValue +" | " + confReadOnly} 
-        
+        height: itemHeight
+        width: keyFieldWidth   
+        Rectangle {
+          anchors { topMargin: 2 }
+          width: parent.width
+          height: parent.height - 2
+          color: "cadetblue"  
+          z: parent.z + 1
+          Text {  
+            anchors.left: parent.left
+            x: parent.x + 2
+            width:parent.width; wrapMode:Text.Wrap
+            text:  confKey 
+          }
+        } 
+      }
+      Column {
+        id: valueColumn
+        width: valueFieldWidth
+        height: itemHeight
+        anchors.left: keyColumn.right
+        Rectangle {
+          anchors.topMargin: 2
+          width: parent.width
+          height: parent.height -2
+          color: "turquoise"
+          z: parent.z + 1
+          TextInput {
+            id: valueField
+            width: parent.width - 2
+            enabled: confHasValue
+            autoScroll: true
+            text:  confValue
+            selectByMouse: true
+          }
+        }
+        Keys.onEnterPressed: { 
+          updateConfigItem (confGroup, confKey, valueField.text)
+        }
+        Keys.onReturnPressed: { 
+          updateConfigItem (confGroup, confKey, valueField.text)
+        }
       }
       MouseArea {
         anchors.fill: parent
-        onClicked: { console.log ("config item clicked " + index + " + "+ key) }
+        onClicked: {
+          console.log ("clicked item " + index + " key " + confKey)
+        }
       }
     }
   }

@@ -30,23 +30,29 @@ namespace deliberate {
 
 
 QmlConfigEdit::ConfigItem::ConfigItem ()
-  :key(""),value(""),kind(Kind_None)
+  :group(""),key(""),value(""),kind(Kind_None), level (-1)
 {
 }
 
-QmlConfigEdit::ConfigItem::ConfigItem (const QString & ke, 
+QmlConfigEdit::ConfigItem::ConfigItem (const QString & gr,
+                                       const QString & ke, 
                                        const QVariant & val, 
-                                       QmlConfigEdit::ConfigItem::Kind ki)
-  :key (ke),
+                                       QmlConfigEdit::ConfigItem::Kind ki,
+                                       int lev)
+  :group(gr),
+   key (ke),
    value (val),
-   kind (ki)
+   kind (ki),
+   level (lev)
 {
 }
 
 QmlConfigEdit::ConfigItem::ConfigItem (const QmlConfigEdit::ConfigItem & other)
-  :key (other.key),
+  :group (other.group),
+   key (other.key),
    value (other.value),
-   kind (other.kind)
+   kind (other.kind),
+   level (other.level)
 {
 }
 
@@ -55,9 +61,11 @@ QmlConfigEdit::QmlConfigEdit (QObject * parent)
 {
   exemptGroups << "sizes" ;
   QHash<int, QByteArray> roles;
+  roles[Type_Group] = "confGroup";
   roles[Type_Key] = "confKey";
   roles[Type_Value] = "confValue";
-  roles[Type_ReadOnly] = "confReadOnly";
+  roles[Type_HasValue] = "confHasValue";
+  roles[Type_Level]  = "confLevel";
   setRoleNames(roles);
   connect (this, SIGNAL (rowsInserted(const QModelIndex &, int, int)),
            this, SLOT (didInsertRows  (const QModelIndex &, int, int)));
@@ -75,7 +83,7 @@ QVariant
 QmlConfigEdit::data (const QModelIndex & index, int role) const
 {
   if (!index.isValid()) {
-    qDebug () << " Bad Index";
+    qDebug () << " Bad Index " << index;
     return QVariant();
   }
 
@@ -85,16 +93,20 @@ QmlConfigEdit::data (const QModelIndex & index, int role) const
     return QVariant();
   }
   QVariant retval ;
+  bool hasValue = configRows[row].kind == ConfigItem::Kind_Value;
   switch (role) {
   case Qt::DisplayRole:
   case int(Type_Key):
     retval = QVariant(configRows[row].key);
     break;
-  case int(Type_Value):
-    retval = configRows[row].value;
+  case int (Type_Group):
+    retval = QVariant(configRows[row].group);
     break;
-  case int(Type_ReadOnly):
-    retval = QVariant (configRows[row].kind != ConfigItem::Kind_Value);
+  case int(Type_Value):
+    retval = (hasValue? configRows[row].value : QString(""));
+    break;
+  case int(Type_HasValue):
+    retval = QVariant (hasValue);
   default:  
     break;
   }
@@ -112,7 +124,6 @@ QmlConfigEdit::rowCount (const QModelIndex & parent) const
 {
   Q_UNUSED (parent)
   int rc = configRows.count();
-  qDebug () << " QmlConfigEdit::rowCount " << parent << rc;
   return rc;
 }
 
@@ -133,23 +144,22 @@ QmlConfigEdit::Load ()
   QStringList top = Zett.childKeys ();
   QStringList::iterator topit;
 
-  name = QString ("program");
-  data = Zett.value (name).toString(); 
-  addRow (ConfigItem (name, data, ConfigItem::Kind_Header));
   QStringList groups = Zett.childGroups();
   QStringList::iterator  grit, subit;
+  int level (0);
   for (grit = groups.begin(); grit != groups.end(); grit++) {
-    if (exemptGroups.contains (*grit)) {
+    QString group (*grit);
+    if (exemptGroups.contains (group)) {
       qDebug () << "     Exempt";
       continue;
     }
-    addRow (ConfigItem (*grit, QVariant("group"), ConfigItem::Kind_Header));
-    Zett.beginGroup (*grit);
+    addRow (ConfigItem ("", group, QVariant(""), ConfigItem::Kind_Header, level));
+    Zett.beginGroup (group);
     QStringList subs = Zett.childKeys ();
     for (subit = subs.begin(); subit != subs.end(); subit++) {
       name = *subit;
       data = Zett.value(name); 
-      addRow (ConfigItem (name, data, ConfigItem::Kind_Value));
+      addRow (ConfigItem (group, name, data, ConfigItem::Kind_Value, level+1));
     }
     Zett.endGroup ();
   }
@@ -199,7 +209,7 @@ QmlConfigEdit::testContent ()
     qDebug () << " row " << r 
               << data (index, Type_Key)
               << data (index, Type_Value)
-              << data (index, Type_ReadOnly);
+              << data (index, Type_HasValue);
   }
 }
 
@@ -214,6 +224,22 @@ QmlConfigEdit::Save ()
 {
   QMessageBox::warning (0,"Warning", "QmlConfigEdit::Save incomplete");
   //Zett.sync();
+}
+
+void
+QmlConfigEdit::updateValue (const QString & group,
+                                const QString & key,
+                                const QVariant & value)
+{
+  QString realKey (QString ("%1/%2").arg(group).arg(key));
+  if (Settings().contains (realKey)) {
+    Settings().setValue (realKey, value);
+    qDebug () << " updated Settings " << realKey << " to " << value;
+    qDebug () << " is now " << Settings().value (realKey);
+  } else {
+    qDebug () << " Cannot update Settings " << realKey;
+  }
+  Load ();
 }
 
 

@@ -38,6 +38,7 @@
 #include <QDesktopServices>
 #include <QUrl>
 #include <QTimer>
+#include <QDir>
 
 #include "feedlist-writer.h"
 
@@ -59,7 +60,12 @@ NewRss::NewRss (QWidget *parent)
    feeds (this),
    configEdit (this)
 {
-  feedListFile = "drss_feeds.xml";
+  feedListFile =  QDesktopServices::storageLocation 
+              (QDesktopServices::DataLocation)
+              + QDir::separator()
+              + QString ("drss_feeds.xml");
+  feedListFile = Settings().value ("files/feedlist",feedListFile).toString();
+  Settings().setValue ("files/feedlist",feedListFile);
   qnam = new QNetworkAccessManager;
   feedlistParser = new FeedlistParser (this);
   ui.setupUi (this);
@@ -568,8 +574,23 @@ NewRss::LoadList ()
 {
   if (feedlistParser) {
     topFolder.clear ();
+    CheckExists (feedListFile);
     feedlistParser->Read (topFolder, feedListFile);
     FillFeedModel (topFolder, feeds);
+  }
+}
+
+void
+NewRss::CheckExists (const QString & filename)
+{
+  QFileInfo fileInfo (filename);
+  if (!fileInfo.exists()) {
+    QDir dir (fileInfo.absolutePath());
+    dir.mkpath (fileInfo.absolutePath());
+    QFile file (filename);
+    file.open (QFile::ReadWrite);
+    file.write (QByteArray (""));
+    file.close();
   }
 }
 
