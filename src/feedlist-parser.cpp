@@ -243,7 +243,7 @@ FeedlistParser::ParseTextElement (const QString & tag,
   }
   QString text = xread.text().toString();
   //qDebug () << " text element text " << text;
-  feed.values[tag] = text;
+  feed.values(tag) = text;
 }
 
 void
@@ -256,7 +256,7 @@ FeedlistParser::ParseStorySig (const QString & tag,
   StoryMark  mark;
   mark.readit = atts.value("readit").toString();
   mark.hash = atts.value ("hash").toString();
-  feed.storyMarks.append (mark);
+  feed.storyMarks().append (mark);
 }
 
 } // namespace

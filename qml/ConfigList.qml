@@ -31,6 +31,8 @@ Rectangle {
   property real shrinkDelay: 250
   property real itemHeight: 32
   property bool isShown: true
+  property string valueBackgroundColor: "turquoise"
+  property string keyBackgroundColor: "cadetblue"
   signal updateConfigItem (string theGroup, string theKey, string newValue)
   function hide () {
     console.log ("ConfList hide")
@@ -73,10 +75,11 @@ Rectangle {
         height: itemHeight
         width: keyFieldWidth   
         Rectangle {
+          id: keyColumnRect
           anchors { topMargin: 2 }
           width: parent.width
           height: parent.height - 2
-          color: "cadetblue"  
+          color: keyBackgroundColor  
           z: parent.z + 1
           Text {  
             anchors.left: parent.left
@@ -92,11 +95,12 @@ Rectangle {
         height: itemHeight
         anchors.left: keyColumn.right
         Rectangle {
+          id: valueColumnRect
           anchors.topMargin: 2
           anchors.leftMargin: confLevel * 10
           width: parent.width
           height: parent.height -2
-          color: "turquoise"
+          color: valueBackgroundColor
           z: parent.z + 1
           TextInput {
             id: valueField
@@ -134,7 +138,6 @@ Rectangle {
     anchors.top: parent.top
     anchors.topMargin: 6
     orientation: ListView.Vertical
-    snapMode: ListView.NoSnap
     model: configModel
     highlight: Rectangle { color: "oldlace"; radius: 5 }
   }

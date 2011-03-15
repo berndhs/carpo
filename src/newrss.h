@@ -44,6 +44,7 @@
 #include "feedlist-model.h"
 #include "drss-netreply.h"
 #include "config-edit.h"
+#include "property-store.h"
 
 class QDeclarativeContext;
 
@@ -131,6 +132,7 @@ private:
   QMap <QNetworkReply *, DrssNetReply *>  expectReplies;
 
   QmlConfigEdit        configEdit;
+  PropertyStore       *propStore;
 
 }; 
 

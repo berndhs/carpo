@@ -6,6 +6,8 @@ Rectangle {
   signal urlEntered(string url)
   property alias urlString: urlText.text
   property alias labelText: urlLabelText.text
+  property alias autoScroll: urlText.autoScroll
+  property alias selectByMouse: urlText.selectByMouse
 
   width: parent.width - parent.urlMargin
   anchors {

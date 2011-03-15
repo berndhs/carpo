@@ -53,14 +53,14 @@ void
 FeedlistWriter::write (Feed & feed)
 {
   writeStartElement ("feed");
-  writeAttribute ("hash",feed.values["hash"]);
-  writeTextElement ("title", feed.values["title"]);
-  writeTextElement ("webUrl",feed.values["weburl"]);
-  writeTextElement ("xmlUrl",feed.values["xmlurl"]);
-  writeTextElement ("description",feed.values["description"]);
-  writeTextElement ("imageUrl",feed.values["imageurl"]);
-  writeTextElement ("nick",feed.values["nick"]);
-  writeTextElement ("language",feed.values["language"]);
+  writeAttribute ("hash",feed.values("hash"));
+  writeTextElement ("title", feed.values("title"));
+  writeTextElement ("webUrl",feed.values("weburl"));
+  writeTextElement ("xmlUrl",feed.values("xmlurl"));
+  writeTextElement ("description",feed.values("description"));
+  writeTextElement ("imageUrl",feed.values("imageurl"));
+  writeTextElement ("nick",feed.values("nick"));
+  writeTextElement ("language",feed.values("language"));
   writeEndElement (); // feed
 }
 

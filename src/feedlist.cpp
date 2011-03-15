@@ -26,6 +26,30 @@
 namespace deliberate
 {
 
+QString &
+Feed::values (const QString & key)
+{
+  return theValues[key];
+}
+
+QString
+Feed::values (const QString & key) const
+{
+  return theValues[key];
+}
+
+StoryMarkList &
+Feed::storyMarks ()
+{
+  return theStoryMarks;
+}
+
+const StoryMarkList &
+Feed::storyMarks () const
+{
+  return theStoryMarks;
+}
+
 QTextStream & 
 operator<< (QTextStream & stream, 
             const StoryMark & sm)
@@ -37,15 +61,15 @@ operator<< (QTextStream & stream,
 void
 Feed::StreamOut (QTextStream & stream) const
 {
-  stream << " (Feed values (" ;
+  stream << " (Feed theValues (" ;
   QMap<QString, QString>::const_iterator cit;
-  for (cit = values.constBegin(); cit!= values.constEnd(); cit++) {
+  for (cit = theValues.constBegin(); cit!= theValues.constEnd(); cit++) {
     stream << " ( \"" << cit.key() << "\" , \"" << cit.value() << "\" ) ";
   }
   stream << ") StoryMarks  (" ;
-  int nsm = storyMarks.count();
+  int nsm = theStoryMarks.count();
   for (int s=0; s<nsm; s++) {
-     stream << " ( " << storyMarks.at(s) << " ) ";
+     stream << " ( " << theStoryMarks.at(s) << " ) ";
   }
   stream << ") ) ";
 }

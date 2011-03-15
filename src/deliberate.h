@@ -45,8 +45,6 @@ void InitSettings ();
 
 QSettings & Settings ();
 
-bool IsMaemo ();
-
 bool IsFingerInterface ();
 
 bool IsIp6Address (QString addr);

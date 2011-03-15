@@ -69,20 +69,11 @@ Settings ()
   return *mySettings;
 }
 
-bool
-IsMaemo ()
-{
-  #ifdef Q_WS_MAEMO_5
-  return true;
-  #else
-  return false;
-  #endif
-}
 
 bool
 IsFingerInterface ()
 {
-  return IsMaemo ();
+  return false;
 }
 
 void

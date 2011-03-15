@@ -58,12 +58,15 @@ NewRss::NewRss (QWidget *parent)
    qnam (0),
    feedlistParser (0),
    feeds (this),
-   configEdit (this)
+   configEdit (this),
+   propStore (0)
 {
   feedListFile =  QDesktopServices::storageLocation 
               (QDesktopServices::DataLocation)
               + QDir::separator()
               + QString ("drss_feeds.xml");
+  propStore = new PropertyStore (this, &Settings());
+  propStore->Init (":/default-properties.txt");
   feedListFile = Settings().value ("files/feedlist",feedListFile).toString();
   Settings().setValue ("files/feedlist",feedListFile);
   qnam = new QNetworkAccessManager;
@@ -147,6 +150,9 @@ NewRss::Run ()
     QTimer::singleShot (150, this, SLOT(Quit ()));
     return;
   }
+  propStore->ReadFromObjects (qmlRoot);
+  propStore->FillSettings (qmlRoot);
+  propStore->SyncToObjects (qmlRoot);
   qDebug () << " top size " << size();
   qDebug () << " qml size " << ui.qmlView->size();
   qDebug () << " try to set size " << ui.qmlView->size() ;
@@ -158,7 +164,7 @@ NewRss::Run ()
   }
   ShowList ("FeedList");
   topFolder.clear ();
-  DumpProperties ();
+  //DumpProperties ();
   configEdit.Load ();
   show ();
 }
@@ -230,7 +236,7 @@ void
 NewRss::ShowFeed (const QString & id)
 {
   qDebug () << " NewRss::ShowFeed";
-  QString urlString = feeds.FeedRef(id).values["xmlurl"];
+  QString urlString = feeds.FeedRef(id).values("xmlurl");
   headlines.clear ();
   LoadFeed (urlString);
 }
@@ -245,11 +251,11 @@ NewRss::EditFeed (const QString & id)
 void
 NewRss::DisplayEditFeed (const QString & id, const Feed & feed)
 {
-  QString urlString = feed.values["xmlurl"];
-  QString nick = feed.values["nick"];
-  QString siteUrl = feed.values["weburl"];
-  QString title = feed.values["title"];
-  QString descr = feed.values["description"];
+  QString urlString = feed.values("xmlurl");
+  QString nick = feed.values("nick");
+  QString siteUrl = feed.values("weburl");
+  QString title = feed.values("title");
+  QString descr = feed.values("description");
   QMetaObject::invokeMethod (qmlRoot, "displayEditFeed",
                  Q_ARG (QVariant, id),
                  Q_ARG (QVariant, urlString),
@@ -392,7 +398,7 @@ NewRss::ProbeReply (QNetworkReply * reply)
   QDomElement root = probeDoc.documentElement ();
   QString tag = root.tagName();
   Feed newFeed;
-  newFeed.values["xmlurl"] = reply->url().toString();
+  newFeed.values("xmlurl") = reply->url().toString();
   bool foundData (false);
   if (tag == "rss" || tag.startsWith ("rdf")) {  // probaly RSS
     for (QDomElement rssel = root.firstChildElement();
@@ -439,9 +445,9 @@ NewRss::PopulateFromRssDoc (QDomElement & el, Feed & feed)
       description = child.text();
     }
   }
-  feed.values["title"] = title;
-  feed.values["weburl"] = weblink;
-  feed.values["description"] = description;
+  feed.values("title") = title;
+  feed.values("weburl") = weblink;
+  feed.values("description") = description;
   return foundsomething;
 }
 
@@ -475,9 +481,9 @@ NewRss::PopulateFromAtomDoc (QDomElement & el, Feed & feed)
       description = child.text();
     }
   }
-  feed.values["title"] = title;
-  feed.values["weburl"] = weblink;
-  feed.values["description"] = description;
+  feed.values("title") = title;
+  feed.values("weburl") = weblink;
+  feed.values("description") = description;
   return foundsomething;
 }
 

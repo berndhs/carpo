@@ -43,18 +43,27 @@ public:
                                    const StoryMark & sm);
 };
 
+typedef QList<StoryMark>  StoryMarkList;
+
 class Feed 
 {
 public:
+ 
+  QString             & values (const QString & key);
+  QString               values (const QString & key) const;
+  StoryMarkList       & storyMarks ();
+  const StoryMarkList & storyMarks () const;
 
-
-  QMap <QString, QString>  values;
-  QList <StoryMark>       storyMarks;
 
   void StreamOut (QTextStream & stream) const;
 
   friend QTextStream & operator<< (QTextStream & stream,
                                    const Feed & feed);
+
+private:
+
+  QMap <QString, QString>  theValues;
+  QList <StoryMark>        theStoryMarks;
 
 };
 

@@ -6,4 +6,7 @@
 <qresource prefix="/help">
   <file alias="LICENSE.txt">help/LICENSE.txt</file>
 </qresource>
+<qresource>
+  <file alias="default-properties.txt">cfg/default-properties.txt</file>
+</qresource>
 </RCC>

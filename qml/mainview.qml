@@ -105,6 +105,24 @@
     height: indexHeight
     width: parent.width
     color: "transparent"
+    function hide () {
+      shrinkScale.running = true; 
+    }
+    function show () {
+      expandScale.running = true;
+    }
+    PropertyAnimation on scale { 
+      id: shrinkScale
+      running: false
+      to: 0
+      duration: shrinkDelay
+    }
+    PropertyAnimation on scale { 
+      id: expandScale
+      running: false
+      to: 1
+      duration: shrinkDelay
+    }
     MouseArea {
       anchors.fill: parent
       onClicked: { console.log ("clicked main index box") }
@@ -201,18 +219,19 @@
   }
   ConfigList {
     id: configList
-    objectName: "configListObject"
+    objectName: "configList"
     scale: 0
     isShown: false
     color: "blue"
     z: feedEditArea.z + 1
-    width:feedEditArea.width
-    height: feedEditArea.height
-    anchors.fill: feedEditArea
+    width:parent.width
+    height: parent.height
+    anchors { top: controlPanel.bottom; }
     onUpdateConfigItem: { configIF.updateValue (theGroup, theKey, newValue) }
   }
   Connections {
     target: controlPanel
+    objectName: "controlPanelConnections"
     onToggleViewSelect: {
       console.log ("Connections clicked " )
       console.log (" index width " + feedIndexArea.width)
@@ -226,9 +245,11 @@
       console.log ("Maintain Selected " + visi)
       if (visi) {
         configList.hide ();
+        indexBox.show ();
       } else {
         configIF.loadView ();
         configList.show ();
+        indexBox.hide ();
       }
     }
   }

@@ -79,7 +79,7 @@ FeedlistModel::addFeed (const Feed & newFeed)
   feedMap[ident] = newFeed;
   beginInsertRows (QModelIndex(), rowCount(), rowCount());
   idents << ident;
-  titles << newFeed.values["title"];
+  titles << newFeed.values("title");
   endInsertRows ();
 }
 
@@ -92,7 +92,7 @@ FeedlistModel::removeFeed (const QString & id)
   }
   beginRemoveRows (QModelIndex(), index, index);
   idents.removeAll (id);
-  titles.removeAll (feedMap[id].values["title"]);
+  titles.removeAll (feedMap[id].values("title"));
   feedMap.remove (id);
   endRemoveRows();
 }

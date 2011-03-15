@@ -80,18 +80,18 @@ ControlInterface::saveFeed (const QString & feedId,
   }
   if (feeds->contains (feedId)) {
     Feed & feedRef = feeds->FeedRef(feedId);
-    feedRef.values["xmlurl"] = feedUrl;
-    feedRef.values["title"] = title;
-    feedRef.values["weburl"] = siteUrl;
-    feedRef.values["nick"] = nick;
-    feedRef.values["description"] = description;
+    feedRef.values("xmlurl") = feedUrl;
+    feedRef.values("title") = title;
+    feedRef.values("weburl") = siteUrl;
+    feedRef.values("nick") = nick;
+    feedRef.values("description") = description;
   } else {
     Feed newFeed;
-    newFeed.values["xmlurl"] = feedUrl;
-    newFeed.values["title"] = title;
-    newFeed.values["weburl"] = siteUrl;
-    newFeed.values["nick"] = nick;
-    newFeed.values["description"] = description;
+    newFeed.values("xmlurl") = feedUrl;
+    newFeed.values("title") = title;
+    newFeed.values("weburl") = siteUrl;
+    newFeed.values("nick") = nick;
+    newFeed.values("description") = description;
     feeds->addFeed (newFeed);
   }
   emit ListUpdated ();

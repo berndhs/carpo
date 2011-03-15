@@ -39,9 +39,10 @@ Rectangle {
   property real normalWidth: parent.width
   property real urlMargin: 6
   property string feedId: ""
+  property real normalRadius: 5
   width: 200
   height: 200
-  radius: 5
+  radius: normalRadius
   color: "palegoldenrod"
   Rectangle {
     function show () { height = 32; visible = true }
@@ -55,6 +56,7 @@ Rectangle {
     color: "transparent"
     ChoiceButton {
       id:saveButton
+      objectName: "feedEditSaveButton"
       labelText: "Save Feed"
       height: parent.height
       color: "green"
@@ -66,6 +68,7 @@ Rectangle {
     } 
     ChoiceButton {
       id:deleteButton
+      objectName: "feedEditDeleteButton"
       labelText: "Delete Feed"
       height: parent.height
       color: "red"
@@ -77,6 +80,7 @@ Rectangle {
     }
     ChoiceButton {
       id:probeButton
+      objectName: "feedEditProbeButton"
       labelText: "Probe Feed"
       height: parent.height
       color: "yellow"
@@ -89,10 +93,13 @@ Rectangle {
   }
   AddressInput { 
     id: addrInput
-    labelText: " Address "
+    objectName: "feedEditAddressInput"
+    labelText: qsTr(" Address ")
     width: parent.width - parent.urlMargin
     anchors.top: parent.top
     anchors.topMargin: saveButton.height + 10
+    autoScroll: true
+    selectByMouse: true
   }
   Flow {
     id:choiceButtons
@@ -105,7 +112,8 @@ Rectangle {
     spacing: 4
     ChoiceButton {
       id: choiceNew
-      labelText: "New Feed"
+      objectName: "feedEditNewButton"
+      labelText: qsTr("New Feed")
       onClicked: {
         startNewFeed (addrInput.urlString)
       }
@@ -123,28 +131,28 @@ Rectangle {
     LineInput {
       id: feedNick
       width:parent.width
-      labelText: " Nick "
+      labelText: qsTr(" Nick ")
       labelWidth: feedDescription.labelWidth
     }
     LineInput {
       id: feedTitle
       width:parent.width
       anchors.top: feedNick.bottom
-      labelText: " Title "
+      labelText: qsTr(" Title ")
       labelWidth: feedDescription.labelWidth
     }
     LineInput {
       id: siteUrl
       width:parent.width
       anchors.top: feedTitle.bottom
-      labelText: " Site Url "
+      labelText: qsTr(" Site Url ")
       labelWidth: feedDescription.labelWidth
     }
     BoxInput {
       id: feedDescription
       width:parent.width
       anchors.top: siteUrl.bottom
-      labelText: " Description "
+      labelText: qsTr(" Description ")
       labelWidth: labelFloatRect.width
     }
   }
@@ -152,6 +160,7 @@ Rectangle {
     target: addrInput
     onUrlEntered: {
       console.log ("entered URL " + url) 
+      probeFeed (addrInput.urlString)
     }
   } 
 }
