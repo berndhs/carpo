@@ -1,0 +1,15 @@
+feedListArea color
+feedIndexArea color
+feedEdit color
+feedEdit urlMargin
+feedEdit normalRadius
+feedEditSaveButton color
+feedEditDeleteButton color
+feedEditProbeButton color
+feedEditAddressInput autoScroll
+feedEditAddressInput selectByMouse
+feedEditAddressInput labelText
+feedEditNewButton color
+feedEditNewButton labelText
+configList valueBackgroundColor
+configList keyBackgroundColor

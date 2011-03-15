@@ -61,6 +61,8 @@ public:
   void AddConfigMessages (const QStringList & messages);
   void Run ();
 
+  bool Again ();
+
 private slots:
 
   void Quit ();
@@ -78,6 +80,7 @@ private slots:
   void ExpandIndex ();
   void SaveFeedListModel ();
   void ProbeFeed (const QString & urlString);
+  void Restart ();
 
 protected:
 
@@ -104,6 +107,7 @@ private:
   void  CheckExists (const QString & filename);
 
 
+  bool           runAgain;
   QApplication  *app;
   Ui_NewRssMain  ui;
   QStringList    configMessages;

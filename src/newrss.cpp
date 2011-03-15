@@ -50,6 +50,7 @@ namespace deliberate
 
 NewRss::NewRss (QWidget *parent)
   :QMainWindow (parent),
+   runAgain (false),
    app (0),
    context (0),
    qmlRoot (0),
@@ -164,7 +165,6 @@ NewRss::Run ()
   }
   ShowList ("FeedList");
   topFolder.clear ();
-  //DumpProperties ();
   configEdit.Load ();
   show ();
 }
@@ -388,6 +388,21 @@ NewRss::GetFeedReply (QNetworkReply * reply)
     HideList ("FeedList");
     feedIF->SetActive (FeedInterface::Choice_Index);
   }
+}
+
+void
+NewRss::Restart ()
+{
+  runAgain = true;
+  QTimer::singleShot (250, this, SLOT (Quit()));
+}
+
+bool
+NewRss::Again ()
+{
+  bool again = runAgain;
+  runAgain = false;
+  return again;
 }
 
 void

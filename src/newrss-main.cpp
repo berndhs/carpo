@@ -40,6 +40,9 @@ main (int argc, char *argv[])
   QCoreApplication::setApplicationName ("newrss");
   deliberate::ProgramVersion pv ("NewRss");
   QCoreApplication::setApplicationVersion (pv.ShortVersion());
+
+  QApplication  app (argc, argv);
+
   QSettings  settings;
   deliberate::InitSettings ();
   deliberate::SetSettings (settings);
@@ -64,23 +67,22 @@ main (int argc, char *argv[])
                          .arg (__DATE__).arg(__TIME__));
   configMessages.append (QObject::tr("Build with Qt %1").arg(QT_VERSION_STR));
   configMessages.append (QObject::tr("Running with Qt %1").arg(qVersion()));
+  #if 0
   for (int cm=0; cm<configMessages.size(); cm++) {
     deliberate::StdOut () << configMessages[cm] << endl;
   }
+  #endif
   if (opts.WantVersion ()) {
     exit (0);
   }
   int result;
-  QApplication  app (argc, argv);
-  
+
   deliberate::NewRss   newrss;
 
   app.setWindowIcon (newrss.windowIcon());
   newrss.Init (app);
   newrss.AddConfigMessages (configMessages);
-
   newrss.Run ();
   result = app.exec ();
-  qDebug () << " QApplication exec finished " << result;
   return result;
 }
