@@ -202,7 +202,13 @@ NewRss::ShowStory (const QString & id)
 {
   qDebug () << " NewRss::ShowStory";
   if (stories.contains(id)) {
-    htmlString = stories[id];
+    if (storyDates.contains(id)) {
+      htmlString = QString ("<i>%1</i><br>\n%2")
+                       .arg (storyDates[id])
+                       .arg (stories[id]);
+    } else {
+      htmlString = stories[id];
+    }
   } else {
     htmlString = "<b><i>No Such Story!</b></i>";
   }
@@ -366,10 +372,10 @@ NewRss::GetFeedReply (QNetworkReply * reply)
   QDomNodeList items = feedDoc.elementsByTagName ("item");
   QDomNodeList entries = feedDoc.elementsByTagName ("entry");
   if (items.count() > 0) {
-    ParseStories (items, "description");
+    ParseStories (items, "description", "pubDate");
   }
   if (entries.count() > 0) {
-    ParseStories (entries, "content");
+    ParseStories (entries, "content","published","updated");
   }
   if (headlines.count() > 0) {
     ShowList ("FeedIndex");
@@ -506,7 +512,8 @@ NewRss::ParseAtomAuthorElem (QDomElement &el, QString & name)
 }
 
 void
-NewRss::ParseStories (QDomNodeList & items, const QString & contentTag)
+NewRss::ParseStories (QDomNodeList & items, const QString & contentTag,
+                      const QString & dateTag1, const QString & dateTag2)
 {
   int ni = items.count();
   for (int i=0; i<ni; i++) {
@@ -528,6 +535,22 @@ NewRss::ParseStories (QDomNodeList & items, const QString & contentTag)
         }
         if (linkList.count() > 0) {
           storyLinks[id] = linkList;
+        }
+        QString date; // latest pub date
+        QDomNodeList dates = elt.elementsByTagName (dateTag1);
+        int nd = dates.count();
+        if (nd > 0) {
+          date = dates.at(0).toElement().text();
+        }
+        if (dateTag2.length() > 0) {
+          dates = elt.elementsByTagName (dateTag2);
+          nd = dates.count();
+          if (nd > 0) {
+            date = dates.at(nd-1).toElement().text();
+          }
+        }
+        if (date.length() > 0) {
+          storyDates[id] = date;
         }
       }
     }

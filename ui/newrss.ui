@@ -132,6 +132,7 @@
    </property>
   </action>
  </widget>
+ <layoutdefault spacing="1" margin="1"/>
  <customwidgets>
   <customwidget>
    <class>QDeclarativeView</class>

@@ -86,7 +86,10 @@ protected:
 private:
 
   void  Connect ();
-  void  ParseStories (QDomNodeList & items, const QString & contentTag);
+  void  ParseStories (QDomNodeList & items, 
+                      const QString & contentTag,
+                      const QString & dateTag1,
+                      const QString & dateTag2 = QString());
   void  FillFeedModel (const Folder & folder, FeedlistModel & model);
   void  LoadFeed (const QString & urlString);
   void  GetFeedReply (QNetworkReply * reply);
@@ -123,6 +126,7 @@ private:
   FeedlistModel             feeds;
   QMap <QString, QString>  stories;
   QMap <QString, QStringList> storyLinks;
+  QMap <QString, QString>  storyDates;
 
   QMap <QNetworkReply *, DrssNetReply *>  expectReplies;
 

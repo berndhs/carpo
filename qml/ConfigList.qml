@@ -25,8 +25,9 @@ import QtQuick 1.0
 
 Rectangle { 
   property real normalWidth: parent.width
-  property real keyFieldWidth: normalWidth*0.4
-  property real valueFieldWidth: normalWidth*0.6
+  property real widthRatio: 0.25
+  property real keyFieldWidth: normalWidth*widthRatio
+  property real valueFieldWidth: normalWidth*(1 - widthRatio)
   property real shrinkDelay: 250
   property real itemHeight: 32
   property bool isShown: true
@@ -92,6 +93,7 @@ Rectangle {
         anchors.left: keyColumn.right
         Rectangle {
           anchors.topMargin: 2
+          anchors.leftMargin: confLevel * 10
           width: parent.width
           height: parent.height -2
           color: "turquoise"

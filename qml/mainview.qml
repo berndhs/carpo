@@ -225,9 +225,9 @@
       var visi = configList.isShown
       console.log ("Maintain Selected " + visi)
       if (visi) {
-        configIF.loadView ();
         configList.hide ();
       } else {
+        configIF.loadView ();
         configList.show ();
       }
     }
