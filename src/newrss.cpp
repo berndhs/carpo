@@ -599,10 +599,6 @@ NewRss::ParseStories (QDomNodeList & items, const QString & contentTag,
       QDomElement elt = item.toElement();
       QDomNodeList titles = elt.elementsByTagName ("title");
       QDomNodeList descrs = elt.elementsByTagName (contentTag);
-qDebug () << "NewRss::ParseStories ";
-qDebug () << "       title count " << titles.count();
-qDebug () << "       descr tag   " << contentTag;
-qDebug () << "       descr count " << descrs.count();
       if (titles.count() > 0 && descrs.count() > 0) {  // should be 1
         QString title = titles.at(0).toElement().text();
         QString descr = descrs.at(0).toElement().text();
@@ -612,7 +608,13 @@ qDebug () << "       descr count " << descrs.count();
         int nl = links.count();
         QStringList linkList;
         for (int i=0; i<nl; i++) {
-          linkList << links.at(i).toElement().text();
+          QString link = links.at(i).toElement().text().trimmed();
+          if (link.length() < 1) { // maybe atom with href in attribute
+            link = links.at(i).toElement().attribute("href");
+          }
+          if (link.length() > 0) {
+            linkList << link;
+          }
         }
         if (linkList.count() > 0) {
           storyLinks[id] = linkList;
