@@ -170,6 +170,13 @@ NewRss::Run ()
 }
 
 void
+NewRss::Reset ()
+{
+  propStore->FillSettings (qmlRoot);
+  propStore->SyncToObjects (qmlRoot);
+}
+
+void
 NewRss::Connect ()
 {
   connect (ui.actionQuit, SIGNAL (triggered()),
@@ -180,6 +187,8 @@ NewRss::Connect ()
            this, SLOT (ShowAbout()));
   connect (ui.actionLicense, SIGNAL (triggered()),
            this, SLOT (ShowLicense()));
+  connect (ui.actionReset, SIGNAL (triggered()),
+           this, SLOT (Reset ()));
   connect (qnam, SIGNAL (finished (QNetworkReply *)),
            this, SLOT (FinishedNet (QNetworkReply *)));
   connect (feedIF, SIGNAL (ShowStory (const QString &)),

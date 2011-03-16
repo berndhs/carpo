@@ -29,6 +29,9 @@ Rectangle {
   signal toggleViewSelect ()
   signal moreSelect ()
   signal maintainSelect ()
+  property string choiceButtonColor: "sandybrown"
+  property string detailButtonColor: "sandybrown"
+  property string maintainButtonColor: "sandybrown"
 
   id: controlPanel
   height: 20
@@ -57,7 +60,7 @@ Rectangle {
       width: parent.buttonWidth
       height: parent.height
       z: 2
-      color: "sandybrown"
+      color: choiceButtonColor
       anchors { left: parent.left; leftMargin: 2; rightMargin: 2 }
       MouseArea {
         anchors.fill: parent
@@ -72,7 +75,7 @@ Rectangle {
       width: parent.buttonWidth
       height: parent.height
       z: 2
-      color: "sandybrown"
+      color: detailButtonColor
       anchors { left: turner.right; leftMargin: 2; rightMargin: 2 }
       MouseArea {
         anchors.fill: parent
@@ -87,7 +90,7 @@ Rectangle {
       width: parent.buttonWidth
       height: parent.height
       z: 2
-      color: "sandybrown"
+      color: maintainButtonColor
       anchors { left: detailer.right; leftMargin: 2; rightMargin: 2 }
       MouseArea {
         anchors.fill: parent

@@ -81,6 +81,7 @@ private slots:
   void SaveFeedListModel ();
   void ProbeFeed (const QString & urlString);
   void Restart ();
+  void Reset ();
 
 protected:
 

@@ -13,3 +13,7 @@ feedEditNewButton color
 feedEditNewButton labelText
 configList valueBackgroundColor
 configList keyBackgroundColor
+configList mainBackgroundColor
+controlPanel choiceButtonColor
+controlPanel detailButtonColor
+controlPanel maintainButtonColor

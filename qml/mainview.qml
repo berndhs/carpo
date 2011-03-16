@@ -219,10 +219,11 @@
   }
   ConfigList {
     id: configList
+    property string mainBackgroundColor: "blue"
     objectName: "configList"
     scale: 0
     isShown: false
-    color: "blue"
+    color: mainBackgroundColor
     z: feedEditArea.z + 1
     width:parent.width
     height: parent.height
