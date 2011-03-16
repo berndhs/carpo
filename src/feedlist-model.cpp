@@ -107,9 +107,9 @@ void
 FeedlistModel::moveUp (const QString & id)
 {
   int ndx = idents.indexOf (id);
-  if (ndx > 0 && ndx < idents.count()-1)  {
+  if (ndx > 0)  {
     idents.move (ndx, ndx-1);
-    emit dataChanged (createIndex (0,0), createIndex (idents.count()-1,0));
+    emit dataChanged (createIndex (ndx-1,0), createIndex (ndx,0));
     emit ListChanged ();
   }
 }
@@ -118,9 +118,9 @@ void
 FeedlistModel::moveDown (const QString & id)
 {
   int ndx = idents.indexOf (id);
-  if (ndx > 0 && ndx < idents.count()-1)  {
+  if (ndx >= 0 && ndx < idents.count() - 1)  {
     idents.move (ndx, ndx+1);
-    emit dataChanged (createIndex (0,0), createIndex (idents.count()-1,0));
+    emit dataChanged (createIndex (ndx,0), createIndex (ndx+1,0));
     emit ListChanged ();
   }
 }
