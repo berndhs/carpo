@@ -35,6 +35,7 @@
   property real indexHeight : verticalIndexHeight
   property real displayWidth: 500
   property real displayHeight: 400
+  property real shrinkDelay: 250
 
   function setTheHtml (theHtml) {
     storyView.storyHtml = theHtml
@@ -145,6 +146,8 @@
       onSelected: { 
         controlIF.feedClicked (idx, i,t) 
       }
+      onSelectMoveUp: { controlIF.moveUp (ident) }
+      onSelectMoveDown: { controlIF.moveDown (ident) }
       onReportOrientation: { feedIF.listOrientation (orient) }
     }
     FeedIndex {

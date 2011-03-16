@@ -41,31 +41,21 @@ private:
 
 public:
  
-  class iterator {
-  public:
-    iterator ();
-    const QString & key ();
-    Feed          & value ();
-    iterator      & operator++ ();  // prefix
-    bool            operator== ( const iterator & other ) const;
-    bool            operator!= ( const iterator & other ) const;
-  private:
-    FeedMapType::iterator it;
-    friend class FeedlistModel;
-  };
-
   FeedlistModel (QObject *parent=0);
   int rowCount (const QModelIndex & index = QModelIndex()) const;
   QVariant data (const QModelIndex & index, int role = Qt::DisplayRole) const;
 
   void addFeed (const Feed & newFeed);
   void removeFeed (const QString & id);
+  void moveUp (const QString & id);     // move id to lower index
+  void moveDown (const QString & id);   // move id to higher index
 
   Feed & FeedRef (const QString & id);
   bool   contains (const QString & id) const;
  
-  iterator  begin ();
-  iterator  end ();
+signals:
+ 
+  void ListChanged ();
 
 private:
 
@@ -76,11 +66,12 @@ private:
 
 
   QStringList   idents;
-  QStringList   titles;
 
   FeedMapType   feedMap;
 
   static int    nextId;
+
+  friend class FeedlistWriter;
 
 };
 

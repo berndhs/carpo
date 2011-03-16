@@ -41,12 +41,15 @@ FeedlistWriter::write (FeedlistModel *model, QIODevice *device)
   writeStartDocument ("1.0");
   writeStartElement ("drssfeedlist");
   writeAttribute ("version", "2.0");
-  FeedlistModel::iterator fit;
-  for (fit=model->begin(); fit!= model->end(); ++fit) {
-    write (fit.value());
+  QStringList & idents (model->idents);
+  FeedlistModel::FeedMapType & feedMap (model->feedMap);
+  int nRows = idents.count();
+  for (int r=0; r<nRows; r++) {
+    write (feedMap[idents.at(r)]);
   }
   writeEndElement (); // drssfeedlist
   writeEndDocument ();
+  return true;
 }
 
 void

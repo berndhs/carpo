@@ -172,7 +172,6 @@ void
 QmlConfigEdit::addRow (const ConfigItem & item)
 {
   configRows << item;
-  qDebug () << " addRow " << item.key << item.value << item.kind;
 }
 
 void

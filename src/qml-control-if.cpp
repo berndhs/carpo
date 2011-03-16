@@ -145,4 +145,20 @@ ControlInterface::handlePseudoAlert (const QString & alert)
   }
 }
 
+void
+ControlInterface::moveUp (const QString & id)
+{
+  if (feeds) {
+    feeds->moveUp (id);
+  }
+}
+
+void
+ControlInterface::moveDown (const QString & id)
+{
+  if (feeds) {
+    feeds->moveDown (id);
+  }
+}
+
 } // namespace

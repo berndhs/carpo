@@ -28,6 +28,8 @@ Rectangle {
   property real shrinkDelay: 250
   property real itemHeight: 32
   signal selected (int idx, string i, string t)
+  signal selectMoveUp (string ident)
+  signal selectMoveDown (string ident)
   signal reportOrientation (int orient)
 
   function nextStory () {
@@ -84,28 +86,48 @@ Rectangle {
     id: verticalDelegate
     Item {
       width: normalWidth; height: itemHeight
-      Column { 
-        anchors.topMargin: 4
-        Text {  width:normalWidth; wrapMode:Text.Wrap; text:  title } 
-      }
-      MouseArea {
-        anchors.fill: parent
-        onClicked: { selected (index, ident, title); feedList.currentIndex = index }
-      }
-    }
-  }
 
-  Component {
-    id: horizontalDelegate
-    Item {
-      width: normalWidth/3; height: itemHeight
-      Row { 
-        anchors.leftMargin: 4
-        Text { width:normalWidth/3; wrapMode:Text.Wrap;  text: title } 
+      Column {
+        id: moveDownColumn
+        anchors {left: parent.left }
+        Rectangle {
+          id: moveDownRect
+          width: childrenRect.width; height: itemHeight
+          color: "transparent"
+          Text { width: 48; text: "Dwn " }
+          MouseArea {
+            anchors.fill: parent
+           onClicked: { console.log ("move up " + ident + " row " + index) ; selectMoveDown (ident) }
+          }
+        }
       }
-      MouseArea {
-        anchors.fill: parent
-        onClicked: { selected (index, ident, title); feedList.currentIndex = index }
+      Column {
+        id: moveUpColumn
+        anchors {left: moveDownColumn.right }
+        Rectangle {
+          id: moveUpRect
+          width: childrenRect.width; height: itemHeight
+          color: "transparent"
+          Text { width: 32; text: "Up " }
+          MouseArea {
+            anchors.fill: parent
+            onClicked: { console.log ("move up " + ident + " row " + index) ; selectMoveUp (ident) }
+          }
+        }
+      }
+      Column { 
+        id: titleColumn
+        anchors { left: moveUpColumn.right; leftMargin: 6 }
+        Rectangle {
+          id: titleItemRect
+          width: normalWidth; height: itemHeight
+          color: "transparent"
+          Text {  width:normalWidth; wrapMode:Text.Wrap; text:  title } 
+          MouseArea {
+            anchors.fill: parent
+            onClicked: { selected (index, ident, title); feedList.currentIndex = index }
+          }
+        }
       }
     }
   }
@@ -115,11 +137,7 @@ Rectangle {
     function changeOrientation (orient) {
       feedIF.report ("changeOrientation start")
       orientation = orient
-      if (orient == ListView.Horizontal) {
-        delegate = horizontalDelegate
-      } else {
-        delegate = verticalDelegate
-      }
+      delegate = verticalDelegate
       reportOrientation (orientation)
       feedIF.report ("feedList orientation " + orientation)
       feedIF.report ("changeOrientation end")

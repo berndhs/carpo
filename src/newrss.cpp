@@ -207,6 +207,8 @@ NewRss::Connect ()
            this, SLOT (EditFeed (const QString &)));
   connect (controlIF, SIGNAL (ListUpdated ()),
            this, SLOT (SaveFeedListModel ()));
+  connect (&feeds, SIGNAL (ListChanged ()),
+           this, SLOT (SaveFeedListModel ()));
   connect (controlIF, SIGNAL (ProbeFeed (const QString &)),
            this, SLOT (ProbeFeed (const QString &)));
   connect (controlIF, SIGNAL (BrowseLinkExternal (const QString &)),
@@ -714,7 +716,6 @@ NewRss::FillFeedModel (const Folder & folder, FeedlistModel & model)
 void
 NewRss::SaveFeedListModel ()
 {
-  qDebug () << "NewRss::SaveFeedListModel";
   QFile saveFile (feedListFile);
   saveFile.open (QFile::WriteOnly);
   FeedlistWriter writer;

@@ -61,13 +61,14 @@ FeedlistModel::data (const QModelIndex & index, int role) const
   }
   int row = index.row();
   QVariant retval;
+  QString ident = idents.value(row);
   if (role == Qt::DisplayRole) {
-    retval = QString ("%1: %2").arg(idents.value(row))
-                               .arg(titles.value(row));
+    retval = QString ("%1: %2").arg(ident)
+                               .arg(feedMap[ident].values("title"));
   } else if (role == int (Type_Ident)) {
-    retval = idents.value (row);
+    retval = ident;
   } else if (role == int (Type_Title)) {
-    retval = titles.value (row);
+    retval = feedMap[ident].values("title");
   }
   return retval;
 }
@@ -79,7 +80,6 @@ FeedlistModel::addFeed (const Feed & newFeed)
   feedMap[ident] = newFeed;
   beginInsertRows (QModelIndex(), rowCount(), rowCount());
   idents << ident;
-  titles << newFeed.values("title");
   endInsertRows ();
 }
 
@@ -92,7 +92,6 @@ FeedlistModel::removeFeed (const QString & id)
   }
   beginRemoveRows (QModelIndex(), index, index);
   idents.removeAll (id);
-  titles.removeAll (feedMap[id].values("title"));
   feedMap.remove (id);
   endRemoveRows();
 }
@@ -103,55 +102,27 @@ FeedlistModel::FeedRef (const QString & id)
   return feedMap[id];
 }
 
-FeedlistModel::iterator
-FeedlistModel::begin ()
+
+void
+FeedlistModel::moveUp (const QString & id)
 {
-  iterator tmpIt;
-  tmpIt.it = feedMap.begin();
-  return tmpIt;
+  int ndx = idents.indexOf (id);
+  if (ndx > 0 && ndx < idents.count()-1)  {
+    idents.move (ndx, ndx-1);
+    emit dataChanged (createIndex (0,0), createIndex (idents.count()-1,0));
+    emit ListChanged ();
+  }
 }
 
-FeedlistModel::iterator 
-FeedlistModel::end ()
+void
+FeedlistModel::moveDown (const QString & id)
 {
-  iterator tmpIt;
-  tmpIt.it = feedMap.end();
-  return tmpIt;
-}
-
-FeedlistModel::iterator &
-FeedlistModel::iterator::operator++ ()
-{
-  it++;
-  return *this;
-}
-
-bool
-FeedlistModel::iterator::operator== (const iterator & other) const
-{
-  return it == other.it;
-}
-
-bool
-FeedlistModel::iterator::operator!= (const iterator & other) const
-{
-  return it != other.it;
-}
-
-FeedlistModel::iterator::iterator ()
-{
-}
-
-const QString &
-FeedlistModel::iterator::key ()
-{
-  return it.key();
-}
-
-Feed &
-FeedlistModel::iterator::value ()
-{
-  return it.value ();
+  int ndx = idents.indexOf (id);
+  if (ndx > 0 && ndx < idents.count()-1)  {
+    idents.move (ndx, ndx+1);
+    emit dataChanged (createIndex (0,0), createIndex (idents.count()-1,0));
+    emit ListChanged ();
+  }
 }
 
 } // namespace

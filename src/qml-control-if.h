@@ -53,6 +53,8 @@ public:
   Q_INVOKABLE void removeFeed (const QString & feedId);
   Q_INVOKABLE void probeFeed (const QString & url);
   Q_INVOKABLE void checkAlert (const QString & alert);
+  Q_INVOKABLE void moveUp (const QString & id);
+  Q_INVOKABLE void moveDown (const QString & id);
 
   void SetFeeds (FeedlistModel * feedList);
 
