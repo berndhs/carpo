@@ -78,13 +78,12 @@
     console.log ("Visi temp " + visi)
     feedEdit.visible = visi
     feedEditArea.visible = visi
-    console.log ("area w " + feedEditArea.width + " visi " + feedEditArea.visible )
-    console.log (" edit visi " + feedEdit.visible + " width " + feedEdit.width)
-    console.log (" area " + feedEditArea + " edit " + feedEdit)
     if (feedEdit.visible) { 
       feedEdit.clear() 
+      storyView.visible = false
     } else {
       indexBox.height = indexHeight
+      storyView.visible = true
     }
     controlIF.setEditingFeed (feedEdit.visible)
   }

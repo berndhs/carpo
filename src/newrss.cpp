@@ -262,8 +262,6 @@ NewRss::ShowStorySiteLocal (const QString & id)
   qDebug () << "NewRss::ShowStorySiteLocal";
   if (storyLinks.contains (id)) {
     QString urlString = storyLinks[id].first();
-    QMessageBox::warning (this, "Unimplemented",
-                          "Show link to " + urlString);
     if (qnam) {
       QNetworkReply * netreply = qnam->get (QNetworkRequest (QUrl (urlString)));
       DrssNetReply * dreply = new DrssNetReply (netreply, 

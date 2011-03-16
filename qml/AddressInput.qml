@@ -61,6 +61,7 @@ Rectangle {
     TextInput {
       id: urlText
       horizontalAlignment: TextEdit.AlignLeft
+      autoScroll: true
       Keys.onEnterPressed: {
         bigBox.urlEntered(urlText.text)
       }
