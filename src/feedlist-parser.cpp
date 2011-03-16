@@ -49,6 +49,7 @@ FeedlistParser::InitFuncPtrs ()
   fileParse["nick"] = ParseTextElement;
   fileParse["weburl"] = ParseTextElement;
   fileParse["storysig"] = ParseStorySig;
+  fileParse["topic"] = ParseTopic;
 }
 
 void
@@ -148,7 +149,6 @@ FeedlistParser::ParseFeed (QXmlStreamReader & xread, Feed & feed)
     switch (token) {
     case QXmlStreamReader::StartElement:
       tag = xread.name().toString().toLower();
-      //qDebug () << " Feed  start of " << tag;
       if (fileParse.contains (tag)) {
         fileParse[tag](tag, xread,feed);
       } else {
@@ -258,5 +258,21 @@ FeedlistParser::ParseStorySig (const QString & tag,
   mark.hash = atts.value ("hash").toString();
   feed.storyMarks().append (mark);
 }
+
+void
+FeedlistParser::ParseTopic (const QString & tag,
+                                  QXmlStreamReader & xread, 
+                                  Feed & feed)
+{ 
+  Q_UNUSED (tag)
+  QXmlStreamReader::TokenType  token;
+  token = ReadNext (xread);
+  if (token != QXmlStreamReader::Characters) {
+    return;
+  }
+  QString text = xread.text().toString();
+  feed.topics().append (text);
+}
+
 
 } // namespace

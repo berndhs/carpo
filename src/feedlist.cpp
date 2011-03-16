@@ -38,6 +38,18 @@ Feed::values (const QString & key) const
   return theValues[key];
 }
 
+QStringList &
+Feed::topics ()
+{
+  return theTopics;
+}
+
+const QStringList &
+Feed::topics () const
+{
+  return theTopics;
+}
+
 StoryMarkList &
 Feed::storyMarks ()
 {

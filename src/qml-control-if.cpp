@@ -74,10 +74,17 @@ ControlInterface::saveFeed (const QString & feedId,
                              const QString & title,
                              const QString & siteUrl,
                              const QString & nick,
-                             const QString & description)
+                             const QString & description,
+                             const QString & topics)
 {
   if (!feeds) {
     return;
+  }
+  QStringList longTopics = topics.split (";");
+  QStringList trimmedTopics;
+  int nt=longTopics.count();
+  for (int t=0;t<nt; t++) {
+    trimmedTopics << longTopics.at(t).trimmed();
   }
   if (feeds->contains (feedId)) {
     Feed & feedRef = feeds->FeedRef(feedId);
@@ -86,6 +93,7 @@ ControlInterface::saveFeed (const QString & feedId,
     feedRef.values("weburl") = siteUrl;
     feedRef.values("nick") = nick;
     feedRef.values("description") = description;
+    feedRef.topics() = trimmedTopics;
   } else {
     Feed newFeed;
     newFeed.values("xmlurl") = feedUrl;
@@ -93,6 +101,7 @@ ControlInterface::saveFeed (const QString & feedId,
     newFeed.values("weburl") = siteUrl;
     newFeed.values("nick") = nick;
     newFeed.values("description") = description;
+    newFeed.topics() = trimmedTopics;
     feeds->addFeed (newFeed);
   }
   emit ListUpdated ();

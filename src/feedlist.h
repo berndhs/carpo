@@ -25,6 +25,7 @@
 
 
 #include <QString>
+#include <QStringList>
 #include <QMap>
 #include <QList>
 #include <QTextStream>
@@ -51,6 +52,8 @@ public:
  
   QString             & values (const QString & key);
   QString               values (const QString & key) const;
+  QStringList         & topics ();
+  const QStringList   & topics () const;
   StoryMarkList       & storyMarks ();
   const StoryMarkList & storyMarks () const;
 
@@ -63,6 +66,7 @@ public:
 private:
 
   QMap <QString, QString>  theValues;
+  QStringList              theTopics;
   QList <StoryMark>        theStoryMarks;
 
 };

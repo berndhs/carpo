@@ -71,8 +71,10 @@
     console.log ("Widths: Index " + feedIndexArea.width + " list " + feedListArea.width)
     feedIF.toggleLists ()
   }
-  function displayEditFeed (feedId, feedUrl, feedTitle, siteUrl, nickText, theDescription) {
-    feedEdit.displayEditFeed (feedId, feedUrl, feedTitle, siteUrl, nickText, theDescription)
+  function displayEditFeed (feedId, feedUrl, feedTitle, siteUrl, 
+                            nickText, theDescription, theTopics) {
+    feedEdit.displayEditFeed (feedId, feedUrl, feedTitle, siteUrl, 
+                            nickText, theDescription, theTopics)
     indexBox.height = 0
   }
   function showEdit (visi) {
@@ -208,7 +210,7 @@
         indexBox.height = 0
       }
       onSaveFeed: {
-        controlIF.saveFeed (ident, feedUrl, title, siteUrl, nick, descr)
+        controlIF.saveFeed (ident, feedUrl, title, siteUrl, nick, descr, topics)
       }
       onDeleteFeed: {
         controlIF.removeFeed (ident)

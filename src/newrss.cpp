@@ -297,13 +297,15 @@ NewRss::DisplayEditFeed (const QString & id, const Feed & feed)
   QString siteUrl = feed.values("weburl");
   QString title = feed.values("title");
   QString descr = feed.values("description");
+  QString topics = feed.topics().join("; ");
   QMetaObject::invokeMethod (qmlRoot, "displayEditFeed",
                  Q_ARG (QVariant, id),
                  Q_ARG (QVariant, urlString),
                  Q_ARG (QVariant, title),
                  Q_ARG (QVariant, siteUrl),
                  Q_ARG (QVariant, nick),
-                 Q_ARG (QVariant, descr));
+                 Q_ARG (QVariant, descr),
+                 Q_ARG (QVariant, topics));
 }
 
 void

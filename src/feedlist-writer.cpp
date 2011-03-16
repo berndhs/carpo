@@ -64,6 +64,10 @@ FeedlistWriter::write (Feed & feed)
   writeTextElement ("imageUrl",feed.values("imageurl"));
   writeTextElement ("nick",feed.values("nick"));
   writeTextElement ("language",feed.values("language"));
+  int nt = feed.topics().count();
+  for (int t=0; t<nt; t++) {
+    writeTextElement ("topic",feed.topics().at(t));
+  }
   writeEndElement (); // feed
 }
 

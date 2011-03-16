@@ -49,7 +49,8 @@ public:
                              const QString & title,
                              const QString & siteUrl,
                              const QString & nick,
-                             const QString & description);
+                             const QString & description,
+                             const QString & topics);
   Q_INVOKABLE void removeFeed (const QString & feedId);
   Q_INVOKABLE void probeFeed (const QString & url);
   Q_INVOKABLE void checkAlert (const QString & alert);

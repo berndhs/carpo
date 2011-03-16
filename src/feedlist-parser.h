@@ -49,19 +49,23 @@ private:
 
   void InitFuncPtrs ();
 
-  static QXmlStreamReader::TokenType   ReadNext (QXmlStreamReader & xread);
+  static QXmlStreamReader::TokenType   
+         ReadNext (QXmlStreamReader & xread);
 
-  void                          ParseFeedlist (QXmlStreamReader & xread,
+  void   ParseFeedlist (QXmlStreamReader & xread,
                                                Folder & topFolder);
-  void                          ParseFeed (QXmlStreamReader & xread,
+  void   ParseFeed (QXmlStreamReader & xread,
                                            Feed & feed);
-  void                          ParseFolder (QXmlStreamReader & xread,
+  void   ParseFolder (QXmlStreamReader & xread,
                                            Folder & folder);
 
   static void ParseTextElement (const QString & tag,
                                 QXmlStreamReader & xread, 
                                 Feed & feed);
   static void ParseStorySig (const QString & tag,
+                             QXmlStreamReader & xread, 
+                             Feed & feed);
+  static void ParseTopic (const QString & tag,
                              QXmlStreamReader & xread, 
                              Feed & feed);
 

@@ -8,13 +8,15 @@ Rectangle {
     displayEditFeed ("", url, "", "", "", "")
     saveButtonRow.show ()
   }
-  function displayEditFeed (theFeedId, theFeedUrl, theTitle, theSite, theNick, theDescr) {
+  function displayEditFeed (theFeedId, theFeedUrl, theTitle, 
+                            theSite, theNick, theDescr, theTopics) {
     feedId = theFeedId
     feedNick.textValue = theNick
     siteUrl.textValue = theSite
     addrInput.urlString = theFeedUrl
     feedTitle.textValue = theTitle
     feedDescription.textValue = theDescr
+    siteTopics.textValue = theTopics
     choiceButtons.visible = false
     feedDetails.visible = true
     saveButtonRow.show ()
@@ -26,6 +28,7 @@ Rectangle {
     addrInput.urlString = ""
     feedTitle.textValue = ""
     feedDescription.textValue = ""
+    siteTopics.textValue = ""
     choiceButtons.visible = true
     feedDetails.visible = false
     saveButtonRow.hide ()
@@ -34,7 +37,7 @@ Rectangle {
   signal deleteFeed (string ident)
   signal probeFeed (string url)
   signal saveFeed (string ident, string feedUrl, string title, string siteUrl, 
-                   string nick, string descr)
+                   string nick, string descr, string topics)
   id: feedEdit
   property real normalWidth: parent.width
   property real urlMargin: 6
@@ -63,7 +66,7 @@ Rectangle {
       onClicked: {
         console.log ("Save Feed")
         saveFeed (feedId, addrInput.urlString, feedTitle.textValue, siteUrl.textValue,
-                feedNick.textValue, feedDescription.textValue)
+                feedNick.textValue, feedDescription.textValue, siteTopics.textValue)
       }
     } 
     ChoiceButton {
@@ -154,6 +157,13 @@ Rectangle {
       anchors.top: siteUrl.bottom
       labelText: qsTr(" Description ")
       labelWidth: labelFloatRect.width
+    }
+    LineInput {
+      id: siteTopics
+      width:parent.width
+      anchors.top: feedDescription.bottom
+      labelText: qsTr(" Site Topics ")
+      labelWidth: feedDescription.labelWidth
     }
   }
   Connections {
