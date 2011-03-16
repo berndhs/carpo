@@ -70,6 +70,7 @@ private slots:
   void FinishedNet (QNetworkReply * reply);
   void ShowStory (const QString & id);
   void ShowStorySite (const QString & id);
+  void ShowStorySiteLocal (const QString & id);
   void ShowFeed (const QString & id);
   void EditFeed (const QString & id);
   void ShowList (const QString & list);

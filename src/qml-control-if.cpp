@@ -23,6 +23,7 @@
  *  Boston, MA  02110-1301, USA.
  ****************************************************************/
 
+#include "newrss-magic.h"
 
 namespace deliberate
 {
@@ -113,6 +114,35 @@ void
 ControlInterface::probeFeed (const QString & url)
 {
   emit ProbeFeed (url);
+}
+
+void
+ControlInterface::checkAlert (const QString & alert)
+{
+  if (alert.startsWith (Magic::PseudoAlertTag)) {
+    handlePseudoAlert (alert);
+  } else {
+    qDebug () << "Unknown alert " << alert;
+  }
+}
+
+void
+ControlInterface::handlePseudoAlert (const QString & alert)
+{
+  QStringList parts = alert.split ("/");
+  int numParts = parts.count();
+  if (numParts > 1) {
+    QString command = parts.at(1);
+    if (command == "here") {
+      if (numParts > 2) {
+        emit BrowseLinkLocal (parts.at(2));
+      }
+    } else if (command == "browser") {
+      if (numParts > 2) {
+        emit BrowseLinkExternal (parts.at(2));
+      }
+    }
+  }
 }
 
 } // namespace

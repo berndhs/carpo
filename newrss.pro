@@ -69,6 +69,7 @@ FORMS = \
 HEADERS = \
           src/$${MYNAME}.h \
           src/$${MYNAME}-main.h \
+          src/$${MYNAME}-magic.h \
           src/cmdoptions.h \
           src/deliberate.h \
           src/version.h \
@@ -87,6 +88,7 @@ HEADERS = \
 SOURCES = \
           src/$${MYNAME}.cpp \
           src/$${MYNAME}-main.cpp \
+          src/$${MYNAME}-magic.cpp \
           src/cmdoptions.cpp \
           src/deliberate.cpp \
           src/version.cpp \

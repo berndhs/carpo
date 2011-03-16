@@ -41,7 +41,7 @@
 #include <QDir>
 
 #include "feedlist-writer.h"
-
+#include "newrss-magic.h"
 #include "deliberate.h"
 #include "version.h"
 
@@ -209,6 +209,10 @@ NewRss::Connect ()
            this, SLOT (SaveFeedListModel ()));
   connect (controlIF, SIGNAL (ProbeFeed (const QString &)),
            this, SLOT (ProbeFeed (const QString &)));
+  connect (controlIF, SIGNAL (BrowseLinkExternal (const QString &)),
+           this, SLOT (ShowStorySite (const QString &)));
+  connect (controlIF, SIGNAL (BrowseLinkLocal (const QString &)),
+           this, SLOT (ShowStorySiteLocal (const QString &)));
 }
 
 
@@ -217,13 +221,25 @@ NewRss::ShowStory (const QString & id)
 {
   qDebug () << " NewRss::ShowStory";
   if (stories.contains(id)) {
+    QString tagBrowseHere 
+               (Magic::PseudoAlertTag + "/here/");
+    tagBrowseHere.append (id);
+    QString tagBrowseBrowser 
+               (Magic::PseudoAlertTag + "/browser/");
+    tagBrowseBrowser.append (id);
+    QString browseButton ("<button type=\"button\" "
+                       "onClick=\"alert('%1')\">%2</button>");
+    QString buttons = QString ("<span style=\"font-size:small\"> ")
+                     + browseButton.arg(tagBrowseHere).arg("Here")
+                     + browseButton.arg(tagBrowseBrowser).arg("Browser")
+                     + QString( "</span>");
+    qDebug () << " button string " << buttons;
+    QString date (tr(" date unknown "));
     if (storyDates.contains(id)) {
-      htmlString = QString ("<i>%1</i><br>\n%2")
-                       .arg (storyDates[id])
-                       .arg (stories[id]);
-    } else {
-      htmlString = stories[id];
-    }
+      date = storyDates[id];
+    } 
+    htmlString = QString("<div>")
+                        + buttons + date + "</div>" + stories[id];
   } else {
     htmlString = "<b><i>No Such Story!</b></i>";
   }
@@ -234,10 +250,20 @@ NewRss::ShowStory (const QString & id)
 void
 NewRss::ShowStorySite (const QString & id)
 {
-  qDebug () << "NewRss::ShowStorySite";
   if (storyLinks.contains (id)) {
     QString first = storyLinks[id].first();
     QDesktopServices::openUrl (QUrl::fromUserInput(first));
+  }
+}
+
+void
+NewRss::ShowStorySiteLocal (const QString & id)
+{
+  qDebug () << "NewRss::ShowStorySiteLocal";
+  if (storyLinks.contains (id)) {
+    QString first = storyLinks[id].first();
+    QMessageBox::warning (this, "Unimplemented",
+                          "Show link to " + first);
   }
 }
 

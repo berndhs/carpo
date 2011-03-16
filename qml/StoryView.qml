@@ -61,8 +61,12 @@ Flickable {
     settings.autoLoadImages: true
     settings.pluginsEnabled: true
     html: "<p>default <b>html</b>.</p>"
-         onAlert: console.log(message)
+         onAlert: {
+           controlIF.checkAlert (message);
+           console.log(message)
+        }
 
+    function interceptOwnLink () { console.log ("own link clicked") }
          function doZoom(zoom,centerX,centerY)
          {
              if (centerX) {
@@ -93,7 +97,6 @@ Flickable {
              flickable.contentX = 0
              flickable.contentY = 0
          }
-
          onDoubleClick: {
                          if (!heuristicZoom(clickX,clickY,2.5)) {
                              var zf = flickable.width / contentsSize.width

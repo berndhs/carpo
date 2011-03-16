@@ -52,6 +52,7 @@ public:
                              const QString & description);
   Q_INVOKABLE void removeFeed (const QString & feedId);
   Q_INVOKABLE void probeFeed (const QString & url);
+  Q_INVOKABLE void checkAlert (const QString & alert);
 
   void SetFeeds (FeedlistModel * feedList);
 
@@ -60,9 +61,13 @@ signals:
   void ShowFeed (const QString & feedId);
   void EditFeed (const QString & feedId);
   void ProbeFeed (const QString & url);
+  void BrowseLinkExternal (const QString & storyId);
+  void BrowseLinkLocal (const QString & storyId);
   void ListUpdated ();
 
 private:
+
+  void handlePseudoAlert (const QString & alert);
 
   bool     isEditingFeed;
   FeedlistModel   *feeds;
