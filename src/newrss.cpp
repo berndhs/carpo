@@ -261,9 +261,15 @@ NewRss::ShowStorySiteLocal (const QString & id)
 {
   qDebug () << "NewRss::ShowStorySiteLocal";
   if (storyLinks.contains (id)) {
-    QString first = storyLinks[id].first();
+    QString urlString = storyLinks[id].first();
     QMessageBox::warning (this, "Unimplemented",
-                          "Show link to " + first);
+                          "Show link to " + urlString);
+    if (qnam) {
+      QNetworkReply * netreply = qnam->get (QNetworkRequest (QUrl (urlString)));
+      DrssNetReply * dreply = new DrssNetReply (netreply, 
+                                      DrssNetReply::Kind_WebPage);
+      expectReplies[netreply] = dreply;
+    }
   }
 }
 
@@ -392,6 +398,9 @@ NewRss::FinishedNet (QNetworkReply * reply)
         case DrssNetReply::Kind_Probe:
           ProbeReply (dreply->netReply());
           break;
+        case DrssNetReply::Kind_WebPage:
+          WebPageReply (dreply->netReply());
+          break;
         default:
           qDebug () << " bad network reply kind " << reply << kind;
           break;
@@ -416,13 +425,25 @@ NewRss::GetFeedReply (QNetworkReply * reply)
     ParseStories (items, "description", "pubDate");
   }
   if (entries.count() > 0) {
-    ParseStories (entries, "content","published","updated");
+    ParseStories (entries, "summary","published","updated");
   }
   if (headlines.count() > 0) {
     ShowList ("FeedIndex");
     HideList ("FeedList");
     feedIF->SetActive (FeedInterface::Choice_Index);
   }
+}
+
+void
+NewRss::WebPageReply (QNetworkReply * reply)
+{
+  if (!reply) {
+    return;
+  }
+  QByteArray pageBytes = reply->readAll();
+  htmlString = QString (pageBytes);
+  QMetaObject::invokeMethod (qmlRoot, "setTheHtml",
+                 Q_ARG (QVariant, htmlString));
 }
 
 void
@@ -578,6 +599,10 @@ NewRss::ParseStories (QDomNodeList & items, const QString & contentTag,
       QDomElement elt = item.toElement();
       QDomNodeList titles = elt.elementsByTagName ("title");
       QDomNodeList descrs = elt.elementsByTagName (contentTag);
+qDebug () << "NewRss::ParseStories ";
+qDebug () << "       title count " << titles.count();
+qDebug () << "       descr tag   " << contentTag;
+qDebug () << "       descr count " << descrs.count();
       if (titles.count() > 0 && descrs.count() > 0) {  // should be 1
         QString title = titles.at(0).toElement().text();
         QString descr = descrs.at(0).toElement().text();

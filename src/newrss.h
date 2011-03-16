@@ -100,6 +100,7 @@ private:
   void  LoadFeed (const QString & urlString);
   void  GetFeedReply (QNetworkReply * reply);
   void  ProbeReply (QNetworkReply * reply);
+  void  WebPageReply (QNetworkReply * reply);
   bool  PopulateFromRssDoc (QDomElement & el, Feed & feed);
   bool  PopulateFromAtomDoc (QDomElement & el, Feed & feed);
   bool  ParseAtomAuthorElem (QDomElement &el, QString & name);

@@ -37,6 +37,7 @@ public:
     Kind_None = 0,
     Kind_GetFeed = 1,
     Kind_Probe = 2,
+    Kind_WebPage = 3,
     Kind_Bad
   };
 
