@@ -196,7 +196,7 @@
     id: storyView
     objectName: "storyView"
     visible: true
-    z: -3
+    z: indexBox-2
     anchors.top: indexBox.bottom
     anchors.leftMargin: embedMargin
     anchors.rightMargin: embedMargin
@@ -209,7 +209,7 @@
     objectName: "feedEditArea"
     width: storyView.width
     height: storyView.height
-    z: storyView.z +1
+    z: indexBox.z +1
     contentWidth: feedEdit.width; contentHeight: feedEdit.height
     anchors { top: storyView.top; horizontalCenter: storyView.horizontalCenter }
     visible: false
