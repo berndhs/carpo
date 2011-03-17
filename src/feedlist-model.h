@@ -60,6 +60,8 @@ public:
   bool   contains (const QString & id) const;
 
   TopicIndexMap & topics ();
+
+  void changeTopic (const QString & newTopic);
  
 signals:
  
@@ -73,7 +75,11 @@ private:
   };
 
 
-  QStringList    idents;
+  QStringList    *idents;
+
+  QStringList     mainIdents;
+  QStringList     topicIdents;
+  QString         currentTopic;
 
   FeedMapType    feedMap;
 

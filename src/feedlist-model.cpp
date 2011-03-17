@@ -24,6 +24,7 @@
 
 #include <QDebug>
 
+#include "newrss-magic.h"
 
 namespace deliberate
 {
@@ -32,7 +33,8 @@ namespace deliberate
 int FeedlistModel::nextId (555);
 
 FeedlistModel::FeedlistModel (QObject *parent)
-  :QAbstractListModel(parent)
+  :QAbstractListModel(parent),
+   idents (&mainIdents)
 {
   QHash<int, QByteArray> roles;
   roles[Type_Ident] = "ident";
@@ -50,7 +52,7 @@ int
 FeedlistModel::rowCount (const QModelIndex & parent) const
 {
   Q_UNUSED (parent)
-  return idents.count();
+  return (*idents).count();
 }
 
 bool
@@ -67,7 +69,7 @@ FeedlistModel::data (const QModelIndex & index, int role) const
   }
   int row = index.row();
   QVariant retval;
-  QString ident = idents.value(row);
+  QString ident = (*idents).value(row);
   if (role == Qt::DisplayRole) {
     retval = QString ("%1: %2").arg(ident)
                                .arg(feedMap[ident].values("title"));
@@ -84,32 +86,45 @@ FeedlistModel::addFeed (const Feed & newFeed)
 {
   QString ident (QString ("Feed_%1").arg(nextId++));
   feedMap[ident] = newFeed;
-  beginInsertRows (QModelIndex(), rowCount(), rowCount());
-  idents << ident;
+  bool current = newFeed.topics().contains (currentTopic);
+  if (current) {
+    beginInsertRows (QModelIndex(), rowCount(), rowCount());
+  }
+  mainIdents << ident;
   QStringList  topics (newFeed.topics());
   int nt = topics.count();
   for (int t=0; t<nt; t++) {
     topicIndex[topics.at(t)].insert (ident);
   }
-  endInsertRows ();
+  topicIndex[Magic::AllTopicsTag].insert (ident);
+  if (current) {
+    endInsertRows ();
+  }
 }
 
 void
 FeedlistModel::removeFeed (const QString & id)
 {
-  int index = idents.indexOf (id);
-  if (index < 0) {
+  int indexMain = mainIdents.indexOf (id);
+  if (indexMain < 0) {
     return;
   }
-  beginRemoveRows (QModelIndex(), index, index);
+  int indexTopic = topicIdents.indexOf (id);
+  bool current = indexTopic >= 0;
+  if (current) {
+    beginRemoveRows (QModelIndex(), indexTopic, indexTopic);
+  }
   QStringList  topics (feedMap[id].topics());
   int nt = topics.count();
   for (int t=0; t<nt; t++) {
     topicIndex[topics.at(t)].remove (id);
   }
-  idents.removeAll (id);
+  mainIdents.removeAll (id);
+  topicIdents.removeAll (id);
   feedMap.remove (id);
-  endRemoveRows();
+  if (current) {
+    endRemoveRows();
+  }
 }
 
 Feed &
@@ -122,9 +137,9 @@ FeedlistModel::FeedRef (const QString & id)
 void
 FeedlistModel::moveUp (const QString & id)
 {
-  int ndx = idents.indexOf (id);
+  int ndx = (*idents).indexOf (id);
   if (ndx > 0)  {
-    idents.move (ndx, ndx-1);
+    (*idents).move (ndx, ndx-1);
     emit dataChanged (createIndex (ndx-1,0), createIndex (ndx,0));
     emit ListChanged ();
   }
@@ -133,12 +148,31 @@ FeedlistModel::moveUp (const QString & id)
 void
 FeedlistModel::moveDown (const QString & id)
 {
-  int ndx = idents.indexOf (id);
-  if (ndx >= 0 && ndx < idents.count() - 1)  {
-    idents.move (ndx, ndx+1);
+  int ndx = (*idents).indexOf (id);
+  if (ndx >= 0 && ndx < (*idents).count() - 1)  {
+    (*idents).move (ndx, ndx+1);
     emit dataChanged (createIndex (ndx,0), createIndex (ndx+1,0));
     emit ListChanged ();
   }
+}
+
+void
+FeedlistModel::changeTopic (const QString & newTopic)
+{
+  beginResetModel ();
+  topicIdents.clear ();
+  FeedIdSet ids;
+  if (topicIndex.contains (newTopic)) {
+    ids = topicIndex[newTopic];
+  }
+  FeedIdSet::iterator fit;
+  for (fit = ids.begin(); fit != ids.end(); fit++) {
+    topicIdents.append (*fit);
+  }
+  idents = & topicIdents;
+  currentTopic = newTopic;
+  endResetModel ();
+  emit dataChanged (createIndex (0,0), createIndex ((*idents).count()-1,0));
 }
 
 } // namespace

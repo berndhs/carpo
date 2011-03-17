@@ -190,6 +190,7 @@
     anchors { right: indexBox.right; top: indexBox.top }
     z: feedIndexArea.z + 1
     color: "red"
+    onSelected: { controlIF.changeTopic (name) }
   }
   StoryView {
     id: storyView

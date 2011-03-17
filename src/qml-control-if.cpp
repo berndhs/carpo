@@ -172,4 +172,12 @@ ControlInterface::moveDown (const QString & id)
   }
 }
 
+void
+ControlInterface::changeTopic (const QString & newTopic)
+{
+  if (feeds) {
+    feeds->changeTopic (newTopic);
+  }
+}
+
 } // namespace

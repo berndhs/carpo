@@ -25,5 +25,6 @@ namespace deliberate
 {
 
 const QString Magic::PseudoAlertTag ("drss-803a1dc7-fc0e-4309-bebf-3f02254bff53");
+const QString Magic::AllTopicsTag (QObject::tr("! All topics"));
 
 } // namespace

@@ -25,6 +25,7 @@
  ****************************************************************/
 
 #include <QString>
+#include <QObject>
 
 namespace deliberate
 {
@@ -34,6 +35,7 @@ class Magic {
 public:
 
 static const QString PseudoAlertTag;
+static const QString AllTopicsTag;
 
 };
 

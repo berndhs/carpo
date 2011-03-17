@@ -56,6 +56,7 @@ public:
   Q_INVOKABLE void checkAlert (const QString & alert);
   Q_INVOKABLE void moveUp (const QString & id);
   Q_INVOKABLE void moveDown (const QString & id);
+  Q_INVOKABLE void changeTopic (const QString & newTopic);
 
   void SetFeeds (FeedlistModel * feedList);
 
