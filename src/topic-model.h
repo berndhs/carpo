@@ -1,5 +1,5 @@
-#ifndef DELIBERATE_FEEDLIST_MODEL_H
-#define DELIBERATE_FEEDLIST_MODEL_H
+#ifndef DELIBEATE_TOPIC_MODEL_H
+#define DELIBEATE_TOPIC_MODEL_H
 
 
 /****************************************************************
@@ -23,66 +23,35 @@
  *  Boston, MA  02110-1301, USA.
  ****************************************************************/
 
-#include <QAbstractListModel>
-#include <QStringList>
-#include <QString>
-#include <QMap>
-#include <QSet>
-#include "feedlist.h"
+#include "feedlist-model.h"
+#include <QModelIndex>
 
 namespace deliberate
 {
-
-typedef QSet<QString>              FeedIdSet;
-typedef QMap <QString, FeedIdSet>  TopicIndexMap;
-
-class FeedlistModel : public QAbstractListModel
+class TopicModel : public QAbstractListModel
 {
 Q_OBJECT
 
-private:
-
-  typedef QMap <QString, Feed>  FeedMapType;
-
 public:
 
- 
-  FeedlistModel (QObject *parent=0);
+  TopicModel (QObject *parent=0);
   int rowCount (const QModelIndex & index = QModelIndex()) const;
   QVariant data (const QModelIndex & index, int role = Qt::DisplayRole) const;
 
-  void addFeed (const Feed & newFeed);
-  void removeFeed (const QString & id);
-  void moveUp (const QString & id);     // move id to lower index
-  void moveDown (const QString & id);   // move id to higher index
+  void SetFeedModel (FeedlistModel * feedListModel);
+  void ReIndex ();
 
-  Feed & FeedRef (const QString & id);
-  bool   contains (const QString & id) const;
-
-  TopicIndexMap & topics ();
- 
-signals:
- 
-  void ListChanged ();
+  FeedIdSet & IdSet (const QString & topic);
 
 private:
 
   enum DataType {
-     Type_Ident = Qt::UserRole+1,
-     Type_Title = Qt::UserRole+2
+    Type_Name = Qt::UserRole+1,
+    Type_Count = Qt::UserRole+2
   };
 
-
-  QStringList    idents;
-
-  FeedMapType    feedMap;
-
-  static int     nextId;
-
-  friend class   FeedlistWriter;
-
-  TopicIndexMap  topicIndex;
-
+  FeedlistModel   * feeds;
+  QList <QString>   topicKeys;
 };
 
 } // namespace

@@ -40,6 +40,12 @@ FeedlistModel::FeedlistModel (QObject *parent)
   setRoleNames(roles);
 }
 
+TopicIndexMap &
+FeedlistModel::topics ()
+{
+  return topicIndex;
+}
+
 int 
 FeedlistModel::rowCount (const QModelIndex & parent) const
 {
@@ -80,6 +86,11 @@ FeedlistModel::addFeed (const Feed & newFeed)
   feedMap[ident] = newFeed;
   beginInsertRows (QModelIndex(), rowCount(), rowCount());
   idents << ident;
+  QStringList  topics (newFeed.topics());
+  int nt = topics.count();
+  for (int t=0; t<nt; t++) {
+    topicIndex[topics.at(t)].insert (ident);
+  }
   endInsertRows ();
 }
 
@@ -91,6 +102,11 @@ FeedlistModel::removeFeed (const QString & id)
     return;
   }
   beginRemoveRows (QModelIndex(), index, index);
+  QStringList  topics (feedMap[id].topics());
+  int nt = topics.count();
+  for (int t=0; t<nt; t++) {
+    topicIndex[topics.at(t)].remove (id);
+  }
   idents.removeAll (id);
   feedMap.remove (id);
   endRemoveRows();

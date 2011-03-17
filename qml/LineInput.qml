@@ -41,10 +41,10 @@ Rectangle {
       horizontalAlignment: TextEdit.AlignLeft
       autoScroll: true
       Keys.onEnterPressed: {
-        bigBox.urlEntered(lineText.text)
+        bigBox.textEntered(lineText.text)
       }
       Keys.onReturnPressed: {
-        bigBox.urlEntered(lineText.text)
+        bigBox.textEntered(lineText.text)
       }
       anchors {
         left: parent.left; right: parent.right; leftMargin: 2; rightMargin:2 

@@ -84,7 +84,9 @@ ControlInterface::saveFeed (const QString & feedId,
   QStringList trimmedTopics;
   int nt=longTopics.count();
   for (int t=0;t<nt; t++) {
-    trimmedTopics << longTopics.at(t).trimmed();
+    QString topic = longTopics.at(t).trimmed();
+    trimmedTopics << topic;
+    feeds->topics()[topic].insert(feedId);
   }
   if (feeds->contains (feedId)) {
     Feed & feedRef = feeds->FeedRef(feedId);

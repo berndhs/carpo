@@ -52,6 +52,7 @@ FeedlistParser::InitFuncPtrs ()
   fileParse["topic"] = ParseTopic;
 }
 
+
 void
 FeedlistParser::Read (Folder & topFolder, const QString & filename)
 {

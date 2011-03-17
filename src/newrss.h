@@ -45,6 +45,7 @@
 #include "drss-netreply.h"
 #include "config-edit.h"
 #include "property-store.h"
+#include "topic-model.h"
 
 class QDeclarativeContext;
 
@@ -140,6 +141,7 @@ private:
 
   QmlConfigEdit        configEdit;
   PropertyStore       *propStore;
+  TopicModel           topicModel;
 
 }; 
 

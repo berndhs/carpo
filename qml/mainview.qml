@@ -177,6 +177,22 @@
       onReportOrientation: { feedIF.listOrientation (orient) }
     }
   }
+  TopicList {
+    id:topicListArea
+    objectName: "topicListArea"
+    visible: true
+    scale: 1
+    height:indexHeight
+    normalWidth: parent.width * 0.3333
+    width: normalWidth
+    anchors { right: indexBox.right; top: indexBox.top }
+    z: feedIndexArea.z + 1
+    color: "red"
+    MouseArea {
+      anchors.fill: parent
+      onClicked: { console.log ("clicked topic list") }
+    }
+  }
   StoryView {
     id: storyView
     objectName: "storyView"

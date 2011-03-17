@@ -83,6 +83,7 @@ HEADERS = \
           src/drss-netreply.h \
           src/config-edit.h \
           src/property-store.h \
+          src/topic-model.h \
 
 
 SOURCES = \
@@ -102,4 +103,5 @@ SOURCES = \
           src/drss-netreply.cpp \
           src/config-edit.cpp \
           src/property-store.cpp \
+          src/topic-model.cpp \
 

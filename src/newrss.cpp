@@ -60,7 +60,8 @@ NewRss::NewRss (QWidget *parent)
    feedlistParser (0),
    feeds (this),
    configEdit (this),
-   propStore (0)
+   propStore (0),
+   topicModel (this)
 {
   feedListFile =  QDesktopServices::storageLocation 
               (QDesktopServices::DataLocation)
@@ -79,12 +80,12 @@ NewRss::NewRss (QWidget *parent)
   feedIF = new FeedInterface (this);
   controlIF = new ControlInterface (this, &feeds);
   restoreGeometry(Settings().value("geometry").toByteArray());
-  qDebug () << "QML size " << Settings().value("sizes/qml").toSize();
   if (Settings().contains ("sizes/qml")) {
     QSize qmlsize = Settings().value("sizes/qml").toSize();
     qDebug () << " Found QML saved size " << qmlsize;
     ui.qmlView->resize (qmlsize);
   }
+  topicModel.SetFeedModel (&feeds);
   Connect ();
 }
 
@@ -133,6 +134,7 @@ NewRss::Run ()
   context->setContextProperty ("feedIndexModel", &headlines);
   context->setContextProperty ("feedListModel", &feeds);
   context->setContextProperty ("configModel", &configEdit);
+  context->setContextProperty ("topicModel", &topicModel);
   ui.qmlView->setSource (QUrl::fromLocalFile("qml/mainview.qml"));
   context->setContextProperty ("feedIF",feedIF);
   context->setContextProperty ("controlIF",controlIF);
@@ -649,9 +651,6 @@ NewRss::resizeEvent (QResizeEvent *event)
   if (!event) {
     return;
   }
-  qDebug () << " NewRss::resizeEvent";
-  qDebug () << "     top size " << size();
-  qDebug () << "     qml size " << ui.qmlView->size();
   QMainWindow::resizeEvent (event);
   if (qmlRoot) {
     QMetaObject::invokeMethod (qmlRoot, "setSize",
@@ -685,6 +684,7 @@ NewRss::LoadList ()
     CheckExists (feedListFile);
     feedlistParser->Read (topFolder, feedListFile);
     FillFeedModel (topFolder, feeds);
+    topicModel.ReIndex ();
   }
 }
 
@@ -718,6 +718,7 @@ NewRss::FillFeedModel (const Folder & folder, FeedlistModel & model)
 void
 NewRss::SaveFeedListModel ()
 {
+  topicModel.ReIndex ();
   QFile saveFile (feedListFile);
   saveFile.open (QFile::WriteOnly);
   FeedlistWriter writer;

@@ -28,6 +28,7 @@
 #include <QXmlStreamReader>
 #include <QMap>
 #include <QString>
+#include <QSet>
 
 #include "feedlist.h"
 
@@ -44,6 +45,7 @@ public:
   FeedlistParser (QObject *parent=0);
 
   void Read (Folder & topFolder, const QString & filename);
+
 
 private:
 
