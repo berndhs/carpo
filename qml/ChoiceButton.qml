@@ -3,6 +3,7 @@ import QtQuick 1.0
 Rectangle {
   id: button
   signal clicked ()
+  signal pressAndHold ()
   property alias labelText : label.text
   property real commonMargin: 4
   width: 100
@@ -15,10 +16,8 @@ Rectangle {
   }
   MouseArea {
     anchors.fill: parent
-    onClicked: { 
-      console.log("Click Button " + mouseX + " " + mouseY)
-      parent.clicked ()
-    }
+    onClicked: { parent.clicked () }
+    onPressAndHold: { parent: pressAndHold () }
   }
   Text { 
     id: label

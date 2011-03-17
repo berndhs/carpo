@@ -99,6 +99,8 @@
     id: controlPanel
     objectName: "controlPanel"
     visible: true
+    onShowTopics: { topicListArea.show () }
+    onHideTopics: { topicListArea.hide () }
   }
   Rectangle {
     id: indexBox
@@ -188,16 +190,12 @@
     anchors { right: indexBox.right; top: indexBox.top }
     z: feedIndexArea.z + 1
     color: "red"
-    MouseArea {
-      anchors.fill: parent
-      onClicked: { console.log ("clicked topic list") }
-    }
   }
   StoryView {
     id: storyView
     objectName: "storyView"
     visible: true
-    z: 3
+    z: -3
     anchors.top: indexBox.bottom
     anchors.leftMargin: embedMargin
     anchors.rightMargin: embedMargin

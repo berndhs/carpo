@@ -25,48 +25,32 @@ import QtQuick 1.0
 
 Rectangle {
   property real normalWidth:300
-  property real shrinkDelay: 250
+  property real rollDelay: 250
   property real itemHeight: 32
   property real embedMargin: 2
+  property real initialYScale: 0
   signal selected (int idx, string name, int count)
 
-  function shrink () {
-    shrinkWidth.running = true; 
-    shrinkScale.running = true; 
+  function hide () {
+    rollupScale.yScale = 0
+    console.log ("shink running ")
   }
-  function expand () {
-    expandWidth.running = true;
-    expandScale.running = true;
+  function show () {
+    rollupScale.yScale = 1
   }
   color: "transparent"
   anchors.topMargin: 0
   anchors.leftMargin: 0
   height: parent.height
-  width: parent.width
+  width: parent.width  
 
-  PropertyAnimation on width { 
-    id: shrinkWidth
-    running: false
-    to: 0
-    duration: shrinkDelay
-  }
-  PropertyAnimation on scale { 
-    id: shrinkScale
-    running: false
-    to: 0
-    duration: shrinkDelay
-  }
-  PropertyAnimation on width { 
-    id: expandWidth
-    running: false
-    to: normalWidth
-    duration: shrinkDelay
-  }
-  PropertyAnimation on scale { 
-    id: expandScale
-    running: false
-    to: 1
-    duration: shrinkDelay
+  transform: Scale {
+    id: rollupScale
+    xScale: 1
+    yScale: initialYScale
+    Behavior  on yScale {
+      NumberAnimation { duration: rollDelay }
+    }
   }
   Component {
     id: verticalDelegate

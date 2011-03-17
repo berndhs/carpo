@@ -24,16 +24,19 @@
 
 
 Rectangle {
-
+  id: controlPanel
   signal controlSelect (real whereX, real whereY)
   signal toggleViewSelect ()
   signal moreSelect ()
   signal maintainSelect ()
+  signal showTopics ()
+  signal hideTopics ()
   property string choiceButtonColor: "sandybrown"
   property string detailButtonColor: "sandybrown"
   property string maintainButtonColor: "sandybrown"
+  property real menuItemHeight: 32
+  property real embedMargin : 0
 
-  id: controlPanel
   height: 20
   z: 1
   property real extraMargin: 20
@@ -56,7 +59,7 @@ Rectangle {
     property real buttonWidth: parent.width/4
     anchors { horizontalCenter: parent.horizontalCenter ; top: parent.top }
     Rectangle {
-      id: turner
+      id: indexButton
       width: parent.buttonWidth
       height: parent.height
       z: 2
@@ -67,16 +70,17 @@ Rectangle {
         onClicked: { 
           toggleViewSelect () 
         }
+        onPressAndHold: { indexMenu.show () }
       }
       Text { text: "List / Index"; anchors.centerIn: parent }
     }
     Rectangle {
-      id: detailer
+      id: detailButton
       width: parent.buttonWidth
       height: parent.height
       z: 2
       color: detailButtonColor
-      anchors { left: turner.right; leftMargin: 2; rightMargin: 2 }
+      anchors { left: indexButton.right; leftMargin: 2; rightMargin: 2 }
       MouseArea {
         anchors.fill: parent
         onClicked: { 
@@ -86,12 +90,12 @@ Rectangle {
       Text { text: "Detail On/Off"; anchors.centerIn: parent }
     }
     Rectangle {
-      id: maintainer
+      id: maintainButton
       width: parent.buttonWidth
       height: parent.height
       z: 2
       color: maintainButtonColor
-      anchors { left: detailer.right; leftMargin: 2; rightMargin: 2 }
+      anchors { left: detailButton.right; leftMargin: 2; rightMargin: 2 }
       MouseArea {
         anchors.fill: parent
         onClicked: { 
@@ -100,5 +104,39 @@ Rectangle {
       }
       Text { text: "Maintenance"; anchors.centerIn: parent }
     }
+  }
+  DropMenu {
+    id: indexMenu
+    anchors { top: buttonRow.bottom; left: buttonRow.left ; leftMargin: embedMargin}
+    width: indexButton.width -6
+    color: "transparent"
+    ChoiceButton {
+      id: closeIndexButton
+      width: parent.width
+      height: menuItemHeight
+      color: "cyan"
+      labelText: "Close Menu"
+      anchors { top: indexMenu.top; horizontalCenter: indexMenu.horizontalCenter }
+      onClicked: { indexMenu.hide () }
+    }
+    ChoiceButton {
+      id: showTopicsButton
+      width: parent.width
+      height: menuItemHeight
+      color: "cyan"
+      labelText: "Show Topics"
+      anchors { top: closeIndexButton.bottom; horizontalCenter: indexMenu.horizontalCenter }
+      onClicked: { controlPanel.showTopics(); indexMenu.hide() }
+    }
+    ChoiceButton {
+      id: hideTopicsButton
+      width: parent.width
+      height: menuItemHeight
+      color: "cyan"
+      anchors { top: showTopicsButton.bottom; horizontalCenter: indexMenu.horizontalCenter }
+      labelText: "Hide Topics"
+      onClicked: { controlPanel.hideTopics(); indexMenu.hide () }
+    }
+    onLeave: { controlPanel.hide () }
   }
 }
