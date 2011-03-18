@@ -25,7 +25,7 @@ import QtQuick 1.0
 
 Rectangle {
   property real normalWidth:300
-  property real rollDelay: 250
+  property real rollDelay: 150
   property real itemHeight: 32
   property real embedMargin: 2
   property real initialYScale: 0
@@ -92,7 +92,7 @@ Rectangle {
     z: 2
     width: parent.width
     height: parent.height
-    clip: false
+    clip: true
     currentIndex: -1
     contentWidth: childrenRect.width; contentHeight: childrenRect.height
     anchors.top:  parent.top

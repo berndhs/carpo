@@ -135,7 +135,7 @@ NewRss::Run ()
   context->setContextProperty ("feedListModel", &feeds);
   context->setContextProperty ("configModel", &configEdit);
   context->setContextProperty ("topicModel", &topicModel);
-  ui.qmlView->setSource (QUrl::fromLocalFile("qml/mainview.qml"));
+  ui.qmlView->setSource (QUrl("qrc:///qml/DefaultMain.qml"));
   context->setContextProperty ("feedIF",feedIF);
   context->setContextProperty ("controlIF",controlIF);
   context->setContextProperty ("configIF",&configEdit);
@@ -266,12 +266,8 @@ NewRss::ShowStorySiteLocal (const QString & id)
   qDebug () << "NewRss::ShowStorySiteLocal";
   if (storyLinks.contains (id)) {
     QString urlString = storyLinks[id].first();
-    if (qnam) {
-      QNetworkReply * netreply = qnam->get (QNetworkRequest (QUrl (urlString)));
-      DrssNetReply * dreply = new DrssNetReply (netreply, 
-                                      DrssNetReply::Kind_WebPage);
-      expectReplies[netreply] = dreply;
-    }
+    QMetaObject::invokeMethod (qmlRoot, "setTheUrl",
+                   Q_ARG (QVariant, urlString));
   }
 }
 

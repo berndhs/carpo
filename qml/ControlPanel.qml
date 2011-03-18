@@ -36,6 +36,7 @@ Rectangle {
   property string maintainButtonColor: "sandybrown"
   property real menuItemHeight: 32
   property real embedMargin : 0
+  property string indexMenuButtonColor: "cyan"
 
   height: 20
   z: 1
@@ -108,13 +109,19 @@ Rectangle {
   DropMenu {
     id: indexMenu
     anchors { top: buttonRow.bottom; left: buttonRow.left ; leftMargin: embedMargin}
-    width: indexButton.width -6
+    width: indexButton.width
+    height: floatHeight
     color: "transparent"
+    MouseArea {
+      anchors.fill: parent
+      hoverEnabled: true
+      onExited: { indexMenu.hide () }
+    }
     ChoiceButton {
       id: closeIndexButton
       width: parent.width
       height: menuItemHeight
-      color: "cyan"
+      color: indexMenuButtonColor
       labelText: "Close Menu"
       anchors { top: indexMenu.top; horizontalCenter: indexMenu.horizontalCenter }
       onClicked: { indexMenu.hide () }
@@ -123,7 +130,7 @@ Rectangle {
       id: showTopicsButton
       width: parent.width
       height: menuItemHeight
-      color: "cyan"
+      color: indexMenuButtonColor
       labelText: "Show Topics"
       anchors { top: closeIndexButton.bottom; horizontalCenter: indexMenu.horizontalCenter }
       onClicked: { controlPanel.showTopics(); indexMenu.hide() }
@@ -132,11 +139,10 @@ Rectangle {
       id: hideTopicsButton
       width: parent.width
       height: menuItemHeight
-      color: "cyan"
+      color: indexMenuButtonColor
       anchors { top: showTopicsButton.bottom; horizontalCenter: indexMenu.horizontalCenter }
       labelText: "Hide Topics"
       onClicked: { controlPanel.hideTopics(); indexMenu.hide () }
     }
-    onLeave: { controlPanel.hide () }
   }
 }

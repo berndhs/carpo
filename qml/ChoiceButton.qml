@@ -22,6 +22,7 @@ Rectangle {
   Text { 
     id: label
     text: "Button"
+    z: parent.z
     wrapMode:Text.Wrap
     width: parent.width
     anchors.centerIn: parent 

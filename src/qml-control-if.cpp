@@ -25,6 +25,9 @@
 
 #include "newrss-magic.h"
 
+#include <QApplication>
+#include <QClipboard>
+
 namespace deliberate
 {
 
@@ -179,5 +182,15 @@ ControlInterface::changeTopic (const QString & newTopic)
     feeds->changeTopic (newTopic);
   }
 }
+
+void
+ControlInterface::toCopy (const QString & copyText)
+{
+  QClipboard *clip = QApplication::clipboard();
+  if (clip) {
+    clip->setText (copyText);
+  }
+}
+
 
 } // namespace

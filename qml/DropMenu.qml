@@ -31,8 +31,4 @@ Rectangle {
   width: 200
   height: 200
   color: "green"
-  MouseArea {
-    anchors.fill: parent
-    onExited: { dropMenu.leave () }
-  }
 }

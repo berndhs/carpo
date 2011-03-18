@@ -25,21 +25,22 @@
  import QtQuick 1.0
  import QtWebKit 1.0
 
- Rectangle {
+Rectangle {
   id: displayArea
-  objectName: "displayArea"
+  objectName: "DisplayArea"
 
   property real embedMargin : 2
-  property real verticalIndexHeight: 240
+  property real indexItemHeight: 32
+  property real verticalIndexHeight: 5 * indexItemHeight + embedMargin
   property real horizontalIndexHeight: 80
   property real indexHeight : verticalIndexHeight
   property real displayWidth: 500
   property real displayHeight: 400
   property real shrinkDelay: 250
 
-  function setTheHtml (theHtml) {
-    storyView.storyHtml = theHtml
-  }
+  function setTheHtml (theHtml) { storyView.storyHtml = theHtml }
+  function setTheUrl (theUrl)   { storyView.url = theUrl }
+
   function setSize (w, h) {
     console.log (" setSize " + w + " " + h)
     displayWidth = w
@@ -97,14 +98,14 @@
 
   ControlPanel { 
     id: controlPanel
-    objectName: "controlPanel"
+    objectName: "ControlPanel"
     visible: true
     onShowTopics: { topicListArea.show () }
     onHideTopics: { topicListArea.hide () }
   }
   Rectangle {
     id: indexBox
-    objectName: "indexBox"
+    objectName: "IndexBox"
     anchors.top: controlPanel.bottom
     height: indexHeight
     width: parent.width
@@ -133,15 +134,15 @@
     }
     FeedList {
       id: feedListArea
-      objectName: "feedListArea"
+      objectName: "FeedListArea"
       visible: true
       height: indexHeight
+      itemHeight: indexItemHeight
       normalWidth: parent.width
       anchors.top: indexBox.top
       width: normalWidth
       scale: 1
       color: "yellow"
-      z:5
       clip: true
       MouseArea {
         anchors.fill: parent
@@ -156,9 +157,10 @@
     }
     FeedIndex {
       id: feedIndexArea
-      objectName: "feedIndexArea"
+      objectName: "FeedIndexArea"
       visible: true
       height: indexHeight
+      itemHeight: indexItemHeight
       normalWidth: parent.width
       anchors.top: indexBox.top
       anchors.left: feedListArea.right
@@ -175,13 +177,12 @@
       }
       onHoldit: {
         feedIF.storyHold (idx, i, t)
-      }
-      onReportOrientation: { feedIF.listOrientation (orient) }
-    }
+      } 
+    }    
   }
   TopicList {
     id:topicListArea
-    objectName: "topicListArea"
+    objectName: "TopicListArea"
     visible: true
     scale: 1
     height:indexHeight
@@ -194,19 +195,74 @@
   }
   StoryView {
     id: storyView
-    objectName: "storyView"
+    objectName: "StoryView"
     visible: true
     z: indexBox-2
-    anchors.top: indexBox.bottom
-    anchors.leftMargin: embedMargin
-    anchors.rightMargin: embedMargin
+    anchors { 
+      top: indexBox.bottom
+      leftMargin: 0
+      rightMargin: 0
+    }
     height: parent.height - controlPanel.height - indexBox.height
    
     storyHtml: "<p>default <b>html</b>.</p>"
   }
+  Rectangle {
+    id: webNavRect
+    objectName: "WebNavBox"
+    property real space: 2
+    property string buttonColor: "magenta"
+    property real buttonOpacity: 0.6
+    anchors { 
+      verticalCenter: indexBox.bottom 
+      horizontalCenter: indexBox.horizontalCenter
+    }
+    width: backButton.width + copyButton.width + forwardButton.width + 2*space
+    color: "transparent"
+    height: childrenRect.height
+    z:feedListArea.z + 1
+    ChoiceButton {
+      id: backButton
+      width: 50
+      height: childrenRect.height
+      opacity: buttonOpacity
+      color: parent.buttonColor
+      commonMargin: parent.space
+      z:parent.z + 1
+      anchors {left: webNavRect.left; verticalCenter: webNavRect.verticalCenter }
+      labelText: "Back"
+      onClicked: { console.log ("Back Clicked" + z) ; storyView.back () }
+    }
+    ChoiceButton {
+      id: copyButton
+      width: 75
+      height: childrenRect.height
+      opacity: buttonOpacity
+      color: parent.buttonColor
+      commonMargin: parent.space
+      z:parent.z + 1
+      anchors {left: backButton.right; verticalCenter: webNavRect.verticalCenter }
+      labelText: "Copy URL"
+      onClicked: { console.log ("Copy URL Clicked [" + storyView.url + "]") ; 
+                   controlIF.toCopy (storyView.url) }
+    }
+    ChoiceButton {
+      id: forwardButton
+      width: 75
+      height: childrenRect.height
+      opacity: buttonOpacity
+      color: parent.buttonColor
+      commonMargin: parent.space
+      z:parent.z + 1
+      anchors {left: copyButton.right; verticalCenter: webNavRect.verticalCenter }
+      labelText: "Forward"
+      onClicked: { console.log ("Forward Clicked" + z) ; storyView.forward ()}
+    }
+  }
+
   Flickable {
     id: feedEditArea
-    objectName: "feedEditArea"
+    objectName: "FeedEditArea"
     width: storyView.width
     height: storyView.height
     z: indexBox.z +1
@@ -215,7 +271,7 @@
     visible: false
     FeedEdit {
       id: feedEdit 
-      objectName: "feedEdit"
+      objectName: "FeedEdit"
       width: storyView.width - 4
       height: storyView.height - 4
       z: 4
@@ -239,7 +295,7 @@
   ConfigList {
     id: configList
     property string mainBackgroundColor: "blue"
-    objectName: "configList"
+    objectName: "ConfigList"
     scale: 0
     isShown: false
     color: mainBackgroundColor
@@ -251,7 +307,7 @@
   }
   Connections {
     target: controlPanel
-    objectName: "controlPanelConnections"
+    objectName: "ControlPanelConnections"
     onToggleViewSelect: {
       console.log ("Connections clicked " )
       console.log (" index width " + feedIndexArea.width)
@@ -273,4 +329,4 @@
       }
     }
   }
- }
+}

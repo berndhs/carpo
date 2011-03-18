@@ -44,6 +44,8 @@ Flickable {
 
      id: flickable
 
+  function back () { console.log ("Back!!"); theWebView.back.trigger() }
+  function forward () { console.log ("Forward ->>>" ); theWebView.forward.trigger () }
   anchors.left: parent.left
   anchors.right: parent.right
   width: parent.width

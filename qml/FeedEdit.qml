@@ -59,7 +59,7 @@ Rectangle {
     color: "transparent"
     ChoiceButton {
       id:saveButton
-      objectName: "feedEditSaveButton"
+      objectName: "FeedEditSaveButton"
       labelText: "Save Feed"
       height: parent.height
       color: "green"
@@ -71,7 +71,7 @@ Rectangle {
     } 
     ChoiceButton {
       id:deleteButton
-      objectName: "feedEditDeleteButton"
+      objectName: "FeedEditDeleteButton"
       labelText: "Delete Feed"
       height: parent.height
       color: "red"
@@ -83,7 +83,7 @@ Rectangle {
     }
     ChoiceButton {
       id:probeButton
-      objectName: "feedEditProbeButton"
+      objectName: "FeedEditProbeButton"
       labelText: "Probe Feed"
       height: parent.height
       color: "yellow"
@@ -96,7 +96,7 @@ Rectangle {
   }
   AddressInput { 
     id: addrInput
-    objectName: "feedEditAddressInput"
+    objectName: "FeedEditAddressInput"
     labelText: qsTr(" Address ")
     width: parent.width - parent.urlMargin
     anchors.top: parent.top
@@ -115,7 +115,7 @@ Rectangle {
     spacing: 4
     ChoiceButton {
       id: choiceNew
-      objectName: "feedEditNewButton"
+      objectName: "FeedEditNewButton"
       labelText: qsTr("New Feed")
       onClicked: {
         startNewFeed (addrInput.urlString)

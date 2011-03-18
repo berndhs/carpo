@@ -9,4 +9,19 @@
 <qresource>
   <file alias="default-properties.txt">cfg/default-properties.txt</file>
 </qresource>
+<qresource>
+  <file>qml/AddressInput.qml</file>
+ <file>qml/BoxInput.qml</file>
+ <file>qml/ChoiceButton.qml</file>
+ <file>qml/ConfigList.qml</file>
+ <file>qml/ControlPanel.qml</file>
+ <file>qml/DefaultMain.qml</file>
+ <file>qml/DropMenu.qml</file>
+ <file>qml/FeedEdit.qml</file>
+ <file>qml/FeedIndex.qml</file>
+ <file>qml/FeedList.qml</file>
+ <file>qml/LineInput.qml</file>
+ <file>qml/StoryView.qml</file>
+ <file>qml/TopicList.qml</file>
+</qresource>
 </RCC>
