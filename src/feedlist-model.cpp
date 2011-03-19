@@ -162,15 +162,21 @@ FeedlistModel::changeTopic (const QString & newTopic)
   beginResetModel ();
   topicIdents.clear ();
   FeedIdSet ids;
-  if (topicIndex.contains (newTopic)) {
-    ids = topicIndex[newTopic];
+  if (newTopic == Magic::AllTopicsTag) {
+    idents = & mainIdents;
+    currentTopic = Magic::AllTopicsTag;
+  } else {
+    if (topicIndex.contains (newTopic)) {
+      ids = topicIndex[newTopic];
+    }
+    FeedIdSet::iterator fit;
+    for (fit = ids.begin(); fit != ids.end(); fit++) {
+      topicIdents.append (*fit);
+    }
+    topicIdents.sort ();
+    idents = & topicIdents;
+    currentTopic = newTopic;
   }
-  FeedIdSet::iterator fit;
-  for (fit = ids.begin(); fit != ids.end(); fit++) {
-    topicIdents.append (*fit);
-  }
-  idents = & topicIdents;
-  currentTopic = newTopic;
   endResetModel ();
   emit dataChanged (createIndex (0,0), createIndex ((*idents).count()-1,0));
 }

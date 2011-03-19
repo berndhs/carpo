@@ -282,6 +282,7 @@ Rectangle {
       }
       onSaveFeed: {
         controlIF.saveFeed (ident, feedUrl, title, siteUrl, nick, descr, topics)
+        showEdit (false)
       }
       onDeleteFeed: {
         controlIF.removeFeed (ident)

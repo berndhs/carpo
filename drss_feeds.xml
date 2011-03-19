@@ -393,24 +393,6 @@
   <language></language>
  </feed>
  <feed hash="">
-  <title>Defense Advanced Research Projects Agency News</title>
-  <webUrl>http://www.darpa.mil</webUrl>
-  <xmlUrl>http://www.darpa.mil/news.xml</xmlUrl>
-  <description>Recent news from the Defense Advanced Research Projects Agency  (DARPA)</description>
-  <imageUrl></imageUrl>
-  <nick>Defense Advanced Research Projects Agency News</nick>
-  <language></language>
- </feed>
- <feed hash="">
-  <title>NZZ Online: Wissenschaft</title>
-  <webUrl>http://www.nzz.ch/nachrichten/wissenschaft</webUrl>
-  <xmlUrl>http://www.nzz.ch/nachrichten/wissenschaft?rss=true</xmlUrl>
-  <description>Wissenschaft</description>
-  <imageUrl></imageUrl>
-  <nick>NZZ Online: Wissenschaft</nick>
-  <language></language>
- </feed>
- <feed hash="">
   <title>Reuters: Science News</title>
   <webUrl>http://www.reuters.com</webUrl>
   <xmlUrl>http://feeds.reuters.com/reuters/scienceNews</xmlUrl>
@@ -779,6 +761,47 @@
   <description>Read the front page stories of csmonitor.com.</description>
   <imageUrl></imageUrl>
   <nick>CS Monitor everything</nick>
+  <language></language>
+ </feed>
+ <feed hash="">
+  <title>L.A. Times - California | Local News</title>
+  <webUrl>http://www.latimes.com/news/local/?track=rss</webUrl>
+  <xmlUrl>http://feeds.latimes.com/latimes/news/local</xmlUrl>
+  <description>
+                    
+                        Headlines from latimes.com
+                    
+                    
+                </description>
+  <imageUrl></imageUrl>
+  <nick>LA Times Local</nick>
+  <language></language>
+ </feed>
+ <feed hash="">
+  <title>San Francisco Bay Area News — — SFGate</title>
+  <webUrl>http://www.sfgate.com/news/bayarea/</webUrl>
+  <xmlUrl>http://feeds.sfgate.com/sfgate/rss/feeds/bayarea</xmlUrl>
+  <description>San Francisico Bay Area news. — SFGate</description>
+  <imageUrl></imageUrl>
+  <nick></nick>
+  <language></language>
+ </feed>
+ <feed hash="">
+  <title>Company Town</title>
+  <webUrl>http://latimesblogs.latimes.com/entertainmentnewsbuzz/</webUrl>
+  <xmlUrl>http://feeds.feedburner.com/entertainment/business/</xmlUrl>
+  <description>The business behind the show</description>
+  <imageUrl></imageUrl>
+  <nick></nick>
+  <language></language>
+ </feed>
+ <feed hash="">
+  <title>Reuters: World News</title>
+  <webUrl>http://www.reuters.com</webUrl>
+  <xmlUrl>http://feeds.reuters.com/reuters/worldNews</xmlUrl>
+  <description>Reuters.com is your source for breaking news, business, financial and investing news, including personal finance and stocks.  Reuters is the leading global provider of news, financial information and technology solutions to the world's media, financial institutions, businesses and individuals.</description>
+  <imageUrl></imageUrl>
+  <nick>Reuters International</nick>
   <language></language>
  </feed>
 </drssfeedlist>
