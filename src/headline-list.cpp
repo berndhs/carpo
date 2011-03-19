@@ -14,19 +14,21 @@ HeadlineList::HeadlineList (QObject *parent)
   QHash<int, QByteArray> roles;
   roles[Type_Ident] = "ident";
   roles[Type_Title] = "title";
+  roles[Type_Seenit] = "seenit";
   setRoleNames(roles);
 }
 
 int 
 HeadlineList::rowCount (const QModelIndex & parent) const
 {
-  return idents.count();
+  Q_UNUSED (parent)
+  return rows.count();
 }
 
 void
 HeadlineList::clear ()
 {
-  int oldRows = idents.count();
+  int oldRows = rows.count();
   removeRows (0,oldRows-1);
 }
 
@@ -35,17 +37,10 @@ HeadlineList::removeRows (int begin, int end, const QModelIndex & parent)
 {
   beginRemoveRows (parent, begin, end);
   for (int i=end; i>= begin; i--) {
-    idents.removeAt (i);
-    titles.removeAt (i);
+    rows.removeAt (i);
   }
   endRemoveRows ();
   return true;
-}
-
-QString
-HeadlineList::rowCountText ()
-{
-  return QString::number(idents.count());
 }
 
 
@@ -58,11 +53,13 @@ HeadlineList::data (const QModelIndex & index, int role) const
   int row = index.row();
   QVariant retval;
   if (role == Qt::DisplayRole) {
-    retval = QString ("%1: %2").arg (idents.value(row)).arg(titles.value(row));
+    retval = QString ("%1: %2").arg (rows[row].title);
   } else if (role == int (Type_Ident)) {
-    retval = idents.value (row);
+    retval = rows[row].ident;
   } else if (role == int (Type_Title)) {
-    retval = titles.value (row);
+    retval = rows[row].title;
+  } else if (role == int (Type_Seenit)) {
+    retval = rows[row].seenit;
   } else {
     retval = QVariant ();
   } 
@@ -70,20 +67,32 @@ HeadlineList::data (const QModelIndex & index, int role) const
 }
 
 void
-HeadlineList::addLine (const QString & ident, const QString & title)
+HeadlineList::addLine (const QString & ident, const QString & title, bool seenit)
 {
   beginInsertRows (QModelIndex(), rowCount(), rowCount());
-  idents << ident;
-  titles << title;
+  rows.append (HeadlineRow (ident, title, seenit));
   endInsertRows ();
 }
 
 QString
-HeadlineList::addNewLine (const QString & title)
+HeadlineList::addNewLine (const QString & title, bool seenit)
 {
   QString ident (QString ("Story_%1").arg(nextId++));
-  addLine (ident, title);
+  addLine (ident, title, seenit);
   return ident;
+}
+
+void
+HeadlineList::markRead (const QString & id, bool seenit)
+{
+  int rc = rows.count();
+  for (int r=0; r<rc; r++) {
+    if (rows.at(r).ident == id) {
+      rows[r].seenit = seenit;
+      QModelIndex rowIndex = createIndex (r, 0);
+      emit dataChanged (rowIndex, rowIndex);
+    }
+  }
 }
 
 } // namespace

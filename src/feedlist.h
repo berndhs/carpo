@@ -29,6 +29,7 @@
 #include <QMap>
 #include <QList>
 #include <QTextStream>
+#include <QDebug>
 
 namespace deliberate
 {
@@ -37,14 +38,22 @@ class StoryMark
 {
 public:
 
+  StoryMark (const QString & h, const QString & r) 
+    :readit (r), hash(h)
+  {}
+  StoryMark ()
+    :readit ("n"), hash("")
+  {}
   QString  readit;
   QString  hash;
 
   friend QTextStream & operator<< (QTextStream & stream, 
                                    const StoryMark & sm);
+
+  friend QDebug operator<< (QDebug dbg, const StoryMark & mark);
 };
 
-typedef QList<StoryMark>  StoryMarkList;
+typedef QMap <QString, StoryMark> StoryMarkMap;
 
 class Feed 
 {
@@ -54,8 +63,8 @@ public:
   QString               values (const QString & key) const;
   QStringList         & topics ();
   const QStringList   & topics () const;
-  StoryMarkList       & storyMarks ();
-  const StoryMarkList & storyMarks () const;
+  StoryMarkMap        & storyMarks ();
+  const StoryMarkMap  & storyMarks () const;
 
 
   void StreamOut (QTextStream & stream) const;
@@ -67,7 +76,7 @@ private:
 
   QMap <QString, QString>  theValues;
   QStringList              theTopics;
-  QList <StoryMark>        theStoryMarks;
+  StoryMarkMap             theStoryMarks;
 
 };
 

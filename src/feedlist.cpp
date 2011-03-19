@@ -50,13 +50,13 @@ Feed::topics () const
   return theTopics;
 }
 
-StoryMarkList &
+StoryMarkMap &
 Feed::storyMarks ()
 {
   return theStoryMarks;
 }
 
-const StoryMarkList &
+const StoryMarkMap &
 Feed::storyMarks () const
 {
   return theStoryMarks;
@@ -79,9 +79,10 @@ Feed::StreamOut (QTextStream & stream) const
     stream << " ( \"" << cit.key() << "\" , \"" << cit.value() << "\" ) ";
   }
   stream << ") StoryMarks  (" ;
-  int nsm = theStoryMarks.count();
-  for (int s=0; s<nsm; s++) {
-     stream << " ( " << theStoryMarks.at(s) << " ) ";
+  StoryMarkMap::const_iterator smit;
+  for (smit = theStoryMarks.constBegin(); smit != theStoryMarks.end(); smit++) {
+     stream << " ( story hash " << smit->hash << " wasRead " << smit->readit
+            << " ) ";
   }
   stream << ") ) ";
 }
@@ -118,5 +119,14 @@ operator<< (QTextStream & stream, const Folder & folder)
   stream << " ) ) ";
   return stream;
 }
+
+QDebug
+operator<<(QDebug dbg, const StoryMark & mark)
+{
+  dbg.nospace () << " (storysig " << mark.hash << " wasRead " << mark.readit
+                 << " ) ";
+  return dbg.space ();
+}
+
 
 } // namespace

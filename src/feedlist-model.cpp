@@ -24,6 +24,9 @@
 
 #include <QDebug>
 
+#include <QtAlgorithms>
+#include <QCryptographicHash>
+
 #include "newrss-magic.h"
 
 namespace deliberate
@@ -169,16 +172,39 @@ FeedlistModel::changeTopic (const QString & newTopic)
     if (topicIndex.contains (newTopic)) {
       ids = topicIndex[newTopic];
     }
-    FeedIdSet::iterator fit;
-    for (fit = ids.begin(); fit != ids.end(); fit++) {
-      topicIdents.append (*fit);
+    /*  build topicIndex in the same order as in mainIdents */
+    QStringList::iterator sit;
+    for (sit = mainIdents.begin(); sit != mainIdents.end(); sit++) {
+      if (ids.contains (*sit)) {
+        topicIdents.append (*sit);
+      }
     }
-    topicIdents.sort ();
     idents = & topicIdents;
     currentTopic = newTopic;
   }
   endResetModel ();
   emit dataChanged (createIndex (0,0), createIndex ((*idents).count()-1,0));
+}
+
+void
+FeedlistModel::MarkRead (const QString & feedId, 
+                         const QString & storyText, 
+                                    bool isRead)
+{
+  QString hash (QCryptographicHash::hash (storyText.toUtf8().data(),
+                                            QCryptographicHash::Md5).toHex());
+  feedMap[feedId].storyMarks()[hash] = StoryMark (hash, isRead ? "y" : "n");
+  qDebug () << " FeedlistModel  :: MarkRead  feedId " << feedId << hash;
+}
+
+bool
+FeedlistModel::Seenit (const QString & feedId, const QString & hash)
+{
+  StoryMarkMap  stories (feedMap[feedId].storyMarks());
+  if (stories.contains (hash)) {
+    return stories[hash].readit == "y";
+  }
+  return false;
 }
 
 } // namespace

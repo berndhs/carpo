@@ -19,26 +19,40 @@ public:
 
   int rowCount (const QModelIndex & index = QModelIndex()) const;
   QVariant data (const QModelIndex & index, int role = Qt::DisplayRole) const;
-  void addLine (const QString & ident, const QString & title);
-  QString addNewLine (const QString & title);
-  void    clear ();
+  void addLine (const QString & ident, const QString & title, bool seenit);
+  QString addNewLine (const QString & title, bool seenit);
 
-  Q_INVOKABLE QString rowCountText ();
+  void markRead (const QString & id, bool seenit);
+
+  void    clear ();
 
   bool removeRows (int begin, int end, 
                    const QModelIndex & parent = QModelIndex());
 
-  int count () { return idents.count(); }
+  int count () { return rows.count(); }
 
 private:
 
   enum DataType {
      Type_Ident = Qt::UserRole+1,
-     Type_Title = Qt::UserRole+2
+     Type_Title = Qt::UserRole+2,
+     Type_Seenit = Qt::UserRole+3
   };
 
-  QStringList   idents;
-  QStringList   titles;
+  class HeadlineRow {
+  public:
+    HeadlineRow (const QString & id, const QString t, bool s)
+      :ident(id), title (t), seenit(s)
+    {}
+    HeadlineRow ()
+      :ident(""), title(""), seenit(false)
+    {}
+    QString ident;
+    QString title;
+    bool    seenit;
+  };
+
+  QList <HeadlineRow>   rows;
 
   static int   nextId;
   

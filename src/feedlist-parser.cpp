@@ -257,7 +257,7 @@ FeedlistParser::ParseStorySig (const QString & tag,
   StoryMark  mark;
   mark.readit = atts.value("readit").toString();
   mark.hash = atts.value ("hash").toString();
-  feed.storyMarks().append (mark);
+  feed.storyMarks()[mark.hash] = mark;
 }
 
 void

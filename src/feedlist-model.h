@@ -62,6 +62,11 @@ public:
   TopicIndexMap & topics ();
 
   void changeTopic (const QString & newTopic);
+
+  void MarkRead (const QString & feedId, 
+                 const QString & storyText, 
+                 bool isRead);
+  bool Seenit (const QString & feedId, const QString & hash);
  
 signals:
  
@@ -73,7 +78,6 @@ private:
      Type_Ident = Qt::UserRole+1,
      Type_Title = Qt::UserRole+2
   };
-
 
   QStringList    *idents;
 

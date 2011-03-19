@@ -68,6 +68,14 @@ FeedlistWriter::write (Feed & feed)
   for (int t=0; t<nt; t++) {
     writeTextElement ("topic",feed.topics().at(t));
   }
+  StoryMarkMap::iterator smit;
+  StoryMarkMap & stories (feed.storyMarks());
+  for (smit = stories.begin(); smit != stories.end(); smit++) {
+    writeStartElement ("storysig");
+    writeAttribute ("hash", smit->hash);
+    writeAttribute ("readit", smit->readit);
+    writeEndElement ();
+  }
   writeEndElement (); // feed
 }
 

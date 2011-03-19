@@ -88,7 +88,10 @@ Rectangle {
       width: normalWidth; height: itemHeight
       Column { 
         anchors.topMargin: 4
-        Text {  width:normalWidth; wrapMode:Text.Wrap; text:  title } 
+        Text {  
+          width:normalWidth; wrapMode:Text.Wrap; 
+          text: (seenit ? "_x_" : "<b>new</b>" ) + " " + title 
+        } 
       }
       MouseArea {
         anchors.fill: parent
@@ -104,7 +107,10 @@ Rectangle {
       width: normalWidth/3; height: itemHeight
       Row { 
         anchors.leftMargin: 4
-        Text { width:normalWidth/3; wrapMode:Text.Wrap;  text: title } 
+        Text { 
+          width:normalWidth/3; wrapMode:Text.Wrap;  
+          text: (seenit ? "_x_" : "<b>new</b>" ) + " " + title  
+        } 
       }
       MouseArea {
         anchors.fill: parent

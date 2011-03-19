@@ -81,7 +81,7 @@ private slots:
   void ShowLicense ();
   void ShrinkIndex ();
   void ExpandIndex ();
-  void SaveFeedListModel ();
+  void SaveFeedListModel (bool reindex=false);
   void ProbeFeed (const QString & urlString);
   void Restart ();
   void Reset ();
@@ -144,6 +144,8 @@ private:
   QmlConfigEdit        configEdit;
   PropertyStore       *propStore;
   TopicModel           topicModel;
+  QString              currentFeed;
+  QString              currentStory;
 
 }; 
 

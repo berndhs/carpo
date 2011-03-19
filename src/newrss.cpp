@@ -39,6 +39,7 @@
 #include <QUrl>
 #include <QTimer>
 #include <QDir>
+#include <QCryptographicHash>
 
 #include "feedlist-writer.h"
 #include "newrss-magic.h"
@@ -249,6 +250,9 @@ NewRss::ShowStory (const QString & id)
   }
   QMetaObject::invokeMethod (qmlRoot, "setTheHtml",
                  Q_ARG (QVariant, htmlString));
+  currentStory = id;
+  feeds.MarkRead (currentFeed, stories[id], true);
+  headlines.markRead (id, true);
 }
 
 void
@@ -276,6 +280,7 @@ NewRss::ShowFeed (const QString & id)
   QString urlString = feeds.FeedRef(id).values("xmlurl");
   headlines.clear ();
   LoadFeed (urlString);
+  currentFeed = id;
 }
 
 void
@@ -351,6 +356,7 @@ NewRss::ExpandIndex ()
 void
 NewRss::Quit ()
 {
+  SaveFeedListModel (false);
   Settings().setValue("geometry", saveGeometry());
   Settings().setValue("sizes/qml", ui.qmlView->size());
   Settings().sync();
@@ -600,7 +606,10 @@ NewRss::ParseStories (QDomNodeList & items, const QString & contentTag,
       if (titles.count() > 0 && descrs.count() > 0) {  // should be 1
         QString title = titles.at(0).toElement().text();
         QString descr = descrs.at(0).toElement().text();
-        QString id = headlines.addNewLine (title);
+        QString hash (QCryptographicHash::hash (descr.toUtf8().data(), 
+                           QCryptographicHash::Md5).toHex());
+        bool seenit = feeds.Seenit (currentFeed, hash);
+        QString id = headlines.addNewLine (title, seenit);
         stories[id] = descr;
         QDomNodeList links = elt.elementsByTagName ("link");
         int nl = links.count();
@@ -656,6 +665,7 @@ NewRss::resizeEvent (QResizeEvent *event)
 void
 NewRss::closeEvent (QCloseEvent *event)
 {
+  SaveFeedListModel (false);
   Settings().setValue("geometry", saveGeometry());
   Settings().setValue("sizes/qml", ui.qmlView->size());
   Settings().sync();
@@ -702,9 +712,12 @@ NewRss::FillFeedModel (const Folder & folder, FeedlistModel & model)
 }
 
 void
-NewRss::SaveFeedListModel ()
+NewRss::SaveFeedListModel (bool reindex)
 {
-  topicModel.ReIndex ();
+  qDebug () << " NewRss  ::  SaveFeedListModel " << reindex;
+  if (reindex) {
+    topicModel.ReIndex ();
+  }
   QFile saveFile (feedListFile);
   saveFile.open (QFile::WriteOnly);
   FeedlistWriter writer;
