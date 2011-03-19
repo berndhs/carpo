@@ -76,6 +76,8 @@ HEADERS = \
           src/headline-list.h \
           src/qml-feed-if.h \
           src/qml-control-if.h \
+          src/qml-gesture-if.h \
+          src/qml-view.h \
           src/feedlist-parser.h \
           src/feedlist.h \
           src/feedlist-model.h \
@@ -96,6 +98,8 @@ SOURCES = \
           src/headline-list.cpp \
           src/qml-feed-if.cpp \
           src/qml-control-if.cpp \
+          src/qml-gesture-if.cpp \
+          src/qml-view.cpp \
           src/feedlist-parser.cpp \
           src/feedlist.cpp \
           src/feedlist-model.cpp \

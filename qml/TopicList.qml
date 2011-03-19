@@ -24,20 +24,26 @@
 import QtQuick 1.0
 
 Rectangle {
+  id: topicListBox
+  objectName: "TopicListBox"
   property real normalWidth:300
   property real rollDelay: 150
   property real itemHeight: 32
+  property real itemWidth: width
   property real embedMargin: 2
   property real initialYScale: 0
+  property string highlightColor: "oldlace"
+  property string topObject: objectName
   signal selected (int idx, string name, int count)
 
   function hide () {
     rollupScale.yScale = 0
-    console.log ("shink running ")
   }
   function show () {
     rollupScale.yScale = 1
   }
+  function swiped () { hide () }
+  function setTracking (doTrack) { topicList.setTracking (doTrack) }
   color: "transparent"
   anchors.topMargin: 0
   anchors.leftMargin: 0
@@ -61,26 +67,24 @@ Rectangle {
         anchors { left: parent.left; leftMargin: 6 }
         Rectangle {
           id: nameItemRect
-          width: childrenRect.width; height: itemHeight
+          width: itemWidth; height: itemHeight
           color: "transparent"
-          Text {  wrapMode:Text.Wrap; text:  name } 
+          Text {  wrapMode:Text.Wrap; text:  name + " : " + number} 
           MouseArea {
             anchors.fill: parent
             onClicked: { selected (index, name, number); topicList.currentIndex = index }
-          }
-        }
-      }
-      Column { 
-        id: countColumn
-        anchors { left: nameColumn.right; leftMargin: 2 }
-        Rectangle {
-          id: countItemRect
-          width: childrenRect.width; height: itemHeight
-          color: "transparent"
-          Text {   wrapMode:Text.Wrap; text: " : " + number } 
-          MouseArea {
-            anchors.fill: parent
-            onClicked: { selected (index, name, number); topicList.currentIndex = index }
+            onPressed: {
+              gestureIF.pressed (topObject, mouse.x, mouse.y)
+            }
+            onExited: {
+              gestureIF.exited (topObject, mouseX, mouseY)
+            }
+            onReleased: {
+              gestureIF.released (topObject, mouseX, mouseY)
+            }
+            onPositionChanged: {
+              if (topicList.isTracking) gestureIF.moved (topObject, mouse.x, mouse.y)
+            }
           }
         }
       }
@@ -89,6 +93,8 @@ Rectangle {
 
   ListView {
     id: topicList
+    property bool isTracking: false
+    function setTracking (doTrack) { isTracking = doTrack }
     z: 2
     width: parent.width
     height: parent.height
@@ -101,6 +107,6 @@ Rectangle {
     delegate: verticalDelegate
     snapMode: ListView.NoSnap
     model: topicModel
-    highlight: Rectangle { width: topicList.width; color: "oldlace"; radius: 5 }
+    highlight: Rectangle { width: topicList.width; color: highlightColor; radius: 5 }
   }
 }

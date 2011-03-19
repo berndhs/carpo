@@ -182,7 +182,7 @@ Rectangle {
   }
   TopicList {
     id:topicListArea
-    objectName: "TopicListArea"
+    objectName: "TopicList"
     visible: true
     scale: 1
     height:indexHeight
@@ -225,7 +225,7 @@ Rectangle {
       id: backButton
       width: 50
       height: childrenRect.height
-      opacity: buttonOpacity
+      opacity: webNavRect.buttonOpacity
       color: parent.buttonColor
       commonMargin: parent.space
       z:parent.z + 1
@@ -237,7 +237,7 @@ Rectangle {
       id: copyButton
       width: 75
       height: childrenRect.height
-      opacity: buttonOpacity
+      opacity: webNavRect.buttonOpacity
       color: parent.buttonColor
       commonMargin: parent.space
       z:parent.z + 1
@@ -250,7 +250,7 @@ Rectangle {
       id: forwardButton
       width: 75
       height: childrenRect.height
-      opacity: buttonOpacity
+      opacity: webNavRect.buttonOpacity
       color: parent.buttonColor
       commonMargin: parent.space
       z:parent.z + 1

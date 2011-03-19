@@ -38,6 +38,7 @@
 #include "headline-list.h"
 #include "qml-feed-if.h"
 #include "qml-control-if.h"
+#include "qml-gesture-if.h"
 #include "ui_newrss.h"
 #include "feedlist-parser.h"
 #include "feedlist.h"
@@ -123,6 +124,7 @@ private:
   HeadlineList         headlines;
   FeedInterface       *feedIF;
   ControlInterface    *controlIF;
+  GestureInterface    *gestureIF;
 
   QNetworkAccessManager *qnam;
   QDomDocument           feedDoc;

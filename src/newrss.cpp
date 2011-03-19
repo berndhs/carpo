@@ -56,6 +56,8 @@ NewRss::NewRss (QWidget *parent)
    qmlRoot (0),
    headlines (this),
    feedIF (0),
+   controlIF (0),
+   gestureIF (0),
    qnam (0),
    feedlistParser (0),
    feeds (this),
@@ -74,11 +76,13 @@ NewRss::NewRss (QWidget *parent)
   qnam = new QNetworkAccessManager;
   feedlistParser = new FeedlistParser (this);
   ui.setupUi (this);
+  ui.qmlView->setResizeMode (QDeclarativeView::SizeRootObjectToView);
   htmlString = QString ("<html><head></head>"
                         "<body><h1>HTML String number %1</h1></body>"
                         "</html>");
   feedIF = new FeedInterface (this);
   controlIF = new ControlInterface (this, &feeds);
+  gestureIF = new GestureInterface (this);
   restoreGeometry(Settings().value("geometry").toByteArray());
   if (Settings().contains ("sizes/qml")) {
     QSize qmlsize = Settings().value("sizes/qml").toSize();
@@ -135,23 +139,20 @@ NewRss::Run ()
   context->setContextProperty ("feedListModel", &feeds);
   context->setContextProperty ("configModel", &configEdit);
   context->setContextProperty ("topicModel", &topicModel);
-  ui.qmlView->setSource (QUrl("qrc:///qml/DefaultMain.qml"));
+  //ui.qmlView->setSource (QUrl("qrc:///qml/DefaultMain.qml"));
+  ui.qmlView->setSource (QUrl::fromLocalFile("qml/DefaultMain.qml"));
   context->setContextProperty ("feedIF",feedIF);
   context->setContextProperty ("controlIF",controlIF);
   context->setContextProperty ("configIF",&configEdit);
-  qDebug () << " NewRss  context base url " << context->baseUrl();
-  qDebug () << " NewRss  engine import paths "
-            << ui.qmlView->engine()->importPathList();         
-  qDebug () << " NewRss  engine plugin paths "
-            << ui.qmlView->engine()->pluginPathList();
-  qmlRoot = ui.qmlView->rootObject();       
-  qDebug () << " NewRss  engine base url "
-            << ui.qmlView->engine()->baseUrl();
+  context->setContextProperty ("gestureIF",gestureIF);
   qmlRoot = ui.qmlView->rootObject();
   if (qmlRoot == 0) {
     QMessageBox::critical (this, "Fatal", "QML Load Failure");
     QTimer::singleShot (150, this, SLOT(Quit ()));
     return;
+  }
+  if (gestureIF) {
+    gestureIF->SetQmlRoot (qmlRoot);
   }
   propStore->ReadFromObjects (qmlRoot);
   propStore->FillSettings (qmlRoot);

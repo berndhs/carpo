@@ -20,11 +20,7 @@
   <widget class="QWidget" name="centralwidget">
    <layout class="QGridLayout" name="gridLayout">
     <item row="0" column="0">
-     <widget class="QDeclarativeView" name="qmlView">
-      <property name="resizeMode">
-       <enum>QDeclarativeView::SizeRootObjectToView</enum>
-      </property>
-     </widget>
+     <widget class="deliberate::QmlView" name="qmlView" native="true"/>
     </item>
    </layout>
   </widget>
@@ -136,9 +132,10 @@
  <layoutdefault spacing="1" margin="1"/>
  <customwidgets>
   <customwidget>
-   <class>QDeclarativeView</class>
-   <extends>QGraphicsView</extends>
-   <header>QtDeclarative/QDeclarativeView</header>
+   <class>deliberate::QmlView</class>
+   <extends>QWidget</extends>
+   <header location="global">../src/qml-view.h</header>
+   <container>1</container>
   </customwidget>
  </customwidgets>
  <resources>
