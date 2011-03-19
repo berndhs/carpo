@@ -299,7 +299,7 @@ Rectangle {
     scale: 0
     isShown: false
     color: mainBackgroundColor
-    z: feedEditArea.z + 1
+    z: indexBox.z + 1
     width:parent.width
     height: parent.height
     anchors { top: controlPanel.bottom; }

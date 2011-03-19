@@ -5,7 +5,7 @@ import QtQuick 1.0
 Rectangle {
   function displayNew (url) {
     console.log ("Start NEw Feed " + url)
-    displayEditFeed ("", url, "", "", "", "")
+    displayEditFeed ("", url, "", "", "", "", "")
     saveButtonRow.show ()
   }
   function displayEditFeed (theFeedId, theFeedUrl, theTitle, 
