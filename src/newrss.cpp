@@ -238,7 +238,6 @@ NewRss::ShowStory (const QString & id)
                      + browseButton.arg(tagBrowseHere).arg("Here")
                      + browseButton.arg(tagBrowseBrowser).arg("Browser")
                      + QString( "</span>");
-    qDebug () << " button string " << buttons;
     QString date (tr(" date unknown "));
     if (storyDates.contains(id)) {
       date = storyDates[id];
@@ -264,7 +263,6 @@ NewRss::ShowStorySite (const QString & id)
 void
 NewRss::ShowStorySiteLocal (const QString & id)
 {
-  qDebug () << "NewRss::ShowStorySiteLocal";
   if (storyLinks.contains (id)) {
     QString urlString = storyLinks[id].first();
     QMetaObject::invokeMethod (qmlRoot, "setTheUrl",
@@ -275,7 +273,6 @@ NewRss::ShowStorySiteLocal (const QString & id)
 void
 NewRss::ShowFeed (const QString & id)
 {
-  qDebug () << " NewRss::ShowFeed";
   QString urlString = feeds.FeedRef(id).values("xmlurl");
   headlines.clear ();
   LoadFeed (urlString);
@@ -659,14 +656,6 @@ NewRss::resizeEvent (QResizeEvent *event)
 void
 NewRss::closeEvent (QCloseEvent *event)
 {
-  QMessageBox::StandardButton select = 
-    QMessageBox::question (this, "Exit", "Really",
-                  QMessageBox::No | QMessageBox::Close);
-  qDebug () << " Exit select " << select;
-  if (select != QMessageBox::Close) {
-    event->ignore();
-    return;
-  }
   Settings().setValue("geometry", saveGeometry());
   Settings().setValue("sizes/qml", ui.qmlView->size());
   Settings().sync();
