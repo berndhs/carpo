@@ -85,7 +85,7 @@ Rectangle {
             anchors.left: parent.left
             x: parent.x + 2
             width:parent.width; wrapMode:Text.Wrap
-            text:  confKey 
+            text:  (confHasValue ? "....." + confKey : "<b>" + confKey + "</b" )
           }
         } 
       }
