@@ -31,6 +31,8 @@ Rectangle {
   signal maintainSelect ()
   signal showTopics ()
   signal hideTopics ()
+  signal showRecent ()
+  signal hideRecent ()
   property string choiceButtonColor: "sandybrown"
   property string detailButtonColor: "sandybrown"
   property string maintainButtonColor: "sandybrown"
@@ -143,6 +145,24 @@ Rectangle {
       anchors { top: showTopicsButton.bottom; horizontalCenter: indexMenu.horizontalCenter }
       labelText: "Hide Topics"
       onClicked: { controlPanel.hideTopics(); indexMenu.hide () }
+    }
+    ChoiceButton {
+      id: showNewButton
+      width: parent.width
+      height: menuItemHeight
+      color: indexMenuButtonColor
+      labelText: "Show New Stories"
+      anchors { top: hideTopicsButton.bottom; horizontalCenter: indexMenu.horizontalCenter }
+      onClicked: { controlPanel.showRecent(); indexMenu.hide() }
+    }
+    ChoiceButton {
+      id: hideNewButton
+      width: parent.width
+      height: menuItemHeight
+      color: indexMenuButtonColor
+      anchors { top: showNewButton.bottom; horizontalCenter: indexMenu.horizontalCenter }
+      labelText: "Hide New Stories"
+      onClicked: { controlPanel.hideRecent(); indexMenu.hide () }
     }
   }
 }

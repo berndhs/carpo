@@ -31,6 +31,7 @@
 #include <QDomDocument>
 #include <QDomElement>
 #include <QList>
+#include <QAbstractListModel>
 #include <QDebug>
 
 #include "feedlist-model.h"
@@ -66,7 +67,7 @@ private:
 
 typedef QList <NewStory>  NewStoryList;
 
-class AutoUpdate : public QObject
+class AutoUpdate : public QAbstractListModel
 {
 Q_OBJECT
 
@@ -74,6 +75,9 @@ public:
 
   AutoUpdate (FeedlistModel & feedlistModel, QObject *parent=0);
   ~AutoUpdate ();
+
+  int  rowCount (const QModelIndex & index) const;
+  QVariant  data (const QModelIndex & index, int role) const;
 
   void SetInterval (int msecs);
   void Start (int msecs);
@@ -88,6 +92,12 @@ private slots:
   void FinishedNet (QNetworkReply * reply);
 
 private:
+
+  enum DataType {
+    Type_FeedId = Qt::UserRole+1,
+    Type_Title  = Qt::UserRole+2,
+    Type_Story  = Qt::UserRole+3
+  };
 
   void GetPollReply (DrssNetReply * reply);
   void ParseStories (const QString & feedId,

@@ -33,18 +33,53 @@ namespace deliberate
 {
 
 AutoUpdate::AutoUpdate (FeedlistModel & feedlistModel, QObject *parent)
-  :QObject (parent),
+  :QAbstractListModel (parent),
    updateTimer (this),
    feeds (feedlistModel),
    idList (feedlistModel.feedIdList())
 {
   qnam = new QNetworkAccessManager;
+  QHash<int, QByteArray> roles;
+  roles[Type_FeedId] = "feedId";
+  roles[Type_Title] = "storyTitle";
+  roles[Type_Story] = "storyBody";
+  setRoleNames(roles);
 }
 
 AutoUpdate::~AutoUpdate ()
 {
   //qDebug () << "AutoUpdate::~AutoUpdate  destructor";
   //qDebug () << newStoryList;
+}
+
+int  
+AutoUpdate::rowCount (const QModelIndex & index) const
+{
+  return newStoryList.count();
+}
+
+QVariant  
+AutoUpdate::data (const QModelIndex & index, int role) const
+{
+  if (!index.isValid()) {
+    return QVariant();
+  }
+  int row = index.row();
+  switch (role) {
+  case Qt::DisplayRole:
+  case int (Type_Title):
+    return newStoryList.at(row).title();
+    break;
+  case int (Type_FeedId):
+    return newStoryList.at(row).feedId();
+    break;
+  case int (Type_Story):
+    return newStoryList.at(row).story();
+    break;
+  default:
+    return QVariant ();
+    break;
+  }
 }
 
 void
