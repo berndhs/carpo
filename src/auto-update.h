@@ -91,6 +91,10 @@ private slots:
   void Poll (int numFeeds = 1);
   void FinishedNet (QNetworkReply * reply);
 
+signals:
+  
+  void NewestRow (int row);
+
 private:
 
   enum DataType {

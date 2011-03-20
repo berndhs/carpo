@@ -26,6 +26,7 @@
 
 #include <QtAlgorithms>
 #include <QCryptographicHash>
+#include <QDateTime>
 
 #include "newrss-magic.h"
 
@@ -199,8 +200,9 @@ FeedlistModel::MarkRead (const QString & feedId,
 {
   QString hash (QCryptographicHash::hash (storyText.toUtf8().data(),
                                             QCryptographicHash::Md5).toHex());
-  feedMap[feedId].storyMarks()[hash] = StoryMark (hash, isRead ? "y" : "n");
-  qDebug () << " FeedlistModel  :: MarkRead  feedId " << feedId << hash;
+  feedMap[feedId].storyMarks()[hash] = 
+         StoryMark (hash, isRead ? "y" : "n",
+                    QDateTime::currentDateTime().toTime_t());
 }
 
 void
@@ -208,8 +210,9 @@ FeedlistModel::MarkHashRead (const QString & feedId,
                          const QString & hash, 
                                     bool isRead)
 {
-  feedMap[feedId].storyMarks()[hash] = StoryMark (hash, isRead ? "y" : "n");
-  qDebug () << " FeedlistModel  :: MarkRead  feedId " << feedId << hash;
+  feedMap[feedId].storyMarks()[hash] = 
+         StoryMark (hash, isRead ? "y" : "n",
+                    QDateTime::currentDateTime().toTime_t());
 }
 
 bool

@@ -229,6 +229,8 @@ NewRss::Connect ()
            this, SLOT (DisplayStory (const QString &,
                                             const QString &,
                                             const QString &)));
+  connect (&autoUpdate, SIGNAL (NewestRow (int)),
+           this, SLOT (NewestNewsRow (int)));
 }
 
 
@@ -480,6 +482,14 @@ NewRss::WebPageReply (QNetworkReply * reply)
   htmlString = QString (pageBytes);
   QMetaObject::invokeMethod (qmlRoot, "setTheHtml",
                  Q_ARG (QVariant, htmlString));
+}
+
+
+void
+NewRss::NewestNewsRow (int row)
+{
+  QMetaObject::invokeMethod (qmlRoot, "newestNewsRow",
+                 Q_ARG (QVariant, row));
 }
 
 void

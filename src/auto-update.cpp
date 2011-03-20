@@ -56,14 +56,12 @@ AutoUpdate::~AutoUpdate ()
 int  
 AutoUpdate::rowCount (const QModelIndex & index) const
 {
-  qDebug () << "AutoUpdate  ::rowCount " << newStoryList.count();
   return newStoryList.count();
 }
 
 QVariant  
 AutoUpdate::data (const QModelIndex & index, int role) const
 {
- qDebug () << " AutoUpdate  ::data " << index;
   if (!index.isValid()) {
     return QVariant();
   }
@@ -99,7 +97,6 @@ void
 AutoUpdate::Start (int msecs)
 {
   updateTimer.start (msecs);
-  qDebug () << " AutoUpdate::Start " << updateTimer.interval();
 }
 
 void
@@ -118,8 +115,10 @@ AutoUpdate::Init ()
   clock_gettime (CLOCK_REALTIME, &fineTime);
   seed = abs (fineTime.tv_sec + fineTime.tv_nsec);
   srandom (seed);
+  qDebug () << " AutoUpdate Linux seed " << seed;
   #else
   seed = time(0);
+  qDebug () << " AutoUpdate non-Linux seed " << seed;
   #endif
 
 
@@ -138,10 +137,8 @@ AutoUpdate::Init ()
 void
 AutoUpdate::Poll (int numFeeds)
 {
-  qDebug () << "Autoupdate::Poll " << numFeeds;
   if (chaser != idList.end()) {
     QString feedId = *chaser;
-    qDebug () << "AutoUpdate::Poll feed " << feedId;
     QString urlString = feeds.FeedRef(feedId).values("xmlurl");
     if (qnam) {
       QNetworkReply * netreply = qnam->get (QNetworkRequest (QUrl (urlString)));
@@ -223,8 +220,6 @@ AutoUpdate::ParseStories (const QString & feedId,
         if (!haveIt) {
           feeds.MarkHashRead (feedId, hash, false);
           AddStory (feedId, title, hash);
-          qDebug () << "   AutoUpdate for feed " << feedId;
-          qDebug () << "              new story " << title;
         }
       }
     }
@@ -240,6 +235,7 @@ AutoUpdate::AddStory (const QString & feedId,
   beginInsertRows (QModelIndex(), newRow, newRow);
   newStoryList.append (NewStory (feedId, title, hash));
   endInsertRows ();
+  emit NewestRow (newRow);
 }
 
 QDebug
@@ -249,6 +245,7 @@ operator<< (QDebug debug, const NewStory & story)
                   << " feedId " << story.feedId()
                   << " title " << story.title()
                   << " hash " << story.hash()
+                  << " ) "
                   ;
   return debug.space (); 
 }

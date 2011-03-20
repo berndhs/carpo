@@ -44,6 +44,9 @@ Rectangle {
     expandWidth.running = true;
     expandScale.running = true;
   }
+  function setNewestRow (theRow) {
+    streamList.currentIndex = theRow
+  }
   color: "transparent"
   anchors.leftMargin: leftMargin
   width: normalWidth

@@ -89,6 +89,7 @@ private slots:
   void ProbeFeed (const QString & urlString);
   void Restart ();
   void Reset ();
+  void NewestNewsRow (int row);
 
 protected:
 

@@ -38,14 +38,15 @@ class StoryMark
 {
 public:
 
-  StoryMark (const QString & h, const QString & r) 
-    :readit (r), hash(h)
+  StoryMark (const QString & h, const QString & r, qint64 time) 
+    :readit (r), hash(h), timeStamp (time)
   {}
   StoryMark ()
-    :readit ("n"), hash("")
+    :readit ("n"), hash(""), timeStamp (0)
   {}
   QString  readit;
   QString  hash;
+  qint64   timeStamp;
 
   friend QTextStream & operator<< (QTextStream & stream, 
                                    const StoryMark & sm);

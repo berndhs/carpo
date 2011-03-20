@@ -174,7 +174,8 @@ FeedlistParser::ParseFeed (QXmlStreamReader & xread, Feed & feed)
   int ns = feed.storyMarks.count();
   for (int s=0; s<ns; s++) {
     qDebug () << "   storysig " << feed.storyMarks.at(s).readit 
-                                << feed.storyMarks.at(s).hash;
+                                << feed.storyMarks.at(s).hash
+                                << feed.storyMarks.at(a).timeStamp;
   }
   #endif
 }
@@ -257,6 +258,7 @@ FeedlistParser::ParseStorySig (const QString & tag,
   StoryMark  mark;
   mark.readit = atts.value("readit").toString();
   mark.hash = atts.value ("hash").toString();
+  mark.timeStamp = atts.value ("lastseen").toString().toLongLong();
   feed.storyMarks()[mark.hash] = mark;
 }
 

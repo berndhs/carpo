@@ -41,6 +41,8 @@ Rectangle {
   function setTheHtml (theHtml) { storyView.storyHtml = theHtml }
   function setTheUrl (theUrl)   { storyView.url = theUrl }
 
+  function newestNewsRow (theRow) { streamListArea.setNewestRow (theRow) }
+
   function setSize (w, h) {
     console.log (" setSize " + w + " " + h)
     displayWidth = w
@@ -205,7 +207,7 @@ Rectangle {
     leftMargin: indexBox.width * 0.4
     anchors.top: indexBox.top
     anchors.left: indexBox.left
-    scale: 1
+    scale: 0
     color: "transparent"
     clip: true
     z: 10

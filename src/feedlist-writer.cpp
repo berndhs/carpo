@@ -21,6 +21,7 @@
  *  Boston, MA  02110-1301, USA.
  ****************************************************************/
 #include <QIODevice>
+#include <QDateTime>
 
 namespace deliberate 
 {
@@ -70,11 +71,17 @@ FeedlistWriter::write (Feed & feed)
   }
   StoryMarkMap::iterator smit;
   StoryMarkMap & stories (feed.storyMarks());
+  qint64 monthAgo = QDateTime::currentDateTime().toTime_t()
+                  - (30 * 24 * 60 * 60);
   for (smit = stories.begin(); smit != stories.end(); smit++) {
-    writeStartElement ("storysig");
-    writeAttribute ("hash", smit->hash);
-    writeAttribute ("readit", smit->readit);
-    writeEndElement ();
+    qint64 lastSeen = smit->timeStamp;
+    if (lastSeen > monthAgo) {
+      writeStartElement ("storysig");
+      writeAttribute ("hash", smit->hash);
+      writeAttribute ("readit", smit->readit);
+      writeAttribute ("lastseen" , QString::number(smit->timeStamp));
+      writeEndElement ();
+    }
   }
   writeEndElement (); // feed
 }
