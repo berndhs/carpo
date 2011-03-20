@@ -67,8 +67,23 @@ ControlInterface::feedClicked (int index, const QString & ident,
   if (isEditingFeed) {
     emit EditFeed (ident);
   } else {
+qDebug () << "COntrolInterface :: feedClicked " << ident;
     emit ShowFeed (ident);
   }
+}
+
+void
+ControlInterface::selectFeed (const QString & feedId)
+{
+  emit ShowFeed (feedId);
+}
+
+void
+ControlInterface::displayStory (const QString & feedId,
+                                const QString & title, 
+                                const QString & body)
+{
+  emit DisplayStory (feedId, title, body);
 }
 
 void

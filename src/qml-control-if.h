@@ -58,6 +58,10 @@ public:
   Q_INVOKABLE void moveDown (const QString & id);
   Q_INVOKABLE void changeTopic (const QString & newTopic);
   Q_INVOKABLE void toCopy (const QString & copyText);
+  Q_INVOKABLE void selectFeed (const QString & feedId);
+  Q_INVOKABLE void displayStory (const QString & feedId,
+                                 const QString & title, 
+                                 const QString & body);
 
   void SetFeeds (FeedlistModel * feedList);
 
@@ -66,6 +70,9 @@ signals:
   void ShowFeed (const QString & feedId);
   void EditFeed (const QString & feedId);
   void ProbeFeed (const QString & url);
+  void DisplayStory (const QString & feedId,
+                     const QString & title, 
+                     const QString & body);
   void BrowseLinkExternal (const QString & storyId);
   void BrowseLinkLocal (const QString & storyId);
   void ListUpdated ();

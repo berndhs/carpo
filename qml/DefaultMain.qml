@@ -102,6 +102,8 @@ Rectangle {
     visible: true
     onShowTopics: { topicListArea.show () }
     onHideTopics: { topicListArea.hide () }
+    onShowRecent: { streamListArea.show () }
+    onHideRecent: { streamListArea.hide () }
   }
   Rectangle {
     id: indexBox
@@ -179,7 +181,7 @@ Rectangle {
         feedIF.storyHold (idx, i, t)
       } 
     }    
-  }
+  }  
   TopicList {
     id:topicListArea
     objectName: "TopicList"
@@ -193,6 +195,27 @@ Rectangle {
     color: "red"
     onSelected: { controlIF.changeTopic (name) }
   }
+  StreamList {
+    id: streamListArea
+    objectName: "StreamListArea"
+    visible: true
+    itemHeight: indexItemHeight
+    normalWidth: indexBox.width * 0.5
+    normalHeight: indexBox.height
+    leftMargin: indexBox.width * 0.4
+    anchors.top: indexBox.top
+    anchors.left: indexBox.left
+    scale: 1
+    color: "transparent"
+    clip: true
+    z: 10
+    MouseArea {
+      anchors.fill: parent
+      onClicked: console.log ("clicked Stream Index Box " + mouseX + mouseY)
+    }
+    onSelectFeed: { controlIF.selectFeed (feedId) }
+    onSelectStory: { controlIF.displayStory (feedId, title, hash) }
+  } 
   StoryView {
     id: storyView
     objectName: "StoryView"
@@ -205,7 +228,7 @@ Rectangle {
     }
     height: parent.height - controlPanel.height - indexBox.height
    
-    storyHtml: "<p>default <b>html</b>.</p>"
+    storyHtml: "<p>No Story.</p>"
   }
   Rectangle {
     id: webNavRect
@@ -231,7 +254,7 @@ Rectangle {
       z:parent.z + 1
       anchors {left: webNavRect.left; verticalCenter: webNavRect.verticalCenter }
       labelText: "Back"
-      onClicked: { console.log ("Back Clicked" + z) ; storyView.back () }
+      onClicked: { storyView.back () }
     }
     ChoiceButton {
       id: copyButton
@@ -243,8 +266,7 @@ Rectangle {
       z:parent.z + 1
       anchors {left: backButton.right; verticalCenter: webNavRect.verticalCenter }
       labelText: "Copy URL"
-      onClicked: { console.log ("Copy URL Clicked [" + storyView.url + "]") ; 
-                   controlIF.toCopy (storyView.url) }
+      onClicked: { controlIF.toCopy (storyView.url) }
     }
     ChoiceButton {
       id: forwardButton
@@ -256,7 +278,7 @@ Rectangle {
       z:parent.z + 1
       anchors {left: copyButton.right; verticalCenter: webNavRect.verticalCenter }
       labelText: "Forward"
-      onClicked: { console.log ("Forward Clicked" + z) ; storyView.forward ()}
+      onClicked: { storyView.forward ()}
     }
   }
 

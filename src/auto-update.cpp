@@ -41,8 +41,9 @@ AutoUpdate::AutoUpdate (FeedlistModel & feedlistModel, QObject *parent)
   qnam = new QNetworkAccessManager;
   QHash<int, QByteArray> roles;
   roles[Type_FeedId] = "feedId";
-  roles[Type_Title] = "storyTitle";
-  roles[Type_Story] = "storyBody";
+  roles[Type_FeedTitle] = "feedTitle";
+  roles[Type_StoryTitle] = "storyTitle";
+  roles[Type_StoryHash] = "storyHash";
   setRoleNames(roles);
 }
 
@@ -55,31 +56,37 @@ AutoUpdate::~AutoUpdate ()
 int  
 AutoUpdate::rowCount (const QModelIndex & index) const
 {
+  qDebug () << "AutoUpdate  ::rowCount " << newStoryList.count();
   return newStoryList.count();
 }
 
 QVariant  
 AutoUpdate::data (const QModelIndex & index, int role) const
 {
+ qDebug () << " AutoUpdate  ::data " << index;
   if (!index.isValid()) {
     return QVariant();
   }
   int row = index.row();
   switch (role) {
   case Qt::DisplayRole:
-  case int (Type_Title):
+  case int (Type_StoryTitle):
     return newStoryList.at(row).title();
     break;
   case int (Type_FeedId):
     return newStoryList.at(row).feedId();
     break;
-  case int (Type_Story):
-    return newStoryList.at(row).story();
+  case int (Type_FeedTitle):
+    return feeds.FeedRef(newStoryList.at(row).feedId()).values("title");
+    break;
+  case int (Type_StoryHash):
+    return newStoryList.at(row).hash();
     break;
   default:
     return QVariant ();
     break;
   }
+  return QVariant ();
 }
 
 void
@@ -105,10 +112,16 @@ void
 AutoUpdate::Init ()
 {
   unsigned   int seed (0);
+
+  #if USE_LINUX_RANDOM
   timespec       fineTime;
   clock_gettime (CLOCK_REALTIME, &fineTime);
   seed = abs (fineTime.tv_sec + fineTime.tv_nsec);
   srandom (seed);
+  #else
+  seed = time(0);
+  #endif
+
 
   chaser = idList.begin();
   int skip = (random() % idList.count());
@@ -209,7 +222,7 @@ AutoUpdate::ParseStories (const QString & feedId,
         bool haveIt = feeds.HaveStory (feedId, hash);
         if (!haveIt) {
           feeds.MarkHashRead (feedId, hash, false);
-          newStoryList.append (NewStory (feedId, title, story));
+          AddStory (feedId, title, hash);
           qDebug () << "   AutoUpdate for feed " << feedId;
           qDebug () << "              new story " << title;
         }
@@ -218,14 +231,24 @@ AutoUpdate::ParseStories (const QString & feedId,
   }
 }
 
+void
+AutoUpdate::AddStory (const QString & feedId, 
+                      const QString & title,
+                      const QString & hash)
+{
+  int newRow = newStoryList.count();
+  beginInsertRows (QModelIndex(), newRow, newRow);
+  newStoryList.append (NewStory (feedId, title, hash));
+  endInsertRows ();
+}
+
 QDebug
 operator<< (QDebug debug, const NewStory & story)
 {
   debug.nospace() << " ( NewStory "
                   << " feedId " << story.feedId()
                   << " title " << story.title()
-                  << " story " << story.story().left(80)
-                  << (story.story().length() > 80 ? "..." : "")
+                  << " hash " << story.hash()
                   ;
   return debug.space (); 
 }

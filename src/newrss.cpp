@@ -141,6 +141,7 @@ NewRss::Run ()
   context->setContextProperty ("feedListModel", &feeds);
   context->setContextProperty ("configModel", &configEdit);
   context->setContextProperty ("topicModel", &topicModel);
+  context->setContextProperty ("streamListModel", &autoUpdate);
   //ui.qmlView->setSource (QUrl("qrc:///qml/DefaultMain.qml"));
   ui.qmlView->setSource (QUrl::fromLocalFile("qml/DefaultMain.qml"));
   context->setContextProperty ("feedIF",feedIF);
@@ -222,6 +223,12 @@ NewRss::Connect ()
            this, SLOT (ShowStorySite (const QString &)));
   connect (controlIF, SIGNAL (BrowseLinkLocal (const QString &)),
            this, SLOT (ShowStorySiteLocal (const QString &)));
+  connect (controlIF, SIGNAL (DisplayStory (const QString &,
+                                            const QString &,
+                                            const QString &)),
+           this, SLOT (DisplayStory (const QString &,
+                                            const QString &,
+                                            const QString &)));
 }
 
 
@@ -259,6 +266,16 @@ NewRss::ShowStory (const QString & id)
 }
 
 void
+NewRss::DisplayStory (const QString & feedId,
+                      const QString & storyTitle,
+                      const QString & storyHash)
+{
+  Q_UNUSED (storyTitle)
+  qDebug () << " NewRss::DisplayStory";
+  ShowFeed (feedId, storyHash);
+}
+
+void
 NewRss::ShowStorySite (const QString & id)
 {
   if (storyLinks.contains (id)) {
@@ -278,11 +295,12 @@ NewRss::ShowStorySiteLocal (const QString & id)
 }
 
 void
-NewRss::ShowFeed (const QString & id)
+NewRss::ShowFeed (const QString & id, const QString & storyHash)
 {
+  qDebug () << "NewRss  :: ShowFeed " << id << storyHash;
   QString urlString = feeds.FeedRef(id).values("xmlurl");
   headlines.clear ();
-  LoadFeed (urlString);
+  LoadFeed (urlString, storyHash);
   currentFeed = id;
 }
 
@@ -369,12 +387,13 @@ NewRss::Quit ()
 }
 
 void
-NewRss::LoadFeed (const QString & urlString)
+NewRss::LoadFeed (const QString & urlString, const QString & storyHash)
 {
   if (qnam) {
     QNetworkReply * netreply = qnam->get (QNetworkRequest (QUrl (urlString)));
     DrssNetReply * dreply = new DrssNetReply (netreply, 
                                       DrssNetReply::Kind_GetFeed);
+    dreply->setStoryHash (storyHash);
     expectReplies[netreply] = dreply;
   }
 }
@@ -400,7 +419,7 @@ NewRss::FinishedNet (QNetworkReply * reply)
         DrssNetReply::Kind  kind = dreply->kind();
         switch (kind) {
         case DrssNetReply::Kind_GetFeed:
-          GetFeedReply (dreply->netReply());
+          GetFeedReply (dreply->netReply(), dreply->storyHash());
           break;
         case DrssNetReply::Kind_Probe:
           ProbeReply (dreply->netReply());
@@ -420,7 +439,7 @@ NewRss::FinishedNet (QNetworkReply * reply)
 }
 
 void
-NewRss::GetFeedReply (QNetworkReply * reply)
+NewRss::GetFeedReply (QNetworkReply * reply, const QString & storyHash)
 {
   if (!reply) {
     return;
@@ -438,6 +457,16 @@ NewRss::GetFeedReply (QNetworkReply * reply)
     ShowList ("FeedIndex");
     HideList ("FeedList");
     feedIF->SetActive (FeedInterface::Choice_Index);
+  }
+  if (storyHash.length() > 0) {
+    QMap<QString, QString>::iterator sit;
+    for (sit = stories.begin(); sit != stories.end(); sit++) {
+      if (storyHash == QCryptographicHash::hash (sit.value().toUtf8().data(), 
+                           QCryptographicHash::Md5).toHex()) {
+        ShowStory (sit.key());
+        break;
+      }
+    }
   }
 }
 

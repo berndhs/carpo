@@ -22,6 +22,7 @@
  <file>qml/FeedList.qml</file>
  <file>qml/LineInput.qml</file>
  <file>qml/StoryView.qml</file>
+ <file>qml/StreamList.qml</file>
  <file>qml/TopicList.qml</file>
 </qresource>
 </RCC>

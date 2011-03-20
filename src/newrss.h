@@ -72,9 +72,12 @@ private slots:
   void LoadList ();
   void FinishedNet (QNetworkReply * reply);
   void ShowStory (const QString & id);
+  void DisplayStory (const QString & feedId,
+                     const QString & storyTitle, 
+                     const QString & storyHash);
   void ShowStorySite (const QString & id);
   void ShowStorySiteLocal (const QString & id);
-  void ShowFeed (const QString & id);
+  void ShowFeed (const QString & id, const QString & storyHash = QString ());
   void EditFeed (const QString & id);
   void ShowList (const QString & list);
   void HideList (const QString & list);
@@ -100,8 +103,10 @@ private:
                       const QString & dateTag1,
                       const QString & dateTag2 = QString());
   void  FillFeedModel (const Folder & folder, FeedlistModel & model);
-  void  LoadFeed (const QString & urlString);
-  void  GetFeedReply (QNetworkReply * reply);
+  void  LoadFeed (const QString & urlString, 
+                  const QString & storyHash = QString());
+  void  GetFeedReply (QNetworkReply * reply,  
+                      const QString & storyHash = QString());
   void  ProbeReply (QNetworkReply * reply);
   void  WebPageReply (QNetworkReply * reply);
   bool  PopulateFromRssDoc (QDomElement & el, Feed & feed);

@@ -80,4 +80,16 @@ DrssNetReply::setFeedId (const QString & feedId)
   theFeedId = feedId;
 }
 
+QString
+DrssNetReply::storyHash ()
+{
+  return theStoryHash;
+}
+
+void
+DrssNetReply::setStoryHash (const QString & sh)
+{
+  theStoryHash = sh;
+}
+
 } // namespace

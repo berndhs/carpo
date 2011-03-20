@@ -18,6 +18,14 @@ ControlPanel choiceButtonColor
 ControlPanel detailButtonColor
 ControlPanel maintainButtonColor
 ControlPanel indexMenuButtonColor
+StreamListArea color
+StreamListArea normalWidth
+StreamListArea itemHeight
+StreamListArea shrinkDelay
+StreamListArea feedButtonColor
+StreamListArea feedLineColor
+StreamListArea storyButtonColor
+StreamListArea storyLineColor
 TopicListBox color
 TopicListBox highlightColor
 TopicListBox itemHeight

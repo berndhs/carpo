@@ -45,15 +45,15 @@ class NewStory
 public:
 
    NewStory ()
-     :theFeedId(""), theTitle (""), theStory ("")
+     :theFeedId(""), theTitle (""), theHash ("")
    {}
-   NewStory (const QString & feedId, const QString & title, const QString & story)
-     :theFeedId (feedId), theTitle (title), theStory (story)
+   NewStory (const QString & feedId, const QString & title, const QString & hash)
+     :theFeedId (feedId), theTitle (title), theHash (hash)
    {}
 
    QString feedId () const { return theFeedId; }
    QString title  () const { return theTitle; }
-   QString story  () const { return theStory; }
+   QString hash  () const { return theHash; }
 
    friend QDebug operator << (QDebug debug, const NewStory & story);
 
@@ -61,7 +61,7 @@ private:
 
   QString  theFeedId;
   QString  theTitle;
-  QString  theStory;
+  QString  theHash;
 
 };
 
@@ -95,13 +95,18 @@ private:
 
   enum DataType {
     Type_FeedId = Qt::UserRole+1,
-    Type_Title  = Qt::UserRole+2,
-    Type_Story  = Qt::UserRole+3
+    Type_FeedTitle  = Qt::UserRole+2,
+    Type_StoryTitle = Qt::UserRole+3,
+    Type_StoryHash  = Qt::UserRole+4
   };
 
   void GetPollReply (DrssNetReply * reply);
   void ParseStories (const QString & feedId,
-                      QDomNodeList & items, const QString & contentTag);
+                     QDomNodeList & items, 
+                     const QString & contentTag);
+  void AddStory (const QString & feedId, 
+                 const QString & title, 
+                 const QString & hash);
 
   QTimer                   updateTimer;
   FeedlistModel          & feeds;

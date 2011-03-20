@@ -40,6 +40,9 @@ INCLUDEPATH += src
 }
 unix {
   LIBS += -lrt
+  DEFINES += USE_LINUX_RANDOM=1
+} else {
+  DEFINES += USE_LINUX_RANDOM=0
 }
 
 CONFIG(debug, debug|release) {

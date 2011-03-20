@@ -5,6 +5,7 @@ Rectangle {
   signal clicked ()
   signal pressAndHold ()
   property alias labelText : label.text
+  property alias labelHeight: label.height
   property real commonMargin: 4
   width: 100
   height: 100

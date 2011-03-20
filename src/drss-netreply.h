@@ -50,15 +50,18 @@ public:
   QNetworkReply * netReply () const;
   void            setNetReply (QNetworkReply * reply);
   Kind            kind () const;
+  QString         feedId ();
+  QString         storyHash ();
   void            setKind (Kind k);
   void            setFeedId (const QString & feedId);
-  QString         feedId ();
+  void            setStoryHash (const QString & sh);
 
 private:
 
   QNetworkReply   *theNetreply;
   Kind             theKind;
   QString          theFeedId;
+  QString          theStoryHash;
 };
 
 } // namespace
