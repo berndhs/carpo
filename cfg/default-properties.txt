@@ -18,7 +18,9 @@ ControlPanel choiceButtonColor
 ControlPanel detailButtonColor
 ControlPanel maintainButtonColor
 ControlPanel indexMenuButtonColor
-TopicListArea color
+TopicListBox color
+TopicListBox highlightColor
+TopicListBox itemHeight
 WebNavBox buttonColor
 WebNavBox space
 WebNavBox buttonOpacity

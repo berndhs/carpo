@@ -66,7 +66,13 @@ public:
   void MarkRead (const QString & feedId, 
                  const QString & storyText, 
                  bool isRead);
+  void MarkHashRead (const QString & feedId, 
+                 const QString & hash, 
+                 bool isRead);
   bool Seenit (const QString & feedId, const QString & hash);
+  bool HaveStory (const QString & feedId, const QString & hash);
+
+  QStringList & feedIdList ();
  
 signals:
  

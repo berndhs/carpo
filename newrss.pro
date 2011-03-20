@@ -38,6 +38,9 @@ INCLUDEPATH += src
 } else {
   MAKEFILE = Make_$${MYNAME}
 }
+unix {
+  LIBS += -lrt
+}
 
 CONFIG(debug, debug|release) {
   DEFINES += DELIBERATE_DEBUG=1
@@ -86,6 +89,7 @@ HEADERS = \
           src/config-edit.h \
           src/property-store.h \
           src/topic-model.h \
+          src/auto-update.h \
 
 
 SOURCES = \
@@ -108,4 +112,5 @@ SOURCES = \
           src/config-edit.cpp \
           src/property-store.cpp \
           src/topic-model.cpp \
+          src/auto-update.cpp \
 

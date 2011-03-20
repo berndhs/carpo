@@ -31,8 +31,11 @@ Rectangle {
   property real shrinkDelay: 250
   property real itemHeight: 32
   property bool isShown: true
-  property string valueBackgroundColor: "turquoise"
-  property string keyBackgroundColor: "cadetblue"
+  property string valueBackgroundColor: "c7f0f0"
+  property string keyBackgroundColor: "#f0f0f0"
+  property real topMargin: 0
+  property real leftMargin: 10
+  property real rightMargin: 10
   signal updateConfigItem (string theGroup, string theKey, string newValue)
   function hide () {
     console.log ("ConfList hide")
@@ -49,8 +52,8 @@ Rectangle {
   anchors.top: parent.top
   anchors.left: parent.left
   anchors.topMargin: 0
-  anchors.leftMargin: 0
-  width: parent.width
+  anchors.leftMargin: leftMargin
+  width: parent.width - leftMargin
   height: parent.height
   PropertyAnimation on scale { 
     id: shrinkScale

@@ -51,6 +51,12 @@ FeedlistModel::topics ()
   return topicIndex;
 }
 
+QStringList & 
+FeedlistModel::feedIdList ()
+{
+  return mainIdents;
+}
+
 int 
 FeedlistModel::rowCount (const QModelIndex & parent) const
 {
@@ -197,6 +203,15 @@ FeedlistModel::MarkRead (const QString & feedId,
   qDebug () << " FeedlistModel  :: MarkRead  feedId " << feedId << hash;
 }
 
+void
+FeedlistModel::MarkHashRead (const QString & feedId, 
+                         const QString & hash, 
+                                    bool isRead)
+{
+  feedMap[feedId].storyMarks()[hash] = StoryMark (hash, isRead ? "y" : "n");
+  qDebug () << " FeedlistModel  :: MarkRead  feedId " << feedId << hash;
+}
+
 bool
 FeedlistModel::Seenit (const QString & feedId, const QString & hash)
 {
@@ -205,6 +220,13 @@ FeedlistModel::Seenit (const QString & feedId, const QString & hash)
     return stories[hash].readit == "y";
   }
   return false;
+}
+
+bool
+FeedlistModel::HaveStory (const QString & feedId, const QString & hash)
+{
+  StoryMarkMap  stories (feedMap[feedId].storyMarks());
+  return stories.contains (hash);
 }
 
 } // namespace

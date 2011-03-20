@@ -24,6 +24,7 @@
  ****************************************************************/
 
 #include <QObject>
+#include <QString>
 #include <QNetworkReply>
 
 namespace deliberate
@@ -38,6 +39,7 @@ public:
     Kind_GetFeed = 1,
     Kind_Probe = 2,
     Kind_WebPage = 3,
+    Kind_PollFeed = 4,
     Kind_Bad
   };
 
@@ -49,11 +51,14 @@ public:
   void            setNetReply (QNetworkReply * reply);
   Kind            kind () const;
   void            setKind (Kind k);
+  void            setFeedId (const QString & feedId);
+  QString         feedId ();
 
 private:
 
   QNetworkReply   *theNetreply;
   Kind             theKind;
+  QString          theFeedId;
 };
 
 } // namespace

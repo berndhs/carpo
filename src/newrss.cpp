@@ -64,7 +64,8 @@ NewRss::NewRss (QWidget *parent)
    feeds (this),
    configEdit (this),
    propStore (0),
-   topicModel (this)
+   topicModel (this),
+   autoUpdate (feeds, this)
 {
   feedListFile =  QDesktopServices::storageLocation 
               (QDesktopServices::DataLocation)
@@ -171,6 +172,8 @@ NewRss::Run ()
   topFolder.clear ();
   configEdit.Load ();
   show ();
+  autoUpdate.Init ();
+  autoUpdate.Start (15*1000);
 }
 
 void

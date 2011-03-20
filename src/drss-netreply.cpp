@@ -68,4 +68,16 @@ DrssNetReply::setKind (Kind k)
   theKind = k;
 }
 
+QString
+DrssNetReply::feedId ()
+{
+  return theFeedId;
+}
+
+void
+DrssNetReply::setFeedId (const QString & feedId)
+{
+  theFeedId = feedId;
+}
+
 } // namespace
