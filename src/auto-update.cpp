@@ -28,6 +28,7 @@
 
 #include <QDebug>
 #include <stdlib.h>
+#include <time.h>
 
 namespace deliberate
 {
