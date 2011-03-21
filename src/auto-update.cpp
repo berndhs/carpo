@@ -130,7 +130,8 @@ AutoUpdate::Init ()
   for (int i=0; i<skip; i++) {
     chaser++;
   }
-  qDebug () << "AutoUpdate skipped " << skip << " items, now at " << *chaser;
+  qDebug () << "AutoUpdate skipped " << skip << " items, now at " 
+             << (idList.count() > 0 ? *chaser : "empty list" );
   connect (&updateTimer, SIGNAL (timeout()),
            this, SLOT (Poll()));
   connect (qnam, SIGNAL (finished (QNetworkReply *)),
@@ -140,6 +141,9 @@ AutoUpdate::Init ()
 void
 AutoUpdate::Poll (int numFeeds)
 {
+  if (idList.count() < 1) {
+    return;
+  }
   if (chaser != idList.end()) {
     QString feedId = *chaser;
     QString urlString = feeds.FeedRef(feedId).values("xmlurl");
