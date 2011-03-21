@@ -116,12 +116,12 @@ AutoUpdate::Init ()
   clock_gettime (CLOCK_REALTIME, &fineTime);
   seed = abs (fineTime.tv_sec + fineTime.tv_nsec);
   srandom (seed);
-  int skip = (random() % idList.count());
+  int skip = (random() % idList.count()+1);
   qDebug () << " AutoUpdate Linux seed " << seed;
   #else
   seed = time(0);
   srand (seed);
-  int skip = (rand() % idList.count());
+  int skip = (rand() % idList.count()+1);
   qDebug () << " AutoUpdate non-Linux seed " << seed;
   #endif
 
