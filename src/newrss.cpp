@@ -145,8 +145,8 @@ NewRss::Run ()
   context->setContextProperty ("configModel", &configEdit);
   context->setContextProperty ("topicModel", &topicModel);
   context->setContextProperty ("streamListModel", &autoUpdate);
-  ui.qmlView->setSource (QUrl("qrc:///qml/DefaultMain.qml"));
-  //ui.qmlView->setSource (QUrl::fromLocalFile("qml/DefaultMain.qml"));
+  //ui.qmlView->setSource (QUrl("qrc:///qml/DefaultMain.qml"));
+  ui.qmlView->setSource (QUrl::fromLocalFile("qml/DefaultMain.qml"));
   context->setContextProperty ("feedIF",feedIF);
   context->setContextProperty ("controlIF",controlIF);
   context->setContextProperty ("configIF",&configEdit);
@@ -304,7 +304,7 @@ NewRss::ShowFeed (const QString & id, const QString & storyHash)
 {
   qDebug () << "NewRss  :: ShowFeed " << id << storyHash;
   QString urlString = feeds.FeedRef(id).values("xmlurl");
-  headlines.clear ();
+  headlines.StartNew (feeds.FeedRef(id).values("title"));
   LoadFeed (urlString, storyHash);
   currentFeed = id;
 }

@@ -171,6 +171,7 @@ Rectangle {
       width: 0
       scale: 0
       color: "cyan"
+      itemColor: "cyan"
       clip: true
       MouseArea {
         anchors.fill: parent
@@ -182,6 +183,7 @@ Rectangle {
       onHoldit: {
         feedIF.storyHold (idx, i, t)
       } 
+      onQuitit: { toggleLists () }
     }    
   }  
   TopicList {
@@ -217,6 +219,7 @@ Rectangle {
     }
     onSelectFeed: { controlIF.selectFeed (feedId) }
     onSelectStory: { controlIF.displayStory (feedId, title, hash) }
+    onQuitit: { hide () }
   } 
   StoryView {
     id: storyView

@@ -26,10 +26,17 @@ import QtQuick 1.0
 Rectangle {
 
   property real normalWidth: parent.width
+  property real itemWidth: normalWidth
   property real shrinkDelay: 250
   property real itemHeight: 32
+  property real headHeight: itemHeight * 0.75
+  property string headColor: "yellow"
+  property string itemColor: parent.color
+  property string headerIntro: " Stories from: "
+  property string headerText: "Feed Items"
   signal selected (int idx, string i, string t)
   signal holdit (int idx, string i, string t)
+  signal quitit ()
   signal reportOrientation (int orient)
 
   function nextStory () {
@@ -84,8 +91,9 @@ Rectangle {
   }
   Component {
     id: verticalDelegate
-    Item {
+    Rectangle {
       width: normalWidth; height: itemHeight
+      color: itemColor 
       Column { 
         anchors.topMargin: 4
         Text {  
@@ -95,27 +103,31 @@ Rectangle {
       }
       MouseArea {
         anchors.fill: parent
-        onClicked: { selected (index, ident, title); storyList.currentIndex = index }
+        onClicked: {  selected (index, ident, title); storyList.currentIndex = index }
         onPressAndHold: { holdit (index, ident, title); storyList.currentIndex = index }
       }
+      Component.onCompleted: { headerText = storyList.model.feedTitle () }
     }
   }
-
   Component {
-    id: horizontalDelegate
-    Item {
-      width: normalWidth/3; height: itemHeight
-      Row { 
-        anchors.leftMargin: 4
-        Text { 
-          width:normalWidth/3; wrapMode:Text.Wrap;  
-          text: (seenit ? "_x_" : "<b>new</b>" ) + " " + title  
-        } 
+    id: titleHeader  
+    Rectangle {
+      width:  normalWidth; height:  headHeight
+      radius: 5
+      gradient: Gradient {
+        GradientStop {
+          position: 0.00
+          color: "#7777ff"
+        }
+        GradientStop {
+          position: 1.00
+          color: "#bbbbff"
+        }
       }
+      Text { anchors.leftMargin: 10; text: headerIntro + headerText }
       MouseArea {
         anchors.fill: parent
-        onClicked: { selected (index, ident, title); storyList.currentIndex = index }
-        onPressAndHold: { holdit (index, ident, title); storyList.currentIndex = index }
+        onPressAndHold: { console.log (" press-hold title") ; quitit() }
       }
     }
   }
@@ -153,6 +165,7 @@ Rectangle {
     anchors.top:  parent.top
     anchors.topMargin: embedMargin
     orientation: ListView.Vertical
+    header: titleHeader
     delegate: verticalDelegate
     snapMode: ListView.NoSnap
     highlight: Rectangle { color: "lightsteelblue"; radius: 5 }

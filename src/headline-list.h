@@ -19,10 +19,16 @@ public:
 
   int rowCount (const QModelIndex & index = QModelIndex()) const;
   QVariant data (const QModelIndex & index, int role = Qt::DisplayRole) const;
+
   void addLine (const QString & ident, const QString & title, bool seenit);
   QString addNewLine (const QString & title, bool seenit);
 
+  void setFeedTitle (const QString & t);
+
+  Q_INVOKABLE QString feedTitle () const;
+
   void markRead (const QString & id, bool seenit);
+  void doReset () { reset(); }
 
   void    clear ();
 
@@ -30,6 +36,12 @@ public:
                    const QModelIndex & parent = QModelIndex());
 
   int count () { return rows.count(); }
+
+  void StartNew (const QString & feedTitle);
+
+public slots:
+
+  void WasReset ();
 
 private:
 
@@ -55,6 +67,7 @@ private:
   QList <HeadlineRow>   rows;
 
   static int   nextId;
+  QString      theTitle;
   
 };
 

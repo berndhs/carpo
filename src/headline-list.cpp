@@ -9,13 +9,15 @@ namespace deliberate
 int HeadlineList::nextId (33333);
 
 HeadlineList::HeadlineList (QObject *parent)
-  :QAbstractListModel(parent)
+  :QAbstractListModel(parent),
+   theTitle ("Headlines")
 {
   QHash<int, QByteArray> roles;
   roles[Type_Ident] = "ident";
   roles[Type_Title] = "title";
   roles[Type_Seenit] = "seenit";
   setRoleNames(roles);
+  connect (this, SIGNAL (modelReset()), this, SLOT (WasReset()));
 }
 
 int 
@@ -64,6 +66,41 @@ HeadlineList::data (const QModelIndex & index, int role) const
     retval = QVariant ();
   } 
   return retval;
+}
+
+
+QString 
+HeadlineList::feedTitle () const
+{
+qDebug () << " HeadlineList :: feedTitle " << theTitle;
+  return theTitle;
+}
+
+void
+HeadlineList::setFeedTitle (const QString & t)
+{
+qDebug () << " HeadlineList :: setFeedTitle " << t;
+  theTitle = t;
+  for (int col=0; col<4; col++) {
+    setHeaderData (col, Qt::Horizontal, QVariant (theTitle), Qt::DisplayRole);
+    setHeaderData (col, Qt::Vertical, QVariant (theTitle), Qt::DisplayRole);
+    setHeaderData (col, Qt::Horizontal, QVariant (theTitle), Qt::EditRole);
+    setHeaderData (col, Qt::Vertical, QVariant (theTitle), Qt::EditRole);
+  }
+  reset ();
+}
+
+void
+HeadlineList::StartNew (const QString & feedTitle )
+{
+  clear ();
+  setFeedTitle (feedTitle);
+}
+
+void
+HeadlineList::WasReset ()
+{
+  qDebug () << " HeadlineList :: WasReset";
 }
 
 void

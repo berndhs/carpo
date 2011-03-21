@@ -37,6 +37,7 @@ Rectangle {
   property string storyLineColor: "#ffddff"
   signal selectFeed (string feedId)
   signal selectStory (string feedId, string title, string hash)
+  signal quitit ()
 
   function hide () {
     shrinkWidth.running = true; 
@@ -97,6 +98,7 @@ Rectangle {
               selectFeed (feedId); 
               streamList.currentIndex = index 
             }
+            onPressAndHold : { quitit () }
           }
         }
       }
@@ -115,6 +117,7 @@ Rectangle {
               selectStory (feedId, storyTitle, storyHash); 
               streamList.currentIndex = index 
             }
+            onPressAndHold : { quitit () }
           }
         }
       }
@@ -133,6 +136,7 @@ Rectangle {
               selectFeed (feedId); 
               streamList.currentIndex = index 
             }
+            onPressAndHold : { quitit () }
           }  
         }
         Rectangle {
@@ -149,6 +153,7 @@ Rectangle {
               selectStory (feedId, storyTitle, storyHash); 
               streamList.currentIndex = index 
             }
+            onPressAndHold : { quitit () }
           }
         }
       }
