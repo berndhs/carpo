@@ -345,7 +345,10 @@ NewRss::ShowList (const QString & list)
 void
 NewRss::ShowAbout ()
 {
-  QString about (QString("<pre>\n%1\n</pre>").arg(ProgramVersion::Version()));
+  QString about (QString("<pre>\n%1\n</pre>")
+                .arg(ProgramVersion::Version()
+                      + "\r\n\r\n"
+                      + configMessages.join("\r\n")));
   QMetaObject::invokeMethod (qmlRoot, "setTheHtml",
                  Q_ARG (QVariant, about));
 }

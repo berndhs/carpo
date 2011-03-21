@@ -29,6 +29,8 @@ Rectangle {
   property real leftMargin: 0
   property real shrinkDelay: 250
   property real itemHeight: 32
+  property real singleHeight: 0.75
+  property real doubleHeight: 1.0
   property string feedButtonColor: "#eeeeff"
   property string storyButtonColor: "#eeffee"
   property string feedLineColor: "#ffffdd"
@@ -79,13 +81,13 @@ Rectangle {
   Component {
     id: verticalDelegate
     Item {
-      width: normalWidth; height: 1.5*itemHeight
+      width: normalWidth; height: 2*singleHeight*itemHeight
       Column {
         id: feedButtonColumn
         anchors {left: parent.left }
         Rectangle {
           id: feedButtonRect
-          width: childrenRect.width; height: itemHeight
+          width: childrenRect.width; height: singleHeight*itemHeight
           color: "#eeeeff"
           Text { width: 48; text: "Feed" }
           MouseArea {
@@ -103,7 +105,7 @@ Rectangle {
         anchors {left: feedButtonColumn.right }
         Rectangle {
           id: storyButtonRect
-          width: childrenRect.width; height: itemHeight
+          width: childrenRect.width; height: singleHeight*itemHeight
           color: storyButtonColor
           Text { width: 48; text: "Story" }
           MouseArea {
@@ -121,7 +123,7 @@ Rectangle {
         anchors { left: storyButtonColumn.right }
         Rectangle {
           id: itemFeedRect
-          width: normalWidth; height: itemHeight * 0.75
+          width: normalWidth; height: singleHeight*itemHeight 
           color: feedLineColor
           Text { text: feedTitle }
           MouseArea {
@@ -135,7 +137,7 @@ Rectangle {
         }
         Rectangle {
           id: itemTitleRect
-          width: normalWidth; height: itemHeight * 0.75
+          width: normalWidth; height: singleHeight*itemHeight 
           x: itemFeedRect.x
           y: itemFeedRect.y + itemFeedRect.height 
           color: storyLineColor
