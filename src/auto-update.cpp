@@ -115,15 +115,17 @@ AutoUpdate::Init ()
   clock_gettime (CLOCK_REALTIME, &fineTime);
   seed = abs (fineTime.tv_sec + fineTime.tv_nsec);
   srandom (seed);
+  int skip = (random() % idList.count());
   qDebug () << " AutoUpdate Linux seed " << seed;
   #else
   seed = time(0);
+  srand (seed);
+  int skip = (rand() % idList.count());
   qDebug () << " AutoUpdate non-Linux seed " << seed;
   #endif
 
 
   chaser = idList.begin();
-  int skip = (random() % idList.count());
   for (int i=0; i<skip; i++) {
     chaser++;
   }
@@ -205,7 +207,7 @@ AutoUpdate::ParseStories (const QString & feedId,
                       QDomNodeList & items, const QString & contentTag)
 {
   int ni = items.count();
-  for (int i=0; i<ni; i++) {
+  for (int i=ni-1; i>=0; i--) {
     QDomNode item = items.at(i);
     if (item.isElement()) {
       QDomElement elt = item.toElement();
