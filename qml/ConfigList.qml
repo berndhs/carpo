@@ -31,7 +31,7 @@ Rectangle {
   property real shrinkDelay: 250
   property real itemHeight: 32
   property bool isShown: true
-  property string valueBackgroundColor: "c7f0f0"
+  property string valueBackgroundColor: "#c7f0f0"
   property string keyBackgroundColor: "#f0f0f0"
   property real topMargin: 0
   property real leftMargin: 10

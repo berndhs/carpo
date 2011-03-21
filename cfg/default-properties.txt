@@ -26,9 +26,9 @@ StreamListArea feedButtonColor
 StreamListArea feedLineColor
 StreamListArea storyButtonColor
 StreamListArea storyLineColor
-TopicListBox color
-TopicListBox highlightColor
-TopicListBox itemHeight
+TopicList color
+TopicList highlightColor
+TopicList itemHeight
 WebNavBox buttonColor
 WebNavBox space
 WebNavBox buttonOpacity

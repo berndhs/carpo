@@ -206,12 +206,14 @@ Rectangle {
     visible: true
     itemHeight: indexItemHeight
     normalWidth: indexBox.width * 0.5
-    normalHeight: indexBox.height
+    normalHeight: indexItemHeight * 6
     leftMargin: indexBox.width * 0.4
     anchors.top: indexBox.top
     anchors.left: indexBox.left
     scale: 0
     color: "transparent"
+    border.color: "blue"
+    radius: 6
     clip: true
     z: feedIndexArea.z + 1
     MouseArea {
@@ -244,7 +246,8 @@ Rectangle {
     property real buttonOpacity: 0.6
     anchors { 
       verticalCenter: indexBox.bottom 
-      horizontalCenter: indexBox.horizontalCenter
+      left: indexBox.left
+      leftMargin: indexBox.width * 0.1
     }
     width: backButton.width + copyButton.width + forwardButton.width + 2*space
     color: "transparent"
