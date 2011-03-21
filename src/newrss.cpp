@@ -145,8 +145,8 @@ NewRss::Run ()
   context->setContextProperty ("configModel", &configEdit);
   context->setContextProperty ("topicModel", &topicModel);
   context->setContextProperty ("streamListModel", &autoUpdate);
-  //ui.qmlView->setSource (QUrl("qrc:///qml/DefaultMain.qml"));
-  ui.qmlView->setSource (QUrl::fromLocalFile("qml/DefaultMain.qml"));
+  ui.qmlView->setSource (QUrl("qrc:///qml/DefaultMain.qml"));
+  //ui.qmlView->setSource (QUrl::fromLocalFile("qml/DefaultMain.qml"));
   context->setContextProperty ("feedIF",feedIF);
   context->setContextProperty ("controlIF",controlIF);
   context->setContextProperty ("configIF",&configEdit);

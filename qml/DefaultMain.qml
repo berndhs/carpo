@@ -195,9 +195,10 @@ Rectangle {
     normalWidth: parent.width * 0.3333
     width: normalWidth
     anchors { right: indexBox.right; top: indexBox.top }
-    z: feedIndexArea.z + 1
+    z: feedIndexArea.z + 2
     color: "red"
     onSelected: { controlIF.changeTopic (name) }
+    onQuitit: { hide () }
   }
   StreamList {
     id: streamListArea
@@ -212,7 +213,7 @@ Rectangle {
     scale: 0
     color: "transparent"
     clip: true
-    z: 10
+    z: feedIndexArea.z + 1
     MouseArea {
       anchors.fill: parent
       onClicked: console.log ("clicked Stream Index Box " + mouseX + mouseY)

@@ -72,14 +72,12 @@ HeadlineList::data (const QModelIndex & index, int role) const
 QString 
 HeadlineList::feedTitle () const
 {
-qDebug () << " HeadlineList :: feedTitle " << theTitle;
   return theTitle;
 }
 
 void
 HeadlineList::setFeedTitle (const QString & t)
 {
-qDebug () << " HeadlineList :: setFeedTitle " << t;
   theTitle = t;
   for (int col=0; col<4; col++) {
     setHeaderData (col, Qt::Horizontal, QVariant (theTitle), Qt::DisplayRole);

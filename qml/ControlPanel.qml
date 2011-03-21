@@ -120,21 +120,12 @@ Rectangle {
       onExited: { indexMenu.hide () }
     }
     ChoiceButton {
-      id: closeIndexButton
-      width: parent.width
-      height: menuItemHeight
-      color: indexMenuButtonColor
-      labelText: "Close Menu"
-      anchors { top: indexMenu.top; horizontalCenter: indexMenu.horizontalCenter }
-      onClicked: { indexMenu.hide () }
-    }
-    ChoiceButton {
       id: showTopicsButton
       width: parent.width
       height: menuItemHeight
       color: indexMenuButtonColor
-      labelText: "Show Topics"
-      anchors { top: closeIndexButton.bottom; horizontalCenter: indexMenu.horizontalCenter }
+      labelText: "Topics - On"
+      anchors { top: indexMenu.top; horizontalCenter: indexMenu.horizontalCenter }
       onClicked: { controlPanel.showTopics(); indexMenu.hide() }
     }
     ChoiceButton {
@@ -143,7 +134,7 @@ Rectangle {
       height: menuItemHeight
       color: indexMenuButtonColor
       anchors { top: showTopicsButton.bottom; horizontalCenter: indexMenu.horizontalCenter }
-      labelText: "Hide Topics"
+      labelText: "Topics - Off"
       onClicked: { controlPanel.hideTopics(); indexMenu.hide () }
     }
     ChoiceButton {
@@ -151,7 +142,7 @@ Rectangle {
       width: parent.width
       height: menuItemHeight
       color: indexMenuButtonColor
-      labelText: "Show New Stories"
+      labelText: "New Stories - On"
       anchors { top: hideTopicsButton.bottom; horizontalCenter: indexMenu.horizontalCenter }
       onClicked: { controlPanel.showRecent(); indexMenu.hide() }
     }
@@ -161,7 +152,7 @@ Rectangle {
       height: menuItemHeight
       color: indexMenuButtonColor
       anchors { top: showNewButton.bottom; horizontalCenter: indexMenu.horizontalCenter }
-      labelText: "Hide New Stories"
+      labelText: "New Stories - Off"
       onClicked: { controlPanel.hideRecent(); indexMenu.hide () }
     }
   }

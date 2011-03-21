@@ -35,6 +35,7 @@ Rectangle {
   property string highlightColor: "oldlace"
   property string topObject: objectName
   signal selected (int idx, string name, int count)
+  signal quitit ()
 
   function hide () {
     rollupScale.yScale = 0
@@ -85,6 +86,7 @@ Rectangle {
             onPositionChanged: {
               if (topicList.isTracking) gestureIF.moved (topObject, mouse.x, mouse.y)
             }
+            onPressAndHold: { quitit () }
           }
         }
       }

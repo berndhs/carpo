@@ -89,8 +89,9 @@ Rectangle {
         Rectangle {
           id: feedButtonRect
           width: childrenRect.width; height: singleHeight*itemHeight
-          color: "#eeeeff"
-          Text { width: 48; text: "Feed" }
+          color: feedButtonColor
+          radius: 7
+          Text { horizontalAlignment:Text.AlignHCenter; width: 48; text: "Feed" }
           MouseArea {
             anchors.fill: parent
             onClicked: { 
@@ -109,7 +110,8 @@ Rectangle {
           id: storyButtonRect
           width: childrenRect.width; height: singleHeight*itemHeight
           color: storyButtonColor
-          Text { width: 48; text: "Story" }
+          radius: 7
+          Text { horizontalAlignment:Text.AlignHCenter; width: 48; text: "Story" }
           MouseArea {
             anchors.fill: parent
             onClicked: { 

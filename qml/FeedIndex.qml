@@ -39,16 +39,7 @@ Rectangle {
   signal quitit ()
   signal reportOrientation (int orient)
 
-  function nextStory () {
-    storyList.incrementCurrentIndex()
-  }
-  function flipOrientation () {
-    storyList.flipOrientation ()
-  }
-  function currentOrientation () { return storyList.orientation }
-  function reportCurrent () {
-    return storyList.currentIndex
-  }
+  function updateHeaderText () { headerText = storyList.model.feedTitle () }
   function shrink () {
     shrinkWidth.running = true; 
     shrinkScale.running = true; 
@@ -106,7 +97,7 @@ Rectangle {
         onClicked: {  selected (index, ident, title); storyList.currentIndex = index }
         onPressAndHold: { holdit (index, ident, title); storyList.currentIndex = index }
       }
-      Component.onCompleted: { headerText = storyList.model.feedTitle () }
+      Component.onCompleted: { updateHeaderText () }
     }
   }
   Component {
