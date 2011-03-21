@@ -65,7 +65,8 @@ NewRss::NewRss (QWidget *parent)
    configEdit (this),
    propStore (0),
    topicModel (this),
-   autoUpdate (feeds, this)
+   autoUpdate (feeds, this),
+   saveTimer (this)
 {
   feedListFile =  QDesktopServices::storageLocation 
               (QDesktopServices::DataLocation)
@@ -92,6 +93,8 @@ NewRss::NewRss (QWidget *parent)
     ui.qmlView->resize (qmlsize);
   }
   topicModel.SetFeedModel (&feeds);
+  connect (&saveTimer, SIGNAL (timeout()), this, SLOT (SaveFeedListModel()));
+  saveTimer.start (5*60*1000);  // 5 minutes
   Connect ();
 }
 

@@ -154,6 +154,7 @@ private:
   AutoUpdate           autoUpdate;
   QString              currentFeed;
   QString              currentStory;
+  QTimer               saveTimer;
 
 }; 
 
