@@ -51,9 +51,10 @@ public:
                              const QString & nick,
                              const QString & description,
                              const QString & topics);
+  Q_INVOKABLE void editFeed (const QString & id);
   Q_INVOKABLE void removeFeed (const QString & feedId);
   Q_INVOKABLE void probeFeed (const QString & url);
-  Q_INVOKABLE void checkAlert (const QString & alert);
+  Q_INVOKABLE bool checkAlert (const QString & alert);
   Q_INVOKABLE void moveUp (const QString & id);
   Q_INVOKABLE void moveDown (const QString & id);
   Q_INVOKABLE void changeTopic (const QString & newTopic);
@@ -62,6 +63,7 @@ public:
   Q_INVOKABLE void displayStory (const QString & feedId,
                                  const QString & title, 
                                  const QString & body);
+  Q_INVOKABLE bool addressKnown (const QString & urlString);
 
   void SetFeeds (FeedlistModel * feedList);
 

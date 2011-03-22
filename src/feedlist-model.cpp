@@ -71,6 +71,28 @@ FeedlistModel::contains (const QString & id) const
   return feedMap.contains (id);
 }
 
+bool
+FeedlistModel::haveFeedByAddress (const QString & xmlUrl)
+{
+  return addrToId.contains (xmlUrl);
+}
+
+QString
+FeedlistModel::FeedIdByAddress (const QString & xmlUrl)
+{
+  if (addrToId.contains(xmlUrl)) {
+    return addrToId[xmlUrl];
+  } else {
+    return QString();
+  }
+}
+
+Feed &
+FeedlistModel::FeedRefByAddress (const QString & xmlUrl)
+{
+  return feedMap[addrToId[xmlUrl]];
+}
+
 QVariant 
 FeedlistModel::data (const QModelIndex & index, int role) const
 {
@@ -91,11 +113,15 @@ FeedlistModel::data (const QModelIndex & index, int role) const
   return retval;
 }
 
-void
+bool
 FeedlistModel::addFeed (const Feed & newFeed)
 {
   QString ident (QString ("Feed_%1").arg(nextId++));
+  if (addrToId.contains (newFeed.values("xmlurl"))) {
+    return false;
+  }
   feedMap[ident] = newFeed;
+  addrToId[newFeed.values("xmlurl")] = ident;
   bool current = newFeed.topics().contains (currentTopic);
   if (current) {
     beginInsertRows (QModelIndex(), rowCount(), rowCount());
@@ -110,6 +136,7 @@ FeedlistModel::addFeed (const Feed & newFeed)
   if (current) {
     endInsertRows ();
   }
+  return true;
 }
 
 void
@@ -131,6 +158,8 @@ FeedlistModel::removeFeed (const QString & id)
   }
   mainIdents.removeAll (id);
   topicIdents.removeAll (id);
+  QString addr = feedMap[id].values("xmlurl");
+  addrToId.remove (addr);
   feedMap.remove (id);
   if (current) {
     endRemoveRows();

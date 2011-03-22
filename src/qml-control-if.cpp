@@ -73,6 +73,12 @@ qDebug () << "COntrolInterface :: feedClicked " << ident;
 }
 
 void
+ControlInterface::editFeed (const QString & id)
+{
+  emit EditFeed (id);
+}
+
+void
 ControlInterface::selectFeed (const QString & feedId)
 {
   emit ShowFeed (feedId);
@@ -145,13 +151,25 @@ ControlInterface::probeFeed (const QString & url)
   emit ProbeFeed (url);
 }
 
-void
+bool
 ControlInterface::checkAlert (const QString & alert)
 {
   if (alert.startsWith (Magic::PseudoAlertTag)) {
     handlePseudoAlert (alert);
+    return true;
   } else {
     qDebug () << "Unknown alert " << alert;
+    return false;
+  }
+}
+
+bool
+ControlInterface::addressKnown (const QString & urlString)
+{
+  if (feeds) {
+    return feeds->haveFeedByAddress (urlString);
+  } else {
+    return false;
   }
 }
 

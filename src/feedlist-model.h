@@ -46,18 +46,28 @@ private:
 
 public:
 
- 
-  FeedlistModel (QObject *parent=0);
+  /** \brief stuff invokable from QML */
+
   int rowCount (const QModelIndex & index = QModelIndex()) const;
   QVariant data (const QModelIndex & index, int role = Qt::DisplayRole) const;
 
-  void addFeed (const Feed & newFeed);
+  Q_INVOKABLE bool    haveFeedByAddress (const QString & xmlUrl);
+
+ 
+  /** other functions */
+
+  FeedlistModel (QObject *parent=0);
+
+
+  bool addFeed (const Feed & newFeed);
   void removeFeed (const QString & id);
   void moveUp (const QString & id);     // move id to lower index
   void moveDown (const QString & id);   // move id to higher index
 
-  Feed & FeedRef (const QString & id);
-  bool   contains (const QString & id) const;
+  bool    contains (const QString & id) const;
+  Feed  & FeedRef (const QString & id);
+  Feed  & FeedRefByAddress (const QString & xmlUrl);
+  QString FeedIdByAddress (const QString & xmlUrl);
 
   TopicIndexMap & topics ();
 
@@ -71,6 +81,7 @@ public:
                  bool isRead);
   bool Seenit (const QString & feedId, const QString & hash);
   bool HaveStory (const QString & feedId, const QString & hash);
+
 
   QStringList & feedIdList ();
  
@@ -98,6 +109,8 @@ private:
   friend class   FeedlistWriter;
 
   TopicIndexMap  topicIndex;
+
+  QMap <QString, QString>  addrToId;
 
 };
 

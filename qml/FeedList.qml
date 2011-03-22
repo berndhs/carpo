@@ -30,6 +30,7 @@ Rectangle {
   signal selected (int idx, string i, string t)
   signal selectMoveUp (string ident)
   signal selectMoveDown (string ident)
+  signal selectedLong (int idx, string i, string t)
   signal reportOrientation (int orient)
 
   function nextStory () {
@@ -97,7 +98,7 @@ Rectangle {
           Text { width: 48; text: "Dwn " }
           MouseArea {
             anchors.fill: parent
-           onClicked: { console.log ("move up " + ident + " row " + index) ; selectMoveDown (ident) }
+            onClicked: { selectMoveDown (ident) }
           }
         }
       }
@@ -111,7 +112,7 @@ Rectangle {
           Text { width: 32; text: "Up " }
           MouseArea {
             anchors.fill: parent
-            onClicked: { console.log ("move up " + ident + " row " + index) ; selectMoveUp (ident) }
+            onClicked: {  selectMoveUp (ident) }
           }
         }
       }
@@ -126,6 +127,10 @@ Rectangle {
           MouseArea {
             anchors.fill: parent
             onClicked: { selected (index, ident, title); feedList.currentIndex = index }
+            onPressAndHold: { 
+              selectedLong (index, ident, title)
+              feedList.currentIndex = index
+            }
           }
         }
       }

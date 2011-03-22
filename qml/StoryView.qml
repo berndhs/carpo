@@ -63,10 +63,10 @@ Flickable {
     settings.autoLoadImages: true
     settings.pluginsEnabled: true
     html: "<p>default <b>html</b>.</p>"
-         onAlert: {
-           controlIF.checkAlert (message);
-           console.log(message)
-        }
+    onAlert: {
+      controlIF.checkAlert (message)
+      console.log(message)
+    }
 
     function interceptOwnLink () { console.log ("own link clicked") }
          function doZoom(zoom,centerX,centerY)
@@ -107,6 +107,7 @@ Flickable {
                              doZoom(zf,clickX*zf,clickY*zf)
                           }
                         }
+
  SequentialAnimation {
              id: quickZoom
 

@@ -56,6 +56,16 @@ Rectangle {
     feedDetails.visible = false
     saveButtonRow.hide ()
   }
+  function checkAddress () {
+    var addr = addrInput.urlString
+    if (addr == "") {
+      popup.showIn (width, height, "Empty Address")
+    } else if (controlIF.addressKnown (addr)) {
+      popup.showIn (width, height, "Address Known")
+    } else {
+      popup.showIn (width, height, "Unknown Feed Address")
+    }
+  }
   signal startNewFeed (string url)
   signal deleteFeed (string ident)
   signal probeFeed (string url)
@@ -114,6 +124,18 @@ Rectangle {
       onClicked: {
         console.log ("Probe Feed")
         probeFeed (addrInput.urlString)
+      }
+    }
+    ChoiceButton {
+      id:checkButton
+      objectName: "FeedEditProbeButton"
+      labelText: "Check Address"
+      height: parent.height
+      color: "cyan"
+      anchors { left: probeButton.right; verticalCenter: deleteButton.verticalCenter }
+      onClicked: {
+        console.log ("Check Address")
+        checkAddress ()
       }
     }
   }
@@ -188,6 +210,9 @@ Rectangle {
       labelText: qsTr(" Site Topics ")
       labelWidth: feedDescription.labelWidth
     }
+  }
+  Popup {
+    id: popup
   }
   Connections {
     target: addrInput

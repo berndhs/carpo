@@ -157,7 +157,7 @@ Rectangle {
       }
       onSelectMoveUp: { controlIF.moveUp (ident) }
       onSelectMoveDown: { controlIF.moveDown (ident) }
-      onReportOrientation: { feedIF.listOrientation (orient) }
+      onSelectedLong: { showEdit (true); controlIF.editFeed (i) }
     }
     FeedIndex {
       id: feedIndexArea
