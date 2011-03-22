@@ -127,11 +127,11 @@ AutoUpdate::Init ()
 
 
   chaser = idList.begin();
-  for (int i=0; i<skip; i++) {
-    chaser++;
+  if (idList.count() > 0) {
+    for (int i=0; i<skip; i++) {
+      chaser++;
+    }
   }
-  qDebug () << "AutoUpdate skipped " << skip << " items, now at " 
-             << (idList.count() > 0 ? *chaser : "empty list" );
   connect (&updateTimer, SIGNAL (timeout()),
            this, SLOT (Poll()));
   connect (qnam, SIGNAL (finished (QNetworkReply *)),
