@@ -137,6 +137,12 @@ NewRss::DumpProperties ()
 void
 NewRss::Run ()
 {
+  QmlRun ();
+}
+
+void
+NewRss::QmlRun ()
+{
   qDebug () << " NewRss::Run";
   LoadList ();
   context = ui.qmlView->rootContext ();
@@ -190,16 +196,6 @@ NewRss::Reset ()
 void
 NewRss::Connect ()
 {
-  connect (ui.actionQuit, SIGNAL (triggered()),
-           this, SLOT (Quit()));
-  connect (ui.actionLoadList, SIGNAL (triggered()),
-           this, SLOT (LoadList ()));
-  connect (ui.actionAbout, SIGNAL (triggered()),
-           this, SLOT (ShowAbout()));
-  connect (ui.actionLicense, SIGNAL (triggered()),
-           this, SLOT (ShowLicense()));
-  connect (ui.actionReset, SIGNAL (triggered()),
-           this, SLOT (Reset ()));
   connect (qnam, SIGNAL (finished (QNetworkReply *)),
            this, SLOT (FinishedNet (QNetworkReply *)));
   connect (feedIF, SIGNAL (ShowStory (const QString &)),
@@ -232,6 +228,12 @@ NewRss::Connect ()
            this, SLOT (DisplayStory (const QString &,
                                             const QString &,
                                             const QString &)));
+  connect (controlIF, SIGNAL (Restart ()),
+           this, SLOT (Restart ()));
+  connect (controlIF, SIGNAL (Exit()),
+           this, SLOT (Quit()));
+  connect (controlIF, SIGNAL (GetHelp ()),
+           this, SLOT (ShowAbout()));
   connect (&autoUpdate, SIGNAL (NewestRow (int)),
            this, SLOT (NewestNewsRow (int)));
 }
@@ -501,8 +503,9 @@ NewRss::NewestNewsRow (int row)
 void
 NewRss::Restart ()
 {
-  runAgain = true;
-  QTimer::singleShot (250, this, SLOT (Quit()));
+  qDebug () << "NewRss :: Restart";
+  autoUpdate.Stop ();
+  QTimer::singleShot (100, this, SLOT (QmlRun()));
 }
 
 bool
@@ -725,6 +728,7 @@ NewRss::LoadList ()
 {
   if (feedlistParser) {
     topFolder.clear ();
+    feeds.clear ();
     CheckExists (feedListFile);
     feedlistParser->Read (topFolder, feedListFile);
     FillFeedModel (topFolder, feeds);

@@ -61,6 +61,7 @@ Rectangle {
     if (addr == "") {
       popup.showIn (width, height, "Empty Address")
     } else if (controlIF.addressKnown (addr)) {
+      loadEditFeed (addr)
       popup.showIn (width, height, "Address Known")
     } else {
       popup.showIn (width, height, "Unknown Feed Address")
@@ -69,6 +70,7 @@ Rectangle {
   signal startNewFeed (string url)
   signal deleteFeed (string ident)
   signal probeFeed (string url)
+  signal loadEditFeed (string addr)
   signal saveFeed (string ident, string feedUrl, string title, string siteUrl, 
                    string nick, string descr, string topics)
   id: feedEdit

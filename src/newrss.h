@@ -69,6 +69,7 @@ public:
 private slots:
 
   void Quit ();
+  void QmlRun ();
   void LoadList ();
   void FinishedNet (QNetworkReply * reply);
   void ShowStory (const QString & id);

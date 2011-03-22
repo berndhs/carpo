@@ -51,13 +51,11 @@ public:
   int rowCount (const QModelIndex & index = QModelIndex()) const;
   QVariant data (const QModelIndex & index, int role = Qt::DisplayRole) const;
 
-  Q_INVOKABLE bool    haveFeedByAddress (const QString & xmlUrl);
-
- 
   /** other functions */
 
   FeedlistModel (QObject *parent=0);
 
+  void clear ();
 
   bool addFeed (const Feed & newFeed);
   void removeFeed (const QString & id);
@@ -65,6 +63,8 @@ public:
   void moveDown (const QString & id);   // move id to higher index
 
   bool    contains (const QString & id) const;
+  bool    haveFeedByAddress (const QString & xmlUrl) const;
+ 
   Feed  & FeedRef (const QString & id);
   Feed  & FeedRefByAddress (const QString & xmlUrl);
   QString FeedIdByAddress (const QString & xmlUrl);

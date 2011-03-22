@@ -46,6 +46,19 @@ FeedlistModel::FeedlistModel (QObject *parent)
   setRoleNames(roles);
 }
 
+
+void
+FeedlistModel::clear ()
+{
+  beginResetModel ();
+  topicIndex.clear ();
+  mainIdents.clear ();
+  topicIdents.clear ();
+  currentTopic = QString ();
+  addrToId.clear ();
+  endResetModel ();
+}
+
 TopicIndexMap &
 FeedlistModel::topics ()
 {
@@ -72,7 +85,7 @@ FeedlistModel::contains (const QString & id) const
 }
 
 bool
-FeedlistModel::haveFeedByAddress (const QString & xmlUrl)
+FeedlistModel::haveFeedByAddress (const QString & xmlUrl) const
 {
   return addrToId.contains (xmlUrl);
 }

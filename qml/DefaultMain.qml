@@ -48,15 +48,6 @@ Rectangle {
     displayWidth = w
     displayHeight = h
   }
-  function turnIndex () {
-    feedIndexArea.flipOrientation()
-    feedListArea.flipOrientation()
-    if (feedIndexArea.currentOrientation() == ListView.Horizontal) {
-      indexHeight = horizontalIndexHeight 
-    } else {
-      indexHeight = verticalIndexHeight
-    }
-  }
   function shrinkFeedIndex () {
     feedIndexArea.shrink ()
   }
@@ -106,6 +97,8 @@ Rectangle {
     onHideTopics: { topicListArea.hide () }
     onShowRecent: { streamListArea.show () }
     onHideRecent: { streamListArea.hide () }
+    onSelectQuit: { controlIF.exitApp () }
+    onSelectHelp: { controlIF.help () }
   }
   Rectangle {
     id: indexBox
@@ -322,6 +315,9 @@ Rectangle {
       onProbeFeed: {
         controlIF.probeFeed (url)
       }
+      onLoadEditFeed: {
+        controlIF.loadEditFeed (addr)
+      }
     }
   }
   ConfigList {
@@ -332,10 +328,12 @@ Rectangle {
     isShown: false
     color: mainBackgroundColor
     z: indexBox.z + 1
-    width:parent.width
+    normalWidth:parent.width -4
     height: parent.height
-    anchors { top: controlPanel.bottom; }
+    anchors { top: controlPanel.bottom; leftMargin: 4}
     onUpdateConfigItem: { configIF.updateValue (theGroup, theKey, newValue) }
+    onDoneConfig: { configList.hide (); indexBox.show () }
+    onRestartConfig: { controlIF.restartApp () }
   }
   Connections {
     target: controlPanel

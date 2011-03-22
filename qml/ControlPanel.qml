@@ -33,6 +33,8 @@ Rectangle {
   signal hideTopics ()
   signal showRecent ()
   signal hideRecent ()
+  signal selectQuit ()
+  signal selectHelp ()
   property string choiceButtonColor: "sandybrown"
   property string detailButtonColor: "sandybrown"
   property string maintainButtonColor: "sandybrown"
@@ -55,6 +57,24 @@ Rectangle {
       controlSelect (mouseX, mouseY) 
     }
   }
+  ChoiceButton {   
+    id: offButton
+    width: (parent.width - buttonRow.width)/ 3
+    anchors { right: buttonRow.left }
+    color : "#e0e0e0"
+    height: parent.height
+    labelText: "Quit"
+    onClicked: selectQuit()
+  }
+  ChoiceButton {   
+    id: helpButton
+    width: (parent.width - buttonRow.width)/3
+    anchors { left: buttonRow.right}
+    color : "#e0e0e0"
+    height: parent.height
+    labelText: " ? "
+    onClicked: selectHelp()
+  }
   Rectangle {
     id: buttonRow
     width: childrenRect.width
@@ -67,7 +87,8 @@ Rectangle {
       height: parent.height
       z: 2
       color: choiceButtonColor
-      anchors { left: parent.left; leftMargin: 2; rightMargin: 2 }
+      anchors { left: parent.left }
+      radius: height/2
       MouseArea {
         anchors.fill: parent
         onClicked: { 
@@ -83,14 +104,15 @@ Rectangle {
       height: parent.height
       z: 2
       color: detailButtonColor
-      anchors { left: indexButton.right; leftMargin: 2; rightMargin: 2 }
+      anchors { left: indexButton.right }
+      radius: height/2
       MouseArea {
         anchors.fill: parent
         onClicked: { 
           moreSelect () 
         }
       }
-      Text { text: "Detail On/Off"; anchors.centerIn: parent }
+      Text { text: "Edit Feed"; anchors.centerIn: parent }
     }
     Rectangle {
       id: maintainButton
@@ -98,7 +120,8 @@ Rectangle {
       height: parent.height
       z: 2
       color: maintainButtonColor
-      anchors { left: detailButton.right; leftMargin: 2; rightMargin: 2 }
+      anchors { left: detailButton.right }
+      radius: height/2
       MouseArea {
         anchors.fill: parent
         onClicked: { 

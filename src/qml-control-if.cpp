@@ -52,6 +52,24 @@ ControlInterface::setEditingFeed (bool editing)
   qDebug () << "ControlInterface::setEditingFeed " << editing;
 }
 
+void
+ControlInterface::restartApp ()
+{
+  emit Restart ();
+}
+
+void
+ControlInterface::help ()
+{
+  emit GetHelp ();
+}
+
+void
+ControlInterface::exitApp ()
+{
+  emit Exit ();
+}
+
 bool
 ControlInterface::editingFeed ()
 {
@@ -76,6 +94,16 @@ void
 ControlInterface::editFeed (const QString & id)
 {
   emit EditFeed (id);
+}
+
+void
+ControlInterface::loadEditFeed (const QString & urlString)
+{
+  if (feeds) {
+    if (feeds->haveFeedByAddress (urlString)) {
+      emit EditFeed (feeds->FeedIdByAddress (urlString));
+    }
+  }
 }
 
 void

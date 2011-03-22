@@ -26,8 +26,9 @@ import QtQuick 1.0
 Rectangle { 
   property real normalWidth: parent.width
   property real widthRatio: 0.25
-  property real keyFieldWidth: normalWidth*widthRatio
-  property real valueFieldWidth: normalWidth*(1 - widthRatio)
+  property real embedMargin: 6
+  property real keyFieldWidth: normalWidth*widthRatio - embedMargin
+  property real valueFieldWidth: normalWidth*(1 - widthRatio) - embedMargin
   property real shrinkDelay: 250
   property real itemHeight: 32
   property bool isShown: true
@@ -37,6 +38,8 @@ Rectangle {
   property real leftMargin: 10
   property real rightMargin: 10
   signal updateConfigItem (string theGroup, string theKey, string newValue)
+  signal restartConfig ()
+  signal doneConfig ()
   function hide () {
     console.log ("ConfList hide")
     shrinkScale.running = true
@@ -67,10 +70,33 @@ Rectangle {
     to: 1
     duration: shrinkDelay
   }
+  Rectangle {
+    id: buttonRow
+    height: childrenRect.height
+    width: childrenRect.width
+    anchors { horizontalCenter: parent.horizontalCenter }
+    color: "transparent"
+    ChoiceButton {
+      id: saveConfigButton
+      height: itemHeight * 1.2
+      labelText: "Restart"
+      onClicked: { console.log ("Restart config clicked "); restartConfig() }
+    }
+    ChoiceButton {
+      id: doneConfigButton
+      anchors { left: saveConfigButton.right }
+      height: itemHeight * 1.2
+      labelText: "Done"
+      onClicked: { console.log ("Done config clicked "); doneConfig () }
+    }
+  }
   Component {
     id: verticalConfigDelegate
-    Item {
-      width: parent.width; height: itemHeight
+    Rectangle {
+      width: parent.width
+      height: itemHeight; 
+      radius: 4
+      color: "transparent"
       anchors.topMargin: 2
       Column { 
         id: keyColumn
@@ -83,6 +109,7 @@ Rectangle {
           width: parent.width
           height: parent.height - 2
           color: keyBackgroundColor  
+          radius: 4
           z: parent.z + 1
           Text {  
             anchors.left: parent.left
@@ -104,6 +131,7 @@ Rectangle {
           width: parent.width
           height: parent.height -2
           color: valueBackgroundColor
+          radius: 4
           z: parent.z + 1
           TextInput {
             id: valueField
@@ -135,13 +163,14 @@ Rectangle {
     delegate: verticalConfigDelegate
     clip: false
     width: parent.width - 4
-    height: parent.height -4
+    height: parent.height -itemHeight - buttonRow.height
     currentIndex: -1
     contentWidth: childrenRect.width; contentHeight: childrenRect.height
-    anchors.top: parent.top
+    anchors.top: buttonRow.bottom
     anchors.topMargin: 6
     orientation: ListView.Vertical
     model: configModel
-    highlight: Rectangle { color: "oldlace"; radius: 5 }
+    snapMode: ListView.SnapToItem
+    highlight: Rectangle { color: "#ffbbbb"; radius: 5 }
   }
 }

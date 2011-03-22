@@ -52,6 +52,7 @@ public:
                              const QString & description,
                              const QString & topics);
   Q_INVOKABLE void editFeed (const QString & id);
+  Q_INVOKABLE void loadEditFeed (const QString & urlString);
   Q_INVOKABLE void removeFeed (const QString & feedId);
   Q_INVOKABLE void probeFeed (const QString & url);
   Q_INVOKABLE bool checkAlert (const QString & alert);
@@ -64,6 +65,9 @@ public:
                                  const QString & title, 
                                  const QString & body);
   Q_INVOKABLE bool addressKnown (const QString & urlString);
+  Q_INVOKABLE void restartApp ();
+  Q_INVOKABLE void exitApp ();
+  Q_INVOKABLE void help ();
 
   void SetFeeds (FeedlistModel * feedList);
 
@@ -78,6 +82,9 @@ signals:
   void BrowseLinkExternal (const QString & storyId);
   void BrowseLinkLocal (const QString & storyId);
   void ListUpdated ();
+  void Restart ();
+  void Exit ();
+  void GetHelp ();
 
 private:
 
