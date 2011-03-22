@@ -83,79 +83,43 @@ Rectangle {
     id: verticalDelegate
     Item {
       width: normalWidth; height: 2*singleHeight*itemHeight
-      Column {
-        id: feedButtonColumn
-        anchors {left: parent.left }
-        Rectangle {
-          id: feedButtonRect
-          width: childrenRect.width; height: singleHeight*itemHeight
-          color: feedButtonColor
-          radius: 7
-          Text { horizontalAlignment:Text.AlignHCenter; width: 48; text: "Feed" }
-          MouseArea {
-            anchors.fill: parent
-            onClicked: { 
-              console.log ("click feed button ")
-              selectFeed (feedId); 
-              streamList.currentIndex = index 
-            }
-            onPressAndHold : { quitit () }
-          }
-        }
-      }
-      Column {
-        id: storyButtonColumn
-        anchors {left: feedButtonColumn.right }
-        Rectangle {
-          id: storyButtonRect
-          width: childrenRect.width; height: singleHeight*itemHeight
-          color: storyButtonColor
-          radius: 7
-          Text { horizontalAlignment:Text.AlignHCenter; width: 48; text: "Story" }
-          MouseArea {
-            anchors.fill: parent
-            onClicked: { 
-              console.log ("click story button ")
-              selectStory (feedId, storyTitle, storyHash); 
-              streamList.currentIndex = index 
-            }
-            onPressAndHold : { quitit () }
-          }
-        }
-      }
       Column { 
         id: itemColumn
-        anchors { left: storyButtonColumn.right }
+        anchors { left: parent.left }
         Rectangle {
-          id: itemFeedRect
-          width: normalWidth; height: singleHeight*itemHeight 
+          id: itemRect
+          width: normalWidth; height: 2*singleHeight*itemHeight
           color: feedLineColor
-          Text { text: feedTitle }
-          MouseArea {
-            anchors.fill: parent
-            onClicked: {  
-              console.log ("click feed rect ")
-              selectFeed (feedId); 
-              streamList.currentIndex = index 
+          radius: 5
+          Rectangle {
+            id: itemFeedRect
+            width: normalWidth; height: singleHeight*itemHeight 
+            color: feedLineColor
+            Text { text: feedTitle }
+            MouseArea {
+              anchors.fill: parent
+              onClicked: {  
+                selectStory (feedId, storyTitle, storyHash); 
+                streamList.currentIndex = index 
+              }
+              onPressAndHold : { quitit () }
+            }  
+          }
+          Rectangle {
+            id: itemTitleRect
+            width: normalWidth; height: singleHeight*itemHeight 
+            x: itemFeedRect.x
+            y: itemFeedRect.y + itemFeedRect.height 
+            color: storyLineColor
+            Text { text: storyTitle } 
+            MouseArea {
+              anchors.fill: parent
+              onClicked: {  
+                selectStory (feedId, storyTitle, storyHash); 
+                streamList.currentIndex = index 
+              }
+              onPressAndHold : { quitit () }
             }
-            onPressAndHold : { quitit () }
-          }  
-        }
-        Rectangle {
-          id: itemTitleRect
-          width: normalWidth; height: singleHeight*itemHeight 
-          x: itemFeedRect.x
-          y: itemFeedRect.y + itemFeedRect.height 
-          color: storyLineColor
-          Text { text: storyTitle } 
-          MouseArea {
-            anchors.fill: parent
-            onClicked: {  
-              console.log ("click story rect ")
-              selectStory (feedId, storyTitle, storyHash); 
-              streamList.currentIndex = index 
-            }
-            onPressAndHold : { quitit () }
           }
         }
       }
