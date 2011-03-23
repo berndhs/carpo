@@ -91,6 +91,7 @@ public:
 signals:
  
   void ListChanged ();
+  void TopicChanged ();
 
 private:
 

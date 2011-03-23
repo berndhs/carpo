@@ -44,8 +44,8 @@ Flickable {
 
   id: flickable
 
-  function back () { console.log ("Back!!"); theWebView.back.trigger() }
-  function forward () { console.log ("Forward ->>>" ); theWebView.forward.trigger () }
+  //function back () { console.log ("Back!!"); theWebView.back.trigger() }
+  //function forward () { console.log ("Forward ->>>" ); theWebView.forward.trigger () }
   function setTheHtml (theHtml) {
     theWebView.isLoadFinished = true
     theWebView.html = theHtml

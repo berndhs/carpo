@@ -93,6 +93,7 @@ private slots:
   void Restart ();
   void Reset ();
   void NewestNewsRow (int row);
+  void TopicChanged ();
 
 protected:
 

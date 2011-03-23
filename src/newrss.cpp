@@ -213,9 +213,11 @@ NewRss::Connect ()
   connect (controlIF, SIGNAL (EditFeed (const QString &)),
            this, SLOT (EditFeed (const QString &)));
   connect (controlIF, SIGNAL (ListUpdated ()),
-           this, SLOT (MayebSave ()));
+           this, SLOT (MaybeSave ()));
   connect (&feeds, SIGNAL (ListChanged ()),
            this, SLOT (SaveFeedListModel ()));
+  connect (&feeds, SIGNAL (TopicChanged ()),
+           this, SLOT (TopicChanged ()));
   connect (controlIF, SIGNAL (ProbeFeed (const QString &)),
            this, SLOT (ProbeFeed (const QString &)));
   connect (controlIF, SIGNAL (BrowseLinkExternal (const QString &)),
@@ -410,6 +412,13 @@ void
 NewRss::ExpandIndex ()
 {
   ShowList ("FeedIndex");
+}
+
+void
+NewRss::TopicChanged ()
+{
+  HideList ("FeedIndex");
+  ShowList ("FeedList");
 }
 
 void

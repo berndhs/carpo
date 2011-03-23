@@ -239,6 +239,7 @@ FeedlistModel::changeTopic (const QString & newTopic)
   }
   endResetModel ();
   emit dataChanged (createIndex (0,0), createIndex ((*idents).count()-1,0));
+  emit TopicChanged ();
 }
 
 void
