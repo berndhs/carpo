@@ -63,6 +63,7 @@ Flickable {
     settings.autoLoadImages: true
     settings.pluginsEnabled: true
     html: "<p>default <b>html</b>.</p>"
+    property bool isLoadFinished : false
     onAlert: {
       controlIF.checkAlert (message)
       console.log(message)
@@ -76,10 +77,13 @@ Flickable {
     contentsScale: 1
     onContentsSizeChanged: {
       // zoom out
-      contentsScale = Math.min(1,flickable.width / contentsSize.width)
+      if (isLoadFinished) {
+        contentsScale = Math.min(1,flickable.width / contentsSize.width)
+      }
     }
     onUrlChanged: {
       // got to topleft
+      isLoadFinished = false
       flickable.contentX = 0
       flickable.contentY = 0
     }
@@ -90,5 +94,8 @@ Flickable {
         doZoom(zf,clickX*zf,clickY*zf)
       }
     } 
+    onLoadFinished: { isLoadFinished = true }
+    onLoadFailed: { isLoadFinished = true }
+    onLoadStarted: { isLoadFinished = false }
   }
 }
