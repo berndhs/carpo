@@ -85,6 +85,8 @@ signals:
   void Restart ();
   void Exit ();
   void GetHelp ();
+  void ShowLicense ();
+  void ShowManual ();
 
 private:
 

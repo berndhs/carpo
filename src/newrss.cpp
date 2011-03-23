@@ -93,7 +93,7 @@ NewRss::NewRss (QWidget *parent)
     ui.qmlView->resize (qmlsize);
   }
   topicModel.SetFeedModel (&feeds);
-  connect (&saveTimer, SIGNAL (timeout()), this, SLOT (SaveFeedListModel()));
+  connect (&saveTimer, SIGNAL (timeout()), this, SLOT (MaybeSave()));
   saveTimer.start (5*60*1000);  // 5 minutes
   Connect ();
 }
@@ -213,7 +213,7 @@ NewRss::Connect ()
   connect (controlIF, SIGNAL (EditFeed (const QString &)),
            this, SLOT (EditFeed (const QString &)));
   connect (controlIF, SIGNAL (ListUpdated ()),
-           this, SLOT (SaveFeedListModel ()));
+           this, SLOT (MayebSave ()));
   connect (&feeds, SIGNAL (ListChanged ()),
            this, SLOT (SaveFeedListModel ()));
   connect (controlIF, SIGNAL (ProbeFeed (const QString &)),
@@ -234,6 +234,10 @@ NewRss::Connect ()
            this, SLOT (Quit()));
   connect (controlIF, SIGNAL (GetHelp ()),
            this, SLOT (ShowAbout()));
+  connect (controlIF, SIGNAL (ShowLicense ()),
+           this, SLOT (ShowLicense()));
+  connect (controlIF, SIGNAL (ShowManual ()),
+           this, SLOT (ShowManual ()));
   connect (&autoUpdate, SIGNAL (NewestRow (int)),
            this, SLOT (NewestNewsRow (int)));
 }
@@ -253,8 +257,12 @@ NewRss::ShowStory (const QString & id)
     QString browseButton ("<button type=\"button\" "
                        "onClick=\"alert('%1')\">%2</button>");
     QString buttons = QString ("<span style=\"font-size:small\"> ")
-                     + browseButton.arg(tagBrowseHere).arg("Here")
-                     + browseButton.arg(tagBrowseBrowser).arg("Browser")
+                     + browseButton
+                        .arg(tagBrowseHere)
+                        .arg(tr("Here"))
+                     + browseButton
+                        .arg(tagBrowseBrowser)
+                        .arg(tr("Browser"))
                      + QString( "</span>");
     QString date (tr(" date unknown "));
     if (storyDates.contains(id)) {
@@ -351,6 +359,16 @@ NewRss::ShowAbout ()
                 .arg(ProgramVersion::Version()
                       + "\r\n\r\n"
                       + configMessages.join("\r\n")));
+  QString button ("<button type=\"button\" "
+                       "onClick=\"alert('%1')\">%2</button>");
+  QString licenseButton (button
+             .arg (Magic::PseudoAlertTag + "/license/")
+             .arg (tr("License")));
+  QString manualButton (button
+             .arg (Magic::PseudoAlertTag + "/manual/")
+             .arg (tr("Manual")));
+  about.append (QString ("<br><div>%1&nbsp;%2</div>")
+             .arg (licenseButton).arg (manualButton));
   QMetaObject::invokeMethod (qmlRoot, "setTheHtml",
                  Q_ARG (QVariant, about));
 }
@@ -363,6 +381,13 @@ NewRss::ShowLicense ()
   QByteArray lictext = licfile.readAll();
   QMetaObject::invokeMethod (qmlRoot, "setTheHtml",
                 Q_ARG (QVariant, "<pre>\n" + lictext + "\n</pre>\n"));
+}
+
+void
+NewRss::ShowManual ()
+{
+  QMetaObject::invokeMethod (qmlRoot, "setTheHtml",
+                Q_ARG (QVariant, QString ("Manual Page goes here")));
 }
 
 void
@@ -387,7 +412,9 @@ NewRss::ExpandIndex ()
 void
 NewRss::Quit ()
 {
-  SaveFeedListModel (false);
+  if (feeds.dirty ()) {
+    SaveFeedListModel (false);
+  }
   Settings().setValue("geometry", saveGeometry());
   Settings().setValue("sizes/qml", ui.qmlView->size());
   Settings().sync();
@@ -716,7 +743,9 @@ NewRss::resizeEvent (QResizeEvent *event)
 void
 NewRss::closeEvent (QCloseEvent *event)
 {
-  SaveFeedListModel (false);
+  if (feeds.dirty ()) {
+    SaveFeedListModel (false);
+  }
   Settings().setValue("geometry", saveGeometry());
   Settings().setValue("sizes/qml", ui.qmlView->size());
   Settings().sync();
@@ -764,17 +793,27 @@ NewRss::FillFeedModel (const Folder & folder, FeedlistModel & model)
 }
 
 void
+NewRss::MaybeSave ()
+{
+  if (feeds.dirty()) {
+    SaveFeedListModel (false);
+  }
+}
+
+void
 NewRss::SaveFeedListModel (bool reindex)
 {
   qDebug () << " NewRss  ::  SaveFeedListModel " << reindex;
   if (reindex) {
     topicModel.ReIndex ();
   }
+   
   QFile saveFile (feedListFile);
   saveFile.open (QFile::WriteOnly);
   FeedlistWriter writer;
   writer.write (&feeds, &saveFile);
   saveFile.close ();
+  feeds.setDirty (false);
 }
 
 } // namespace

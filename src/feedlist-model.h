@@ -57,6 +57,9 @@ public:
 
   void clear ();
 
+  bool dirty () { return isDirty; }
+  void setDirty (bool d) { isDirty = d; }
+
   bool addFeed (const Feed & newFeed);
   void removeFeed (const QString & id);
   void moveUp (const QString & id);     // move id to lower index
@@ -96,6 +99,7 @@ private:
      Type_Title = Qt::UserRole+2
   };
 
+  bool           isDirty;
   QStringList    *idents;
 
   QStringList     mainIdents;

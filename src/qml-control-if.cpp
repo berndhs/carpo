@@ -216,6 +216,10 @@ ControlInterface::handlePseudoAlert (const QString & alert)
       if (numParts > 2) {
         emit BrowseLinkExternal (parts.at(2));
       }
+    } else if (command == "license") {
+      emit ShowLicense ();
+    } else if (command == "manual") {
+      emit ShowManual ();
     }
   }
 }

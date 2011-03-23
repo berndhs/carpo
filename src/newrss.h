@@ -84,9 +84,11 @@ private slots:
   void HideList (const QString & list);
   void ShowAbout ();
   void ShowLicense ();
+  void ShowManual ();
   void ShrinkIndex ();
   void ExpandIndex ();
   void SaveFeedListModel (bool reindex=false);
+  void MaybeSave ();
   void ProbeFeed (const QString & urlString);
   void Restart ();
   void Reset ();

@@ -38,6 +38,7 @@ int FeedlistModel::nextId (555);
 
 FeedlistModel::FeedlistModel (QObject *parent)
   :QAbstractListModel(parent),
+   isDirty (false),
    idents (&mainIdents)
 {
   QHash<int, QByteArray> roles;
@@ -56,6 +57,7 @@ FeedlistModel::clear ()
   topicIdents.clear ();
   currentTopic = QString ();
   addrToId.clear ();
+  isDirty = false;
   endResetModel ();
 }
 
@@ -149,6 +151,7 @@ FeedlistModel::addFeed (const Feed & newFeed)
   if (current) {
     endInsertRows ();
   }
+  isDirty = true;
   return true;
 }
 
@@ -159,6 +162,7 @@ FeedlistModel::removeFeed (const QString & id)
   if (indexMain < 0) {
     return;
   }
+  isDirty = true;
   int indexTopic = topicIdents.indexOf (id);
   bool current = indexTopic >= 0;
   if (current) {
@@ -191,6 +195,7 @@ FeedlistModel::moveUp (const QString & id)
 {
   int ndx = (*idents).indexOf (id);
   if (ndx > 0)  {
+    isDirty = true;
     (*idents).move (ndx, ndx-1);
     emit dataChanged (createIndex (ndx-1,0), createIndex (ndx,0));
     emit ListChanged ();
@@ -202,6 +207,7 @@ FeedlistModel::moveDown (const QString & id)
 {
   int ndx = (*idents).indexOf (id);
   if (ndx >= 0 && ndx < (*idents).count() - 1)  {
+    isDirty = true;
     (*idents).move (ndx, ndx+1);
     emit dataChanged (createIndex (ndx,0), createIndex (ndx+1,0));
     emit ListChanged ();
@@ -240,6 +246,7 @@ FeedlistModel::MarkRead (const QString & feedId,
                          const QString & storyText, 
                                     bool isRead)
 {
+  isDirty = true;
   QString hash (QCryptographicHash::hash (storyText.toUtf8().data(),
                                             QCryptographicHash::Md5).toHex());
   feedMap[feedId].storyMarks()[hash] = 
@@ -252,6 +259,7 @@ FeedlistModel::MarkHashRead (const QString & feedId,
                          const QString & hash, 
                                     bool isRead)
 {
+  isDirty = true;
   feedMap[feedId].storyMarks()[hash] = 
          StoryMark (hash, isRead ? "y" : "n",
                     QDateTime::currentDateTime().toTime_t());
@@ -262,6 +270,7 @@ FeedlistModel::Seenit (const QString & feedId, const QString & hash)
 {
   StoryMarkMap  stories (feedMap[feedId].storyMarks());
   if (stories.contains (hash)) {
+    isDirty = true;
     return stories[hash].readit == "y";
   }
   return false;
