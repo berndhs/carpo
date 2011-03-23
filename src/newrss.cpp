@@ -386,8 +386,11 @@ NewRss::ShowLicense ()
 void
 NewRss::ShowManual ()
 {
+  QFile manuFile (":/help/manual.html");
+  manuFile.open (QFile::ReadOnly);
+  QByteArray manuHtml = manuFile.readAll();
   QMetaObject::invokeMethod (qmlRoot, "setTheHtml",
-                Q_ARG (QVariant, QString ("Manual Page goes here")));
+                Q_ARG (QVariant,QString (manuHtml)));
 }
 
 void

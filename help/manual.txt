@@ -1,0 +1,31 @@
+DRSS2 Manual
+==============
+Bernd Stramm <bernd.stramm@gmail.com>
+v0.5.0, March 2011
+
+*DRSS2* is an RSS/Atom feed reader.
+
+== License and Warranty ==
+
+This is free open source software, hence the usual licensing. And the 
+usual warranty, or lack thereof:
+
+****
+These programs are distributed under the terms of the 
+GNU General Public License version 2.
+
+See the file *LICENSE.txt* for the complete text of the license. You can
+also find it on http://www.gnu.org. Or you can select *Help->License* from the
+menu bar to see a copy.
+
+This software is distributed in the hope that it will be useful, 
+but WITHOUT ANY WARRANTY; without even the implied warranty 
+of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. 
+****
+
+
+____
+
+ 
+~Copyright (C) 2011 Bernd Stramm All Rights Reserved~
+____
