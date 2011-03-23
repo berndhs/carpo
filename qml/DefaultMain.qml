@@ -38,7 +38,7 @@ Rectangle {
   property real displayHeight: 400
   property real shrinkDelay: 250
 
-  function setTheHtml (theHtml) { storyView.storyHtml = theHtml }
+  function setTheHtml (theHtml) { storyView.setTheHtml (theHtml) }
   function setTheUrl (theUrl)   { storyView.url = theUrl }
 
   function newestNewsRow (theRow) { streamListArea.setNewestRow (theRow) }

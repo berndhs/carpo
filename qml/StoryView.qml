@@ -22,7 +22,7 @@
  ****************************************************************/
 
 /**
-  *  Parts of this file are from the QtDeclarative module (Qt4.7.1),
+  *  Small parts of this file are from the QtDeclarative module (Qt4.7.1),
   *  used under the conditions of the LGPL version 2.
   */
 
@@ -46,6 +46,10 @@ Flickable {
 
   function back () { console.log ("Back!!"); theWebView.back.trigger() }
   function forward () { console.log ("Forward ->>>" ); theWebView.forward.trigger () }
+  function setTheHtm (theHtml) {
+    storyView.isLoadFinished = true
+    storyView.html = theHtml
+  }
   anchors.left: parent.left
   anchors.right: parent.right
   width: parent.width
@@ -53,10 +57,10 @@ Flickable {
   contentWidth: Math.max(parent.width,theWebView.width)
   contentHeight: Math.max(parent.height,theWebView.height)
   onWidthChanged : {
-         // Expand (but not above 1:1) if otherwise would be smaller that available width.
-         if (width > theWebView.width*theWebView.contentsScale && theWebView.contentsScale < 1.0)
-             theWebView.contentsScale = width / theWebView.width * theWebView.contentsScale;
-     }
+    // Expand (but not above 1:1) if otherwise would be smaller that available width.
+    if (width > theWebView.width*theWebView.contentsScale && theWebView.contentsScale < 1.0)
+      theWebView.contentsScale = width / theWebView.width * theWebView.contentsScale;
+  }
 
   WebView {
     id: theWebView
