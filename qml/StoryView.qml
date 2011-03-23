@@ -46,9 +46,9 @@ Flickable {
 
   function back () { console.log ("Back!!"); theWebView.back.trigger() }
   function forward () { console.log ("Forward ->>>" ); theWebView.forward.trigger () }
-  function setTheHtm (theHtml) {
-    storyView.isLoadFinished = true
-    storyView.html = theHtml
+  function setTheHtml (theHtml) {
+    theWebView.isLoadFinished = true
+    theWebView.html = theHtml
   }
   anchors.left: parent.left
   anchors.right: parent.right
