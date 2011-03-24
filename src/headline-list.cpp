@@ -39,6 +39,9 @@ HeadlineList::clear ()
 bool
 HeadlineList::removeRows (int begin, int end, const QModelIndex & parent)
 {
+  if (end < begin) {
+    return true;
+  }
   beginRemoveRows (parent, begin, end);
   for (int i=end; i>= begin; i--) {
     rows.removeAt (i);
