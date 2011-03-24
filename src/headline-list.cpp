@@ -31,7 +31,9 @@ void
 HeadlineList::clear ()
 {
   int oldRows = rows.count();
-  removeRows (0,oldRows-1);
+  if (oldRows > 0) {
+    removeRows (0,oldRows-1);
+  }
 }
 
 bool
