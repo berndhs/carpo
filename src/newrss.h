@@ -107,7 +107,9 @@ private:
                       const QString & contentTag,
                       const QString & dateTag1,
                       const QString & dateTag2 = QString());
-  void  FillFeedModel (const Folder & folder, FeedlistModel & model);
+  void  FillFeedModel (const Folder & folder, 
+                       FeedlistModel & model,
+                       const QStringList & parentFolders = QStringList ());
   void  LoadFeed (const QString & urlString, 
                   const QString & storyHash = QString());
   void  GetFeedReply (QNetworkReply * reply,  

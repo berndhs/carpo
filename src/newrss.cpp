@@ -792,15 +792,22 @@ NewRss::CheckExists (const QString & filename)
 }
 
 void
-NewRss::FillFeedModel (const Folder & folder, FeedlistModel & model)
+NewRss::FillFeedModel (const Folder & folder, 
+                       FeedlistModel & model,
+                       const QStringList & parentFolders)
 {
   int nfee = folder.childFeeds.count();
+  QStringList importFolders (parentFolders);
   for (int i=0; i<nfee; i++) {
-    model.addFeed (folder.childFeeds.at(i));
+    Feed feed = folder.childFeeds.at(i);
+    feed.topics().append (parentFolders);
+    model.addFeed (feed);
   }
   int nfol = folder.childFolders.count();
   for (int i=0; i<nfol; i++) {
-    FillFeedModel (folder.childFolders.at(i), model);
+    QStringList folders (parentFolders);
+    folders.append (folder.name);
+    FillFeedModel (folder.childFolders.at(i), model, folders);
   }
 }
 

@@ -10,9 +10,9 @@ namespace deliberate
 QmlView::QmlView (QWidget *parent)
   :QDeclarativeView (parent)
 {
-     grabGesture(Qt::PanGesture);
-     grabGesture(Qt::PinchGesture);
-     grabGesture(Qt::SwipeGesture);
+  grabGesture(Qt::PanGesture);
+  grabGesture(Qt::PinchGesture);
+  grabGesture(Qt::SwipeGesture);
 }
 
 bool
@@ -20,6 +20,7 @@ QmlView::event (QEvent *event)
 {
   if (event->type() == QEvent::Gesture) {
     QGestureEvent * gev = static_cast <QGestureEvent*> (event);
+    qDebug () << "QmlView :: event seeing gesture " << gev;
     QGesture *swipe = gev->gesture(Qt::SwipeGesture);
     if (swipe) {
       qDebug () << " QmlView  :: event saw swipte " << swipe;

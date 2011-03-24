@@ -137,6 +137,7 @@ Rectangle {
             autoScroll: true
             text:  confValue
             selectByMouse: true
+            focus: true
           }
         }
         Keys.onEnterPressed: { 
