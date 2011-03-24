@@ -57,6 +57,7 @@ AutoUpdate::~AutoUpdate ()
 int  
 AutoUpdate::rowCount (const QModelIndex & index) const
 {
+  Q_UNUSED (index)
   return newStoryList.count();
 }
 
@@ -126,11 +127,9 @@ AutoUpdate::Init ()
   #endif
 
 
-  chaser = idList.begin();
+  chaser = 0;
   if (idList.count() > 0) {
-    for (int i=0; i<skip; i++) {
-      chaser++;
-    }
+    chaser = skip;
   }
   connect (&updateTimer, SIGNAL (timeout()),
            this, SLOT (Poll()));
@@ -141,11 +140,12 @@ AutoUpdate::Init ()
 void
 AutoUpdate::Poll (int numFeeds)
 {
+  Q_UNUSED (numFeeds)
   if (idList.count() < 1) {
     return;
   }
-  if (chaser != idList.end()) {
-    QString feedId = *chaser;
+  if (chaser < idList.count()) {
+    QString feedId = idList.at(chaser);
     QString urlString = feeds.FeedRef(feedId).values("xmlurl");
     if (qnam) {
       QNetworkReply * netreply = qnam->get (QNetworkRequest (QUrl (urlString)));
@@ -156,8 +156,8 @@ AutoUpdate::Poll (int numFeeds)
     }
   }
   chaser ++;
-  if (chaser == idList.end()) {
-    chaser = idList.begin();
+  if (chaser >= idList.count()) {
+    chaser = 0;
   }
 }
 

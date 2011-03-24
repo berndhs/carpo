@@ -115,7 +115,7 @@ private:
   QTimer                   updateTimer;
   FeedlistModel          & feeds;
   QStringList            & idList;
-  QStringList::iterator    chaser;
+  int                      chaser;
   QNetworkAccessManager   *qnam;
   QMap <QNetworkReply *, DrssNetReply *>  expectReplies;
   NewStoryList             newStoryList;
