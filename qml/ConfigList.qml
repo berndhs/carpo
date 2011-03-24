@@ -95,7 +95,6 @@ Rectangle {
     Rectangle {
       width: parent.width
       height: itemHeight; 
-      radius: 4
       color: "transparent"
       anchors.topMargin: 2
       Column { 
@@ -109,7 +108,6 @@ Rectangle {
           width: parent.width
           height: parent.height - 2
           color: keyBackgroundColor  
-          radius: 4
           z: parent.z + 1
           Text {  
             anchors.left: parent.left
@@ -131,7 +129,6 @@ Rectangle {
           width: parent.width
           height: parent.height -2
           color: valueBackgroundColor
-          radius: 4
           z: parent.z + 1
           TextInput {
             id: valueField
@@ -161,7 +158,7 @@ Rectangle {
     id: configListView
     visible: true
     delegate: verticalConfigDelegate
-    clip: false
+    clip: true
     width: parent.width - 4
     height: parent.height -itemHeight - buttonRow.height
     currentIndex: -1
@@ -171,6 +168,6 @@ Rectangle {
     orientation: ListView.Vertical
     model: configModel
     snapMode: ListView.SnapToItem
-    highlight: Rectangle { color: "#ffbbbb"; radius: 5 }
+    highlight: Rectangle { color: "#ffbbbb"}
   }
 }
