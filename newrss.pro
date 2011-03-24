@@ -70,6 +70,7 @@ RESOURCES = $${MYNAME}.qrc
 
 FORMS = \
         ui/$${MYNAME}.ui \
+        ui/DebugLog.ui \
         
 
 HEADERS = \
@@ -78,6 +79,7 @@ HEADERS = \
           src/$${MYNAME}-magic.h \
           src/cmdoptions.h \
           src/deliberate.h \
+          src/delib-debug.h \
           src/version.h \
           src/headline-list.h \
           src/qml-feed-if.h \
@@ -101,6 +103,7 @@ SOURCES = \
           src/$${MYNAME}-magic.cpp \
           src/cmdoptions.cpp \
           src/deliberate.cpp \
+          src/delib-debug.cpp \
           src/version.cpp \
           src/headline-list.cpp \
           src/qml-feed-if.cpp \

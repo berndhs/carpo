@@ -25,6 +25,7 @@
 
 #include <QApplication>
 #include "deliberate.h"
+#include "delib-debug.h"
 #include "version.h"
 #include "cmdoptions.h"
 #include "newrss.h"
@@ -52,6 +53,10 @@ main (int argc, char *argv[])
   QStringList  configMessages;
 
   deliberate::CmdOptions  opts ("newrss");
+  opts.AddSoloOption ("debug","D",QObject::tr("show Debug log window"));
+  opts.AddStringOption ("logdebug","L",QObject::tr("write Debug log to file"));
+
+  deliberate::UseMyOwnMessageHandler ();
 
   bool optsOk = opts.Parse (argc, argv);
   if (!optsOk) {
@@ -71,8 +76,18 @@ main (int argc, char *argv[])
   if (opts.WantVersion ()) {
     exit (0);
   }
+  bool showDebug = opts.SeenOpt ("debug");
   int result;
 
+#if DELIBERATE_DEBUG
+  deliberate::StartDebugLog (showDebug);
+  bool logDebug = opts.SeenOpt ("logdebug");
+  if (logDebug) {
+    QString logfile ("/dev/null");
+    opts.SetStringOpt ("logdebug",logfile);
+    deliberate::StartFileLog (logfile);
+  }
+#endif
   deliberate::NewRss   newrss;
 
   app.setWindowIcon (newrss.windowIcon());
