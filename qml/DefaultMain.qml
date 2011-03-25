@@ -73,33 +73,21 @@ Rectangle {
   }
   function showEdit (visi) {
     console.log ("Visi temp " + visi)
-    feedEdit.visible = visi
-    feedEditArea.visible = visi
-    if (feedEdit.visible) { 
-      feedEdit.clear() 
+    if (visi) {
+      feedEditArea.show ()
       storyView.visible = false
     } else {
+      feedEditArea.hide ()
       indexBox.height = indexHeight
       storyView.visible = true
     }
-    controlIF.setEditingFeed (feedEdit.visible)
+    controlIF.setEditingFeed (visi)
   }
 
   color: "transparent"
   width: displayWidth
   height: displayHeight
 
-  ControlPanel { 
-    id: controlPanel
-    objectName: "ControlPanel"
-    visible: true
-    onShowTopics: { topicListArea.show () }
-    onHideTopics: { topicListArea.hide () }
-    onShowRecent: { streamListArea.show () }
-    onHideRecent: { streamListArea.hide () }
-    onSelectQuit: { controlIF.exitApp () }
-    onSelectHelp: { controlIF.help () }
-  }
   Rectangle {
     id: indexBox
     objectName: "IndexBox"
@@ -188,7 +176,7 @@ Rectangle {
     normalWidth: parent.width * 0.3333
     width: normalWidth
     anchors { right: indexBox.right; top: indexBox.top }
-    z: feedIndexArea.z + 2
+    z: streamListArea + 1
     color: "red"
     onSelected: { controlIF.changeTopic (name) }
     onQuitit: { hide () }
@@ -289,10 +277,22 @@ Rectangle {
     objectName: "FeedEditArea"
     width: storyView.width
     height: storyView.height
+    property real rollDelay: 125
     z: indexBox.z +1
     contentWidth: feedEdit.width; contentHeight: feedEdit.height
     anchors { top: storyView.top; horizontalCenter: storyView.horizontalCenter }
-    visible: false
+    visible: true
+    function hide () { rollupScale.yScale = 0 }
+    function show () { rollupScale.yScale = 1 }
+    
+    transform: Scale {
+      id: rollupScale
+      xScale: 1
+      yScale: 0
+      Behavior  on yScale {
+        NumberAnimation { duration: rollDelay }
+      }
+    }
     FeedEdit {
       id: feedEdit 
       objectName: "FeedEdit"
@@ -318,6 +318,7 @@ Rectangle {
       onLoadEditFeed: {
         controlIF.loadEditFeed (addr)
       }
+      onCancelEdit: { showEdit (false) }
     }
   }
   ConfigList {
@@ -335,17 +336,22 @@ Rectangle {
     onDoneConfig: { configList.hide (); indexBox.show () }
     onRestartConfig: { controlIF.restartApp () }
   }
-  Connections {
-    target: controlPanel
-    objectName: "ControlPanelConnections"
+  ControlPanel { 
+    id: controlPanel
+    objectName: "ControlPanel"
+    visible: true
+    onShowTopics: { topicListArea.show () }
+    onHideTopics: { topicListArea.hide () }
+    onShowRecent: { streamListArea.show () }
+    onHideRecent: { streamListArea.hide () }
+    onSelectQuit: { controlIF.exitApp () }
+    onSelectHelp: { controlIF.help () }
     onToggleViewSelect: {
       console.log ("Connections clicked " )
       console.log (" index width " + feedIndexArea.width)
       toggleLists() 
     }
-    onMoreSelect: {
-      showEdit (!feedEdit.visible)
-    }
+    onNewFeed: { showEdit (true) }
     onMaintainSelect: {
       var visi = configList.isShown
       console.log ("Maintain Selected " + visi)

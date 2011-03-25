@@ -26,6 +26,7 @@
 import QtQuick 1.0
 
 Rectangle {
+  id: feedEdit
   function displayNew (url) {
     console.log ("Start NEw Feed " + url)
     displayEditFeed ("", url, "", "", "", "", "")
@@ -40,7 +41,7 @@ Rectangle {
     feedTitle.textValue = theTitle
     feedDescription.textValue = theDescr
     siteTopics.textValue = theTopics
-    choiceButtons.visible = false
+    choiceButtons.visible = true
     feedDetails.visible = true
     saveButtonRow.show ()
   }
@@ -53,8 +54,8 @@ Rectangle {
     feedDescription.textValue = ""
     siteTopics.textValue = ""
     choiceButtons.visible = true
-    feedDetails.visible = false
-    saveButtonRow.hide ()
+    feedDetails.visible = true
+    saveButtonRow.show ()
   }
   function checkAddress () {
     var addr = addrInput.urlString
@@ -67,13 +68,14 @@ Rectangle {
       popup.showIn (width, height, "Unknown Feed Address")
     }
   }
+  signal cancelEdit ()
   signal startNewFeed (string url)
   signal deleteFeed (string ident)
   signal probeFeed (string url)
   signal loadEditFeed (string addr)
   signal saveFeed (string ident, string feedUrl, string title, string siteUrl, 
                    string nick, string descr, string topics)
-  id: feedEdit
+
   property real normalWidth: parent.width
   property real urlMargin: 6
   property string feedId: ""
@@ -86,8 +88,8 @@ Rectangle {
     function show () { height = 32; visible = true }
     function hide () { height = 0; visible = false }
     id: saveButtonRow
-    height: 0;
-    visible: false;
+    height: 32;
+    visible: true;
     width: childrenRect.width;
     anchors.top: parent.top
     anchors.topMargin: 10
@@ -130,7 +132,7 @@ Rectangle {
     }
     ChoiceButton {
       id:checkButton
-      objectName: "FeedEditProbeButton"
+      objectName: "FeedEditCheckButton"
       labelText: "Check Address"
       height: parent.height
       color: "cyan"
@@ -138,6 +140,28 @@ Rectangle {
       onClicked: {
         console.log ("Check Address")
         checkAddress ()
+      }
+    }
+    ChoiceButton {
+      id: newButton
+      objectName: "FeedEditNewButton"
+      labelText: qsTr("New Feed")
+      height: parent.height
+      color: "#77ff77"
+      anchors { left: checkButton.right; verticalCenter: deleteButton.verticalCenter }
+      onClicked: {
+        startNewFeed (addrInput.urlString)
+      }
+    }
+    ChoiceButton {
+      id:quitButton
+      objectName: "FeedEditCancelButton"
+      labelText: "Cancel"
+      height: parent.height
+      anchors { left: newButton.right; verticalCenter: deleteButton.verticalCenter }
+      onClicked: {
+        console.log ("Cancel Edit")
+        feedEdit.cancelEdit ()
       }
     }
   }
@@ -151,28 +175,10 @@ Rectangle {
     autoScroll: true
     selectByMouse: true
   }
-  Flow {
-    id:choiceButtons
-    visible:true
-    anchors { 
-      top: addrInput.bottom; topMargin: 6 
-      horizontalCenter: parent.horizontalCenter
-    }
-    width: childrenRect.width
-    spacing: 4
-    ChoiceButton {
-      id: choiceNew
-      objectName: "FeedEditNewButton"
-      labelText: qsTr("New Feed")
-      onClicked: {
-        startNewFeed (addrInput.urlString)
-      }
-    }
-  }
   Rectangle {
     id: feedDetails
     color: "transparent"
-    visible: false
+    visible: true
     width: parent.width
     height: childrenRect.height
     anchors {

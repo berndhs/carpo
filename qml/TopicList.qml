@@ -42,6 +42,7 @@ Rectangle {
   }
   function show () {
     rollupScale.yScale = 1
+    console.log ("Show Topic list at z = " + z)
   }
   function swiped () { hide () }
   function setTracking (doTrack) { topicList.setTracking (doTrack) }

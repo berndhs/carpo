@@ -35,6 +35,8 @@ Rectangle {
   signal hideRecent ()
   signal selectQuit ()
   signal selectHelp ()
+  signal newFeed ()
+  signal editSettings ()
   property string choiceButtonColor: "sandybrown"
   property string detailButtonColor: "sandybrown"
   property string maintainButtonColor: "sandybrown"
@@ -57,6 +59,7 @@ Rectangle {
       controlSelect (mouseX, mouseY) 
     }
   }
+
   ChoiceButton {   
     id: offButton
     width: (parent.width - buttonRow.width)/ 3
@@ -75,12 +78,14 @@ Rectangle {
     labelText: " ? "
     onClicked: selectHelp()
   }
+
   Rectangle {
     id: buttonRow
     width: childrenRect.width
     height: parent.height
     property real buttonWidth: parent.width/4
     anchors { horizontalCenter: parent.horizontalCenter ; top: parent.top }
+
     Rectangle {
       id: indexButton
       width: parent.buttonWidth
@@ -91,12 +96,9 @@ Rectangle {
       radius: height/2
       MouseArea {
         anchors.fill: parent
-        onClicked: { 
-          toggleViewSelect () 
-        }
-        onPressAndHold: { indexMenu.show () }
+        onClicked: toggleViewSelect ()
       }
-      Text { text: "List / Index"; anchors.centerIn: parent }
+      Text { text: "Feeds <-> Stories"; anchors.centerIn: parent }
     }
     Rectangle {
       id: detailButton
@@ -108,11 +110,9 @@ Rectangle {
       radius: height/2
       MouseArea {
         anchors.fill: parent
-        onClicked: { 
-          moreSelect () 
-        }
+        onClicked: indexMenu.show ()
       }
-      Text { text: "Edit Feed"; anchors.centerIn: parent }
+      Text { text: "More Views"; anchors.centerIn: parent }
     }
     Rectangle {
       id: maintainButton
@@ -124,59 +124,95 @@ Rectangle {
       radius: height/2
       MouseArea {
         anchors.fill: parent
-        onClicked: { 
-          maintainSelect () 
-        }
+        onClicked: maintainMenu.show ()
       }
       Text { text: "Maintenance"; anchors.centerIn: parent }
     }
-  }
-  DropMenu {
-    id: indexMenu
-    anchors { top: buttonRow.bottom; left: buttonRow.left ; leftMargin: embedMargin}
-    width: indexButton.width
-    height: floatHeight
-    color: "transparent"
-    MouseArea {
-      anchors.fill: parent
-      hoverEnabled: true
-      onExited: { indexMenu.hide () }
+
+    DropMenu {
+      id: indexMenu
+      anchors { top: buttonRow.bottom; left: detailButton.left ; leftMargin: embedMargin}
+      width: indexButton.width
+      color: "transparent"
+      z: 100
+      MouseArea {
+        anchors.fill: parent
+        hoverEnabled: true
+        onExited: { indexMenu.hide () }
+      }
+      ChoiceButton {
+        id: showTopicsButton
+        width: parent.width
+        height: menuItemHeight
+        color: indexMenuButtonColor
+        labelText: "Topics - On"
+        anchors { top: indexMenu.top; horizontalCenter: indexMenu.horizontalCenter }
+       onClicked: { controlPanel.showTopics(); indexMenu.hide() }
+      }
+      ChoiceButton {
+        id: hideTopicsButton
+        width: parent.width
+        height: menuItemHeight
+        color: indexMenuButtonColor
+        anchors { top: showTopicsButton.bottom; horizontalCenter: indexMenu.horizontalCenter }
+        labelText: "Topics - Off"
+       onClicked: { controlPanel.hideTopics(); indexMenu.hide () }
+      }
+      ChoiceButton {
+        id: showNewButton
+        width: parent.width
+        height: menuItemHeight
+        color: indexMenuButtonColor
+        labelText: "New Stories - On"
+        anchors { top: hideTopicsButton.bottom; horizontalCenter: indexMenu.horizontalCenter }
+        onClicked: { controlPanel.showRecent(); indexMenu.hide() }
+      }
+      ChoiceButton {
+        id: hideNewButton
+        width: parent.width
+        height: menuItemHeight
+        color: indexMenuButtonColor
+        anchors { top: showNewButton.bottom; horizontalCenter: indexMenu.horizontalCenter }
+        labelText: "New Stories - Off"
+        onClicked: { controlPanel.hideRecent(); indexMenu.hide () }
+      }
     }
-    ChoiceButton {
-      id: showTopicsButton
-      width: parent.width
-      height: menuItemHeight
-      color: indexMenuButtonColor
-      labelText: "Topics - On"
-      anchors { top: indexMenu.top; horizontalCenter: indexMenu.horizontalCenter }
-      onClicked: { controlPanel.showTopics(); indexMenu.hide() }
-    }
-    ChoiceButton {
-      id: hideTopicsButton
-      width: parent.width
-      height: menuItemHeight
-      color: indexMenuButtonColor
-      anchors { top: showTopicsButton.bottom; horizontalCenter: indexMenu.horizontalCenter }
-      labelText: "Topics - Off"
-      onClicked: { controlPanel.hideTopics(); indexMenu.hide () }
-    }
-    ChoiceButton {
-      id: showNewButton
-      width: parent.width
-      height: menuItemHeight
-      color: indexMenuButtonColor
-      labelText: "New Stories - On"
-      anchors { top: hideTopicsButton.bottom; horizontalCenter: indexMenu.horizontalCenter }
-      onClicked: { controlPanel.showRecent(); indexMenu.hide() }
-    }
-    ChoiceButton {
-      id: hideNewButton
-      width: parent.width
-      height: menuItemHeight
-      color: indexMenuButtonColor
-      anchors { top: showNewButton.bottom; horizontalCenter: indexMenu.horizontalCenter }
-      labelText: "New Stories - Off"
-      onClicked: { controlPanel.hideRecent(); indexMenu.hide () }
+
+    DropMenu {
+      id: maintainMenu
+      anchors { top: buttonRow.bottom; left: maintainButton.left ; leftMargin: embedMargin}
+      width: indexButton.width
+      height: floatHeight
+      color: "transparent"
+      z: 9
+      MouseArea {
+        anchors.fill: parent
+        hoverEnabled: true
+        onExited: { maintainMenu.hide () }
+      }
+      ChoiceButton {
+        id: showFeedEditButton
+        width: parent.width
+        height: menuItemHeight
+        color: indexMenuButtonColor
+        labelText: "New Feed"
+        z: 9
+        anchors { top: maintainMenu.top; horizontalCenter: maintainMenu.horizontalCenter }
+        onClicked: { controlPanel.newFeed(); indexMenu.hide() }
+      }
+      ChoiceButton {
+        id: showSettingsButton
+        width: parent.width
+        height: menuItemHeight
+        color: indexMenuButtonColor
+        labelText: "Settings"
+        z: 9
+        anchors { 
+          top: showFeedEditButton.bottom; 
+          horizontalCenter: maintainMenu.horizontalCenter 
+        }
+        onClicked: { controlPanel.maintainSelect(); indexMenu.hide() }
+      }
     }
   }
 }

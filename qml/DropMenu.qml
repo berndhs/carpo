@@ -14,10 +14,10 @@ Rectangle {
 
   function hide () {
     rollupScale.yScale = 0
-    console.log ("shink running ")
   }
   function show () {
     rollupScale.yScale = 1
+    console.log ("show menu at z = " + z )
   }
   transform: Scale {
     id: rollupScale
