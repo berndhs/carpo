@@ -71,7 +71,7 @@ Carpo::Carpo (QWidget *parent)
   feedListFile =  QDesktopServices::storageLocation 
               (QDesktopServices::DataLocation)
               + QDir::separator()
-              + QString ("drss_feeds.xml");
+              + QString ("carpo_feeds.xml");
   propStore = new PropertyStore (this, &Settings());
   propStore->Init (":/default-properties.txt");
   feedListFile = Settings().value ("files/feedlist",feedListFile).toString();
@@ -440,8 +440,8 @@ Carpo::LoadFeed (const QString & urlString, const QString & storyHash)
 {
   if (qnam) {
     QNetworkReply * netreply = qnam->get (QNetworkRequest (QUrl (urlString)));
-    DrssNetReply * dreply = new DrssNetReply (netreply, 
-                                      DrssNetReply::Kind_GetFeed);
+    CarpoNetReply * dreply = new CarpoNetReply (netreply, 
+                                      CarpoNetReply::Kind_GetFeed);
     dreply->setStoryHash (storyHash);
     expectReplies[netreply] = dreply;
   }
@@ -452,8 +452,8 @@ Carpo::ProbeFeed (const QString & urlString)
 {
   if (qnam) {
     QNetworkReply * netreply = qnam->get (QNetworkRequest (QUrl (urlString)));
-    DrssNetReply * dreply = new DrssNetReply (netreply, 
-                                      DrssNetReply::Kind_Probe);
+    CarpoNetReply * dreply = new CarpoNetReply (netreply, 
+                                      CarpoNetReply::Kind_Probe);
     expectReplies[netreply] = dreply;
   }
 }
@@ -463,17 +463,17 @@ Carpo::FinishedNet (QNetworkReply * reply)
 {
   if (reply) {
     if (expectReplies.contains (reply)) {
-      DrssNetReply * dreply = expectReplies[reply];
+      CarpoNetReply * dreply = expectReplies[reply];
       if (dreply) {
-        DrssNetReply::Kind  kind = dreply->kind();
+        CarpoNetReply::Kind  kind = dreply->kind();
         switch (kind) {
-        case DrssNetReply::Kind_GetFeed:
+        case CarpoNetReply::Kind_GetFeed:
           GetFeedReply (dreply->netReply(), dreply->storyHash());
           break;
-        case DrssNetReply::Kind_Probe:
+        case CarpoNetReply::Kind_Probe:
           ProbeReply (dreply->netReply());
           break;
-        case DrssNetReply::Kind_WebPage:
+        case CarpoNetReply::Kind_WebPage:
           WebPageReply (dreply->netReply());
           break;
         default:

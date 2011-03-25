@@ -1,5 +1,5 @@
-
-#include "drss-netreply.h"
+#ifndef DELIBERATE_DRSS_NETREPLY_H
+#define DELIBERATE_DRSS_NETREPLY_H
 
 
 /****************************************************************
@@ -23,73 +23,47 @@
  *  Boston, MA  02110-1301, USA.
  ****************************************************************/
 
+#include <QObject>
+#include <QString>
+#include <QNetworkReply>
 
 namespace deliberate
 {
-DrssNetReply::DrssNetReply ()
-  :theNetreply (0),
-   theKind (Kind_None)
-{
-}
 
-DrssNetReply::DrssNetReply (QNetworkReply * nr, Kind k)
-  :theNetreply (nr),
-   theKind (k)
+class CarpoNetReply 
 {
-}
+public:
 
-DrssNetReply::DrssNetReply (const DrssNetReply & other)
-  :theNetreply (other.theNetreply),
-   theKind (other.theKind)
-{
-}
+  enum Kind {
+    Kind_None = 0,
+    Kind_GetFeed = 1,
+    Kind_Probe = 2,
+    Kind_WebPage = 3,
+    Kind_PollFeed = 4,
+    Kind_Bad
+  };
 
-QNetworkReply *
-DrssNetReply::netReply () const
-{
-  return theNetreply;
-}
+  CarpoNetReply ();
+  CarpoNetReply (QNetworkReply * nr, Kind k);
+  CarpoNetReply (const CarpoNetReply & other);
 
-void
-DrssNetReply::setNetReply (QNetworkReply * reply)
-{
-  theNetreply = reply;
-}
+  QNetworkReply * netReply () const;
+  void            setNetReply (QNetworkReply * reply);
+  Kind            kind () const;
+  QString         feedId ();
+  QString         storyHash ();
+  void            setKind (Kind k);
+  void            setFeedId (const QString & feedId);
+  void            setStoryHash (const QString & sh);
 
-DrssNetReply::Kind
-DrssNetReply::kind () const
-{
-  return theKind;
-}
+private:
 
-void
-DrssNetReply::setKind (Kind k)
-{
-  theKind = k;
-}
-
-QString
-DrssNetReply::feedId ()
-{
-  return theFeedId;
-}
-
-void
-DrssNetReply::setFeedId (const QString & feedId)
-{
-  theFeedId = feedId;
-}
-
-QString
-DrssNetReply::storyHash ()
-{
-  return theStoryHash;
-}
-
-void
-DrssNetReply::setStoryHash (const QString & sh)
-{
-  theStoryHash = sh;
-}
+  QNetworkReply   *theNetreply;
+  Kind             theKind;
+  QString          theFeedId;
+  QString          theStoryHash;
+};
 
 } // namespace
+
+#endif

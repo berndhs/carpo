@@ -90,7 +90,7 @@ HEADERS = \
           src/feedlist.h \
           src/feedlist-model.h \
           src/feedlist-writer.h \
-          src/drss-netreply.h \
+          src/carpo-netreply.h \
           src/config-edit.h \
           src/property-store.h \
           src/topic-model.h \
@@ -114,7 +114,7 @@ SOURCES = \
           src/feedlist.cpp \
           src/feedlist-model.cpp \
           src/feedlist-writer.cpp \
-          src/drss-netreply.cpp \
+          src/carpo-netreply.cpp \
           src/config-edit.cpp \
           src/property-store.cpp \
           src/topic-model.cpp \

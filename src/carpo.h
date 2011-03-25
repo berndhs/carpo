@@ -43,7 +43,7 @@
 #include "feedlist-parser.h"
 #include "feedlist.h"
 #include "feedlist-model.h"
-#include "drss-netreply.h"
+#include "carpo-netreply.h"
 #include "config-edit.h"
 #include "property-store.h"
 #include "topic-model.h"
@@ -152,7 +152,7 @@ private:
   QMap <QString, QStringList> storyLinks;
   QMap <QString, QString>  storyDates;
 
-  QMap <QNetworkReply *, DrssNetReply *>  expectReplies;
+  QMap <QNetworkReply *, CarpoNetReply *>  expectReplies;
 
   QmlConfigEdit        configEdit;
   PropertyStore       *propStore;

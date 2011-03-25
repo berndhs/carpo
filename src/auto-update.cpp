@@ -149,8 +149,8 @@ AutoUpdate::Poll (int numFeeds)
     QString urlString = feeds.FeedRef(feedId).values("xmlurl");
     if (qnam) {
       QNetworkReply * netreply = qnam->get (QNetworkRequest (QUrl (urlString)));
-      DrssNetReply * dreply = new DrssNetReply (netreply, 
-                                      DrssNetReply::Kind_PollFeed);
+      CarpoNetReply * dreply = new CarpoNetReply (netreply, 
+                                      CarpoNetReply::Kind_PollFeed);
       dreply->setFeedId (feedId);
       expectReplies[netreply] = dreply;
     }
@@ -166,11 +166,11 @@ AutoUpdate::FinishedNet (QNetworkReply * reply)
 {
   if (reply) {
     if (expectReplies.contains (reply)) {
-      DrssNetReply * dreply = expectReplies[reply];
+      CarpoNetReply * dreply = expectReplies[reply];
       if (dreply) {
-        DrssNetReply::Kind  kind = dreply->kind();
+        CarpoNetReply::Kind  kind = dreply->kind();
         switch (kind) {
-        case DrssNetReply::Kind_PollFeed:
+        case CarpoNetReply::Kind_PollFeed:
           GetPollReply (dreply);
           break;
         default:
@@ -185,7 +185,7 @@ AutoUpdate::FinishedNet (QNetworkReply * reply)
 }
 
 void
-AutoUpdate::GetPollReply (DrssNetReply * dreply)
+AutoUpdate::GetPollReply (CarpoNetReply * dreply)
 {
   if (!dreply) {
     return;

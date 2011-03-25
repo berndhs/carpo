@@ -35,7 +35,7 @@
 #include <QDebug>
 
 #include "feedlist-model.h"
-#include "drss-netreply.h"
+#include "carpo-netreply.h"
 
 namespace deliberate
 {
@@ -104,7 +104,7 @@ private:
     Type_StoryHash  = Qt::UserRole+4
   };
 
-  void GetPollReply (DrssNetReply * reply);
+  void GetPollReply (CarpoNetReply * reply);
   void ParseStories (const QString & feedId,
                      QDomNodeList & items, 
                      const QString & contentTag);
@@ -117,7 +117,7 @@ private:
   QStringList            & idList;
   int                      chaser;
   QNetworkAccessManager   *qnam;
-  QMap <QNetworkReply *, DrssNetReply *>  expectReplies;
+  QMap <QNetworkReply *, CarpoNetReply *>  expectReplies;
   NewStoryList             newStoryList;
 }; 
 

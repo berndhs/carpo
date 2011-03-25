@@ -1,5 +1,5 @@
-#ifndef DELIBERATE_DRSS_NETREPLY_H
-#define DELIBERATE_DRSS_NETREPLY_H
+
+#include "carpo-netreply.h"
 
 
 /****************************************************************
@@ -23,47 +23,73 @@
  *  Boston, MA  02110-1301, USA.
  ****************************************************************/
 
-#include <QObject>
-#include <QString>
-#include <QNetworkReply>
 
 namespace deliberate
 {
-
-class DrssNetReply 
+CarpoNetReply::CarpoNetReply ()
+  :theNetreply (0),
+   theKind (Kind_None)
 {
-public:
+}
 
-  enum Kind {
-    Kind_None = 0,
-    Kind_GetFeed = 1,
-    Kind_Probe = 2,
-    Kind_WebPage = 3,
-    Kind_PollFeed = 4,
-    Kind_Bad
-  };
+CarpoNetReply::CarpoNetReply (QNetworkReply * nr, Kind k)
+  :theNetreply (nr),
+   theKind (k)
+{
+}
 
-  DrssNetReply ();
-  DrssNetReply (QNetworkReply * nr, Kind k);
-  DrssNetReply (const DrssNetReply & other);
+CarpoNetReply::CarpoNetReply (const CarpoNetReply & other)
+  :theNetreply (other.theNetreply),
+   theKind (other.theKind)
+{
+}
 
-  QNetworkReply * netReply () const;
-  void            setNetReply (QNetworkReply * reply);
-  Kind            kind () const;
-  QString         feedId ();
-  QString         storyHash ();
-  void            setKind (Kind k);
-  void            setFeedId (const QString & feedId);
-  void            setStoryHash (const QString & sh);
+QNetworkReply *
+CarpoNetReply::netReply () const
+{
+  return theNetreply;
+}
 
-private:
+void
+CarpoNetReply::setNetReply (QNetworkReply * reply)
+{
+  theNetreply = reply;
+}
 
-  QNetworkReply   *theNetreply;
-  Kind             theKind;
-  QString          theFeedId;
-  QString          theStoryHash;
-};
+CarpoNetReply::Kind
+CarpoNetReply::kind () const
+{
+  return theKind;
+}
+
+void
+CarpoNetReply::setKind (Kind k)
+{
+  theKind = k;
+}
+
+QString
+CarpoNetReply::feedId ()
+{
+  return theFeedId;
+}
+
+void
+CarpoNetReply::setFeedId (const QString & feedId)
+{
+  theFeedId = feedId;
+}
+
+QString
+CarpoNetReply::storyHash ()
+{
+  return theStoryHash;
+}
+
+void
+CarpoNetReply::setStoryHash (const QString & sh)
+{
+  theStoryHash = sh;
+}
 
 } // namespace
-
-#endif
