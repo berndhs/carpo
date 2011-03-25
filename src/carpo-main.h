@@ -1,5 +1,5 @@
-#ifndef NEWRSS_MAIN_H
-#define NEWRSS_MAIN_H
+#ifndef CARPO_MAIN_H
+#define CARPO_MAIN_H
 
 /****************************************************************
  * This file is distributed under the following license:

@@ -1,7 +1,7 @@
 <!DOCTYPE RCC>
 <RCC version="1.0">
 <qresource>
-<file>newrss.png</file>
+<file>carpo.png</file>
 </qresource>
 <qresource prefix="/help">
   <file alias="LICENSE.txt">help/LICENSE.txt</file>

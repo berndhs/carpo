@@ -1,12 +1,12 @@
 #!/bin/bash
 
-NAME=newrss
+NAME=carpo
 CHANGELOG=${NAME}.changes
 DESKTOP=${NAME}.desktop
 VERSION=`grep "ProgramVersion::VersionNumber" src/version.cpp \
         | awk '{print $3;}' \
         | sed s/[\(\"\;\)]//g`
-PACKDIR=${HOME}/packaging/newrss
+PACKDIR=${HOME}/packaging/carpo
 
 makearchive.sh ${NAME}-${VERSION} master
 cp ${NAME}-${VERSION}.tar.gz ${PACKDIR}

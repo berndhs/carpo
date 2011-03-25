@@ -1,4 +1,4 @@
-#include "newrss.h"
+#include "carpo.h"
 
 
 /****************************************************************
@@ -42,14 +42,14 @@
 #include <QCryptographicHash>
 
 #include "feedlist-writer.h"
-#include "newrss-magic.h"
+#include "carpo-magic.h"
 #include "deliberate.h"
 #include "version.h"
 
 namespace deliberate
 {
 
-NewRss::NewRss (QWidget *parent)
+Carpo::Carpo (QWidget *parent)
   :QMainWindow (parent),
    runAgain (false),
    app (0),
@@ -99,19 +99,19 @@ NewRss::NewRss (QWidget *parent)
 }
 
 void
-NewRss::Init (QApplication & ap)
+Carpo::Init (QApplication & ap)
 {
   app = &ap;
 }
 
 void
-NewRss::AddConfigMessages (const QStringList & messages)
+Carpo::AddConfigMessages (const QStringList & messages)
 {
   configMessages = messages;
 }
 
 void
-NewRss::DumpProperties ()
+Carpo::DumpProperties ()
 {
   QObject *item;
   QStringList names;
@@ -135,15 +135,15 @@ NewRss::DumpProperties ()
 }
 
 void
-NewRss::Run ()
+Carpo::Run ()
 {
   QmlRun ();
 }
 
 void
-NewRss::QmlRun ()
+Carpo::QmlRun ()
 {
-  qDebug () << " NewRss::QmlRun";
+  qDebug () << " Carpo::QmlRun";
   LoadList ();
   context = ui.qmlView->rootContext ();
   context->setContextProperty ("feedIndexModel", &headlines);
@@ -187,14 +187,14 @@ NewRss::QmlRun ()
 }
 
 void
-NewRss::Reset ()
+Carpo::Reset ()
 {
   propStore->FillSettings (qmlRoot);
   propStore->SyncToObjects (qmlRoot);
 }
 
 void
-NewRss::Connect ()
+Carpo::Connect ()
 {
   connect (qnam, SIGNAL (finished (QNetworkReply *)),
            this, SLOT (FinishedNet (QNetworkReply *)));
@@ -246,9 +246,9 @@ NewRss::Connect ()
 
 
 void
-NewRss::ShowStory (const QString & id)
+Carpo::ShowStory (const QString & id)
 {
-  qDebug () << " NewRss::ShowStory";
+  qDebug () << " Carpo::ShowStory";
   if (stories.contains(id)) {
     QString tagBrowseHere 
                (Magic::PseudoAlertTag + "/here/");
@@ -283,17 +283,17 @@ NewRss::ShowStory (const QString & id)
 }
 
 void
-NewRss::DisplayStory (const QString & feedId,
+Carpo::DisplayStory (const QString & feedId,
                       const QString & storyTitle,
                       const QString & storyHash)
 {
   Q_UNUSED (storyTitle)
-  qDebug () << " NewRss::DisplayStory";
+  qDebug () << " Carpo::DisplayStory";
   ShowFeed (feedId, storyHash);
 }
 
 void
-NewRss::ShowStorySite (const QString & id)
+Carpo::ShowStorySite (const QString & id)
 {
   if (storyLinks.contains (id)) {
     QString first = storyLinks[id].first();
@@ -302,7 +302,7 @@ NewRss::ShowStorySite (const QString & id)
 }
 
 void
-NewRss::ShowStorySiteLocal (const QString & id)
+Carpo::ShowStorySiteLocal (const QString & id)
 {
   if (storyLinks.contains (id)) {
     QString urlString = storyLinks[id].first();
@@ -312,9 +312,9 @@ NewRss::ShowStorySiteLocal (const QString & id)
 }
 
 void
-NewRss::ShowFeed (const QString & id, const QString & storyHash)
+Carpo::ShowFeed (const QString & id, const QString & storyHash)
 {
-  qDebug () << "NewRss  :: ShowFeed " << id << storyHash;
+  qDebug () << "Carpo  :: ShowFeed " << id << storyHash;
   QString urlString = feeds.FeedRef(id).values("xmlurl");
   headlines.StartNew (feeds.FeedRef(id).values("title"));
   LoadFeed (urlString, storyHash);
@@ -322,14 +322,14 @@ NewRss::ShowFeed (const QString & id, const QString & storyHash)
 }
 
 void
-NewRss::EditFeed (const QString & id)
+Carpo::EditFeed (const QString & id)
 {
   Feed & feed = feeds.FeedRef (id);
   DisplayEditFeed (id, feed);
 }
 
 void
-NewRss::DisplayEditFeed (const QString & id, const Feed & feed)
+Carpo::DisplayEditFeed (const QString & id, const Feed & feed)
 {
   QString urlString = feed.values("xmlurl");
   QString nick = feed.values("nick");
@@ -348,14 +348,14 @@ NewRss::DisplayEditFeed (const QString & id, const Feed & feed)
 }
 
 void
-NewRss::ShowList (const QString & list)
+Carpo::ShowList (const QString & list)
 {
   QMetaObject::invokeMethod (qmlRoot, 
                              QString("expand%1").arg(list).toLatin1().data());
 }
 
 void
-NewRss::ShowAbout ()
+Carpo::ShowAbout ()
 {
   QString about (QString("<pre>\n%1\n</pre>")
                 .arg(ProgramVersion::Version()
@@ -376,7 +376,7 @@ NewRss::ShowAbout ()
 }
 
 void
-NewRss::ShowLicense ()
+Carpo::ShowLicense ()
 {
   QFile licfile (":/help/LICENSE.txt");
   licfile.open (QFile::ReadOnly);
@@ -386,7 +386,7 @@ NewRss::ShowLicense ()
 }
 
 void
-NewRss::ShowManual ()
+Carpo::ShowManual ()
 {
   QFile manuFile (":/help/manual.html");
   manuFile.open (QFile::ReadOnly);
@@ -396,33 +396,33 @@ NewRss::ShowManual ()
 }
 
 void
-NewRss::HideList (const QString & list)
+Carpo::HideList (const QString & list)
 {
   QMetaObject::invokeMethod (qmlRoot, 
                             QString("shrink%1").arg(list).toLatin1().data());
 }
 
 void
-NewRss::ShrinkIndex ()
+Carpo::ShrinkIndex ()
 {
   HideList ("FeedIndex");
 }
 
 void
-NewRss::ExpandIndex ()
+Carpo::ExpandIndex ()
 {
   ShowList ("FeedIndex");
 }
 
 void
-NewRss::TopicChanged ()
+Carpo::TopicChanged ()
 {
   HideList ("FeedIndex");
   ShowList ("FeedList");
 }
 
 void
-NewRss::Quit ()
+Carpo::Quit ()
 {
   if (feeds.dirty ()) {
     SaveFeedListModel (false);
@@ -436,7 +436,7 @@ NewRss::Quit ()
 }
 
 void
-NewRss::LoadFeed (const QString & urlString, const QString & storyHash)
+Carpo::LoadFeed (const QString & urlString, const QString & storyHash)
 {
   if (qnam) {
     QNetworkReply * netreply = qnam->get (QNetworkRequest (QUrl (urlString)));
@@ -448,7 +448,7 @@ NewRss::LoadFeed (const QString & urlString, const QString & storyHash)
 }
 
 void
-NewRss::ProbeFeed (const QString & urlString)
+Carpo::ProbeFeed (const QString & urlString)
 {
   if (qnam) {
     QNetworkReply * netreply = qnam->get (QNetworkRequest (QUrl (urlString)));
@@ -459,7 +459,7 @@ NewRss::ProbeFeed (const QString & urlString)
 }
 
 void
-NewRss::FinishedNet (QNetworkReply * reply)
+Carpo::FinishedNet (QNetworkReply * reply)
 {
   if (reply) {
     if (expectReplies.contains (reply)) {
@@ -488,7 +488,7 @@ NewRss::FinishedNet (QNetworkReply * reply)
 }
 
 void
-NewRss::GetFeedReply (QNetworkReply * reply, const QString & storyHash)
+Carpo::GetFeedReply (QNetworkReply * reply, const QString & storyHash)
 {
   if (!reply) {
     return;
@@ -520,7 +520,7 @@ NewRss::GetFeedReply (QNetworkReply * reply, const QString & storyHash)
 }
 
 void
-NewRss::WebPageReply (QNetworkReply * reply)
+Carpo::WebPageReply (QNetworkReply * reply)
 {
   if (!reply) {
     return;
@@ -533,22 +533,22 @@ NewRss::WebPageReply (QNetworkReply * reply)
 
 
 void
-NewRss::NewestNewsRow (int row)
+Carpo::NewestNewsRow (int row)
 {
   QMetaObject::invokeMethod (qmlRoot, "newestNewsRow",
                  Q_ARG (QVariant, row));
 }
 
 void
-NewRss::Restart ()
+Carpo::Restart ()
 {
-  qDebug () << "NewRss :: Restart";
+  qDebug () << "Carpo :: Restart";
   autoUpdate.Stop ();
   QTimer::singleShot (100, this, SLOT (QmlRun()));
 }
 
 bool
-NewRss::Again ()
+Carpo::Again ()
 {
   bool again = runAgain;
   runAgain = false;
@@ -556,7 +556,7 @@ NewRss::Again ()
 }
 
 void
-NewRss::ProbeReply (QNetworkReply * reply)
+Carpo::ProbeReply (QNetworkReply * reply)
 {
   QDomDocument probeDoc;
   probeDoc.setContent (reply);
@@ -586,7 +586,7 @@ NewRss::ProbeReply (QNetworkReply * reply)
 }
 
 bool
-NewRss::PopulateFromRssDoc (QDomElement & el, Feed & feed)
+Carpo::PopulateFromRssDoc (QDomElement & el, Feed & feed)
 {
   static QString tag_title("title");
   static QString tag_link("link");
@@ -618,7 +618,7 @@ NewRss::PopulateFromRssDoc (QDomElement & el, Feed & feed)
 
 
 bool
-NewRss::PopulateFromAtomDoc (QDomElement & el, Feed & feed)
+Carpo::PopulateFromAtomDoc (QDomElement & el, Feed & feed)
 {
   QString t;
   static QString tag_title("title");
@@ -653,7 +653,7 @@ NewRss::PopulateFromAtomDoc (QDomElement & el, Feed & feed)
 }
 
 bool 
-NewRss::ParseAtomLinkElem (QDomElement & el, QString & xml, QString & web)
+Carpo::ParseAtomLinkElem (QDomElement & el, QString & xml, QString & web)
 {
    QString relAttr = el.attribute("rel");
    bool ok(false);
@@ -668,7 +668,7 @@ NewRss::ParseAtomLinkElem (QDomElement & el, QString & xml, QString & web)
 }
 
 bool
-NewRss::ParseAtomAuthorElem (QDomElement &el, QString & name)
+Carpo::ParseAtomAuthorElem (QDomElement &el, QString & name)
 {
   bool ok(false);
   for (QDomElement child = el.firstChildElement();
@@ -683,7 +683,7 @@ NewRss::ParseAtomAuthorElem (QDomElement &el, QString & name)
 }
 
 void
-NewRss::ParseStories (QDomNodeList & items, const QString & contentTag,
+Carpo::ParseStories (QDomNodeList & items, const QString & contentTag,
                       const QString & dateTag1, const QString & dateTag2)
 {
   int ni = items.count();
@@ -739,7 +739,7 @@ NewRss::ParseStories (QDomNodeList & items, const QString & contentTag,
 
 
 void
-NewRss::resizeEvent (QResizeEvent *event)
+Carpo::resizeEvent (QResizeEvent *event)
 {
   if (!event) {
     return;
@@ -753,7 +753,7 @@ NewRss::resizeEvent (QResizeEvent *event)
 }
 
 void
-NewRss::closeEvent (QCloseEvent *event)
+Carpo::closeEvent (QCloseEvent *event)
 {
   if (feeds.dirty ()) {
     SaveFeedListModel (false);
@@ -765,7 +765,7 @@ NewRss::closeEvent (QCloseEvent *event)
 }
 
 void
-NewRss::LoadList ()
+Carpo::LoadList ()
 {
   if (feedlistParser) {
     topFolder.clear ();
@@ -778,7 +778,7 @@ NewRss::LoadList ()
 }
 
 void
-NewRss::CheckExists (const QString & filename)
+Carpo::CheckExists (const QString & filename)
 {
   QFileInfo fileInfo (filename);
   if (!fileInfo.exists()) {
@@ -792,7 +792,7 @@ NewRss::CheckExists (const QString & filename)
 }
 
 void
-NewRss::FillFeedModel (const Folder & folder, 
+Carpo::FillFeedModel (const Folder & folder, 
                        FeedlistModel & model,
                        const QStringList & parentFolders)
 {
@@ -812,7 +812,7 @@ NewRss::FillFeedModel (const Folder & folder,
 }
 
 void
-NewRss::MaybeSave ()
+Carpo::MaybeSave ()
 {
   if (feeds.dirty()) {
     SaveFeedListModel (false);
@@ -820,9 +820,9 @@ NewRss::MaybeSave ()
 }
 
 void
-NewRss::SaveFeedListModel (bool reindex)
+Carpo::SaveFeedListModel (bool reindex)
 {
-  qDebug () << " NewRss  ::  SaveFeedListModel " << reindex;
+  qDebug () << " Carpo  ::  SaveFeedListModel " << reindex;
   if (reindex) {
     topicModel.ReIndex ();
   }

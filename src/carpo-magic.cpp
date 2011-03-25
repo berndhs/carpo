@@ -1,4 +1,4 @@
-#include "newrss-magic.h"
+#include "carpo-magic.h"
 
 /****************************************************************
  * This file is distributed under the following license:
@@ -24,7 +24,7 @@
 namespace deliberate
 {
 
-const QString Magic::PseudoAlertTag ("drss-803a1dc7-fc0e-4309-bebf-3f02254bff53");
+const QString Magic::PseudoAlertTag ("carpo-803a1dc7-fc0e-4309-bebf-3f02254bff53");
 const QString Magic::AllTopicsTag (QObject::tr("! All topics"));
 
 } // namespace

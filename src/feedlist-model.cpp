@@ -28,7 +28,7 @@
 #include <QCryptographicHash>
 #include <QDateTime>
 
-#include "newrss-magic.h"
+#include "carpo-magic.h"
 
 namespace deliberate
 {

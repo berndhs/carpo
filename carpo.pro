@@ -23,7 +23,7 @@
 # *  Boston, MA  02110-1301, USA.
 # ****************************************************************/
 
-MYNAME = newrss
+MYNAME = carpo
 
 TEMPLATE = app
 

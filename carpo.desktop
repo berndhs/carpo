@@ -1,10 +1,10 @@
 
 [Desktop Entry]
-Name=New Rss/Atom Reader
+Name=Carpo RSS/Atom Reader
 GenericName=RSS Reader
 Comment=An application to read RSS and Atom feeds.
-Exec=newrss
-Icon=newrss
+Exec=carpo
+Icon=carpo
 StartupNotify=false
 Terminal=false
 Type=Application

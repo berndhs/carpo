@@ -1,5 +1,5 @@
-#ifndef DELIBERATE_NEWRSS_H
-#define DELIBERATE_NEWRSS_H
+#ifndef DELIBERATE_CARPO_H
+#define DELIBERATE_CARPO_H
 
 
 /****************************************************************
@@ -39,7 +39,7 @@
 #include "qml-feed-if.h"
 #include "qml-control-if.h"
 #include "qml-gesture-if.h"
-#include "ui_newrss.h"
+#include "ui_carpo.h"
 #include "feedlist-parser.h"
 #include "feedlist.h"
 #include "feedlist-model.h"
@@ -53,12 +53,12 @@ class QDeclarativeContext;
 
 namespace deliberate
 {
-class NewRss : public QMainWindow
+class Carpo : public QMainWindow
 {
 Q_OBJECT
 public:
 
-  NewRss (QWidget *parent=0);
+  Carpo (QWidget *parent=0);
 
   void Init (QApplication & ap);
   void AddConfigMessages (const QStringList & messages);
@@ -127,7 +127,7 @@ private:
 
   bool           runAgain;
   QApplication  *app;
-  Ui_NewRssMain  ui;
+  Ui_CarpoMain  ui;
   QStringList    configMessages;
 
   QDeclarativeContext *context;

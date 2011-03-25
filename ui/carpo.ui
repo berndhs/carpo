@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ui version="4.0">
- <class>NewRssMain</class>
- <widget class="QMainWindow" name="NewRssMain">
+ <class>CarpoMain</class>
+ <widget class="QMainWindow" name="CarpoMain">
   <property name="geometry">
    <rect>
     <x>0</x>
@@ -11,11 +11,11 @@
    </rect>
   </property>
   <property name="windowTitle">
-   <string>NewRss</string>
+   <string>Carpo</string>
   </property>
   <property name="windowIcon">
-   <iconset resource="../newrss.qrc">
-    <normaloff>:/newrss.png</normaloff>:/newrss.png</iconset>
+   <iconset resource="../carpo.qrc">
+    <normaloff>:/carpo.png</normaloff>:/carpo.png</iconset>
   </property>
   <widget class="QWidget" name="centralwidget">
    <layout class="QGridLayout" name="gridLayout">
@@ -35,7 +35,7 @@
   </customwidget>
  </customwidgets>
  <resources>
-  <include location="../newrss.qrc"/>
+  <include location="../carpo.qrc"/>
  </resources>
  <connections/>
 </ui>

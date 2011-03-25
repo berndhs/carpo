@@ -1,5 +1,5 @@
 
-#include "newrss-main.h"
+#include "carpo-main.h"
 
 /****************************************************************
  * This file is distributed under the following license:
@@ -28,7 +28,7 @@
 #include "delib-debug.h"
 #include "version.h"
 #include "cmdoptions.h"
-#include "newrss.h"
+#include "carpo.h"
 
 #include <QDebug>
 
@@ -38,8 +38,8 @@ main (int argc, char *argv[])
 {
   QCoreApplication::setOrganizationName ("BerndStramm");
   QCoreApplication::setOrganizationDomain ("bernd-stramm.com");
-  QCoreApplication::setApplicationName ("newrss");
-  deliberate::ProgramVersion pv ("NewRss");
+  QCoreApplication::setApplicationName ("carpo");
+  deliberate::ProgramVersion pv ("Carpo");
   QCoreApplication::setApplicationVersion (pv.ShortVersion());
 
   QApplication  app (argc, argv);
@@ -52,7 +52,7 @@ main (int argc, char *argv[])
 
   QStringList  configMessages;
 
-  deliberate::CmdOptions  opts ("newrss");
+  deliberate::CmdOptions  opts ("carpo");
   opts.AddSoloOption ("debug","D",QObject::tr("show Debug log window"));
   opts.AddStringOption ("logdebug","L",QObject::tr("write Debug log to file"));
 
@@ -88,12 +88,12 @@ main (int argc, char *argv[])
     deliberate::StartFileLog (logfile);
   }
 #endif
-  deliberate::NewRss   newrss;
+  deliberate::Carpo   carpo;
 
-  app.setWindowIcon (newrss.windowIcon());
-  newrss.Init (app);
-  newrss.AddConfigMessages (configMessages);
-  newrss.Run ();
+  app.setWindowIcon (carpo.windowIcon());
+  carpo.Init (app);
+  carpo.AddConfigMessages (configMessages);
+  carpo.Run ();
   result = app.exec ();
   return result;
 }
