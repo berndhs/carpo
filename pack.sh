@@ -1,7 +1,7 @@
 #!/bin/bash
 
 NAME=newrss
-CHANGELOG=changelog
+CHANGELOG=${NAME}.changes
 DESKTOP=${NAME}.desktop
 VERSION=`grep "ProgramVersion::VersionNumber" src/version.cpp \
         | awk '{print $3;}' \
