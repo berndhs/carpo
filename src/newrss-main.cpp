@@ -79,7 +79,7 @@ main (int argc, char *argv[])
   bool showDebug = opts.SeenOpt ("debug");
   int result;
 
-#if DELIBERATE_DEBUG
+#if 0 && DELIBERATE_DEBUG
   deliberate::StartDebugLog (showDebug);
   bool logDebug = opts.SeenOpt ("logdebug");
   if (logDebug) {

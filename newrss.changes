@@ -1,3 +1,5 @@
+* Wed Mar 25 2011 Bernd Stramm <bernd.stramm@gmail.com> - 0.4.5
+- better control flow, faux-streaming, topics
 
 * Wed Mar 16 2011 Bernd Stramm <bernd.stramm@gmail.com> - 0.0.0
 - initial release
