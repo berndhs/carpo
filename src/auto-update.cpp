@@ -23,6 +23,7 @@
  *  Boston, MA  02110-1301, USA.
  ****************************************************************/
 
+#include "deliberate.h"
 
 #include <QCryptographicHash>
 
@@ -37,7 +38,9 @@ AutoUpdate::AutoUpdate (FeedlistModel & feedlistModel, QObject *parent)
   :QAbstractListModel (parent),
    updateTimer (this),
    feeds (feedlistModel),
-   idList (feedlistModel.feedIdList())
+   idList (feedlistModel.feedIdList()),
+   chaser (0),
+   listLimit (1000)
 {
   qnam = new QNetworkAccessManager;
   QHash<int, QByteArray> roles;
@@ -46,6 +49,8 @@ AutoUpdate::AutoUpdate (FeedlistModel & feedlistModel, QObject *parent)
   roles[Type_StoryTitle] = "storyTitle";
   roles[Type_StoryHash] = "storyHash";
   setRoleNames(roles);
+  listLimit = Settings().value ("NewsList/cachesize",listLimit).toInt();
+  Settings().setValue ("NewsList/cachesize",listLimit);
 }
 
 AutoUpdate::~AutoUpdate ()
@@ -238,11 +243,30 @@ AutoUpdate::AddStory (const QString & feedId,
                       const QString & title,
                       const QString & hash)
 {
+  int excess = newStoryList.count() - listLimit;
+  if (excess > 0) {
+    RemoveRows (0, excess);  // make room for 1 new story
+  }   
   int newRow = newStoryList.count();
   beginInsertRows (QModelIndex(), newRow, newRow);
   newStoryList.append (NewStory (feedId, title, hash));
   endInsertRows ();
   emit NewestRow (newRow);
+}
+
+void
+AutoUpdate::RemoveRows (int first, int last)
+{
+  int realFirst (first < 0 ? 0 : first);
+  int realLast (last >= newStoryList.count() ? newStoryList.count()-1 : last);
+  if (realFirst > realLast) {
+    return;
+  }
+  beginRemoveRows (QModelIndex(), realFirst, realLast);
+  for (int i=realLast; i>=realFirst; i--) {
+    newStoryList.removeAt (i);
+  }
+  endRemoveRows ();
 }
 
 QDebug

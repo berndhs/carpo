@@ -111,11 +111,13 @@ private:
   void AddStory (const QString & feedId, 
                  const QString & title, 
                  const QString & hash);
+  void RemoveRows (int first, int last);
 
   QTimer                   updateTimer;
   FeedlistModel          & feeds;
   QStringList            & idList;
   int                      chaser;
+  int                      listLimit;
   QNetworkAccessManager   *qnam;
   QMap <QNetworkReply *, CarpoNetReply *>  expectReplies;
   NewStoryList             newStoryList;
