@@ -23,7 +23,10 @@ DESKTOP_DIR = /usr/share/applications
 ICON_FILE = ${PROJECT_NAME}.png
 ICON_DIR = /usr/share/pixmaps
 
-all: $(MAKEFILE)
+BUILTIN_HELP = help/manual.html
+HELP_SRC = help/manual.txt
+
+all: $(MAKEFILE) 
 	$(MAKE) -f $(MAKEFILE) all
 	ls -ltr bin/${PROJECT_NAME}*
 
@@ -42,6 +45,11 @@ debug: $(MAKEFILE) FORCE
 release: $(MAKEFILE) FORCE
 	$(MAKE) -f $(MAKEFILE) release
 	ls -ltr bin/${PROJECT_NAME}*
+
+manual: $(BUILTIN_HELP)
+
+$(BUILTIN_HELP): $(HELP_SRC)
+	asciidoc --out-file $(BUILTIN_HELP) $(HELP_SRC)
 
 install: all FORCE
 	install -d $(DESTDIR)
