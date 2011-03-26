@@ -27,6 +27,7 @@
 #include <QObject>
 #include <QVariant>
 #include <QString>
+#include <QUrl>
 #include "feedlist-model.h"
 
 namespace deliberate 
@@ -68,6 +69,7 @@ public:
   Q_INVOKABLE void restartApp ();
   Q_INVOKABLE void exitApp ();
   Q_INVOKABLE void help ();
+  Q_INVOKABLE bool isEmptyUrl (const QUrl & url);
 
   void SetFeeds (FeedlistModel * feedList);
 

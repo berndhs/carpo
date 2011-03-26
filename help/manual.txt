@@ -1,7 +1,7 @@
 Carpo RSS/Atom Reader - Manual
 ==============================
 Bernd Stramm <bernd.stramm@gmail.com>
-v0.5.0, March 2011
+v0.2.0, March 2011
 
 *Carpo* is a reader for RSS/Atom feeds.
 

@@ -32,6 +32,10 @@ CONFIG += debug_and_release
 
 INCLUDEPATH += src
 
+TRANSLATIONS = trans/carpo_de.ts \
+               trans/carpo_fr.ts \
+
+
 !include ("options.pri") {
   message ("no options.pri, using defaults")
   MAKEFILE = Makefile
@@ -66,7 +70,7 @@ CONFIG(debug, debug|release) {
 UI_DIR = tmp/ui
 MOC_DIR = tmp/moc
 RCC_DIR = tmp/rcc
-RESOURCES = $${MYNAME}.qrc
+RESOURCES = $${MYNAME}.qrc 
 
 FORMS = \
         ui/$${MYNAME}.ui \

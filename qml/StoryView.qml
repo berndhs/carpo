@@ -41,6 +41,7 @@ Flickable {
   property alias stop: theWebView.stop
   property alias reload: theWebView.reload
   property alias forward: theWebView.forward
+  property bool isWeb: false
 
   id: flickable
 
@@ -90,6 +91,8 @@ Flickable {
       isLoadFinished = false
       flickable.contentX = 0
       flickable.contentY = 0
+      console.log ("Url changed to " + url + " type " + typeof(url))
+      flickable.isWeb = ! controlIF.isEmptyUrl (url)
     }
     onDoubleClick: {
       if (!heuristicZoom(clickX,clickY,2.5)) {
@@ -98,7 +101,7 @@ Flickable {
         doZoom(zf,clickX*zf,clickY*zf)
       }
     } 
-    onLoadFinished: { isLoadFinished = true }
+    onLoadFinished: { isLoadFinished = true;}
     onLoadFailed: { isLoadFinished = true }
     onLoadStarted: { isLoadFinished = false }
   }

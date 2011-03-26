@@ -257,5 +257,12 @@ ControlInterface::toCopy (const QString & copyText)
   }
 }
 
+bool
+ControlInterface::isEmptyUrl (const QUrl & url)
+{
+  qDebug () << "ControlInterface :: isEmptyUrl " << url;
+  return url.toString().length() == 0;
+}
+
 
 } // namespace

@@ -225,6 +225,7 @@ Rectangle {
     property real space: 2
     property string buttonColor: "magenta"
     property real buttonOpacity: 0.6
+    visible: storyView.isWeb
     anchors { 
       verticalCenter: indexBox.bottom 
       left: indexBox.left
