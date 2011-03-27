@@ -284,7 +284,6 @@ void
 ControlInterface::pushHtml ()
 {
   if (qmlWebView) {
-qDebug () << "ControlInterface :: pushHtml " << qmlWebView->property ("storyHtml");
     htmlStack.append (qmlWebView->property ("storyHtml").toString());
   }
 }
@@ -292,7 +291,6 @@ qDebug () << "ControlInterface :: pushHtml " << qmlWebView->property ("storyHtml
 void
 ControlInterface::popHtml ()
 {
-qDebug () << "ControlInterface :: popHtml " << htmlStack.last ();
   if (qmlWebView && !htmlStack.isEmpty()) {
     qmlWebView->setProperty ("storyHtml",htmlStack.takeLast ());
   }

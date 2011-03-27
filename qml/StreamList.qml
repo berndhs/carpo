@@ -28,9 +28,11 @@ Rectangle {
   property real normalHeight:500
   property real leftMargin: 0
   property real shrinkDelay: 250
+  property real rollDelay: 150
   property real itemHeight: 32
   property real singleHeight: 0.75
   property real doubleHeight: 1.0
+  property real initialYScale: 1
   property string feedButtonColor: "#eeeeff"
   property string storyButtonColor: "#eeffee"
   property string feedLineColor: "#ffffdd"
@@ -40,12 +42,10 @@ Rectangle {
   signal quitit ()
 
   function hide () {
-    shrinkWidth.running = true; 
-    shrinkScale.running = true; 
+   rollupScale.yScale = 0
   }
   function show () {
-    expandWidth.running = true;
-    expandScale.running = true;
+   rollupScale.yScale = 1
   }
   function setNewestRow (theRow) {
     streamList.currentIndex = theRow
@@ -55,29 +55,13 @@ Rectangle {
   width: normalWidth
   height: normalHeight
 
-  PropertyAnimation on width { 
-    id: shrinkWidth
-    running: false
-    to: 0
-    duration: shrinkDelay
-  }
-  PropertyAnimation on scale { 
-    id: shrinkScale
-    running: false
-    to: 0
-    duration: shrinkDelay
-  }
-  PropertyAnimation on width { 
-    id: expandWidth
-    running: false
-    to: normalWidth
-    duration: shrinkDelay
-  }
-  PropertyAnimation on scale { 
-    id: expandScale
-    running: false
-    to: 1
-    duration: shrinkDelay
+  transform: Scale {
+    id: rollupScale
+    xScale: 1
+    yScale: initialYScale
+    Behavior  on yScale {
+      NumberAnimation { duration: rollDelay }
+    }
   }
   Component {
     id: verticalDelegate

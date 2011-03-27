@@ -34,6 +34,7 @@ Rectangle {
   property real initialYScale: 0
   property string highlightColor: "oldlace"
   property string topObject: objectName
+  property alias heightScale: rollupScale.yScale
   signal selected (int idx, string name, int count)
   signal quitit ()
 

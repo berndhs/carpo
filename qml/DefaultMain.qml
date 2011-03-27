@@ -178,7 +178,7 @@ Rectangle {
     normalWidth: parent.width * 0.3333
     width: normalWidth
     anchors { right: indexBox.right; top: indexBox.top }
-    z: streamListArea + 1
+    z: streamListArea.z + 1
     color: "red"
     onSelected: { controlIF.changeTopic (name) }
     onQuitit: { hide () }
@@ -193,7 +193,7 @@ Rectangle {
     leftMargin: indexBox.width * 0.4
     anchors.top: indexBox.top
     anchors.left: indexBox.left
-    scale: 0
+    initialYScale: 0
     color: "transparent"
     border.color: "blue"
     radius: 6
@@ -210,6 +210,7 @@ Rectangle {
   StoryView {
     id: storyView
     objectName: "StoryView"
+    signal changedIsWeb (bool isWebNow)
     visible: true
     z: indexBox-2
     anchors { 
@@ -220,6 +221,7 @@ Rectangle {
     height: parent.height - controlPanel.height - indexBox.height
    
     storyHtml: "<p>"+ qsTr("No Current Story.") + "</p>"
+    onIsWebChanged: changedIsWeb (isWeb)
   }
   Rectangle {
     id: webNavRect
@@ -227,7 +229,7 @@ Rectangle {
     property real space: 2
     property string buttonColor: "magenta"
     property real buttonOpacity: 0.6
-    property real navButtonWidth: 0.5*storyView.width
+    property real navButtonWidth: 0.2*storyView.width
     visible: storyView.isWeb
     anchors { 
       top: indexBox.bottom 
@@ -239,7 +241,7 @@ Rectangle {
     z:feedListArea.z + 1
     ChoiceButton {
       id: allBackButton
-      width: navButtonWidth
+      width: parent.navButtonWidth
       height: normalButtonHeight
       opacity: webNavRect.buttonOpacity
       color: parent.buttonColor
@@ -251,7 +253,7 @@ Rectangle {
     }
     ChoiceButton {
       id: backButton
-      width: navButtonWidth
+      width: parent.navButtonWidth
       height: normalButtonHeight
       opacity: webNavRect.buttonOpacity
       color: parent.buttonColor
@@ -263,7 +265,7 @@ Rectangle {
     }
     ChoiceButton {
       id: copyButton
-      width: navButtonWidth
+      width:parent.navButtonWidth
       height: normalButtonHeight
       opacity: webNavRect.buttonOpacity
       color: parent.buttonColor
@@ -275,7 +277,7 @@ Rectangle {
     }
     ChoiceButton {
       id: forwardButton
-      width: navButtonWidth
+      width: parent.navButtonWidth
       height: normalButtonHeight
       opacity: webNavRect.buttonOpacity
       color: parent.buttonColor
@@ -355,10 +357,12 @@ Rectangle {
     id: controlPanel
     objectName: "ControlPanel"
     visible: true
-    onShowTopics: { topicListArea.show () }
-    onHideTopics: { topicListArea.hide () }
-    onShowRecent: { streamListArea.show () }
-    onHideRecent: { streamListArea.hide () }
+    property bool normalShowTopics: false
+    property bool normalShowStream: false
+    onShowTopics: { normalShowTopics = true; topicListArea.show () }
+    onHideTopics: { normalShowTopics = false; topicListArea.hide () }
+    onShowRecent: { normalShowStream = true; streamListArea.show () }
+    onHideRecent: { normalShowStream = false; streamListArea.hide () }
     onSelectQuit: { controlIF.exitApp () }
     onSelectHelp: { controlIF.help () }
     onToggleViewSelect: {
@@ -377,6 +381,18 @@ Rectangle {
         configIF.loadView ();
         configList.show ();
         indexBox.hide ();
+      }
+    }
+  }
+  Connections {
+    target: storyView
+    onChangedIsWeb: {
+      if (isWebNow ) {
+        streamListArea.hide ()
+        topicListArea.hide ()
+      } else {
+        if (controlPanel.normalShowTopics) topicListArea.show ()
+        if (controlPanel.normalShowStream) streamListArea.show ()
       }
     }
   }
