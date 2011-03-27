@@ -62,8 +62,6 @@ Rectangle {
     feedListArea.expand ()
   }
   function toggleLists () {
-    console.log ("toggleLists")
-    console.log ("Widths: Index " + feedIndexArea.width + " list " + feedListArea.width)
     feedIF.toggleLists ()
   }
   function displayEditFeed (feedId, feedUrl, feedTitle, siteUrl, 
@@ -115,10 +113,6 @@ Rectangle {
       to: 1
       duration: shrinkDelay
     }
-    MouseArea {
-      anchors.fill: parent
-      onClicked: { console.log ("clicked main index box") }
-    }
     FeedList {
       id: feedListArea
       objectName: "FeedListArea"
@@ -131,10 +125,6 @@ Rectangle {
       scale: 1
       color: "yellow"
       clip: true
-      MouseArea {
-        anchors.fill: parent
-        onClicked: console.log ("clicked Feed List Box " + mouseX + mouseY)
-      }
       onSelected: { 
         controlIF.feedClicked (idx, i,t) 
       }
@@ -156,10 +146,6 @@ Rectangle {
       color: "cyan"
       itemColor: "cyan"
       clip: true
-      MouseArea {
-        anchors.fill: parent
-        onClicked: console.log ("clicked Feed Index Box " + mouseX + mouseY)
-      }
       onSelected: { 
         feedIF.storyClicked (idx, i,t) 
       }
@@ -199,10 +185,6 @@ Rectangle {
     radius: 6
     clip: true
     z: feedIndexArea.z + 1
-    MouseArea {
-      anchors.fill: parent
-      onClicked: console.log ("clicked Stream Index Box " + mouseX + mouseY)
-    }
     onSelectFeed: { controlIF.selectFeed (feedId) }
     onSelectStory: { controlIF.displayStory (feedId, title, hash) }
     onQuitit: { hide () }

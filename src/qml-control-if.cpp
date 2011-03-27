@@ -213,7 +213,6 @@ qDebug () << "ControlInterface :: handlePseudoAlert " << alert;
     QString command = parts.at(1);
     if (command == "here") {
       if (numParts > 2) {
-        pushHtml ();
         emit BrowseLinkLocal (parts.at(2));
       }
     } else if (command == "browser") {
@@ -264,7 +263,6 @@ ControlInterface::toCopy (const QString & copyText)
 bool
 ControlInterface::isEmptyUrl (const QUrl & url)
 {
-  qDebug () << "ControlInterface :: isEmptyUrl " << url;
   return url.toString().length() == 0;
 }
 

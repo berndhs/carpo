@@ -43,7 +43,7 @@ Flickable {
   property alias forward: theWebView.forward
   property bool isWeb: false
 
-  id: flickable
+  id: storyViewBox
 
   //function back () { console.log ("Back!!"); theWebView.back.trigger() }
   //function forward () { console.log ("Forward ->>>" ); theWebView.forward.trigger () }
@@ -77,33 +77,36 @@ Flickable {
     Keys.onLeftPressed: theWebView.contentsScale -= 0.1
     Keys.onRightPressed: theWebView.contentsScale += 0.1
 
-    preferredWidth: flickable.width
-    preferredHeight: flickable.height
+    preferredWidth: storyViewBox.width
+    preferredHeight: storyViewBox.height
     contentsScale: 1
     onContentsSizeChanged: {
       // zoom out
       if (isLoadFinished) {
-        contentsScale = Math.min(1,flickable.width / contentsSize.width)
+        contentsScale = Math.min(1,storyViewBox.width / contentsSize.width)
       }
     }
     onUrlChanged: {
       // got to topleft
       isLoadFinished = false
-      flickable.contentX = 0
-      flickable.contentY = 0
-      console.log ("Url changed to " + url + " type " + typeof(url))
-      flickable.isWeb = ! controlIF.isEmptyUrl (url)
+      storyViewBox.contentX = 0
+      storyViewBox.contentY = 0
+      storyViewBox.isWeb = ! controlIF.isEmptyUrl (url)
     }
     onDoubleClick: {
       if (!heuristicZoom(clickX,clickY,2.5)) {
-        var zf = flickable.width / contentsSize.width
+        var zf = storyViewBox.width / contentsSize.width
         if (zf >= contentsScale) zf = 2.0/zoomFactor // zoom in (else zooming out)
         doZoom(zf,clickX*zf,clickY*zf)
       }
     } 
     onLoadFinished: { isLoadFinished = true; loadIndicator.visible = false}
     onLoadFailed: { isLoadFinished = true ; loadIndicator.visible = false }
-    onLoadStarted: { isLoadFinished = false; loadIndicator.visible = true }
+    onLoadStarted: { 
+      if (!storyViewBox.isWeb) controlIF.pushHtml()
+      isLoadFinished = false
+      loadIndicator.visible = true 
+    }
   }
   Rectangle {
     id: loadIndicator
