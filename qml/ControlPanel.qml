@@ -66,7 +66,13 @@ Rectangle {
     anchors { left: buttonRow.right}
     color : "#e0e0e0"
     height: parent.height
-    labelText: "Quit"
+    labelText: ""
+    Image {
+      anchors.centerIn: parent
+      anchors.fill: parent
+      fillMode: Image.PreserveAspectFit
+      source: "qrc:///images/quit.png"
+    }
     onClicked: selectQuit()
   }
   ChoiceButton {   
@@ -75,7 +81,7 @@ Rectangle {
     anchors { right: buttonRow.left }
     color : "#e0e0e0"
     height: parent.height
-    labelText: " ? "
+    labelText: " <b>?</b> "
     onClicked: selectHelp()
   }
 
@@ -98,7 +104,7 @@ Rectangle {
         anchors.fill: parent
         onClicked: toggleViewSelect ()
       }
-      Text { text: "Feeds <-> Stories"; anchors.centerIn: parent }
+      Text { text: "Feeds / Stories"; anchors.centerIn: parent }
     }
     Rectangle {
       id: detailButton
@@ -112,7 +118,7 @@ Rectangle {
         anchors.fill: parent
         onClicked: indexMenu.show ()
       }
-      Text { text: "More Views"; anchors.centerIn: parent }
+      Text { text: "Views"; anchors.centerIn: parent }
     }
     Rectangle {
       id: maintainButton
@@ -122,11 +128,16 @@ Rectangle {
       color: maintainButtonColor
       anchors { left: detailButton.right }
       radius: height/2
+      Image {
+        anchors.centerIn: parent
+        anchors.fill: parent
+        fillMode: Image.PreserveAspectFit
+        source: "qrc:///images/settings.png"
+      }
       MouseArea {
         anchors.fill: parent
         onClicked: maintainMenu.show ()
       }
-      Text { text: "Maintenance"; anchors.centerIn: parent }
     }
 
     DropMenu {

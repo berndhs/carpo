@@ -10,6 +10,10 @@
 <qresource>
   <file alias="default-properties.txt">cfg/default-properties.txt</file>
 </qresource>
+<qresource prefix="/images">
+  <file alias="settings.png">images/settings.png</file>
+  <file alias="quit.png">images/quit.png</file>
+</qresource>
 <qresource>
   <file>qml/AddressInput.qml</file>
  <file>qml/BoxInput.qml</file>
