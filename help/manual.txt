@@ -5,6 +5,64 @@ v0.2.0, March 2011
 
 *Carpo* is a reader for RSS/Atom feeds.
 
+== Reading Feeds ==
+
+To read RSS/Atom feeds, select the feed title by clicking on it. This will bring up
+a list of available items (stories) from the selected feed. You can then click on any one
+of the available story titles to see the detaisl provided by the feed.
+
+At the top of the story display are two buttons. They allow you to browse the link
+provided by the feed item, either in the *Carpo* display (click on *Here*), or
+in the system browser (click on *Browser*).
+
+== Adding/Editing Feeds ==
+
+=== New Feeds ===
+To add a new feed, click on *Maintenance*, then on *New Feed*. This gives you a form with 
+feed information, then:
+
+- Enter the feed URL address.
+- Click *Check Address* to see if you already have this feed in your list. If
+the feed is already known, you will see details displayed in the form.
+- If the feed address is not known, click on *Probe Feed*. This will try to
+get feed details from the network. Depending on your network speed it can take 
+a number of seconds. If your network is not connected, this step won't work.
+- Review the data in the form. You can change them here. Of course changing the address means
+that you want a different feed.
+- When you are happy with the form content, click on *Save Feed*.
+- If you do not want any of the changes to take effect, click on *Cancel*.
+- If you want to remove the feed, click on *Delete Feed*. Be careful, once the feed is
+deleted is cannot be recovered, except by adding it as a new feed. There is no recycle bin.
+
+=== Edit Existing Feeds ===
+
+Find the feed you want to edit in the Feed List display. _Press-and-Hold_ on the feed title.
+The Feed Edit form will appear, and you can change any of the feed data.
+
+
+== Grouping Feeds ==
+
+You can tag feeds with *topics* in the Feed Editor, and select groups with the *Topics*
+display from *More Views*.
+
+== News Stream ==
+
+Click on *More Views* and then *New Stories - On* to see a stream-like list of
+new items as they are discovered. This list is updated a few times per minute for one feed
+at a time. It is thus not genuine _streaming_, since RSS servers do not push information
+to clients.
+
+To bring up a news item, click on the item in the stream, and the display will switch
+to the index of that feed and the details of the item.
+
+Do de-select the News Stream, either _Press-and-Hold_ on the News Stream items, or
+click *More Views* and the *New Stories - Off*.
+
+== Updates ==
+
+Check http://www.sourceforge.net/projects/carpo for updates and other information.
+
+
 == License and Warranty ==
 
 This is free open source software, hence the usual licensing. And the 
