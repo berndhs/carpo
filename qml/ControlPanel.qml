@@ -63,7 +63,7 @@ Rectangle {
   ChoiceButton {   
     id: offButton
     width: (parent.width - buttonRow.width)/ 3
-    anchors { right: buttonRow.left }
+    anchors { left: buttonRow.right}
     color : "#e0e0e0"
     height: parent.height
     labelText: "Quit"
@@ -72,7 +72,7 @@ Rectangle {
   ChoiceButton {   
     id: helpButton
     width: (parent.width - buttonRow.width)/3
-    anchors { left: buttonRow.right}
+    anchors { right: buttonRow.left }
     color : "#e0e0e0"
     height: parent.height
     labelText: " ? "

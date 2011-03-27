@@ -217,7 +217,7 @@ Rectangle {
     }
     height: parent.height - controlPanel.height - indexBox.height
    
-    storyHtml: "<p>No Story.</p>"
+    storyHtml: "<p>"+ qsTr("No Current Story.") + "</p>"
   }
   Rectangle {
     id: webNavRect
