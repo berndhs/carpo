@@ -44,7 +44,7 @@ Rectangle {
   property real embedMargin : 0
   property string indexMenuButtonColor: "cyan"
 
-  height: 20
+  height: menuItemHeight
   z: 1
   property real extraMargin: 20
   width: parent.width - 2*embedMargin - 2*extraMargin
