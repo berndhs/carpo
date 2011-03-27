@@ -163,6 +163,11 @@ Carpo::QmlRun ()
     QTimer::singleShot (150, this, SLOT(Quit ()));
     return;
   }
+  controlIF->SetQmlRoot (qobject_cast<QDeclarativeItem*> (qmlRoot));
+  QDeclarativeItem * qmlWebView = qmlRoot->
+                     findChild<QDeclarativeItem*>("StoryView");
+qDebug () << "  storyView " << qmlWebView;
+  controlIF->SetQmlWeb (qmlWebView);
   if (gestureIF) {
     gestureIF->SetQmlRoot (qmlRoot);
   }

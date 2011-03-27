@@ -31,6 +31,7 @@ Rectangle {
 
   property real embedMargin : 2
   property real indexItemHeight: 32
+  property real normalButtonHeight: 32
   property real verticalIndexHeight: 5 * indexItemHeight + embedMargin
   property real horizontalIndexHeight: 80
   property real indexHeight : verticalIndexHeight
@@ -92,7 +93,8 @@ Rectangle {
     id: indexBox
     objectName: "IndexBox"
     anchors.top: controlPanel.bottom
-    height: indexHeight
+    height: (storyView.isWeb ? 0 : indexHeight)
+    visible: !storyView.isWeb
     width: parent.width
     color: "transparent"
     function hide () {
@@ -211,7 +213,7 @@ Rectangle {
     visible: true
     z: indexBox-2
     anchors { 
-      top: indexBox.bottom
+      top: (webNavRect.visible ? webNavRect.bottom : indexBox.bottom)
       leftMargin: 0
       rightMargin: 0
     }
@@ -225,50 +227,62 @@ Rectangle {
     property real space: 2
     property string buttonColor: "magenta"
     property real buttonOpacity: 0.6
+    property real navButtonWidth: 0.5*storyView.width
     visible: storyView.isWeb
     anchors { 
-      verticalCenter: indexBox.bottom 
-      left: indexBox.left
-      leftMargin: indexBox.width * 0.1
+      top: indexBox.bottom 
+      horizontalCenter: storyView.horizontalCenter
     }
-    width: backButton.width + copyButton.width + forwardButton.width + 2*space
+    width: childrenRect.width
     color: "transparent"
     height: childrenRect.height
     z:feedListArea.z + 1
     ChoiceButton {
-      id: backButton
-      width: 50
-      height: childrenRect.height
+      id: allBackButton
+      width: navButtonWidth
+      height: normalButtonHeight
       opacity: webNavRect.buttonOpacity
       color: parent.buttonColor
       commonMargin: parent.space
       z:parent.z + 1
       anchors {left: webNavRect.left; verticalCenter: webNavRect.verticalCenter }
-      labelText: "Back"
+      labelText: qsTr(" << ")
+      onClicked: { controlIF.popHtml () }
+    }
+    ChoiceButton {
+      id: backButton
+      width: navButtonWidth
+      height: normalButtonHeight
+      opacity: webNavRect.buttonOpacity
+      color: parent.buttonColor
+      commonMargin: parent.space
+      z:parent.z + 1
+      anchors {left: allBackButton.right; verticalCenter: webNavRect.verticalCenter }
+      labelText: qsTr(" < ")
       onClicked: { storyView.back () }
     }
     ChoiceButton {
       id: copyButton
-      width: 75
-      height: childrenRect.height
+      width: navButtonWidth
+      height: normalButtonHeight
       opacity: webNavRect.buttonOpacity
       color: parent.buttonColor
       commonMargin: parent.space
       z:parent.z + 1
       anchors {left: backButton.right; verticalCenter: webNavRect.verticalCenter }
-      labelText: "Copy URL"
+      labelText: qsTr("Copy URL")
       onClicked: { controlIF.toCopy (storyView.url) }
     }
     ChoiceButton {
       id: forwardButton
-      width: 75
-      height: childrenRect.height
+      width: navButtonWidth
+      height: normalButtonHeight
       opacity: webNavRect.buttonOpacity
       color: parent.buttonColor
       commonMargin: parent.space
       z:parent.z + 1
       anchors {left: copyButton.right; verticalCenter: webNavRect.verticalCenter }
-      labelText: "Forward"
+      labelText: qsTr(" > ")
       onClicked: { storyView.forward ()}
     }
   }

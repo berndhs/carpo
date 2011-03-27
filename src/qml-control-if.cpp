@@ -35,7 +35,9 @@ ControlInterface::ControlInterface (QObject *parent,
                                     FeedlistModel * feedList)
   :QObject(parent),
    isEditingFeed (false),
-   feeds (feedList)
+   feeds (feedList),
+   qmlRoot (0),
+   qmlWebView (0)
 {
 }
 
@@ -204,12 +206,14 @@ ControlInterface::addressKnown (const QString & urlString)
 void
 ControlInterface::handlePseudoAlert (const QString & alert)
 {
+qDebug () << "ControlInterface :: handlePseudoAlert " << alert;
   QStringList parts = alert.split ("/");
   int numParts = parts.count();
   if (numParts > 1) {
     QString command = parts.at(1);
     if (command == "here") {
       if (numParts > 2) {
+        pushHtml ();
         emit BrowseLinkLocal (parts.at(2));
       }
     } else if (command == "browser") {
@@ -264,5 +268,34 @@ ControlInterface::isEmptyUrl (const QUrl & url)
   return url.toString().length() == 0;
 }
 
+void
+ControlInterface::SetQmlRoot (QDeclarativeItem * qmlObj)
+{
+  qmlRoot = qmlObj;
+}
+
+void
+ControlInterface::SetQmlWeb (QDeclarativeItem * qmlObj)
+{
+  qmlWebView = qmlObj;
+}
+
+void
+ControlInterface::pushHtml ()
+{
+  if (qmlWebView) {
+qDebug () << "ControlInterface :: pushHtml " << qmlWebView->property ("storyHtml");
+    htmlStack.append (qmlWebView->property ("storyHtml").toString());
+  }
+}
+
+void
+ControlInterface::popHtml ()
+{
+qDebug () << "ControlInterface :: popHtml " << htmlStack.last ();
+  if (qmlWebView && !htmlStack.isEmpty()) {
+    qmlWebView->setProperty ("storyHtml",htmlStack.takeLast ());
+  }
+}
 
 } // namespace

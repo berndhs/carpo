@@ -28,6 +28,7 @@
 #include <QVariant>
 #include <QString>
 #include <QUrl>
+#include <QDeclarativeItem>
 #include "feedlist-model.h"
 
 namespace deliberate 
@@ -70,8 +71,12 @@ public:
   Q_INVOKABLE void exitApp ();
   Q_INVOKABLE void help ();
   Q_INVOKABLE bool isEmptyUrl (const QUrl & url);
+  Q_INVOKABLE void popHtml ();
+  Q_INVOKABLE void pushHtml ();
 
   void SetFeeds (FeedlistModel * feedList);
+  void SetQmlRoot (QDeclarativeItem * qmlObj);
+  void SetQmlWeb (QDeclarativeItem * qmlObj);
 
 signals:
 
@@ -96,6 +101,9 @@ private:
 
   bool     isEditingFeed;
   FeedlistModel   *feeds;
+  QStringList     htmlStack;
+  QDeclarativeItem  *qmlRoot;
+  QDeclarativeItem  *qmlWebView;
 
 };
 
