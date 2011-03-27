@@ -1,13 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ui version="4.0">
+ <author>Bernd Stramm</author>
  <class>CarpoMain</class>
  <widget class="QMainWindow" name="CarpoMain">
   <property name="geometry">
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>483</width>
-    <height>331</height>
+    <width>800</width>
+    <height>600</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -20,18 +21,27 @@
   <widget class="QWidget" name="centralwidget">
    <layout class="QGridLayout" name="gridLayout">
     <item row="0" column="0">
-     <widget class="deliberate::QmlView" name="qmlView" native="true"/>
+     <widget class="QDeclarativeView" name="qmlView">
+      <property name="sizePolicy">
+       <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
+        <horstretch>10</horstretch>
+        <verstretch>10</verstretch>
+       </sizepolicy>
+      </property>
+      <property name="resizeMode">
+       <enum>QDeclarativeView::SizeRootObjectToView</enum>
+      </property>
+     </widget>
     </item>
    </layout>
   </widget>
  </widget>
- <layoutdefault spacing="1" margin="1"/>
+ <layoutdefault spacing="0" margin="0"/>
  <customwidgets>
   <customwidget>
-   <class>deliberate::QmlView</class>
-   <extends>QWidget</extends>
-   <header location="global">../src/qml-view.h</header>
-   <container>1</container>
+   <class>QDeclarativeView</class>
+   <extends>QGraphicsView</extends>
+   <header>QtDeclarative/QDeclarativeView</header>
   </customwidget>
  </customwidgets>
  <resources>

@@ -88,9 +88,10 @@ Carpo::Carpo (QWidget *parent)
   gestureIF = new GestureInterface (this);
   restoreGeometry(Settings().value("geometry").toByteArray());
   if (Settings().contains ("sizes/qml")) {
-    QSize qmlsize = Settings().value("sizes/qml").toSize();
-    qDebug () << " Found QML saved size " << qmlsize;
-    ui.qmlView->resize (qmlsize);
+    QSize qmlSize (800,600);
+    qmlSize = Settings().value("sizes/qml", qmlSize).toSize();
+    qDebug () << " Found QML saved size " << qmlSize;
+    ui.qmlView->resize (qmlSize);
   }
   topicModel.SetFeedModel (&feeds);
   connect (&saveTimer, SIGNAL (timeout()), this, SLOT (MaybeSave()));
@@ -174,14 +175,11 @@ qDebug () << "  storyView " << qmlWebView;
   propStore->ReadFromObjects (qmlRoot);
   propStore->FillSettings (qmlRoot);
   propStore->SyncToObjects (qmlRoot);
-  qDebug () << " top size " << size();
-  qDebug () << " qml size " << ui.qmlView->size();
-  qDebug () << " try to set size " << ui.qmlView->size() ;
-  qDebug () << "      on root object " << qmlRoot;
+  QSize topSize = size();
   if (qmlRoot) {
     QMetaObject::invokeMethod (qmlRoot, "setSize",
-                 Q_ARG (QVariant, (ui.qmlView->size().width()-2)),
-                 Q_ARG (QVariant, (ui.qmlView->size().height())-2));
+                 Q_ARG (QVariant, (topSize.width()-2)),
+                 Q_ARG (QVariant, (topSize.height())-2));
   }
   ShowList ("FeedList");
   topFolder.clear ();

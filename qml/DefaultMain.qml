@@ -35,8 +35,8 @@ Rectangle {
   property real verticalIndexHeight: 5 * indexItemHeight + embedMargin
   property real horizontalIndexHeight: 80
   property real indexHeight : verticalIndexHeight
-  property real displayWidth: 500
-  property real displayHeight: 400
+  property real displayWidth: 800
+  property real displayHeight: 600
   property real shrinkDelay: 250
 
   function setTheHtml (theHtml) { storyView.setTheHtml (theHtml) }
@@ -92,7 +92,7 @@ Rectangle {
     anchors.top: controlPanel.bottom
     height: (storyView.isWeb ? 0 : indexHeight)
     visible: !storyView.isWeb
-    width: parent.width
+    width: displayArea.width
     color: "transparent"
     function hide () {
       shrinkScale.running = true; 
@@ -118,7 +118,7 @@ Rectangle {
       visible: true
       height: indexHeight
       itemHeight: indexItemHeight
-      normalWidth: parent.width
+      normalWidth: indexBox.width
       anchors.top: indexBox.top
       width: normalWidth
       scale: 1
@@ -137,7 +137,7 @@ Rectangle {
       visible: true
       height: indexHeight
       itemHeight: indexItemHeight
-      normalWidth: parent.width
+      normalWidth: indexBox.width
       anchors.top: indexBox.top
       anchors.left: feedListArea.right
       width: 0
