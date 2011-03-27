@@ -101,8 +101,25 @@ Flickable {
         doZoom(zf,clickX*zf,clickY*zf)
       }
     } 
-    onLoadFinished: { isLoadFinished = true;}
-    onLoadFailed: { isLoadFinished = true }
-    onLoadStarted: { isLoadFinished = false }
+    onLoadFinished: { isLoadFinished = true; loadIndicator.visible = false}
+    onLoadFailed: { isLoadFinished = true ; loadIndicator.visible = false }
+    onLoadStarted: { isLoadFinished = false; loadIndicator.visible = true }
+  }
+  Rectangle {
+    id: loadIndicator
+    width: 52; height: 26
+    radius: height * 0.25
+    anchors { top: theWebView.top; right: theWebView.right }
+    opacity: 0.5
+    color: "red"
+    Text { 
+      anchors { 
+        verticalCenter: parent.verticalCenter
+        horizontalCenter: parent.horizontalCenter 
+      }
+      color: "black"
+      text: qsTr ("Load") 
+    }
+    visible: false
   }
 }

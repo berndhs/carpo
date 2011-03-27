@@ -357,6 +357,7 @@ Rectangle {
     id: controlPanel
     objectName: "ControlPanel"
     visible: true
+    z: feedIndexArea.z + 5
     property bool normalShowTopics: false
     property bool normalShowStream: false
     onShowTopics: { normalShowTopics = true; topicListArea.show () }

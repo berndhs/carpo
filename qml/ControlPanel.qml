@@ -90,7 +90,7 @@ Rectangle {
       id: indexButton
       width: parent.buttonWidth
       height: parent.height
-      z: 2
+      z: controlPanel.z + 1
       color: choiceButtonColor
       anchors { left: parent.left }
       radius: height/2
@@ -104,7 +104,7 @@ Rectangle {
       id: detailButton
       width: parent.buttonWidth
       height: parent.height
-      z: 2
+      z: controlPanel.z + 1
       color: detailButtonColor
       anchors { left: indexButton.right }
       radius: height/2
@@ -118,7 +118,7 @@ Rectangle {
       id: maintainButton
       width: parent.buttonWidth
       height: parent.height
-      z: 2
+      z: controlPanel.z + 1
       color: maintainButtonColor
       anchors { left: detailButton.right }
       radius: height/2
@@ -134,7 +134,7 @@ Rectangle {
       anchors { top: buttonRow.bottom; left: detailButton.left ; leftMargin: embedMargin}
       width: indexButton.width
       color: "transparent"
-      z: 100
+      z: controlPanel.z + 2
       MouseArea {
         anchors.fill: parent
         hoverEnabled: true
@@ -184,7 +184,7 @@ Rectangle {
       width: indexButton.width
       height: floatHeight
       color: "transparent"
-      z: 9
+      z: controlPanel.z + 2
       MouseArea {
         anchors.fill: parent
         hoverEnabled: true
