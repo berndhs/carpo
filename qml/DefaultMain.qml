@@ -77,7 +77,6 @@ Rectangle {
       storyView.visible = false
     } else {
       feedEditArea.hide ()
-      indexBox.height = indexHeight
       storyView.visible = true
     }
     controlIF.setEditingFeed (visi)
@@ -295,9 +294,9 @@ Rectangle {
     FeedEdit {
       id: feedEdit 
       objectName: "FeedEdit"
-      width: storyView.width - 4
-      height: storyView.height - 4
-      z: 4
+      width: storyView.width
+      height: storyView.height
+      z: parent.z
       anchors {top: parent.top; horizontalCenter: parent.horizontalCenter }
       onStartNewFeed: {
         feedEdit.displayNew (url)
@@ -349,8 +348,6 @@ Rectangle {
     onSelectQuit: { controlIF.exitApp () }
     onSelectHelp: { controlIF.help () }
     onToggleViewSelect: {
-      console.log ("Connections clicked " )
-      console.log (" index width " + feedIndexArea.width)
       toggleLists() 
     }
     onNewFeed: { showEdit (true) }
