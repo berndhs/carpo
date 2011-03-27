@@ -261,7 +261,7 @@ Rectangle {
       z:parent.z + 1
       anchors {left: allBackButton.right; verticalCenter: webNavRect.verticalCenter }
       labelText: qsTr(" < ")
-      onClicked: { storyView.back () }
+      onClicked: { storyView.back.trigger () }
     }
     ChoiceButton {
       id: copyButton
@@ -285,7 +285,7 @@ Rectangle {
       z:parent.z + 1
       anchors {left: copyButton.right; verticalCenter: webNavRect.verticalCenter }
       labelText: qsTr(" > ")
-      onClicked: { storyView.forward ()}
+      onClicked: { storyView.forward.trigger() ()}
     }
   }
 
