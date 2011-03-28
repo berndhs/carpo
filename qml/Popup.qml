@@ -8,7 +8,6 @@ Rectangle {
   property  real parentHeight: 200
   property  real showTime: 5000
   color: "red"
-  border.color: "black"; border.width: 2
   radius: 4
 
   y: parent.height // off "screen"

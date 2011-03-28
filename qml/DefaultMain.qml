@@ -122,7 +122,7 @@ Rectangle {
       anchors.top: indexBox.top
       width: normalWidth
       scale: 1
-      color: "yellow"
+      color: "#ffffab"
       clip: true
       onSelected: { 
         controlIF.feedClicked (idx, i,t) 
@@ -142,8 +142,8 @@ Rectangle {
       anchors.left: feedListArea.right
       width: 0
       scale: 0
-      color: "cyan"
-      itemColor: "cyan"
+      color: "#ddf5f5"
+      itemColor: "#ddffff"
       clip: true
       onSelected: { 
         feedIF.storyClicked (idx, i,t) 
@@ -164,7 +164,7 @@ Rectangle {
     width: normalWidth
     anchors { right: indexBox.right; top: indexBox.top }
     z: streamListArea.z + 1
-    color: "red"
+    color: "#ff9922"
     onSelected: { controlIF.changeTopic (name) }
     onQuitit: { hide () }
   }
@@ -174,10 +174,9 @@ Rectangle {
     visible: true
     itemHeight: indexItemHeight
     normalWidth: indexBox.width * 0.5
-    normalHeight: indexItemHeight * 6
-    leftMargin: indexBox.width * 0.4
-    anchors.top: indexBox.top
-    anchors.left: indexBox.left
+    normalHeight: indexItemHeight * 5
+    leftMargin: indexBox.width * 0.5
+    anchors {top: indexBox.top; left: indexBox.left }
     initialYScale: 0
     color: "transparent"
     border.color: "blue"
@@ -275,7 +274,11 @@ Rectangle {
     objectName: "FeedEditArea"
     width: storyView.width
     height: storyView.height
+    clip: true
     property real rollDelay: 125
+    flickableDirection: Flickable.HorizontalAndVerticalFlick
+    interactive: true
+    boundsBehavior: Flickable.DragOverBounds
     z: indexBox.z +1
     contentWidth: feedEdit.width; contentHeight: feedEdit.height
     anchors { top: storyView.top; horizontalCenter: storyView.horizontalCenter }
@@ -288,14 +291,13 @@ Rectangle {
       xScale: 1
       yScale: 0
       Behavior  on yScale {
-        NumberAnimation { duration: rollDelay }
+        NumberAnimation { duration: feedEditArea.rollDelay }
       }
     }
     FeedEdit {
       id: feedEdit 
       objectName: "FeedEdit"
       width: storyView.width
-      height: storyView.height
       z: parent.z
       anchors {top: parent.top; horizontalCenter: parent.horizontalCenter }
       onStartNewFeed: {

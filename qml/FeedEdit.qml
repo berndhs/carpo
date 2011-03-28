@@ -81,7 +81,7 @@ Rectangle {
   property string feedId: ""
   property real normalRadius: 5
   width: 200
-  height: 200
+  height: childrenRect.height
   radius: normalRadius
   color: "palegoldenrod"
   Rectangle {

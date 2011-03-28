@@ -35,8 +35,8 @@ Rectangle {
   property real initialYScale: 1
   property string feedButtonColor: "#eeeeff"
   property string storyButtonColor: "#eeffee"
-  property string feedLineColor: "#ffffdd"
-  property string storyLineColor: "#ffddff"
+  property string feedLineColor: "#ffffab"
+  property string storyLineColor: "#ddffff"
   signal selectFeed (string feedId)
   signal selectStory (string feedId, string title, string hash)
   signal quitit ()
