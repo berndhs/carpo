@@ -13,6 +13,7 @@
 <qresource prefix="/images">
   <file alias="settings.png">images/settings.png</file>
   <file alias="quit.png">images/quit.png</file>
+  <file alias="help.png">images/help.png</file>
 </qresource>
 <qresource>
   <file>qml/AddressInput.qml</file>

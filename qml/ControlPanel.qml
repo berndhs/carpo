@@ -62,10 +62,11 @@ Rectangle {
 
   ChoiceButton {   
     id: offButton
-    width: (parent.width - buttonRow.width)/ 3
+    width: (parent.width - buttonRow.width) * 0.4
     anchors { left: buttonRow.right}
     color : "#e0e0e0"
     height: parent.height
+    radius: height/3
     labelText: ""
     Image {
       anchors.centerIn: parent
@@ -77,11 +78,18 @@ Rectangle {
   }
   ChoiceButton {   
     id: helpButton
-    width: (parent.width - buttonRow.width)/3
+    width: (parent.width - buttonRow.width) * 0.4
     anchors { right: buttonRow.left }
     color : "#e0e0e0"
     height: parent.height
-    labelText: " <b>?</b> "
+    radius: height/3
+    labelText: ""
+    Image {
+      anchors.centerIn: parent
+      anchors.fill: parent
+      fillMode: Image.PreserveAspectFit
+      source: "qrc:///images/help.png"
+    }
     onClicked: selectHelp()
   }
 
