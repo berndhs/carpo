@@ -43,11 +43,11 @@ The Feed Edit form will appear, and you can change any of the feed data.
 == Grouping Feeds ==
 
 You can tag feeds with *topics* in the Feed Editor, and select groups with the *Topics*
-display from *More Views*.
+display from *Views*.
 
 == News Stream ==
 
-Click on *More Views* and then *New Stories - On* to see a stream-like list of
+Click on *Views* and then *New Stories - On* to see a stream-like list of
 new items as they are discovered. This list is updated a few times per minute for one feed
 at a time. It is thus not genuine _streaming_, since RSS servers do not push information
 to clients.
@@ -56,7 +56,25 @@ To bring up a news item, click on the item in the stream, and the display will s
 to the index of that feed and the details of the item.
 
 Do de-select the News Stream, either _Press-and-Hold_ on the News Stream items, or
-click *More Views* and the *New Stories - Off*.
+click *Views* and then *New Stories - Off*.
+
+== Browser ==
+
+You can browse RSS items as well as the web sites that RSS links to with *Carpo*.
+Keep in mind that this is an RSS reader, not a full feature browser.
+
+You can drag the web page or RSS content, or you can use keys to move it.
+
+=== Keys ===
+
+Some keys have special meaning:
+
+- *Escape* brings you back to the RSS item after following links.
+- *Left*, *Right*, *Up*, *Down* move the web page in the view.
+- *Space* moves the web page to the original position.
+- *+* and *-* scale the web page up and down.
+- *0* brings the web page back to the original scale.
+
 
 == Updates ==
 

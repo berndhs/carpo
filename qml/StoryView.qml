@@ -32,6 +32,8 @@
 
 Flickable {
 
+  id: storyViewBox
+
   property alias storyHtml: theWebView.html
   property alias title: theWebView.title
   property alias icon: theWebView.icon
@@ -41,9 +43,10 @@ Flickable {
   property alias stop: theWebView.stop
   property alias reload: theWebView.reload
   property alias forward: theWebView.forward
+  property alias scrollStep: theWebView.scrollStep
   property bool isWeb: false
 
-  id: storyViewBox
+  signal quitit ()
 
   //function back () { console.log ("Back!!"); theWebView.back.trigger() }
   //function forward () { console.log ("Forward ->>>" ); theWebView.forward.trigger () }
@@ -69,14 +72,24 @@ Flickable {
     settings.pluginsEnabled: true
     html: "<p>default <b>html</b>.</p>"
     property bool isLoadFinished : false
+    property real origScale: 1
+    property real scrollStep: 5
     onAlert: {
       controlIF.checkAlert (message)
       console.log(message)
     }
 
-    Keys.onLeftPressed: theWebView.contentsScale -= 0.1
-    Keys.onRightPressed: theWebView.contentsScale += 0.1
-
+    Keys.onEscapePressed: storyViewBox.quitit()
+    Keys.onLeftPressed: storyView.contentX -= scrollStep 
+    Keys.onRightPressed: storyView.contentX += scrollStep 
+    Keys.onUpPressed: storyViewBox.contentY -=  scrollStep
+    Keys.onDownPressed: storyViewBox.contentY += scrollStep
+    Keys.onSpacePressed: { storyViewBox.contentX = 0; storyViewBox.contentY = 0 }
+    Keys.onPressed: {
+       if (event.text == "+") { theWebView.contentsScale += 0.1 } 
+       else if (event.text == "-") {theWebView.contentsScale -= 0.1 }
+       else if (event.text == "0") {theWebView.contentsScale = origScale }
+    }
     preferredWidth: storyViewBox.width
     preferredHeight: storyViewBox.height
     contentsScale: 1
@@ -100,7 +113,11 @@ Flickable {
         doZoom(zf,clickX*zf,clickY*zf)
       }
     } 
-    onLoadFinished: { isLoadFinished = true; loadIndicator.visible = false}
+    onLoadFinished: { 
+      origScale = contentsScale; 
+      isLoadFinished = true; 
+      loadIndicator.visible = false
+    }
     onLoadFailed: { isLoadFinished = true ; loadIndicator.visible = false }
     onLoadStarted: { 
       if (!storyViewBox.isWeb) controlIF.pushHtml()

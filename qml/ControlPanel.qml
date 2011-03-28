@@ -42,7 +42,7 @@ Rectangle {
   property string maintainButtonColor: "sandybrown"
   property real menuItemHeight: 32
   property real embedMargin : 0
-  property string indexMenuButtonColor: "cyan"
+  property string indexMenuButtonColor: "#e0e0f0"
 
   height: menuItemHeight
   z: 1

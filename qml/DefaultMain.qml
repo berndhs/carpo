@@ -202,7 +202,8 @@ Rectangle {
    
     storyHtml: "<p>"+ qsTr("No Current Story.") + "</p>"
     onIsWebChanged: changedIsWeb (isWeb)
-  }
+    onQuitit: controlIF.popHtml()
+  }     
   Rectangle {
     id: webNavRect
     objectName: "WebNavBox"
