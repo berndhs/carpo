@@ -166,7 +166,7 @@ Rectangle {
     z: streamListArea.z + 1
     color: "#ff9922"
     onSelected: { controlIF.changeTopic (name) }
-    onQuitit: { hide () }
+    onQuitit: { controlPanel.normalShowTopics = false ; hide () }
   }
   StreamList {
     id: streamListArea
@@ -185,7 +185,7 @@ Rectangle {
     z: feedIndexArea.z + 1
     onSelectFeed: { controlIF.selectFeed (feedId) }
     onSelectStory: { controlIF.displayStory (feedId, title, hash) }
-    onQuitit: { hide () }
+    onQuitit: { controlPanel.normalShowStream = false; hide () }
   } 
   StoryView {
     id: storyView
@@ -344,7 +344,7 @@ Rectangle {
     property bool normalShowTopics: false
     property bool normalShowStream: false
     onShowTopics: { normalShowTopics = true; topicListArea.show () }
-    onHideTopics: { normalShowTopics = false; topicListArea.hide () }
+    onHideTopics: {  normalShowTopics = false; topicListArea.hide () }
     onShowRecent: { normalShowStream = true; streamListArea.show () }
     onHideRecent: { normalShowStream = false; streamListArea.hide () }
     onSelectQuit: { controlIF.exitApp () }
