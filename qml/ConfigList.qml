@@ -79,14 +79,16 @@ Rectangle {
     ChoiceButton {
       id: saveConfigButton
       height: itemHeight * 1.2
-      labelText: "Restart"
+      radius: height * 0.3333
+      labelText: qsTr("Restart")
       onClicked: { console.log ("Restart config clicked "); restartConfig() }
     }
     ChoiceButton {
       id: doneConfigButton
       anchors { left: saveConfigButton.right }
       height: itemHeight * 1.2
-      labelText: "Done"
+      radius: height * 0.3333
+      labelText: qsTr("Done")
       onClicked: { console.log ("Done config clicked "); doneConfig () }
     }
   }

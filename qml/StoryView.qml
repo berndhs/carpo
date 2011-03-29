@@ -80,10 +80,10 @@ Flickable {
     }
 
     Keys.onEscapePressed: storyViewBox.quitit()
-    Keys.onLeftPressed: storyView.contentX -= scrollStep 
-    Keys.onRightPressed: storyView.contentX += scrollStep 
-    Keys.onUpPressed: storyViewBox.contentY -=  scrollStep
-    Keys.onDownPressed: storyViewBox.contentY += scrollStep
+    Keys.onLeftPressed: storyView.contentX += scrollStep 
+    Keys.onRightPressed: storyView.contentX -= scrollStep 
+    Keys.onUpPressed: storyViewBox.contentY +=  scrollStep
+    Keys.onDownPressed: storyViewBox.contentY -= scrollStep
     Keys.onSpacePressed: { storyViewBox.contentX = 0; storyViewBox.contentY = 0 }
     Keys.onPressed: {
        if (event.text == "+") { theWebView.contentsScale += 0.1 } 

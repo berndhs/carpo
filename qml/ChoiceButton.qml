@@ -10,7 +10,7 @@ Rectangle {
   width: 100
   height: 100
   radius: 5
-  color: "grey"
+  color: "#d3d3d3"
   anchors { 
     topMargin: commonMargin; bottomMargin: commonMargin; 
     leftMargin: commonMargin; rightMargin: commonMargin

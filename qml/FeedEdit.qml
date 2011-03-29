@@ -92,14 +92,16 @@ Rectangle {
     visible: true;
     width: childrenRect.width;
     anchors.top: parent.top
+    anchors.horizontalCenter: parent.horizontalCenter
     anchors.topMargin: 10
     color: "transparent"
     ChoiceButton {
       id:saveButton
       objectName: "FeedEditSaveButton"
-      labelText: "Save Feed"
+      labelText: qsTr("Save Feed")
       height: parent.height
       color: "green"
+      radius: height * 0.3333
       onClicked: {
         console.log ("Save Feed")
         saveFeed (feedId, addrInput.urlString, feedTitle.textValue, siteUrl.textValue,
@@ -109,9 +111,10 @@ Rectangle {
     ChoiceButton {
       id:deleteButton
       objectName: "FeedEditDeleteButton"
-      labelText: "Delete Feed"
+      labelText: qstr("Delete Feed")
       height: parent.height
       color: "red"
+      radius: height * 0.3333
       anchors { left: saveButton.right; verticalCenter: saveButton.verticalCenter }
       onClicked: {
         console.log ("Delete Feed")
@@ -121,9 +124,10 @@ Rectangle {
     ChoiceButton {
       id:probeButton
       objectName: "FeedEditProbeButton"
-      labelText: "Probe Feed"
+      labelText: qsTr("Probe Feed")
       height: parent.height
       color: "yellow"
+      radius: height * 0.3333
       anchors { left: deleteButton.right; verticalCenter: deleteButton.verticalCenter }
       onClicked: {
         console.log ("Probe Feed")
@@ -133,9 +137,10 @@ Rectangle {
     ChoiceButton {
       id:checkButton
       objectName: "FeedEditCheckButton"
-      labelText: "Check Address"
+      labelText: qsTr("Check Address")
       height: parent.height
       color: "cyan"
+      radius: height * 0.3333
       anchors { left: probeButton.right; verticalCenter: deleteButton.verticalCenter }
       onClicked: {
         console.log ("Check Address")
@@ -148,6 +153,7 @@ Rectangle {
       labelText: qsTr("New Feed")
       height: parent.height
       color: "#77ff77"
+      radius: height * 0.3333
       anchors { left: checkButton.right; verticalCenter: deleteButton.verticalCenter }
       onClicked: {
         startNewFeed (addrInput.urlString)
@@ -156,8 +162,9 @@ Rectangle {
     ChoiceButton {
       id:quitButton
       objectName: "FeedEditCancelButton"
-      labelText: "Cancel"
+      labelText: qsTr("Cancel")
       height: parent.height
+      radius: height * 0.3333
       anchors { left: newButton.right; verticalCenter: deleteButton.verticalCenter }
       onClicked: {
         console.log ("Cancel Edit")

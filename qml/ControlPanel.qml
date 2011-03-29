@@ -47,8 +47,8 @@ Rectangle {
   property string maintainButtonFade: "#fbdfc7"
   property real menuItemHeight: 32
   property real embedMargin : 0
-  property string indexMenuButtonColor: "#d0d0e0"
-  property string indexMenuButtonFade: "#f9e9f9"
+  property string subMenuButtonColor: "#f4a460"
+  property string subMenuButtonFade: "#fbdfc7"
 
   height: menuItemHeight
   z: 1
@@ -106,8 +106,8 @@ Rectangle {
 
   Gradient {
     id: subMenuButtonGradient
-    GradientStop { position: 0.0; color: indexMenuButtonColor }
-    GradientStop { position: 1.0; color: indexMenuButtonFade }
+    GradientStop { position: 0.0; color: subMenuButtonColor }
+    GradientStop { position: 1.0; color: subMenuButtonFade }
   }
 
   Rectangle {
@@ -255,7 +255,7 @@ Rectangle {
         width: parent.width
         height: menuItemHeight
         gradient: subMenuButtonGradient
-        labelText: qstr("Import Carpo/DRSS")
+        labelText: qsTr("Import Carpo/DRSS")
         radius: height * 0.5
         z: 9
         anchors { 
