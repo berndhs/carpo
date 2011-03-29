@@ -78,6 +78,7 @@ public:
   void SetFeeds (FeedlistModel * feedList);
   void SetQmlRoot (QDeclarativeItem * qmlObj);
   void SetQmlWeb (QDeclarativeItem * qmlObj);
+  void ClearHtmlStack ();
 
 signals:
 

@@ -557,6 +557,9 @@ Carpo::Restart ()
 {
   qDebug () << "Carpo :: Restart";
   autoUpdate.Stop ();
+  controlIF->SetQmlRoot (0);
+  controlIF->SetQmlWeb (0);
+  controlIF->ClearHtmlStack ();
   QTimer::singleShot (100, this, SLOT (QmlRun()));
 }
 

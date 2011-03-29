@@ -301,4 +301,10 @@ ControlInterface::importFeeds (const QString & format)
   emit ImportFeeds (format);
 }
 
+void
+ControlInterface::ClearHtmlStack ()
+{
+  htmlStack.clear ();
+}
+
 } // namespace
