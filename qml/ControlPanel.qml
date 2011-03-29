@@ -48,6 +48,7 @@ Rectangle {
   property real menuItemHeight: 32
   property real embedMargin : 0
   property string indexMenuButtonColor: "#e0e0f0"
+  property string indexMenuButtonFade: "#f9e9f9"
 
   height: menuItemHeight
   z: 1
@@ -103,6 +104,12 @@ Rectangle {
     onClicked: selectHelp()
   }
 
+  Gradient {
+    id: subMenuButtonGradient
+    GradientStop { position: 0.0; color: indexMenuButtonColor }
+    GradientStop { position: 1.0; color: indexMenuButtonFade }
+  }
+
   Rectangle {
     id: buttonRow
     width: childrenRect.width
@@ -118,14 +125,8 @@ Rectangle {
       anchors { left: parent.left }
       radius: height/2
       gradient: Gradient {
-        GradientStop {
-          position: 0.00
-          color: choiceButtonColor
-        }
-        GradientStop {
-          position: 1.00
-          color: choiceButtonFade
-        }
+        GradientStop { position: 0.00; color: choiceButtonColor }
+        GradientStop { position: 1.00; color: choiceButtonFade }
       }
       MouseArea {
         anchors.fill: parent
@@ -139,14 +140,8 @@ Rectangle {
       height: parent.height
       z: controlPanel.z + 1
       gradient: Gradient {
-        GradientStop {
-          position: 0.00
-          color: detailButtonColor
-        }
-        GradientStop {
-          position: 1.00
-          color: detailButtonFade
-        }
+        GradientStop { position: 0.0; color: detailButtonColor }
+        GradientStop { position: 1.0; color: detailButtonFade }
       }
       anchors { left: indexButton.right }
       radius: height/2
@@ -162,14 +157,8 @@ Rectangle {
       height: parent.height
       z: controlPanel.z + 1
       gradient: Gradient {
-        GradientStop {
-          position: 0.00
-          color: maintainButtonColor
-        }
-        GradientStop {
-          position: 1.00
-          color: maintainButtonFade
-        }
+        GradientStop { position: 0.00; color: maintainButtonColor }
+        GradientStop { position: 1.00; color: maintainButtonFade }
       }
       anchors { left: detailButton.right }
       radius: height/2
@@ -200,7 +189,8 @@ Rectangle {
         id: showTopicsButton
         width: parent.width
         height: menuItemHeight
-        color: indexMenuButtonColor
+        gradient: subMenuButtonGradient
+        radius: height * 0.5
         labelText: qsTr("Topics - On")
         anchors { top: indexMenu.top; horizontalCenter: indexMenu.horizontalCenter }
        onClicked: { controlPanel.showTopics(); indexMenu.hide() }
@@ -209,7 +199,8 @@ Rectangle {
         id: hideTopicsButton
         width: parent.width
         height: menuItemHeight
-        color: indexMenuButtonColor
+        gradient: subMenuButtonGradient
+        radius: height * 0.5
         anchors { top: showTopicsButton.bottom; horizontalCenter: indexMenu.horizontalCenter }
         labelText: qsTr("Topics - Off")
        onClicked: { controlPanel.hideTopics(); indexMenu.hide () }
@@ -218,7 +209,8 @@ Rectangle {
         id: showNewButton
         width: parent.width
         height: menuItemHeight
-        color: indexMenuButtonColor
+        gradient: subMenuButtonGradient
+        radius: height * 0.5
         labelText: qsTr("New Stories - On")
         anchors { top: hideTopicsButton.bottom; horizontalCenter: indexMenu.horizontalCenter }
         onClicked: { controlPanel.showRecent(); indexMenu.hide() }
@@ -227,7 +219,8 @@ Rectangle {
         id: hideNewButton
         width: parent.width
         height: menuItemHeight
-        color: indexMenuButtonColor
+        gradient: subMenuButtonGradient
+        radius: height * 0.5
         anchors { top: showNewButton.bottom; horizontalCenter: indexMenu.horizontalCenter }
         labelText: qsTr("New Stories - Off")
         onClicked: { controlPanel.hideRecent(); indexMenu.hide () }
@@ -250,8 +243,9 @@ Rectangle {
         id: showFeedEditButton
         width: parent.width
         height: menuItemHeight
-        color: indexMenuButtonColor
-        labelText: "New Feed"
+        gradient: subMenuButtonGradient
+        labelText: qsTr("New Feed")
+        radius: height * 0.5
         z: 9
         anchors { top: maintainMenu.top; horizontalCenter: maintainMenu.horizontalCenter }
         onClicked: { controlPanel.newFeed(); maintainMenu.hide() }
@@ -260,8 +254,9 @@ Rectangle {
         id: importDrssButton
         width: parent.width
         height: menuItemHeight
-        color: indexMenuButtonColor
+        gradient: subMenuButtonGradient
         labelText: qstr("Import Carpo/DRSS")
+        radius: height * 0.5
         z: 9
         anchors { 
           top: showFeedEditButton.bottom; 
@@ -273,8 +268,9 @@ Rectangle {
         id: showSettingsButton
         width: parent.width
         height: menuItemHeight
-        color: indexMenuButtonColor
+        gradient: subMenuButtonGradient
         labelText: qsTr("Settings")
+        radius: height * 0.5
         z: 9
         anchors { 
           top: importDrssButton.bottom; 

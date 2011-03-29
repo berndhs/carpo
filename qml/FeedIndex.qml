@@ -89,12 +89,8 @@ Rectangle {
       Column { 
         anchors.topMargin: 4
         Text {  
-          width:normalWidth; wrapMode:Text.Wrap; 
-          font.underline: (index == currentIndex)
-          text: { width:normalWidth; wrapMode:Text.Wrap;
-            (seenit ? "_x_ " : "<b>new</b> " ) 
-            + title 
-          }
+          width:normalWidth; wrapMode:Text.Wrap
+          text: (seenit ? "_x_ " : "<b>new</b> " ) + title 
         } 
       }
       MouseArea {
