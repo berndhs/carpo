@@ -72,7 +72,7 @@ private slots:
   void QmlRun ();
   void LoadList ();
   void FinishedNet (QNetworkReply * reply);
-  void ShowStory (const QString & id);
+  void ShowStory (const QString & id, const QString & title = QString());
   void DisplayStory (const QString & feedId,
                      const QString & storyTitle, 
                      const QString & storyHash);
@@ -124,6 +124,7 @@ private:
   void  DisplayEditFeed (const QString & id, const Feed & feed);
   void  DumpProperties ();
   void  CheckExists (const QString & filename);
+  void  DebugProperty (const QString & objName, const QString & propName);
 
 
   bool           runAgain;

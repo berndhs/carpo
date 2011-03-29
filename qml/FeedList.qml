@@ -27,6 +27,7 @@ Rectangle {
   property real normalWidth: parent.width
   property real shrinkDelay: 250
   property real itemHeight: 32
+  property alias currentIndex: feedList.currentIndex
   signal selected (int idx, string i, string t)
   signal selectMoveUp (string ident)
   signal selectMoveDown (string ident)
@@ -139,23 +140,6 @@ Rectangle {
 
   ListView {
     id: feedList
-    function changeOrientation (orient) {
-      feedIF.report ("changeOrientation start")
-      orientation = orient
-      delegate = verticalDelegate
-      reportOrientation (orientation)
-      feedIF.report ("feedList orientation " + orientation)
-      feedIF.report ("changeOrientation end")
-    }
-    function flipOrientation () {
-      feedIF.report ("flipOrientation start " + orientation)
-      if (orientation == ListView.Horizontal) {
-        changeOrientation (ListView.Vertical) 
-      } else {
-        changeOrientation (ListView.Horizontal)
-      }
-      feedIF.report ("flipOrientation end")
-    }
     z: 2
     width: parent.width - 2*embedMargin
     height: parent.height - 2*embedMargin
@@ -168,6 +152,6 @@ Rectangle {
     delegate: verticalDelegate
     snapMode: ListView.NoSnap
     model: feedListModel
-    highlight: Rectangle { color: "oldlace"; radius: 5 }
+    highlight: Rectangle { color: "oldlace"}
   }
 }

@@ -39,7 +39,7 @@ FeedInterface::FeedInterface (QObject *parent)
 void
 FeedInterface::storyClicked (int index, const QString & id, const QString & title)
 {
-  emit ShowStory (id);
+  emit ShowStory (id, title);
 }
 
 void

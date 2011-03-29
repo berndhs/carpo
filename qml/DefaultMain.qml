@@ -324,7 +324,7 @@ Rectangle {
   }
   ConfigList {
     id: configList
-    property string mainBackgroundColor: "blue"
+    property string mainBackgroundColor: "#f2f2f2"
     objectName: "ConfigList"
     scale: 0
     isShown: false

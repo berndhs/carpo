@@ -202,8 +202,8 @@ Carpo::Connect ()
 {
   connect (qnam, SIGNAL (finished (QNetworkReply *)),
            this, SLOT (FinishedNet (QNetworkReply *)));
-  connect (feedIF, SIGNAL (ShowStory (const QString &)),
-           this, SLOT (ShowStory (const QString &)));
+  connect (feedIF, SIGNAL (ShowStory (const QString &, const QString &)),
+           this, SLOT (ShowStory (const QString &, const QString &)));
   connect (feedIF, SIGNAL (ShowStorySite (const QString &)),
            this, SLOT (ShowStorySite (const QString &)));
   connect (feedIF, SIGNAL (ShowFeed (const QString &)),
@@ -252,7 +252,7 @@ Carpo::Connect ()
 
 
 void
-Carpo::ShowStory (const QString & id)
+Carpo::ShowStory (const QString & id, const QString & title)
 {
   qDebug () << " Carpo::ShowStory";
   if (stories.contains(id)) {
@@ -265,19 +265,25 @@ Carpo::ShowStory (const QString & id)
     QString browseButton ("<button type=\"button\" "
                        "onClick=\"alert('%1')\">%2</button>");
     QString buttons = QString ("<span style=\"font-size:small\"> ")
-                     + browseButton
+                      + browseButton
                         .arg(tagBrowseHere)
                         .arg(tr("Here"))
-                     + browseButton
+                      + browseButton
                         .arg(tagBrowseBrowser)
                         .arg(tr("Browser"))
-                     + QString( "</span>");
+                      + QString( "</span>");
     QString date (tr(" date unknown "));
     if (storyDates.contains(id)) {
       date = storyDates[id];
     } 
     htmlString = QString("<div>")
-                        + buttons + date + "</div>" + stories[id];
+                 + buttons 
+                 + QString ("<span style=\"font-size:smaller\">%1</span>")
+                   .arg(date )
+                 + QString ("&nbsp;<i>%1</i>")
+                  .arg(title)
+                 + "</div>" 
+                 + stories[id];
   } else {
     htmlString = "<b><i>No Such Story!</b></i>";
   }
@@ -286,6 +292,7 @@ Carpo::ShowStory (const QString & id)
   currentStory = id;
   feeds.MarkRead (currentFeed, stories[id], true);
   headlines.markRead (id, true);
+  DebugProperty ("FeedIndexArea","currentIndex");
 }
 
 void
@@ -789,7 +796,6 @@ Carpo::ImportList (const QString & format)
   Folder tempFolder;
   QString fileName = QFileDialog::getOpenFileName (this,
              QString (tr("Open %1 file")).arg(format));
-qDebug () << " filename " << fileName;
   if (fileName.length() > 0) {
     if (format == "DRSS") {
       CheckExists (feedListFile);
@@ -857,6 +863,19 @@ Carpo::SaveFeedListModel (bool reindex)
   writer.write (&feeds, &saveFile);
   saveFile.close ();
   feeds.setDirty (false);
+}
+
+void
+Carpo::DebugProperty (const QString & objName, const QString & propName)
+{
+  if (qmlRoot == 0) {
+    return;
+  }
+  QDeclarativeItem * item = qmlRoot->findChild<QDeclarativeItem*> (objName);
+  if (item) {
+    QVariant prop = item->property (propName.toAscii().data());
+    qDebug () << "Carpo:  obj " << objName << propName << " is " << prop;
+  }
 }
 
 } // namespace

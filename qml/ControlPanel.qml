@@ -39,9 +39,12 @@ Rectangle {
   signal editSettings ()
   signal importDRSS ()
   signal importOPML ()
-  property string choiceButtonColor: "sandybrown"
-  property string detailButtonColor: "sandybrown"
-  property string maintainButtonColor: "sandybrown"
+  property string choiceButtonColor: "#f4a460"
+  property string choiceButtonFade: "#fbdfc7"
+  property string detailButtonColor: "#f4a460"
+  property string detailButtonFade: "#fbdfc7"
+  property string maintainButtonColor: "#f4a460"
+  property string maintainButtonFade: "#fbdfc7"
   property real menuItemHeight: 32
   property real embedMargin : 0
   property string indexMenuButtonColor: "#e0e0f0"
@@ -57,7 +60,6 @@ Rectangle {
   MouseArea {
     anchors.fill: parent
     onClicked: { 
-      console.log("Click Control Box " + mouseX + " " + mouseY)
       controlSelect (mouseX, mouseY) 
     }
   }
@@ -66,7 +68,10 @@ Rectangle {
     id: offButton
     width: (parent.width - buttonRow.width) * 0.4
     anchors { left: buttonRow.right}
-    color : "#e0e0e0"
+    gradient: Gradient {
+      GradientStop { position: 0.00; color: "#c6e6e6" }
+      GradientStop { position: 1.00; color: "#f0f0f0" }
+    }
     height: parent.height
     radius: height/3
     labelText: ""
@@ -82,7 +87,10 @@ Rectangle {
     id: helpButton
     width: (parent.width - buttonRow.width) * 0.4
     anchors { right: buttonRow.left }
-    color : "#e0e0e0"
+    gradient: Gradient {
+      GradientStop { position: 0.00; color: "#c6e6e6" }
+      GradientStop { position: 1.00; color: "#f0f0f0" }
+    }
     height: parent.height
     radius: height/3
     labelText: ""
@@ -107,35 +115,62 @@ Rectangle {
       width: parent.buttonWidth
       height: parent.height
       z: controlPanel.z + 1
-      color: choiceButtonColor
       anchors { left: parent.left }
       radius: height/2
+      gradient: Gradient {
+        GradientStop {
+          position: 0.00
+          color: choiceButtonColor
+        }
+        GradientStop {
+          position: 1.00
+          color: choiceButtonFade
+        }
+      }
       MouseArea {
         anchors.fill: parent
         onClicked: toggleViewSelect ()
       }
-      Text { text: "Feeds / Stories"; anchors.centerIn: parent }
+      Text { text: qsTr("Feeds / Stories"); anchors.centerIn: parent }
     }
     Rectangle {
       id: detailButton
       width: parent.buttonWidth
       height: parent.height
       z: controlPanel.z + 1
-      color: detailButtonColor
+      gradient: Gradient {
+        GradientStop {
+          position: 0.00
+          color: detailButtonColor
+        }
+        GradientStop {
+          position: 1.00
+          color: detailButtonFade
+        }
+      }
       anchors { left: indexButton.right }
       radius: height/2
       MouseArea {
         anchors.fill: parent
         onClicked: indexMenu.show ()
       }
-      Text { text: "Views"; anchors.centerIn: parent }
+      Text { text: qsTr("Views"); anchors.centerIn: parent }
     }
     Rectangle {
       id: maintainButton
       width: parent.buttonWidth
       height: parent.height
       z: controlPanel.z + 1
-      color: maintainButtonColor
+      gradient: Gradient {
+        GradientStop {
+          position: 0.00
+          color: maintainButtonColor
+        }
+        GradientStop {
+          position: 1.00
+          color: maintainButtonFade
+        }
+      }
       anchors { left: detailButton.right }
       radius: height/2
       Image {
@@ -166,7 +201,7 @@ Rectangle {
         width: parent.width
         height: menuItemHeight
         color: indexMenuButtonColor
-        labelText: "Topics - On"
+        labelText: qsTr("Topics - On")
         anchors { top: indexMenu.top; horizontalCenter: indexMenu.horizontalCenter }
        onClicked: { controlPanel.showTopics(); indexMenu.hide() }
       }
@@ -176,7 +211,7 @@ Rectangle {
         height: menuItemHeight
         color: indexMenuButtonColor
         anchors { top: showTopicsButton.bottom; horizontalCenter: indexMenu.horizontalCenter }
-        labelText: "Topics - Off"
+        labelText: qsTr("Topics - Off")
        onClicked: { controlPanel.hideTopics(); indexMenu.hide () }
       }
       ChoiceButton {
@@ -184,7 +219,7 @@ Rectangle {
         width: parent.width
         height: menuItemHeight
         color: indexMenuButtonColor
-        labelText: "New Stories - On"
+        labelText: qsTr("New Stories - On")
         anchors { top: hideTopicsButton.bottom; horizontalCenter: indexMenu.horizontalCenter }
         onClicked: { controlPanel.showRecent(); indexMenu.hide() }
       }
@@ -194,7 +229,7 @@ Rectangle {
         height: menuItemHeight
         color: indexMenuButtonColor
         anchors { top: showNewButton.bottom; horizontalCenter: indexMenu.horizontalCenter }
-        labelText: "New Stories - Off"
+        labelText: qsTr("New Stories - Off")
         onClicked: { controlPanel.hideRecent(); indexMenu.hide () }
       }
     }
@@ -226,7 +261,7 @@ Rectangle {
         width: parent.width
         height: menuItemHeight
         color: indexMenuButtonColor
-        labelText: "Import Carpo/DRSS"
+        labelText: qstr("Import Carpo/DRSS")
         z: 9
         anchors { 
           top: showFeedEditButton.bottom; 
@@ -239,7 +274,7 @@ Rectangle {
         width: parent.width
         height: menuItemHeight
         color: indexMenuButtonColor
-        labelText: "Settings"
+        labelText: qsTr("Settings")
         z: 9
         anchors { 
           top: importDrssButton.bottom; 

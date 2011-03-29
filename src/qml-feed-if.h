@@ -59,7 +59,7 @@ public:
 
 signals:
 
-  void ShowStory (const QString & id);
+  void ShowStory (const QString & id, const QString & title);
   void ShowStorySite (const QString & id);
   void ShowFeed (const QString & id);
   void ShowList  (const QString & list);

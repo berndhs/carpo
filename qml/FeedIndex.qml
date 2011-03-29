@@ -32,14 +32,15 @@ Rectangle {
   property real headHeight: itemHeight * 0.75
   property string headColor: "yellow"
   property string itemColor: parent.color
-  property string headerIntro: " Stories from: "
-  property string headerText: "Feed Items"
+  property string headerIntro: qsTr(" Stories from: ")
+  property string headerText: qsTr("Feed Items")
+  property alias currentIndex: storyIndex.currentIndex
   signal selected (int idx, string i, string t)
   signal holdit (int idx, string i, string t)
   signal quitit ()
   signal reportOrientation (int orient)
 
-  function updateHeaderText () { headerText = storyList.model.feedTitle () }
+  function updateHeaderText () { headerText = storyIndex.model.feedTitle () }
   function shrink () {
     shrinkWidth.running = true; 
     shrinkScale.running = true; 
@@ -89,13 +90,17 @@ Rectangle {
         anchors.topMargin: 4
         Text {  
           width:normalWidth; wrapMode:Text.Wrap; 
-          text: (seenit ? "_x_" : "<b>new</b>" ) + " " + title 
+          font.underline: (index == currentIndex)
+          text: { width:normalWidth; wrapMode:Text.Wrap;
+            (seenit ? "_x_ " : "<b>new</b> " ) 
+            + title 
+          }
         } 
       }
       MouseArea {
         anchors.fill: parent
-        onClicked: {  selected (index, ident, title); storyList.currentIndex = index }
-        onPressAndHold: { holdit (index, ident, title); storyList.currentIndex = index }
+        onClicked: {  storyIndex.currentIndex = index; selected (index, ident, title) }
+        onPressAndHold: {storyIndex.currentIndex = index;  holdit (index, ident, title) }
       }
       Component.onCompleted: { updateHeaderText () }
     }
@@ -118,34 +123,13 @@ Rectangle {
       Text { anchors.leftMargin: 10; text: headerIntro + headerText }
       MouseArea {
         anchors.fill: parent
-        onPressAndHold: { console.log (" press-hold title") ; quitit() }
+        onPressAndHold: { quitit() }
       }
     }
   }
 
   ListView {
-    id: storyList
-    function changeOrientation (orient) {
-      feedIF.report ("changeOrientation start")
-      orientation = orient
-      if (orient == ListView.Horizontal) {
-        delegate = horizontalDelegate
-      } else {
-        delegate = verticalDelegate
-      }
-      reportOrientation (orientation)
-      feedIF.report ("storyList orientation " + orientation)
-      feedIF.report ("changeOrientation end")
-    }
-    function flipOrientation () {
-      feedIF.report ("flipOrientation start " + orientation)
-      if (orientation == ListView.Horizontal) {
-        changeOrientation (ListView.Vertical) 
-      } else {
-        changeOrientation (ListView.Horizontal)
-      }
-      feedIF.report ("flipOrientation end")
-    }
+    id: storyIndex
     model: feedIndexModel
     z: 2
     width: parent.width - 2*embedMargin
@@ -159,6 +143,7 @@ Rectangle {
     header: titleHeader
     delegate: verticalDelegate
     snapMode: ListView.NoSnap
-    highlight: Rectangle { color: "lightsteelblue"; radius: 5 }
+    highlightFollowsCurrentItem: true
+    highlight: Rectangle { color: "red"}
   }
 }
