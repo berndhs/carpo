@@ -94,6 +94,7 @@ private slots:
   void Reset ();
   void NewestNewsRow (int row);
   void TopicChanged ();
+  void ImportList (const QString & format);
 
 protected:
 

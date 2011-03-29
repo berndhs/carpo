@@ -35,6 +35,7 @@
 #include <QMessageBox>
 #include <QSize>
 #include <QFile>
+#include <QFileDialog>
 #include <QDesktopServices>
 #include <QUrl>
 #include <QTimer>
@@ -243,6 +244,8 @@ Carpo::Connect ()
            this, SLOT (ShowLicense()));
   connect (controlIF, SIGNAL (ShowManual ()),
            this, SLOT (ShowManual ()));
+  connect (controlIF, SIGNAL (ImportFeeds (const QString &)),
+           this, SLOT (ImportList (const QString &)));
   connect (&autoUpdate, SIGNAL (NewestRow (int)),
            this, SLOT (NewestNewsRow (int)));
 }
@@ -777,6 +780,24 @@ Carpo::LoadList ()
     feedlistParser->Read (topFolder, feedListFile);
     FillFeedModel (topFolder, feeds);
     topicModel.ReIndex ();
+  }
+}
+
+void
+Carpo::ImportList (const QString & format)
+{
+  Folder tempFolder;
+  QString fileName = QFileDialog::getOpenFileName (this,
+             QString (tr("Open %1 file")).arg(format));
+qDebug () << " filename " << fileName;
+  if (fileName.length() > 0) {
+    if (format == "DRSS") {
+      CheckExists (feedListFile);
+      feedlistParser->Read (tempFolder, fileName);
+      FillFeedModel (tempFolder, feeds);
+      topicModel.ReIndex ();
+      feeds.changeTopic (Magic::AllTopicsTag);
+    }
   }
 }
 

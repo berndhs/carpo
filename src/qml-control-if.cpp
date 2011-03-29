@@ -294,4 +294,11 @@ ControlInterface::popHtml ()
   }
 }
 
+void
+ControlInterface::importFeeds (const QString & format)
+{
+  qDebug () << "Import feeds in formal " << format;
+  emit ImportFeeds (format);
+}
+
 } // namespace

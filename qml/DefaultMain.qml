@@ -350,6 +350,8 @@ Rectangle {
     onHideRecent: { normalShowStream = false; streamListArea.hide () }
     onSelectQuit: { controlIF.exitApp () }
     onSelectHelp: { controlIF.help () }
+    onImportDRSS: { controlIF.importFeeds ("DRSS") }
+    onImportOPML: { controlIF.importFeeds ("OPML") }
     onToggleViewSelect: {
       toggleLists() 
     }

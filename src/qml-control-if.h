@@ -73,6 +73,7 @@ public:
   Q_INVOKABLE bool isEmptyUrl (const QUrl & url);
   Q_INVOKABLE void popHtml ();
   Q_INVOKABLE void pushHtml ();
+  Q_INVOKABLE void importFeeds (const QString & format);
 
   void SetFeeds (FeedlistModel * feedList);
   void SetQmlRoot (QDeclarativeItem * qmlObj);
@@ -94,6 +95,7 @@ signals:
   void GetHelp ();
   void ShowLicense ();
   void ShowManual ();
+  void ImportFeeds (const QString & format);
 
 private:
 

@@ -37,6 +37,8 @@ Rectangle {
   signal selectHelp ()
   signal newFeed ()
   signal editSettings ()
+  signal importDRSS ()
+  signal importOPML ()
   property string choiceButtonColor: "sandybrown"
   property string detailButtonColor: "sandybrown"
   property string maintainButtonColor: "sandybrown"
@@ -217,7 +219,20 @@ Rectangle {
         labelText: "New Feed"
         z: 9
         anchors { top: maintainMenu.top; horizontalCenter: maintainMenu.horizontalCenter }
-        onClicked: { controlPanel.newFeed(); indexMenu.hide() }
+        onClicked: { controlPanel.newFeed(); maintainMenu.hide() }
+      }
+      ChoiceButton {
+        id: importDrssButton
+        width: parent.width
+        height: menuItemHeight
+        color: indexMenuButtonColor
+        labelText: "Import Carpo/DRSS"
+        z: 9
+        anchors { 
+          top: showFeedEditButton.bottom; 
+          horizontalCenter: maintainMenu.horizontalCenter 
+        }
+        onClicked: { controlPanel.importDRSS(); maintainMenu.hide() }
       }
       ChoiceButton {
         id: showSettingsButton
@@ -227,10 +242,10 @@ Rectangle {
         labelText: "Settings"
         z: 9
         anchors { 
-          top: showFeedEditButton.bottom; 
+          top: importDrssButton.bottom; 
           horizontalCenter: maintainMenu.horizontalCenter 
         }
-        onClicked: { controlPanel.maintainSelect(); indexMenu.hide() }
+        onClicked: { controlPanel.maintainSelect(); maintainMenu.hide() }
       }
     }
   }
