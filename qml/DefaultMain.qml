@@ -122,7 +122,7 @@ Rectangle {
       anchors.top: indexBox.top
       width: normalWidth
       scale: 1
-      color: "#ffffab"
+      color: "#e5ddf5"
       clip: true
       onSelected: { 
         controlIF.feedClicked (idx, i,t) 

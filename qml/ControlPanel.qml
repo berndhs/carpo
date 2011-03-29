@@ -47,7 +47,7 @@ Rectangle {
   property string maintainButtonFade: "#fbdfc7"
   property real menuItemHeight: 32
   property real embedMargin : 0
-  property string indexMenuButtonColor: "#e0e0f0"
+  property string indexMenuButtonColor: "#d0d0e0"
   property string indexMenuButtonFade: "#f9e9f9"
 
   height: menuItemHeight
