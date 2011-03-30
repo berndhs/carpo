@@ -254,7 +254,7 @@ Carpo::Connect ()
 void
 Carpo::ShowStory (const QString & id, const QString & title)
 {
-  qDebug () << " Carpo::ShowStory";
+  qDebug () << " Carpo::ShowStory " << id << title;
   if (stories.contains(id)) {
     QString tagBrowseHere 
                (Magic::PseudoAlertTag + "/here/");
@@ -276,12 +276,18 @@ Carpo::ShowStory (const QString & id, const QString & title)
     if (storyDates.contains(id)) {
       date = storyDates[id];
     } 
+    QString realTitle (title);
+    if (realTitle.length() < 1) {
+      if (titles.contains(id)) {
+        realTitle = titles[id];
+      }
+    }
     htmlString = QString("<div>")
                  + buttons 
                  + QString ("<span style=\"font-size:smaller\">%1</span>")
                    .arg(date )
                  + QString ("&nbsp;<i>%1</i>")
-                  .arg(title)
+                  .arg(realTitle)
                  + "</div>" 
                  + stories[id];
   } else {
@@ -707,16 +713,19 @@ Carpo::ParseStories (QDomNodeList & items, const QString & contentTag,
     QDomNode item = items.at(i);
     if (item.isElement()) {
       QDomElement elt = item.toElement();
-      QDomNodeList titles = elt.elementsByTagName ("title");
-      QDomNodeList descrs = elt.elementsByTagName (contentTag);
-      if (titles.count() > 0 && descrs.count() > 0) {  // should be 1
-        QString title = titles.at(0).toElement().text();
-        QString descr = descrs.at(0).toElement().text();
+      QDomNodeList titleNodes = elt.elementsByTagName ("title");
+      QDomNodeList descNodes = elt.elementsByTagName (contentTag);
+      if (titleNodes.count() > 0 && descNodes.count() > 0) {  // should be 1
+        QString title = titleNodes.at(0).toElement().text();
+        QString descr = descNodes.at(0).toElement().text();
         QString hash (QCryptographicHash::hash (descr.toUtf8().data(), 
                            QCryptographicHash::Md5).toHex());
         bool seenit = feeds.Seenit (currentFeed, hash);
         QString id = headlines.addNewLine (title, seenit);
         stories[id] = descr;
+        if (title.length() > 0) {
+          titles[id] = title;
+        }
         QDomNodeList links = elt.elementsByTagName ("link");
         int nl = links.count();
         QStringList linkList;

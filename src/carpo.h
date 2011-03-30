@@ -151,6 +151,7 @@ private:
   Folder                   topFolder;
   FeedlistModel             feeds;
   QMap <QString, QString>  stories;
+  QMap <QString, QString>  titles;
   QMap <QString, QStringList> storyLinks;
   QMap <QString, QString>  storyDates;
 
