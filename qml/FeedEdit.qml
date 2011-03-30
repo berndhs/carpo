@@ -35,7 +35,6 @@ Rectangle {
   function displayEditFeed (theFeedId, theFeedUrl, theTitle, 
                             theSite, theNick, theDescr, theTopics) {
     feedId = theFeedId
-    feedNick.textValue = theNick
     siteUrl.textValue = theSite
     addrInput.urlString = theFeedUrl
     feedTitle.textValue = theTitle
@@ -47,7 +46,6 @@ Rectangle {
   }
   function clear () {
     feedId = ""
-    feedNick.textValue = ""
     siteUrl.textValue = ""
     addrInput.urlString = ""
     feedTitle.textValue = ""
@@ -105,7 +103,7 @@ Rectangle {
       onClicked: {
         console.log ("Save Feed")
         saveFeed (feedId, addrInput.urlString, feedTitle.textValue, siteUrl.textValue,
-                feedNick.textValue, feedDescription.textValue, siteTopics.textValue)
+                "", feedDescription.textValue, siteTopics.textValue)
       }
     } 
     ChoiceButton {
@@ -192,15 +190,8 @@ Rectangle {
       top: addrInput.bottom; topMargin:  6 
     }
     LineInput {
-      id: feedNick
-      width:parent.width
-      labelText: qsTr(" Nick ")
-      labelWidth: feedDescription.labelWidth
-    }
-    LineInput {
       id: feedTitle
       width:parent.width
-      anchors.top: feedNick.bottom
       labelText: qsTr(" Title ")
       labelWidth: feedDescription.labelWidth
     }

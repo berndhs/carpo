@@ -8,5 +8,5 @@ Icon=carpo
 StartupNotify=false
 Terminal=false
 Type=Application
-Categories=Network;
+Categories=Network;News;
 X-Desktop-File-Install-Version=0.16
