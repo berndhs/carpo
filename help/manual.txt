@@ -65,6 +65,14 @@ Keep in mind that this is an RSS reader, not a full feature browser.
 
 You can drag the web page or RSS content, or you can use keys to move it.
 
+=== Selecting Text ===
+
+Normally, the mouse (or touch equivalent) is used to drag the web page visible
+in the browser window. This means that selecting text does not work in the usual way.
+To disable dragging, *double click* in the web page area. Selecting then works as usual.
+*Double click* again to re-enable dragging.
+
+
 === Keys ===
 
 Some keys have special meaning:

@@ -62,6 +62,7 @@ Flickable {
       interactive = true
       theWebView.pressGrabTime = 400
     }
+    console.log ("changed grab time to " + theWebView.pressGrabTime)
   }
   anchors.left: parent.left
   anchors.right: parent.right
@@ -116,11 +117,6 @@ Flickable {
       storyViewBox.isWeb = ! controlIF.isEmptyUrl (url)
     }
     onDoubleClick: {
-      if (!heuristicZoom(clickX,clickY,2.5)) {
-        var zf = storyViewBox.width / contentsSize.width
-        if (zf >= contentsScale) zf = 2.0/zoomFactor // zoom in (else zooming out)
-        doZoom(zf,clickX*zf,clickY*zf)
-      }
       storyViewBox.deux ()
     } 
     onLoadFinished: { 

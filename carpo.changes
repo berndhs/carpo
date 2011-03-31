@@ -1,5 +1,9 @@
+* Web Mar 30 2011 Bernd Stramm <bernd.stramm@gmail.com> - 0.2.1
+- display story title when story selected from news stream
+- allow selecting text from web pages after double-click
+- remove display of unused Nick field
+
 * Mon Mar 28 2011 Bernd Stramm <bernd.stramm@gmail.com> - 0.2.0
 - initial release
-
 
 
