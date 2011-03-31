@@ -90,27 +90,23 @@ Rectangle {
     id: indexBox
     objectName: "IndexBox"
     anchors.top: controlPanel.bottom
-    height: (storyView.isWeb ? 0 : indexHeight)
-    visible: !storyView.isWeb
+    height:  indexHeight
+    visible: true
     width: displayArea.width
     color: "transparent"
     function hide () {
-      shrinkScale.running = true; 
+      indexBoxScale.yScale = 0
+      height = 0
     }
     function show () {
-      expandScale.running = true;
+      indexBoxScale.yScale = 1
+      height = indexHeight
     }
-    PropertyAnimation on scale { 
-      id: shrinkScale
-      running: false
-      to: 0
-      duration: shrinkDelay
-    }
-    PropertyAnimation on scale { 
-      id: expandScale
-      running: false
-      to: 1
-      duration: shrinkDelay
+    transform: Scale {
+      id: indexBoxScale
+      xScale: 1
+      yScale: 1
+      Behavior on yScale { NumberAnimation { duration: shrinkDelay }}
     }
     FeedList {
       id: feedListArea
@@ -194,11 +190,13 @@ Rectangle {
     visible: true
     z: indexBox-2
     anchors { 
-      top: (webNavRect.visible ? webNavRect.bottom : indexBox.bottom)
+      top: indexBox.bottom //(webNavRect.visible ? webNavRect.bottom : indexBox.bottom)
+      topMargin: webNavRect.height
       leftMargin: 0
       rightMargin: 0
     }
-    height: parent.height - controlPanel.height - indexBox.height
+    height: parent.height - controlPanel.height - indexBox.height - webNavRect.height
+    clip: false
    
     storyHtml: "<p>"+ qsTr("No Current Story.") + "</p>"
     onIsWebChanged: changedIsWeb (isWeb)
@@ -218,7 +216,7 @@ Rectangle {
     }
     width: childrenRect.width
     color: "transparent"
-    height: childrenRect.height
+    height: (visible ? childrenRect.height : 0)
     z:feedListArea.z + 1
     ChoiceButton {
       id: allBackButton
@@ -354,6 +352,7 @@ Rectangle {
     onImportOPML: { controlIF.importFeeds ("OPML") }
     onToggleViewSelect: {
       toggleLists() 
+      indexBox.show ()
     }
     onNewFeed: { showEdit (true) }
     onMaintainSelect: {
@@ -375,9 +374,11 @@ Rectangle {
       if (isWebNow ) {
         streamListArea.hide ()
         topicListArea.hide ()
+        indexBox.hide ()
       } else {
         if (controlPanel.normalShowTopics) topicListArea.show ()
         if (controlPanel.normalShowStream) streamListArea.show ()
+        indexBox.show ()
       }
     }
   }

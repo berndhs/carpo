@@ -30,6 +30,7 @@ Rectangle {
   property real shrinkDelay: 250
   property real itemHeight: 32
   property real headHeight: itemHeight * 0.75
+  property real headTextMargin: 6
   property string headColor: "yellow"
   property string itemColor: parent.color
   property string headerIntro: qsTr(" Stories from: ")
@@ -104,8 +105,7 @@ Rectangle {
   Component {
     id: titleHeader  
     Rectangle {
-      width:  normalWidth; height:  headHeight
-      radius: 5
+      width:  childrenRect.width + 2 * headTextMargin; height:  headHeight
       gradient: Gradient {
         GradientStop {
           position: 0.00
