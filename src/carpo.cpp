@@ -187,7 +187,10 @@ qDebug () << "  storyView " << qmlWebView;
   configEdit.Load ();
   show ();
   autoUpdate.Init ();
-  autoUpdate.Start (15*1000);
+  int streamDelay (15);
+  streamDelay = Settings().value ("timers/newspoll",streamDelay).toInt();
+  Settings().setValue ("timers/newspoll",streamDelay);
+  autoUpdate.Start (streamDelay*1000);
 }
 
 void
