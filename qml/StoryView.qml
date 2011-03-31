@@ -54,6 +54,15 @@ Flickable {
     theWebView.isLoadFinished = true
     theWebView.html = theHtml
   }
+  function deux () {
+    if (interactive) {
+      interactive = false
+      theWebView.pressGrabTime = 0
+    } else {
+      interactive = true
+      theWebView.pressGrabTime = 400
+    }
+  }
   anchors.left: parent.left
   anchors.right: parent.right
   width: parent.width
@@ -112,6 +121,7 @@ Flickable {
         if (zf >= contentsScale) zf = 2.0/zoomFactor // zoom in (else zooming out)
         doZoom(zf,clickX*zf,clickY*zf)
       }
+      storyViewBox.deux ()
     } 
     onLoadFinished: { 
       origScale = contentsScale; 
