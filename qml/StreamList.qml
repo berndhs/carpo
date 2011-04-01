@@ -37,6 +37,7 @@ Rectangle {
   property string storyButtonColor: "#eeffee"
   property string feedLineColor: "#e9ddf5"
   property string storyLineColor: "#ddffff"
+  property string topObject: objectName
   signal selectFeed (string feedId)
   signal selectStory (string feedId, string title, string hash)
   signal quitit ()
@@ -50,6 +51,7 @@ Rectangle {
   function setNewestRow (theRow) {
     streamList.currentIndex = theRow
   }
+  function swiped () { hide () }
   color: "transparent"
   anchors.leftMargin: leftMargin
   width: normalWidth
@@ -62,6 +64,13 @@ Rectangle {
     Behavior  on yScale {
       NumberAnimation { duration: rollDelay }
     }
+  }
+  MouseArea {
+    anchors.fill: parent
+    onPressed:   gestureIF.pressed (topObject, mouse.x, mouse.y) 
+    onExited:    gestureIF.exited (topObject, mouseX, mouseY) 
+    onReleased:  gestureIF.released (topObject, mouseX, mouseY)
+
   }
   Component {
     id: verticalDelegate
@@ -86,6 +95,9 @@ Rectangle {
                 selectStory (feedId, storyTitle, storyHash); 
                 streamList.currentIndex = index 
               }
+              onPressed:   gestureIF.pressed (topObject, mouse.x, mouse.y)
+              onExited:    gestureIF.exited (topObject, mouseX, mouseY)
+              onReleased:  gestureIF.released (topObject, mouseX, mouseY)
               onPressAndHold : { quitit () }
             }  
           }
@@ -102,6 +114,9 @@ Rectangle {
                 selectStory (feedId, storyTitle, storyHash); 
                 streamList.currentIndex = index 
               }
+              onPressed:  gestureIF.pressed (topObject, mouse.x, mouse.y)
+              onExited:   gestureIF.exited (topObject, mouseX, mouseY)
+              onReleased: gestureIF.released (topObject, mouseX, mouseY)
               onPressAndHold : { quitit () }
             }
           }

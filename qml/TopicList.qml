@@ -76,15 +76,9 @@ Rectangle {
           MouseArea {
             anchors.fill: parent
             onClicked: { selected (index, name, number); topicList.currentIndex = index }
-            onPressed: {
-              gestureIF.pressed (topObject, mouse.x, mouse.y)
-            }
-            onExited: {
-              gestureIF.exited (topObject, mouseX, mouseY)
-            }
-            onReleased: {
-              gestureIF.released (topObject, mouseX, mouseY)
-            }
+            onPressed:   gestureIF.pressed (topObject, mouse.x, mouse.y)
+            onExited:    gestureIF.exited (topObject, mouseX, mouseY)
+            onReleased:  gestureIF.released (topObject, mouseX, mouseY)
             onPositionChanged: {
               if (topicList.isTracking) gestureIF.moved (topObject, mouse.x, mouse.y)
             }
