@@ -1,11 +1,11 @@
-* Thu Mar 31 2011 Bernd Stramm <bernd.stramm@gmail.com> - 0.2.1
+* Sat Apr 02 2011 Bernd Stramm <bernd.stramm@gmail.com> - 0.2.1-1
 - implement swipe for news stream as well as topic list
 - make news stream poll time configurable
 - display story title when story selected from news stream
 - allow selecting text from web pages after double-click
 - remove display of unused Nick field
 
-* Mon Mar 28 2011 Bernd Stramm <bernd.stramm@gmail.com> - 0.2.0
+* Mon Mar 28 2011 Bernd Stramm <bernd.stramm@gmail.com> - 0.2.0-1
 - initial release
 
 

@@ -78,6 +78,7 @@ Flickable {
 
   WebView {
     id: theWebView
+    objectName: "StoryWebView"
     settings.autoLoadImages: true
     settings.pluginsEnabled: true
     html: "<p>default <b>html</b>.</p>"

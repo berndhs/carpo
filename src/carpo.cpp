@@ -1,6 +1,5 @@
 #include "carpo.h"
 
-
 /****************************************************************
  * This file is distributed under the following license:
  *
@@ -41,6 +40,7 @@
 #include <QTimer>
 #include <QDir>
 #include <QCryptographicHash>
+#include <QWebView>
 
 #include "feedlist-writer.h"
 #include "carpo-magic.h"
@@ -169,6 +169,7 @@ Carpo::QmlRun ()
   QDeclarativeItem * qmlWebView = qmlRoot->
                      findChild<QDeclarativeItem*>("StoryView");
   controlIF->SetQmlWeb (qmlWebView);
+
   if (gestureIF) {
     gestureIF->SetQmlRoot (qmlRoot);
   }
@@ -517,6 +518,10 @@ Carpo::GetFeedReply (QNetworkReply * reply, const QString & storyHash)
   feedDoc.setContent (reply);
   QDomNodeList items = feedDoc.elementsByTagName ("item");
   QDomNodeList entries = feedDoc.elementsByTagName ("entry");
+  stories.clear ();
+  titles.clear ();
+  storyLinks.clear ();
+  storyDates.clear ();
   if (items.count() > 0) {
     ParseStories (items, "description", "pubDate");
   }
