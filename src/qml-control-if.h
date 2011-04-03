@@ -42,8 +42,6 @@ public:
 
   ControlInterface (QObject *parent = 0, FeedlistModel *feedList=0);
 
-  Q_PROPERTY(bool isLoading READ loading NOTIFY loadingChanged)
-
   Q_INVOKABLE void setEditingFeed (bool editing);
   Q_INVOKABLE void feedClicked (int index, const QString & ident, 
                                             const QString & title);

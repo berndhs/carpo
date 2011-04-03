@@ -40,7 +40,6 @@ Rectangle {
     feedTitle.textValue = theTitle
     feedDescription.textValue = theDescr
     siteTopics.textValue = theTopics
-    choiceButtons.visible = true
     feedDetails.visible = true
     saveButtonRow.show ()
   }
@@ -51,7 +50,6 @@ Rectangle {
     feedTitle.textValue = ""
     feedDescription.textValue = ""
     siteTopics.textValue = ""
-    choiceButtons.visible = true
     feedDetails.visible = true
     saveButtonRow.show ()
   }
