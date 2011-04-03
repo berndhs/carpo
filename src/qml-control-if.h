@@ -42,6 +42,8 @@ public:
 
   ControlInterface (QObject *parent = 0, FeedlistModel *feedList=0);
 
+  Q_PROPERTY(bool isLoading READ loading NOTIFY loadingChanged)
+
   Q_INVOKABLE void setEditingFeed (bool editing);
   Q_INVOKABLE void feedClicked (int index, const QString & ident, 
                                             const QString & title);
@@ -74,11 +76,13 @@ public:
   Q_INVOKABLE void popHtml ();
   Q_INVOKABLE void pushHtml ();
   Q_INVOKABLE void importFeeds (const QString & format);
+  Q_INVOKABLE bool loading ();
 
   void SetFeeds (FeedlistModel * feedList);
   void SetQmlRoot (QDeclarativeItem * qmlObj);
   void SetQmlWeb (QDeclarativeItem * qmlObj);
   void ClearHtmlStack ();
+  void SetLoading (bool ldg);
 
 signals:
 
@@ -97,6 +101,7 @@ signals:
   void ShowLicense ();
   void ShowManual ();
   void ImportFeeds (const QString & format);
+  void loadingChanged (bool loading);
 
 private:
 
@@ -107,6 +112,7 @@ private:
   QStringList     htmlStack;
   QDeclarativeItem  *qmlRoot;
   QDeclarativeItem  *qmlWebView;
+  bool    isNowLoading;
 
 };
 

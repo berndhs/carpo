@@ -1,4 +1,5 @@
 * Sat Apr 02 2011 Bernd Stramm <bernd.stramm@gmail.com> - 0.2.1-1
+- add a load indicator for getting feed index
 - clean up to save a little memory
 - implement swipe for news stream as well as topic list
 - make news stream poll time configurable

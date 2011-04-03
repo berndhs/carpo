@@ -37,8 +37,10 @@ ControlInterface::ControlInterface (QObject *parent,
    isEditingFeed (false),
    feeds (feedList),
    qmlRoot (0),
-   qmlWebView (0)
+   qmlWebView (0),
+   isNowLoading (false)
 {
+  SetLoading (false);
 }
 
 void
@@ -305,6 +307,23 @@ void
 ControlInterface::ClearHtmlStack ()
 {
   htmlStack.clear ();
+}
+
+bool
+ControlInterface::loading ()
+{
+  return false;
+  return isNowLoading;
+}
+
+void
+ControlInterface::SetLoading (bool ldg)
+{
+  bool old = isNowLoading;
+  isNowLoading = ldg;
+  if (old != ldg) {
+    emit loadingChanged (isNowLoading);
+  }
 }
 
 } // namespace

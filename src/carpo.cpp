@@ -466,6 +466,9 @@ Carpo::LoadFeed (const QString & urlString, const QString & storyHash)
                                       CarpoNetReply::Kind_GetFeed);
     dreply->setStoryHash (storyHash);
     expectReplies[netreply] = dreply;
+    if (controlIF) {
+      controlIF->SetLoading (true);
+    }
   }
 }
 
@@ -477,6 +480,9 @@ Carpo::ProbeFeed (const QString & urlString)
     CarpoNetReply * dreply = new CarpoNetReply (netreply, 
                                       CarpoNetReply::Kind_Probe);
     expectReplies[netreply] = dreply;
+    if (controlIF) {
+      controlIF->SetLoading (true);
+    }
   }
 }
 
@@ -485,6 +491,9 @@ Carpo::FinishedNet (QNetworkReply * reply)
 {
   if (reply) {
     if (expectReplies.contains (reply)) {
+      if (controlIF) {
+        controlIF->SetLoading (false);
+      }
       CarpoNetReply * dreply = expectReplies[reply];
       if (dreply) {
         CarpoNetReply::Kind  kind = dreply->kind();

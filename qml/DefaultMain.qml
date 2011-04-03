@@ -368,6 +368,23 @@ Rectangle {
       }
     }
   }
+  Rectangle {
+    id: mainLoadIndicator
+    width: 52; height: 26
+    radius: height * 0.25
+    anchors { top: storyView.top; right: storyView.right }
+    opacity: 0.5
+    color: "yellow"
+    Text { 
+      anchors { 
+        verticalCenter: parent.verticalCenter
+        horizontalCenter: parent.horizontalCenter 
+      }
+      color: "black"
+      text: qsTr ("Load") 
+    }
+    visible: false
+  }
   Connections {
     target: storyView
     onChangedIsWeb: {
@@ -380,6 +397,12 @@ Rectangle {
         if (controlPanel.normalShowStream) streamListArea.show ()
         indexBox.show ()
       }
+    }
+  }
+  Connections {
+    target: controlIF
+    onLoadingChanged: {
+      mainLoadIndicator.visible = loading
     }
   }
 }
