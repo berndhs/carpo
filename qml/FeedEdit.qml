@@ -28,7 +28,6 @@ import QtQuick 1.0
 Rectangle {
   id: feedEdit
   function displayNew (url) {
-    console.log ("Start NEw Feed " + url)
     displayEditFeed ("", url, "", "", "", "", "")
     saveButtonRow.show ()
   }
@@ -152,7 +151,7 @@ Rectangle {
       radius: height * 0.3333
       anchors { left: checkButton.right; verticalCenter: deleteButton.verticalCenter }
       onClicked: {
-        startNewFeed (addrInput.urlString)
+        startNewFeed ("") //startNewFeed (addrInput.urlString)
       }
     }
     ChoiceButton {

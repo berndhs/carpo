@@ -354,7 +354,7 @@ Rectangle {
       toggleLists() 
       indexBox.show ()
     }
-    onNewFeed: { showEdit (true) }
+    onNewFeed: { showEdit (true); feedEdit.displayNew ("") }
     onMaintainSelect: {
       var visi = configList.isShown
       console.log ("Maintain Selected " + visi)
