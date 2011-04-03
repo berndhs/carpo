@@ -43,7 +43,8 @@ Flickable {
   property alias stop: theWebView.stop
   property alias reload: theWebView.reload
   property alias forward: theWebView.forward
-  property alias scrollStep: theWebView.scrollStep
+  property alias scrollXStep: theWebView.scrollXStep
+  property alias scrollYStep: theWebView.scrollYStep
   property bool isWeb: false
 
   signal quitit ()
@@ -84,17 +85,18 @@ Flickable {
     html: "<p>default <b>html</b>.</p>"
     property bool isLoadFinished : false
     property real origScale: 1
-    property real scrollStep: 5
+    property real scrollXStep: 5
+    property real scrollYStep: 5
     onAlert: {
       controlIF.checkAlert (message)
       console.log(message)
     }
 
     Keys.onEscapePressed: storyViewBox.quitit()
-    Keys.onLeftPressed: storyView.contentX += scrollStep 
-    Keys.onRightPressed: storyView.contentX -= scrollStep 
-    Keys.onUpPressed: storyViewBox.contentY +=  scrollStep
-    Keys.onDownPressed: storyViewBox.contentY -= scrollStep
+    Keys.onLeftPressed: storyView.contentX += scrollXStep 
+    Keys.onRightPressed: storyView.contentX -= scrollXStep 
+    Keys.onUpPressed: storyViewBox.contentY +=  scrollYStep
+    Keys.onDownPressed: storyViewBox.contentY -= scrollYStep
     Keys.onSpacePressed: { storyViewBox.contentX = 0; storyViewBox.contentY = 0 }
     Keys.onPressed: {
        if (event.text == "+") { theWebView.contentsScale += 0.1 } 

@@ -153,12 +153,13 @@ Carpo::QmlRun ()
   context->setContextProperty ("configModel", &configEdit);
   context->setContextProperty ("topicModel", &topicModel);
   context->setContextProperty ("streamListModel", &autoUpdate);
-  ui.qmlView->setSource (QUrl("qrc:///qml/DefaultMain.qml"));
-  //ui.qmlView->setSource (QUrl::fromLocalFile("qml/DefaultMain.qml"));
   context->setContextProperty ("feedIF",feedIF);
   context->setContextProperty ("controlIF",controlIF);
   context->setContextProperty ("configIF",&configEdit);
   context->setContextProperty ("gestureIF",gestureIF);
+
+  ui.qmlView->setSource (QUrl("qrc:///qml/DefaultMain.qml"));
+  //ui.qmlView->setSource (QUrl::fromLocalFile("qml/DefaultMain.qml"));
   qmlRoot = ui.qmlView->rootObject();
   if (qmlRoot == 0) {
     QMessageBox::critical (this, "Fatal", "QML Load Failure");

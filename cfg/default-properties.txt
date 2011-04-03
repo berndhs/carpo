@@ -17,6 +17,8 @@ ControlPanel maintainButtonColor
 ControlPanel maintainButtonFade
 ControlPanel subMenuButtonColor
 ControlPanel subMenuButtonFade
+StoryView scrollXStep
+StoryView scrollYStep
 StreamListArea color
 StreamListArea normalWidth
 StreamListArea itemHeight
