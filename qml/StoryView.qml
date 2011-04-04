@@ -66,12 +66,11 @@ Flickable {
     console.log ("changed grab time to " + theWebView.pressGrabTime)
   }
   function wheelTurned (theX, theY, theOrientation, theDelta) {
+   var steps = theDelta * 0.0166667 
     if (theOrientation == 1) {
-      if (theDelta > 0) contentX += scrollXStep 
-      if (theDelta < 0) contentX -= scrollXStep
+      contentX += scrollXStep * steps
     } else if (theOrientation == 2) {
-      if (theDelta > 0) contentY += scrollYStep 
-      if (theDelta < 0) contentY -= scrollYStep
+      contentY += scrollYStep * steps
     }
   }
   anchors.left: parent.left
