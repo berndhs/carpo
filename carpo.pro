@@ -27,6 +27,9 @@ MYNAME = carpo
 
 TEMPLATE = app
 
+ICON = carpo.png
+
+
 QT += core gui webkit network xml declarative
 CONFIG += debug_and_release
 
@@ -98,6 +101,7 @@ HEADERS = \
           src/property-store.h \
           src/topic-model.h \
           src/auto-update.h \
+          src/event-special.h \
 
 
 SOURCES = \
@@ -121,4 +125,5 @@ SOURCES = \
           src/property-store.cpp \
           src/topic-model.cpp \
           src/auto-update.cpp \
+          src/event-special.cpp \
 

@@ -69,6 +69,7 @@ Carpo::Carpo (QWidget *parent)
    autoUpdate (feeds, this),
    saveTimer (this)
 {
+  setObjectName ("CarpoMainObject");
   feedListFile =  QDesktopServices::storageLocation 
               (QDesktopServices::DataLocation)
               + QDir::separator()
@@ -87,6 +88,8 @@ Carpo::Carpo (QWidget *parent)
   feedIF = new FeedInterface (this);
   controlIF = new ControlInterface (this, &feeds);
   gestureIF = new GestureInterface (this);
+  reporter = new ReportEvent (this);
+  installEventFilter (reporter);
   restoreGeometry(Settings().value("geometry").toByteArray());
   if (Settings().contains ("sizes/qml")) {
     QSize qmlSize (800,600);
@@ -166,6 +169,7 @@ Carpo::QmlRun ()
     QTimer::singleShot (150, this, SLOT(Quit ()));
     return;
   }
+  qmlRoot->installEventFilter (reporter);
   controlIF->SetQmlRoot (qobject_cast<QDeclarativeItem*> (qmlRoot));
   QDeclarativeItem * qmlWebView = qmlRoot->
                      findChild<QDeclarativeItem*>("StoryView");
@@ -252,6 +256,10 @@ Carpo::Connect ()
            this, SLOT (ImportList (const QString &)));
   connect (&autoUpdate, SIGNAL (NewestRow (int)),
            this, SLOT (NewestNewsRow (int)));
+  connect (reporter, SIGNAL (WheelEvent 
+                 (QObject *, QPointF, Qt::Orientation, int)),
+           this, SLOT (HandleWheelEvent 
+                 (QObject *, QPointF, Qt::Orientation, int)));
 }
 
 
@@ -904,6 +912,21 @@ Carpo::DebugProperty (const QString & objName, const QString & propName)
   if (item) {
     QVariant prop = item->property (propName.toAscii().data());
     qDebug () << "Carpo:  obj " << objName << propName << " is " << prop;
+  }
+}
+void
+Carpo::HandleWheelEvent (QObject *detectObject,
+                         QPointF pos,
+                         Qt::Orientation orientation,
+                         int  delta)
+{
+  Q_UNUSED (detectObject)
+  if (qmlRoot) {
+    QMetaObject::invokeMethod (qmlRoot, "wheelTurned",
+                 Q_ARG (QVariant, pos.x()),
+                 Q_ARG (QVariant, pos.y()),
+                 Q_ARG (QVariant, orientation),
+                 Q_ARG (QVariant, delta));
   }
 }
 

@@ -48,6 +48,7 @@
 #include "property-store.h"
 #include "topic-model.h"
 #include "auto-update.h"
+#include "event-special.h"
 
 class QDeclarativeContext;
 
@@ -95,6 +96,10 @@ private slots:
   void NewestNewsRow (int row);
   void TopicChanged ();
   void ImportList (const QString & format);
+  void HandleWheelEvent (QObject *detectObject,
+                         QPointF pos,
+                         Qt::Orientation orientation,
+                         int  delta);
 
 protected:
 
@@ -164,6 +169,7 @@ private:
   QString              currentFeed;
   QString              currentStory;
   QTimer               saveTimer;
+  ReportEvent         *reporter;
 
 }; 
 

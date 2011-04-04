@@ -64,6 +64,9 @@ Rectangle {
   function toggleLists () {
     feedIF.toggleLists ()
   }
+  function wheelTurned (theX, theY, theOrientation, theDelta) {
+    storyView.wheelTurned (theX, theY, theOrientation, theDelta)
+  }
   function displayEditFeed (feedId, feedUrl, feedTitle, siteUrl, 
                             nickText, theDescription, theTopics) {
     feedEdit.displayEditFeed (feedId, feedUrl, feedTitle, siteUrl, 

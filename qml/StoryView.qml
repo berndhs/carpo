@@ -65,6 +65,15 @@ Flickable {
     }
     console.log ("changed grab time to " + theWebView.pressGrabTime)
   }
+  function wheelTurned (theX, theY, theOrientation, theDelta) {
+    if (theOrientation == 1) {
+      if (theDelta > 0) contentX += scrollXStep 
+      if (theDelta < 0) contentX -= scrollXStep
+    } else if (theOrientation == 2) {
+      if (theDelta > 0) contentY += scrollYStep 
+      if (theDelta < 0) contentY -= scrollYStep
+    }
+  }
   anchors.left: parent.left
   anchors.right: parent.right
   width: parent.width
@@ -87,10 +96,6 @@ Flickable {
     property real origScale: 1
     property real scrollXStep: 5
     property real scrollYStep: 5
-    onAlert: {
-      controlIF.checkAlert (message)
-      console.log(message)
-    }
 
     Keys.onEscapePressed: storyViewBox.quitit()
     Keys.onLeftPressed: storyView.contentX += scrollXStep 
@@ -111,6 +116,10 @@ Flickable {
       if (isLoadFinished) {
         contentsScale = Math.min(1,storyViewBox.width / contentsSize.width)
       }
+    }
+    onAlert: {
+      controlIF.checkAlert (message)
+      console.log(message)
     }
     onUrlChanged: {
       // got to topleft
