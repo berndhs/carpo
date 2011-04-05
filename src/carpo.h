@@ -92,6 +92,7 @@ private slots:
   void MaybeSave ();
   void ProbeFeed (const QString & urlString);
   void Restart ();
+  void ResetRestart ();
   void Reset ();
   void NewestNewsRow (int row);
   void TopicChanged ();

@@ -76,8 +76,8 @@ Carpo::Carpo (QWidget *parent)
               + QString ("carpo_feeds.xml");
   propStore = new PropertyStore (this, &Settings());
   propStore->Init (":/default-properties.txt");
-  feedListFile = Settings().value ("files/feedlist",feedListFile).toString();
-  Settings().setValue ("files/feedlist",feedListFile);
+  feedListFile = Settings().value ("+files/feedlist",feedListFile).toString();
+  Settings().setValue ("+files/feedlist",feedListFile);
   qnam = new QNetworkAccessManager;
   feedlistParser = new FeedlistParser (this);
   ui.setupUi (this);
@@ -90,10 +90,10 @@ Carpo::Carpo (QWidget *parent)
   gestureIF = new GestureInterface (this);
   reporter = new ReportEvent (this);
   installEventFilter (reporter);
-  restoreGeometry(Settings().value("geometry").toByteArray());
-  if (Settings().contains ("sizes/qml")) {
+  restoreGeometry(Settings().value("+geometry").toByteArray());
+  if (Settings().contains ("+sizes/qml")) {
     QSize qmlSize (800,600);
-    qmlSize = Settings().value("sizes/qml", qmlSize).toSize();
+    qmlSize = Settings().value("+sizes/qml", qmlSize).toSize();
     qDebug () << " Found QML saved size " << qmlSize;
     ui.qmlView->resize (qmlSize);
   }
@@ -193,8 +193,8 @@ Carpo::QmlRun ()
   show ();
   autoUpdate.Init ();
   int streamDelay (15);
-  streamDelay = Settings().value ("timers/newspoll",streamDelay).toInt();
-  Settings().setValue ("timers/newspoll",streamDelay);
+  streamDelay = Settings().value ("+timers/newspoll",streamDelay).toInt();
+  Settings().setValue ("+timers/newspoll",streamDelay);
   autoUpdate.Start (streamDelay*1000);
 }
 
@@ -254,6 +254,8 @@ Carpo::Connect ()
            this, SLOT (ShowManual ()));
   connect (controlIF, SIGNAL (ImportFeeds (const QString &)),
            this, SLOT (ImportList (const QString &)));
+  connect (controlIF, SIGNAL (ResetRestart ()),
+           this, SLOT (ResetRestart ()));
   connect (&autoUpdate, SIGNAL (NewestRow (int)),
            this, SLOT (NewestNewsRow (int)));
   connect (reporter, SIGNAL (WheelEvent 
@@ -592,6 +594,19 @@ Carpo::Restart ()
   controlIF->SetQmlWeb (0);
   controlIF->ClearHtmlStack ();
   QTimer::singleShot (100, this, SLOT (QmlRun()));
+}
+
+void
+Carpo::ResetRestart ()
+{
+  QStringList keys = Settings().allKeys();
+  int nk = keys.count();  
+  for (int i=0; i<nk; i++) {
+    if (!keys.at(i).startsWith("+")) {
+      Settings().remove (keys.at(i));
+    }
+  }
+  Restart ();
 }
 
 bool

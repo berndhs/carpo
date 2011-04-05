@@ -68,6 +68,7 @@ public:
                                  const QString & body);
   Q_INVOKABLE bool addressKnown (const QString & urlString);
   Q_INVOKABLE void restartApp ();
+  Q_INVOKABLE void resetConfig ();
   Q_INVOKABLE void exitApp ();
   Q_INVOKABLE void help ();
   Q_INVOKABLE bool isEmptyUrl (const QUrl & url);
@@ -94,6 +95,7 @@ signals:
   void BrowseLinkLocal (const QString & storyId);
   void ListUpdated ();
   void Restart ();
+  void ResetRestart ();
   void Exit ();
   void GetHelp ();
   void ShowLicense ();

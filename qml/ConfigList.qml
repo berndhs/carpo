@@ -40,6 +40,7 @@ Rectangle {
   signal updateConfigItem (string theGroup, string theKey, string newValue)
   signal restartConfig ()
   signal doneConfig ()
+  signal resetConfig ()
   function hide () {
     console.log ("ConfList hide")
     shrinkScale.running = true
@@ -90,6 +91,14 @@ Rectangle {
       radius: height * 0.3333
       labelText: qsTr("Done")
       onClicked: { console.log ("Done config clicked "); doneConfig () }
+    }
+    ChoiceButton {
+      id: resetConfigButton
+      anchors { left: doneConfigButton.right }
+      height: itemHeight * 1.2
+      radius: height * 0.3333
+      labelText: qsTr("Reset to Defaults")
+      onClicked: { console.log ("Reset config clicked "); resetConfig (); }
     }
   }
   Component {

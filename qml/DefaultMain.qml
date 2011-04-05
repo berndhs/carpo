@@ -334,9 +334,10 @@ Rectangle {
     normalWidth:parent.width -4
     height: parent.height
     anchors { top: controlPanel.bottom; leftMargin: 4}
-    onUpdateConfigItem: { configIF.updateValue (theGroup, theKey, newValue) }
+    onUpdateConfigItem: configIF.updateValue (theGroup, theKey, newValue) 
     onDoneConfig: { configList.hide (); indexBox.show () }
-    onRestartConfig: { controlIF.restartApp () }
+    onRestartConfig: controlIF.restartApp () 
+    onResetConfig: controlIF.resetConfig()
   }
   ControlPanel { 
     id: controlPanel

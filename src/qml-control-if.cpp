@@ -63,6 +63,12 @@ ControlInterface::restartApp ()
 }
 
 void
+ControlInterface::resetConfig ()
+{
+  emit ResetRestart ();
+}
+
+void
 ControlInterface::help ()
 {
   emit GetHelp ();
