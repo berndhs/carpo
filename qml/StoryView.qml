@@ -93,8 +93,8 @@ Flickable {
     html: "<p>default <b>html</b>.</p>"
     property bool isLoadFinished : false
     property real origScale: 1
-    property real scrollXStep: 5
-    property real scrollYStep: 5
+    property real scrollXStep: -5
+    property real scrollYStep: -5
 
     Keys.onEscapePressed: storyViewBox.quitit()
     Keys.onLeftPressed: storyView.contentX += scrollXStep 
