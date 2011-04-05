@@ -22,6 +22,7 @@
  ****************************************************************/
 #include <QIODevice>
 #include <QDateTime>
+#include "deliberate.h"
 
 namespace deliberate 
 {
@@ -71,6 +72,9 @@ FeedlistWriter::write (Feed & feed)
   }
   StoryMarkMap::iterator smit;
   StoryMarkMap & stories (feed.storyMarks());
+  int maxDays (30);
+  maxDays = Settings().value ("feedlist/maxdays",maxDays).toInt();
+  Settings().setValue ("feedlist/maxdays",maxDays);
   qint64 monthAgo = QDateTime::currentDateTime().toTime_t()
                   - (30 * 24 * 60 * 60);
   for (smit = stories.begin(); smit != stories.end(); smit++) {

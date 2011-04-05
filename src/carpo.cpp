@@ -178,6 +178,9 @@ Carpo::QmlRun ()
   if (gestureIF) {
     gestureIF->SetQmlRoot (qmlRoot);
   }
+  int maxDays (30);
+  maxDays = Settings().value ("feedlist/maxdays",maxDays).toInt();
+  Settings().setValue ("feedlist/maxdays",maxDays); // so propStore knows it
   propStore->ReadFromObjects (qmlRoot);
   propStore->FillSettings (qmlRoot);
   propStore->SyncToObjects (qmlRoot);
