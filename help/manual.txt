@@ -18,6 +18,7 @@ in the system browser (click on *Browser*).
 == Adding/Editing Feeds ==
 
 === New Feeds ===
+
 To add a new feed, click on *Maintenance*, then on *New Feed*. This gives you a form with 
 feed information, then:
 
@@ -63,7 +64,10 @@ click *Views* and then *New Stories - Off*.
 You can browse RSS items as well as the web sites that RSS links to with *Carpo*.
 Keep in mind that this is an RSS reader, not a full feature browser.
 
-You can drag the web page or RSS content, or you can use keys to move it.
+You can drag or flick the web page or RSS content, 
+or you can use keys, the mouse wheel,
+or on some systems the touch pad to scroll the content. Which of these methods
+works depends on the input devices on your system.
 
 === Selecting Text ===
 

@@ -1,4 +1,6 @@
-* Sun Apr 03 2011 Bernd Stramm <bernd.stramm@gmail.com> - 0.2.1-1
+* Wed Apr 06 2011 Bernd Stramm <bernd.stramm@gmail.com> - 0.2.2-1
+- provide reset-to-defaults in settings
+- make max age for storysig configurable in settings
 - support mouse wheel for scrolling webview
 - add a load indicator for getting feed index
 - clean up to save a little memory
