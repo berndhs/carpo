@@ -193,8 +193,8 @@ Carpo::QmlRun ()
   show ();
   autoUpdate.Init ();
   int streamDelay (15);
-  streamDelay = Settings().value ("+timers/newspoll",streamDelay).toInt();
-  Settings().setValue ("+timers/newspoll",streamDelay);
+  streamDelay = Settings().value ("timers/newspoll",streamDelay).toInt();
+  Settings().setValue ("timers/newspoll",streamDelay);
   autoUpdate.Start (streamDelay*1000);
 }
 

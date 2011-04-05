@@ -97,13 +97,18 @@ AutoUpdate::data (const QModelIndex & index, int role) const
 void
 AutoUpdate::SetInterval (int msecs)
 {
+  if (msecs <= 0) {
+    updateTimer.stop ();
+  }
   updateTimer.setInterval (msecs);
 }
 
 void
 AutoUpdate::Start (int msecs)
 {
-  updateTimer.start (msecs);
+  if (msecs > 0) {
+    updateTimer.start (msecs);
+  }
 }
 
 void
