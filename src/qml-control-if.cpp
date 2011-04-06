@@ -186,6 +186,7 @@ ControlInterface::removeFeed (const QString & feedId)
 void
 ControlInterface::probeFeed (const QString & url)
 {
+  qDebug () << "ControlInterface :: probeFeed " << url;
   emit ProbeFeed (url);
 }
 

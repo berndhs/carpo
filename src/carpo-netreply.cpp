@@ -28,19 +28,22 @@ namespace deliberate
 {
 CarpoNetReply::CarpoNetReply ()
   :theNetreply (0),
-   theKind (Kind_None)
+   theKind (Kind_None),
+   theForwardCount (0)
 {
 }
 
 CarpoNetReply::CarpoNetReply (QNetworkReply * nr, Kind k)
   :theNetreply (nr),
-   theKind (k)
+   theKind (k),
+   theForwardCount (0)
 {
 }
 
 CarpoNetReply::CarpoNetReply (const CarpoNetReply & other)
   :theNetreply (other.theNetreply),
-   theKind (other.theKind)
+   theKind (other.theKind),
+   theForwardCount (other.theForwardCount)
 {
 }
 
@@ -66,6 +69,18 @@ void
 CarpoNetReply::setKind (Kind k)
 {
   theKind = k;
+}
+
+int
+CarpoNetReply::forwardCount ()
+{
+  return theForwardCount;
+}
+
+void
+CarpoNetReply::incrementForwardCount (int increment)
+{
+  theForwardCount += increment;
 }
 
 QString

@@ -106,7 +106,7 @@ Rectangle {
     ChoiceButton {
       id:deleteButton
       objectName: "FeedEditDeleteButton"
-      labelText: qstr("Delete Feed")
+      labelText: qsTr("Delete Feed")
       height: parent.height
       color: "red"
       radius: height * 0.3333
@@ -125,7 +125,7 @@ Rectangle {
       radius: height * 0.3333
       anchors { left: deleteButton.right; verticalCenter: deleteButton.verticalCenter }
       onClicked: {
-        console.log ("Probe Feed")
+        console.log ("Probe Feed" + addrInput.urlString)
         probeFeed (addrInput.urlString)
       }
     }

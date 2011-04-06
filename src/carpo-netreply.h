@@ -52,9 +52,11 @@ public:
   Kind            kind () const;
   QString         feedId ();
   QString         storyHash ();
+  int             forwardCount ();
   void            setKind (Kind k);
   void            setFeedId (const QString & feedId);
   void            setStoryHash (const QString & sh);
+  void            incrementForwardCount (int increment=1);
 
 private:
 
@@ -62,6 +64,7 @@ private:
   Kind             theKind;
   QString          theFeedId;
   QString          theStoryHash;
+  int              theForwardCount;
 };
 
 } // namespace

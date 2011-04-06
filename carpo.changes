@@ -1,3 +1,7 @@
+* Thu Apr 07 2011 Bernd Stramm <bernd.stramm@gmail.com> - 0.2.3-1
+- follow forwarded probe requests
+- fix label on delete feed button
+
 * Wed Apr 06 2011 Bernd Stramm <bernd.stramm@gmail.com> - 0.2.2-1
 - provide reset-to-defaults in settings
 - make max age for storysig configurable in settings

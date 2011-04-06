@@ -501,6 +501,32 @@ Carpo::ProbeFeed (const QString & urlString)
 }
 
 void
+Carpo::FollowForward (CarpoNetReply * dreply)
+{
+  if (dreply == 0 || qnam == 0) {
+    return;
+  }
+  QNetworkReply * reply = dreply->netReply();
+  if (reply == 0) {
+    return;
+  }
+  int numSteps = dreply->forwardCount ();
+  if (numSteps <= 10) {
+    QString  newLoc (reply->rawHeader ("Location"));
+    QNetworkReply * newGet = qnam->get (QNetworkRequest (newLoc));
+    dreply->incrementForwardCount();
+    dreply->setNetReply (newGet);
+    qDebug () << " Forward " << reply->url() << " to " <<  newLoc;
+    expectReplies.remove (reply);
+    expectReplies[newGet] = dreply;
+  } else {
+    expectReplies.remove (reply);
+    emit ExcessForward (*dreply);
+    delete dreply;
+  }
+}
+
+void
 Carpo::FinishedNet (QNetworkReply * reply)
 {
   if (reply) {
@@ -510,23 +536,27 @@ Carpo::FinishedNet (QNetworkReply * reply)
       }
       CarpoNetReply * dreply = expectReplies[reply];
       if (dreply) {
-        CarpoNetReply::Kind  kind = dreply->kind();
-        switch (kind) {
-        case CarpoNetReply::Kind_GetFeed:
-          GetFeedReply (dreply->netReply(), dreply->storyHash());
-          break;
-        case CarpoNetReply::Kind_Probe:
-          ProbeReply (dreply->netReply());
-          break;
-        case CarpoNetReply::Kind_WebPage:
-          WebPageReply (dreply->netReply());
-          break;
-        default:
-          qDebug () << " bad network reply kind " << reply << kind;
-          break;
+        if (reply->hasRawHeader ("Location")) {
+          FollowForward (dreply);
+        } else {  
+          CarpoNetReply::Kind  kind = dreply->kind();
+          switch (kind) {
+          case CarpoNetReply::Kind_GetFeed:
+            GetFeedReply (dreply->netReply(), dreply->storyHash());
+            break;
+          case CarpoNetReply::Kind_Probe:
+            ProbeReply (dreply->netReply());
+            break;
+          case CarpoNetReply::Kind_WebPage:
+            WebPageReply (dreply->netReply());
+            break;
+          default:
+            qDebug () << " bad network reply kind " << reply << kind;
+            break;
+          }
+          expectReplies.remove (reply);
+          delete dreply;
         }
-        expectReplies.remove (reply);
-        delete dreply;
       }
     }
   }

@@ -102,6 +102,10 @@ private slots:
                          Qt::Orientation orientation,
                          int  delta);
 
+signals:
+
+  void ExcessForward (CarpoNetReply dreply);
+
 protected:
 
   void resizeEvent (QResizeEvent *event);
@@ -121,6 +125,7 @@ private:
                   const QString & storyHash = QString());
   void  GetFeedReply (QNetworkReply * reply,  
                       const QString & storyHash = QString());
+  void  FollowForward (CarpoNetReply * dreply);
   void  ProbeReply (QNetworkReply * reply);
   void  WebPageReply (QNetworkReply * reply);
   bool  PopulateFromRssDoc (QDomElement & el, Feed & feed);
