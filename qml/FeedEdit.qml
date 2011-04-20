@@ -94,7 +94,7 @@ Rectangle {
       id:saveButton
       objectName: "FeedEditSaveButton"
       labelText: qsTr("Save Feed")
-      height: parent.height
+      height: saveButtonRow.height
       color: "green"
       radius: height * 0.3333
       onClicked: {
@@ -107,7 +107,7 @@ Rectangle {
       id:deleteButton
       objectName: "FeedEditDeleteButton"
       labelText: qsTr("Delete Feed")
-      height: parent.height
+      height: saveButtonRow.height
       color: "red"
       radius: height * 0.3333
       anchors { left: saveButton.right; verticalCenter: saveButton.verticalCenter }
@@ -120,7 +120,7 @@ Rectangle {
       id:probeButton
       objectName: "FeedEditProbeButton"
       labelText: qsTr("Probe Feed")
-      height: parent.height
+      height: saveButtonRow.height
       color: "yellow"
       radius: height * 0.3333
       anchors { left: deleteButton.right; verticalCenter: deleteButton.verticalCenter }
@@ -133,7 +133,7 @@ Rectangle {
       id:checkButton
       objectName: "FeedEditCheckButton"
       labelText: qsTr("Check Address")
-      height: parent.height
+      height: saveButtonRow.height
       color: "cyan"
       radius: height * 0.3333
       anchors { left: probeButton.right; verticalCenter: deleteButton.verticalCenter }
@@ -146,7 +146,7 @@ Rectangle {
       id: newButton
       objectName: "FeedEditNewButton"
       labelText: qsTr("New Feed")
-      height: parent.height
+      height: saveButtonRow.height
       color: "#77ff77"
       radius: height * 0.3333
       anchors { left: checkButton.right; verticalCenter: deleteButton.verticalCenter }
@@ -158,7 +158,7 @@ Rectangle {
       id:quitButton
       objectName: "FeedEditCancelButton"
       labelText: qsTr("Cancel")
-      height: parent.height
+      height: saveButtonRow.height
       radius: height * 0.3333
       anchors { left: newButton.right; verticalCenter: deleteButton.verticalCenter }
       onClicked: {
@@ -216,6 +216,7 @@ Rectangle {
   }
   Popup {
     id: popup
+    boxWidth: feedEdit.width
   }
   Connections {
     target: addrInput

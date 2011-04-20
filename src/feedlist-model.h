@@ -51,7 +51,7 @@ public:
   int rowCount (const QModelIndex & index = QModelIndex()) const;
   QVariant data (const QModelIndex & index, int role = Qt::DisplayRole) const;
 
-  /** other functions */
+  /** \brief other functions */
 
   FeedlistModel (QObject *parent=0);
 

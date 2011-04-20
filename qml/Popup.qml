@@ -4,18 +4,18 @@ import QtQuick 1.0
 Rectangle {
   id: popup
 
-  property  real parentWidth: 300
-  property  real parentHeight: 200
+  property real boxWidth:300
+  property real boxHeight:100
   property  real showTime: 5000
   color: "red"
   radius: 4
 
   y: parent.height // off "screen"
   anchors.horizontalCenter: parent.horizontalCenter
-  width: label.width + 5
-  height: label.height + 5
+  width: boxWidth
+  height: 100
 
-  opacity: 0
+  opacity: 0.5
 
   function show(text) {
     label.text = text
@@ -23,7 +23,7 @@ Rectangle {
     timer.start()
   }
   function showIn (wide, high, text) {
-    parentWidth = wide; parentHeight = high
+    boxWidth = wide; boxHeight = high
     show (text)
   }
   states: State {
@@ -46,7 +46,7 @@ Rectangle {
   Text {
     id: label
     anchors.centerIn: parent
-    width: parentWidth  *0.75
+    width: popup.boxWidth  *0.75
 
     color: "white"
     font.pixelSize: 20

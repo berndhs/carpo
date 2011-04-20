@@ -32,9 +32,8 @@ Rectangle {
   property real embedMargin : 2
   property real indexItemHeight: 32
   property real normalButtonHeight: 32
-  property real verticalIndexHeight: 5 * indexItemHeight + embedMargin
-  property real horizontalIndexHeight: 80
-  property real indexHeight : verticalIndexHeight
+  property real indexHeight : 5 * indexItemHeight + embedMargin
+  property real restHeight: height - indexHeight - controlPanel.height
   property real displayWidth: 800
   property real displayHeight: 600
   property real shrinkDelay: 250
@@ -99,15 +98,12 @@ Rectangle {
     color: "transparent"
     function hide () {
       indexBoxScale.yScale = 0
-      height = 0
     }
     function show () {
       indexBoxScale.yScale = 1
-      height = indexHeight
     }
     transform: Scale {
       id: indexBoxScale
-      xScale: 1
       yScale: 1
       Behavior on yScale { NumberAnimation { duration: shrinkDelay }}
     }
@@ -198,7 +194,8 @@ Rectangle {
       leftMargin: 0
       rightMargin: 0
     }
-    height: parent.height - controlPanel.height - indexBox.height - webNavRect.height
+    height: parent.height - controlPanel.height 
+            - indexBox.height - webNavRect.height
     clip: false
    
     storyHtml: "<p>"+ qsTr("No Current Story.") + "</p>"
@@ -211,7 +208,7 @@ Rectangle {
     property real space: 2
     property string buttonColor: "magenta"
     property real buttonOpacity: 0.6
-    property real navButtonWidth: 0.2*storyView.width
+    property real navButtonWidth: 0.2*displayArea.width
     visible: storyView.isWeb
     anchors { 
       top: indexBox.bottom 
@@ -274,8 +271,8 @@ Rectangle {
   Flickable {
     id: feedEditArea
     objectName: "FeedEditArea"
-    width: storyView.width
-    height: storyView.height
+    width: displayArea.width
+    height: restHeight
     clip: true
     property real rollDelay: 125
     flickableDirection: Flickable.HorizontalAndVerticalFlick
@@ -290,7 +287,6 @@ Rectangle {
     
     transform: Scale {
       id: rollupScale
-      xScale: 1
       yScale: 0
       Behavior  on yScale {
         NumberAnimation { duration: feedEditArea.rollDelay }
@@ -299,7 +295,7 @@ Rectangle {
     FeedEdit {
       id: feedEdit 
       objectName: "FeedEdit"
-      width: storyView.width
+      width: displayArea.width
       z: parent.z
       anchors {top: parent.top; horizontalCenter: parent.horizontalCenter }
       onStartNewFeed: {

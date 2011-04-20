@@ -105,7 +105,7 @@ Rectangle {
   Component {
     id: titleHeader  
     Rectangle {
-      width:  childrenRect.width + 2 * headTextMargin; height:  headHeight
+      width:  titleHeaderText.width + 2 * headTextMargin; height:  headHeight
       gradient: Gradient {
         GradientStop {
           position: 0.00
@@ -116,7 +116,11 @@ Rectangle {
           color: "#bbbbff"
         }
       }
-      Text { anchors.leftMargin: 10; text: headerIntro + headerText }
+      Text { 
+        id: titleHeaderText
+        anchors.leftMargin: 10; 
+        text: headerIntro + headerText 
+      }
       MouseArea {
         anchors.fill: parent
         onPressAndHold: { quitit() }
