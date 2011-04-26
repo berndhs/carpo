@@ -88,19 +88,57 @@ Rectangle {
   width: displayWidth
   height: displayHeight
 
+  ControlPanel { 
+    id: controlPanel
+    objectName: "ControlPanel"
+    visible: true
+    z: feedIndexArea.z + 5
+    property bool normalShowTopics: false
+    property bool normalShowStream: false
+    onShowTopics: { normalShowTopics = true; topicListArea.show () }
+    onHideTopics: {  normalShowTopics = false; topicListArea.hide () }
+    onShowRecent: { normalShowStream = true; streamListArea.show () }
+    onHideRecent: { normalShowStream = false; streamListArea.hide () }
+    onSelectQuit: { controlIF.exitApp () }
+    onSelectHelp: { controlIF.help () }
+    onImportDRSS: { controlIF.importFeeds ("DRSS") }
+    onImportOPML: { controlIF.importFeeds ("OPML") }
+    onToggleViewSelect: {
+      toggleLists() 
+      indexBox.show ()
+    }
+    onNewFeed: { showEdit (true); feedEdit.displayNew ("") }
+    onMaintainSelect: {
+      var visi = configList.isShown
+      console.log ("Maintain Selected " + visi)
+      if (visi) {
+        configList.hide ();
+        indexBox.show ();
+      } else {
+        configIF.loadView ();
+        configList.show ();
+        indexBox.hide ();
+      }
+    }
+  }
+
+
   Rectangle {
     id: indexBox
     objectName: "IndexBox"
     anchors.top: controlPanel.bottom
     height:  indexHeight
     visible: true
+    property bool minimized: fals0
     width: displayArea.width
     color: "transparent"
     function hide () {
       indexBoxScale.yScale = 0
+      minimized = true
     }
     function show () {
       indexBoxScale.yScale = 1
+      minimized = false
     }
     transform: Scale {
       id: indexBoxScale
@@ -182,6 +220,7 @@ Rectangle {
     onSelectStory: { controlIF.displayStory (feedId, title, hash) }
     onQuitit: { controlPanel.normalShowStream = false; hide () }
   } 
+
   StoryView {
     id: storyView
     objectName: "StoryView"
@@ -202,6 +241,7 @@ Rectangle {
     onIsWebChanged: changedIsWeb (isWeb)
     onQuitit: controlIF.popHtml()
   }     
+
   Rectangle {
     id: webNavRect
     objectName: "WebNavBox"
@@ -211,7 +251,7 @@ Rectangle {
     property real navButtonWidth: 0.2*displayArea.width
     visible: storyView.isWeb
     anchors { 
-      top: indexBox.bottom 
+      top: (indexBox.minimized ? indexBox.bottom : controlPanel.bottom )
       horizontalCenter: storyView.horizontalCenter
     }
     width: childrenRect.width
@@ -351,39 +391,6 @@ Rectangle {
     onDoneConfig: { configList.hide (); indexBox.show () }
     onRestartConfig: controlIF.restartApp () 
     onResetConfig: controlIF.resetConfig()
-  }
-  ControlPanel { 
-    id: controlPanel
-    objectName: "ControlPanel"
-    visible: true
-    z: feedIndexArea.z + 5
-    property bool normalShowTopics: false
-    property bool normalShowStream: false
-    onShowTopics: { normalShowTopics = true; topicListArea.show () }
-    onHideTopics: {  normalShowTopics = false; topicListArea.hide () }
-    onShowRecent: { normalShowStream = true; streamListArea.show () }
-    onHideRecent: { normalShowStream = false; streamListArea.hide () }
-    onSelectQuit: { controlIF.exitApp () }
-    onSelectHelp: { controlIF.help () }
-    onImportDRSS: { controlIF.importFeeds ("DRSS") }
-    onImportOPML: { controlIF.importFeeds ("OPML") }
-    onToggleViewSelect: {
-      toggleLists() 
-      indexBox.show ()
-    }
-    onNewFeed: { showEdit (true); feedEdit.displayNew ("") }
-    onMaintainSelect: {
-      var visi = configList.isShown
-      console.log ("Maintain Selected " + visi)
-      if (visi) {
-        configList.hide ();
-        indexBox.show ();
-      } else {
-        configIF.loadView ();
-        configList.show ();
-        indexBox.hide ();
-      }
-    }
   }
   Rectangle {
     id: mainLoadIndicator
