@@ -284,10 +284,10 @@ Carpo::ShowStory (const QString & id, const QString & title)
     QString buttons = QString ("<span style=\"font-size:small\"> ")
                       + browseButton
                         .arg(tagBrowseHere)
-                        .arg(tr("Here"))
+                        .arg(tr("Load"))
                       + browseButton
                         .arg(tagBrowseBrowser)
-                        .arg(tr("Browser"))
+                        .arg(tr("To Browser"))
                       + QString( "</span>");
     QString date (tr(" date unknown "));
     if (storyDates.contains(id)) {

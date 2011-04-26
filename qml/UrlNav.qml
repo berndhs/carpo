@@ -32,6 +32,7 @@ Rectangle {
   signal openUrl (string url)
   signal copyUrl (string url)
   signal openUrlExternal (string url)
+  signal mailUrl (string url)
 
   function open (theUrl) {
     console.log ("open URL Nav " + theUrl)
@@ -57,6 +58,10 @@ Rectangle {
     urlNavRect.close ()
     urlNavRect.openUrlExternal (urlText.text)
   }
+  function doMailUrl () {
+    urlNavRect.close ()
+    urlNavRect.mailUrl (urlText.text)
+  }
   Rectangle {
     id: textRect
     anchors { top: urlNavRect.top; horizontalCenter: urlNavRect.horizontalCenter }
@@ -69,12 +74,10 @@ Rectangle {
       selectByMouse: true
       id: urlText
       Keys.onReturnPressed: {
-        urlNavRect.openUrl (urlText.text)
-        urlNavRect.close ()
+        urlNavRect.doOpenUrl ()
       }
       Keys.onEnterPressed: {
-        urlNavRect.openUrl (urlText.text)
-        urlNavRect.close ()
+        urlNavRect.doOpenUrl ()
       }
       Keys.onEscapePressed: {
         urlNavRect.close ()
@@ -95,7 +98,7 @@ Rectangle {
       id: copyButton
       height: urlNavRect.buttonHeight
       labelText: qsTr ("Copy")
-      onClicked: urlNavRect.doOpenUrl ()
+      onClicked: urlNavRect.doCopyUrl ()
     }
     ChoiceButton {
       id: browseButton
@@ -104,10 +107,10 @@ Rectangle {
       onClicked: urlNavRect.doOpenUrlExternal ()
     }
     ChoiceButton {
-      id: nadaButton
+      id: mailButton
       height: urlNavRect.buttonHeight
-      labelText: qsTr ("Done")
-      onClicked: urlNavRect.close ()
+      labelText: qsTr ("EMail")
+      onClicked: urlNavRect.doMailUrl ()
     }
   }
 }

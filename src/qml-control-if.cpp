@@ -27,6 +27,7 @@
 
 #include <QApplication>
 #include <QClipboard>
+#include <QDesktopServices>
 
 namespace deliberate
 {
@@ -236,16 +237,22 @@ qDebug () << "ControlInterface :: handlePseudoAlert " << alert;
   }
 }
 
-void
-ControlInterface::loadUrlLocal (const QString & url)
-{
-  emit BrowseLinkLocal (url);
-}
 
 void
 ControlInterface::loadUrlExternal (const QString & url)
 {
-  emit BrowseLinkExternal (url);
+qDebug () << __PRETTY_FUNCTION__ << url;
+  QDesktopServices::openUrl (QUrl (url));
+}
+
+void
+ControlInterface::mailText (const QString & message)
+{
+  QUrl mailUrl;
+  mailUrl.setScheme ("mailto");
+  mailUrl.addQueryItem ("subject",tr ("found with Carpo"));
+  mailUrl.addQueryItem ("body",message);
+  QDesktopServices::openUrl (mailUrl);
 }
 
 void
@@ -275,6 +282,7 @@ ControlInterface::changeTopic (const QString & newTopic)
 void
 ControlInterface::toCopy (const QString & copyText)
 {
+  qDebug () << __PRETTY_FUNCTION__ << copyText;
   QClipboard *clip = QApplication::clipboard();
   if (clip) {
     clip->setText (copyText);

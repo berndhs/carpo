@@ -1,3 +1,6 @@
+* Tue Apr 26 2011 Bernd Stramm <bernd.stramm@gmail.com| - 0.2.4-1
+- nicer URL forwarding functions
+
 * Thu Apr 07 2011 Bernd Stramm <bernd.stramm@gmail.com> - 0.2.3-1
 - follow forwarded probe requests
 - fix label on delete feed button

@@ -77,8 +77,8 @@ public:
   Q_INVOKABLE void importFeeds (const QString & format);
   Q_INVOKABLE bool loading ();
 
-  Q_INVOKABLE void loadUrlLocal (const QString & url);
   Q_INVOKABLE void loadUrlExternal (const QString & url);
+  Q_INVOKABLE void mailText (const QString & message);
 
   void SetFeeds (FeedlistModel * feedList);
   void SetQmlRoot (QDeclarativeItem * qmlObj);
