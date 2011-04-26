@@ -262,7 +262,7 @@ Rectangle {
     }
     width: childrenRect.width
     color: "transparent"
-    height: (visible ? childrenRect.height : 0)
+    height: (visible ? normalButtonHeight : 0)
     z:feedListArea.z + 1
     ChoiceButton {
       id: allBackButton
