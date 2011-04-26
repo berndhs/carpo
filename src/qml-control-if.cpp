@@ -237,6 +237,18 @@ qDebug () << "ControlInterface :: handlePseudoAlert " << alert;
 }
 
 void
+ControlInterface::loadUrlLocal (const QString & url)
+{
+  emit BrowseLinkLocal (url);
+}
+
+void
+ControlInterface::loadUrlExternal (const QString & url)
+{
+  emit BrowseLinkExternal (url);
+}
+
+void
 ControlInterface::moveUp (const QString & id)
 {
   if (feeds) {

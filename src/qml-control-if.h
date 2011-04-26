@@ -77,6 +77,9 @@ public:
   Q_INVOKABLE void importFeeds (const QString & format);
   Q_INVOKABLE bool loading ();
 
+  Q_INVOKABLE void loadUrlLocal (const QString & url);
+  Q_INVOKABLE void loadUrlExternal (const QString & url);
+
   void SetFeeds (FeedlistModel * feedList);
   void SetQmlRoot (QDeclarativeItem * qmlObj);
   void SetQmlWeb (QDeclarativeItem * qmlObj);
