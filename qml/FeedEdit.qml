@@ -55,12 +55,12 @@ Rectangle {
   function checkAddress () {
     var addr = addrInput.urlString
     if (addr == "") {
-      popup.showIn (width, height, "Empty Address")
+     // popup.showIn (width, height, "Empty Address")
     } else if (controlIF.addressKnown (addr)) {
       loadEditFeed (addr)
-      popup.showIn (width, height, "Address Known")
+    // popup.showIn (width, height, "Address Known")
     } else {
-      popup.showIn (width, height, "Unknown Feed Address")
+     // popup.showIn (width, height, "Unknown Feed Address")
     }
   }
   signal cancelEdit ()
@@ -76,6 +76,8 @@ Rectangle {
   property string feedId: ""
   property real normalRadius: 5
   width: 200
+ // height: 400 
+ // height: saveButtonRow.height + addrInput.height + feedDetails.height
   height: childrenRect.height
   radius: normalRadius
   color: "palegoldenrod"
@@ -214,10 +216,13 @@ Rectangle {
       labelWidth: feedDescription.labelWidth
     }
   }
+/*
   Popup {
     id: popup
     boxWidth: feedEdit.width
+    height: 0
   }
+*/
   Connections {
     target: addrInput
     onUrlEntered: {

@@ -31,5 +31,6 @@
  <file>qml/StreamList.qml</file>
  <file>qml/TopicList.qml</file>
  <file>qml/Popup.qml</file>
+ <file>qml/UrlNav.qml</file>
 </qresource>
 </RCC>

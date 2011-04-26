@@ -251,8 +251,9 @@ Rectangle {
       commonMargin: parent.space
       z:parent.z + 1
       anchors {left: backButton.right; verticalCenter: webNavRect.verticalCenter }
-      labelText: qsTr("Copy URL")
-      onClicked: { controlIF.toCopy (storyView.url) }
+      labelText: qsTr("URL...")
+      //onClicked: { controlIF.toCopy (storyView.url) }
+      onClicked: { urlNav.open (storyView.url) }
     }
     ChoiceButton {
       id: forwardButton
@@ -266,6 +267,16 @@ Rectangle {
       labelText: qsTr(" > ")
       onClicked: { storyView.forward.trigger() ()}
     }
+  }
+  UrlNav {
+    id: urlNav
+    anchors { top: webNavRect.bottom; horizontalCenter: webNavRect.horizontalCenter }
+    visible: false
+    width:parent.width
+    border.color: "red"
+    onOpenUrl: { controlIF.loadUrlLocal (url) }
+    onCopyUrl: { controlIF.toCopy (url) }
+    onOpenUrlExternal: { controlIF.loadUrlExternal (url) }
   }
 
   Flickable {

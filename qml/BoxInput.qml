@@ -30,7 +30,7 @@ Rectangle {
   }
   Rectangle {
     id: editBox
-    height: 5*boxLabel.height
+    height: 3*boxLabel.height
     width: parent.width - boxLabel.width - anchors.leftMargin -2
     anchors.left: boxLabel.right
     anchors.leftMargin: 2

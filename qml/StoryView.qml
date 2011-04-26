@@ -73,6 +73,9 @@ Flickable {
       contentY += scrollYStep * steps
     }
   }
+  function loadUrl (theUrl) {
+    url = theUrl
+  }
   anchors.left: parent.left
   anchors.right: parent.right
   width: parent.width
