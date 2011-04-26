@@ -135,10 +135,12 @@ Rectangle {
     function hide () {
       indexBoxScale.yScale = 0
       minimized = true
+      webNavRect.moveTop (true)
     }
     function show () {
       indexBoxScale.yScale = 1
       minimized = false
+      webNavRect.moveTop (false)
     }
     transform: Scale {
       id: indexBoxScale
@@ -250,8 +252,12 @@ Rectangle {
     property real buttonOpacity: 0.6
     property real navButtonWidth: 0.2*displayArea.width
     visible: storyView.isWeb
+    function moveTop (atTop) {
+      if (atTop)  anchors.top = indexBox.top
+      else        anchors.top = indexBox.bottom
+    } 
     anchors { 
-      top: (indexBox.minimized ? indexBox.bottom : controlPanel.bottom )
+      top: indexBox.bottom
       horizontalCenter: storyView.horizontalCenter
     }
     width: childrenRect.width
