@@ -93,6 +93,7 @@ Flickable {
     objectName: "StoryWebView"
     settings.autoLoadImages: true
     settings.pluginsEnabled: true
+    settings.privateBrowsingEnabled: true
     html: "<p>default <b>html</b>.</p>"
     property bool isLoadFinished : false
     property real origScale: 1
