@@ -127,6 +127,7 @@ Carpo::DumpProperties ()
     qDebug () << " no QML Root object ";
     return;
   }
+  CheckQmlRoot ();
   qDebug () << "QML Root " << qmlRoot->objectName();
   for (int i=0; i<names.count(); i++) {
     item = qmlRoot->findChild<QObject*>(names.at(i));
@@ -143,6 +144,16 @@ void
 Carpo::Run ()
 {
   QmlRun ();
+}
+
+void
+Carpo::CheckQmlRoot ()
+{
+  QGraphicsObject * qr = ui.qmlView->rootObject();
+  if (qr != qmlRoot && qmlRoot != 0) {
+    qDebug () << __PRETTY_FUNCTION__ << " WARNING qmlRoot changed" << qmlRoot << qr;
+    qmlRoot = qr;
+  }
 }
 
 void
@@ -614,6 +625,7 @@ Carpo::WebPageReply (QNetworkReply * reply)
 void
 Carpo::NewestNewsRow (int row)
 {
+  CheckQmlRoot ();
   QMetaObject::invokeMethod (qmlRoot, "newestNewsRow",
                  Q_ARG (QVariant, row));
 }
@@ -843,6 +855,7 @@ Carpo::resizeEvent (QResizeEvent *event)
     return;
   }
   QMainWindow::resizeEvent (event);
+  CheckQmlRoot ();
   if (qmlRoot) {
     QMetaObject::invokeMethod (qmlRoot, "setSize",
                  Q_ARG (QVariant, (ui.qmlView->size().width()-2)),
@@ -953,6 +966,7 @@ Carpo::SaveFeedListModel (bool reindex)
 void
 Carpo::DebugProperty (const QString & objName, const QString & propName)
 {
+  CheckQmlRoot ();
   if (qmlRoot == 0) {
     return;
   }
@@ -969,6 +983,7 @@ Carpo::HandleWheelEvent (QObject *detectObject,
                          int  delta)
 {
   Q_UNUSED (detectObject)
+  CheckQmlRoot ();
   if (qmlRoot) {
     QMetaObject::invokeMethod (qmlRoot, "wheelTurned",
                  Q_ARG (QVariant, pos.x()),

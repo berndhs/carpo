@@ -136,6 +136,7 @@ private:
   void  DumpProperties ();
   void  CheckExists (const QString & filename);
   void  DebugProperty (const QString & objName, const QString & propName);
+  void  CheckQmlRoot ();
 
 
   bool           runAgain;

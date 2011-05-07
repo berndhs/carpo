@@ -88,28 +88,41 @@ Rectangle {
     id: controlButtons
     spacing: 4
     anchors { top: textRect.bottom; horizontalCenter: urlNavRect.horizontalCenter }
+    Gradient {
+      id: buttonShade
+      GradientStop { position: 0.00; color: "#c6e6e6" }
+      GradientStop { position: 1.00; color: "#f0f0f0" }
+    }
     ChoiceButton {
       id: loadButton
       height: urlNavRect.buttonHeight
       labelText: qsTr ("Load")
+      radius: 0.5*height
+      gradient: buttonShade
       onClicked: urlNavRect.doOpenUrl ()
     }
     ChoiceButton {
       id: copyButton
       height: urlNavRect.buttonHeight
       labelText: qsTr ("Copy")
+      radius: 0.5*height
+      gradient: buttonShade
       onClicked: urlNavRect.doCopyUrl ()
     }
     ChoiceButton {
       id: browseButton
       height: urlNavRect.buttonHeight
       labelText: qsTr ("To Browser")
+      radius: 0.5*height
+      gradient: buttonShade
       onClicked: urlNavRect.doOpenUrlExternal ()
     }
     ChoiceButton {
       id: mailButton
       height: urlNavRect.buttonHeight
       labelText: qsTr ("EMail")
+      radius: 0.5*height
+      gradient: buttonShade
       onClicked: urlNavRect.doMailUrl ()
     }
   }

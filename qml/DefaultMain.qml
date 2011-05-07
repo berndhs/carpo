@@ -122,14 +122,13 @@ Rectangle {
     }
   }
 
-
   Rectangle {
     id: indexBox
     objectName: "IndexBox"
     anchors.top: controlPanel.bottom
     height:  indexHeight
     visible: true
-    property bool minimized: fals0
+    property bool minimized: false
     width: displayArea.width
     color: "transparent"
     function hide () {
@@ -189,6 +188,7 @@ Rectangle {
       onQuitit: { toggleLists () }
     }    
   }  
+
   TopicList {
     id:topicListArea
     objectName: "TopicList"
@@ -203,6 +203,7 @@ Rectangle {
     onSelected: { controlIF.changeTopic (name) }
     onQuitit: { controlPanel.normalShowTopics = false ; hide () }
   }
+
   StreamList {
     id: streamListArea
     objectName: "StreamListArea"
@@ -249,7 +250,7 @@ Rectangle {
     objectName: "WebNavBox"
     property real space: 2
     property string buttonColor: "magenta"
-    property real buttonOpacity: 0.6
+    property real buttonOpacity: 0.66667
     property real navButtonWidth: 0.2*displayArea.width
     visible: storyView.isWeb
     function moveTop (atTop) {
@@ -259,21 +260,28 @@ Rectangle {
     anchors { 
       top: indexBox.bottom
       horizontalCenter: storyView.horizontalCenter
+    }    
+    Gradient {
+      id: webButtonShade
+      GradientStop { position: 0.00; color: webNavRect.buttonColor }
+      GradientStop { position: 1.00; color: "#f0f0f0" }
     }
     width: childrenRect.width
     color: "transparent"
     height: (visible ? normalButtonHeight : 0)
     z:feedListArea.z + 1
+
     ChoiceButton {
       id: allBackButton
       width: parent.navButtonWidth
       height: normalButtonHeight
       opacity: webNavRect.buttonOpacity
-      color: parent.buttonColor
+      gradient: webButtonShade
       commonMargin: parent.space
       z:parent.z + 1
       anchors {left: webNavRect.left; verticalCenter: webNavRect.verticalCenter }
       labelText: qsTr(" << ")
+      radius: 0.5* height
       onClicked: { controlIF.popHtml () }
     }
     ChoiceButton {
@@ -281,11 +289,12 @@ Rectangle {
       width: parent.navButtonWidth
       height: normalButtonHeight
       opacity: webNavRect.buttonOpacity
-      color: parent.buttonColor
+      gradient: webButtonShade
       commonMargin: parent.space
       z:parent.z + 1
       anchors {left: allBackButton.right; verticalCenter: webNavRect.verticalCenter }
       labelText: qsTr(" < ")
+      radius: 0.5* height
       onClicked: { storyView.back.trigger () }
     }
     ChoiceButton {
@@ -293,11 +302,12 @@ Rectangle {
       width:parent.navButtonWidth
       height: normalButtonHeight
       opacity: webNavRect.buttonOpacity
-      color: parent.buttonColor
+      gradient: webButtonShade
       commonMargin: parent.space
       z:parent.z + 1
       anchors {left: backButton.right; verticalCenter: webNavRect.verticalCenter }
       labelText: qsTr("URL...")
+      radius: 0.5* height
       onClicked: {
         if (urlNav.visible) {
           urlNav.close ()
@@ -311,14 +321,16 @@ Rectangle {
       width: parent.navButtonWidth
       height: normalButtonHeight
       opacity: webNavRect.buttonOpacity
-      color: parent.buttonColor
+      gradient: webButtonShade
       commonMargin: parent.space
       z:parent.z + 1
       anchors {left: copyButton.right; verticalCenter: webNavRect.verticalCenter }
       labelText: qsTr(" > ")
+      radius: 0.5* height
       onClicked: { storyView.forward.trigger() ()}
     }
   }
+
   UrlNav {
     id: urlNav
     anchors { top: webNavRect.bottom; horizontalCenter: webNavRect.horizontalCenter }

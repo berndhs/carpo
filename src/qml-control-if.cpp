@@ -248,10 +248,10 @@ qDebug () << __PRETTY_FUNCTION__ << url;
 void
 ControlInterface::mailText (const QString & message)
 {
-  QUrl mailUrl;
-  mailUrl.setScheme ("mailto");
+  QUrl mailUrl ("mailto:");
   mailUrl.addQueryItem ("subject",tr ("found with Carpo"));
   mailUrl.addQueryItem ("body",message);
+qDebug () << __PRETTY_FUNCTION__ << mailUrl;
   QDesktopServices::openUrl (mailUrl);
 }
 
