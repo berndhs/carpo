@@ -34,20 +34,15 @@ Rectangle {
   property real normalButtonHeight: 32
   property real indexHeight : 5 * indexItemHeight + embedMargin
   property real restHeight: height - indexHeight - controlPanel.height
-  property real displayWidth: 800
-  property real displayHeight: 600
   property real shrinkDelay: 250
+  color: "transparent"
+  width: 700
+  height: 500
 
   function setTheHtml (theHtml) { storyView.setTheHtml (theHtml) }
   function setTheUrl (theUrl)   { storyView.url = theUrl }
 
   function newestNewsRow (theRow) { streamListArea.setNewestRow (theRow) }
-
-  function setSize (w, h) {
-    console.log (" setSize " + w + " " + h)
-    displayWidth = w
-    displayHeight = h
-  }
   function shrinkFeedIndex () {
     feedIndexArea.shrink ()
   }
@@ -83,10 +78,6 @@ Rectangle {
     }
     controlIF.setEditingFeed (visi)
   }
-
-  color: "transparent"
-  width: displayWidth
-  height: displayHeight
 
   ControlPanel { 
     id: controlPanel

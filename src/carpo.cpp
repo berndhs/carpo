@@ -51,7 +51,7 @@ namespace deliberate
 {
 
 Carpo::Carpo (QWidget *parent)
-  :QMainWindow (parent),
+  :QDeclarativeView (parent),
    runAgain (false),
    app (0),
    context (0),
@@ -80,8 +80,7 @@ Carpo::Carpo (QWidget *parent)
   Settings().setValue ("+files/feedlist",feedListFile);
   qnam = new QNetworkAccessManager;
   feedlistParser = new FeedlistParser (this);
-  ui.setupUi (this);
-  ui.qmlView->setResizeMode (QDeclarativeView::SizeRootObjectToView);
+  setResizeMode (QDeclarativeView::SizeRootObjectToView);
   htmlString = QString ("<html><head></head>"
                         "<body><h1>HTML String number %1</h1></body>"
                         "</html>");
@@ -90,17 +89,16 @@ Carpo::Carpo (QWidget *parent)
   gestureIF = new GestureInterface (this);
   reporter = new ReportEvent (this);
   installEventFilter (reporter);
-  restoreGeometry(Settings().value("+geometry").toByteArray());
-  if (Settings().contains ("+sizes/qml")) {
-    QSize qmlSize (800,600);
-    qmlSize = Settings().value("+sizes/qml", qmlSize).toSize();
-    qDebug () << " Found QML saved size " << qmlSize;
-    ui.qmlView->resize (qmlSize);
+  qDebug () << __PRETTY_FUNCTION__ << " installed event filter";
+  resize (600,400);
+  if (Settings().contains ("+geometry")) {
+    restoreGeometry(Settings().value("+geometry").toByteArray());
   }
   topicModel.SetFeedModel (&feeds);
   connect (&saveTimer, SIGNAL (timeout()), this, SLOT (MaybeSave()));
   saveTimer.start (5*60*1000);  // 5 minutes
   Connect ();
+  qDebug () << __PRETTY_FUNCTION__ << " Carpo allocated";
 }
 
 void
@@ -149,7 +147,7 @@ Carpo::Run ()
 void
 Carpo::CheckQmlRoot ()
 {
-  QGraphicsObject * qr = ui.qmlView->rootObject();
+  QGraphicsObject * qr = rootObject();
   if (qr != qmlRoot && qmlRoot != 0) {
     qDebug () << __PRETTY_FUNCTION__ << " WARNING qmlRoot changed" << qmlRoot << qr;
     qmlRoot = qr;
@@ -159,9 +157,10 @@ Carpo::CheckQmlRoot ()
 void
 Carpo::QmlRun ()
 {
-  qDebug () << " Carpo::QmlRun";
+  qDebug () << __PRETTY_FUNCTION__ << " Carpo::QmlRun";
+  static int debCount (1);
   LoadList ();
-  context = ui.qmlView->rootContext ();
+  context = rootContext ();
   context->setContextProperty ("feedIndexModel", &headlines);
   context->setContextProperty ("feedListModel", &feeds);
   context->setContextProperty ("configModel", &configEdit);
@@ -171,21 +170,28 @@ Carpo::QmlRun ()
   context->setContextProperty ("controlIF",controlIF);
   context->setContextProperty ("configIF",&configEdit);
   context->setContextProperty ("gestureIF",gestureIF);
-
-  ui.qmlView->setSource (QUrl("qrc:///qml/DefaultMain.qml"));
-  //ui.qmlView->setSource (QUrl::fromLocalFile("qml/DefaultMain.qml"));
-  qmlRoot = ui.qmlView->rootObject();
+  qDebug () << "                  " << " done set properties ";
+  qDebug () << __PRETTY_FUNCTION__ << " count " << debCount; debCount++;
+  setSource (QUrl("qrc:///qml/DefaultMain.qml"));
+  //setSource (QUrl::fromLocalFile("qml/DefaultMain.qml"));
+  setResizeMode (QDeclarativeView::SizeRootObjectToView);
+  qDebug () << __PRETTY_FUNCTION__ << " count A " << debCount; debCount++;
+  qmlRoot = rootObject();
+  qDebug () << __PRETTY_FUNCTION__ << " count B " << debCount; debCount++;
   if (qmlRoot == 0) {
     QMessageBox::critical (this, "Fatal", "QML Load Failure");
     QTimer::singleShot (150, this, SLOT(Quit ()));
     return;
   }
+  qDebug () << __PRETTY_FUNCTION__ << " count C " << debCount; debCount++;
   qmlRoot->installEventFilter (reporter);
+  qDebug () << __PRETTY_FUNCTION__ << " count D " << debCount; debCount++;
   controlIF->SetQmlRoot (qobject_cast<QDeclarativeItem*> (qmlRoot));
   QDeclarativeItem * qmlWebView = qmlRoot->
                      findChild<QDeclarativeItem*>("StoryView");
   controlIF->SetQmlWeb (qmlWebView);
 
+  qDebug () << __PRETTY_FUNCTION__ << " count E " << debCount; debCount++;
   if (gestureIF) {
     gestureIF->SetQmlRoot (qmlRoot);
   }
@@ -195,12 +201,7 @@ Carpo::QmlRun ()
   propStore->ReadFromObjects (qmlRoot);
   propStore->FillSettings (qmlRoot);
   propStore->SyncToObjects (qmlRoot);
-  QSize topSize = size();
-  if (qmlRoot) {
-    QMetaObject::invokeMethod (qmlRoot, "setSize",
-                 Q_ARG (QVariant, (topSize.width()-2)),
-                 Q_ARG (QVariant, (topSize.height())-2));
-  }
+  qDebug () << __PRETTY_FUNCTION__ << " count I " << debCount; debCount++;
   ShowList ("FeedList");
   topFolder.clear ();
   configEdit.Load ();
@@ -210,6 +211,7 @@ Carpo::QmlRun ()
   streamDelay = Settings().value ("timers/newspoll",streamDelay).toInt();
   Settings().setValue ("timers/newspoll",streamDelay);
   autoUpdate.Start (streamDelay*1000); 
+  qDebug () << __PRETTY_FUNCTION__ << " count J " << debCount; debCount++;
 }
 
 void
@@ -474,8 +476,7 @@ Carpo::Quit ()
   if (feeds.dirty ()) {
     SaveFeedListModel (false);
   }
-  Settings().setValue("geometry", saveGeometry());
-  Settings().setValue("sizes/qml", ui.qmlView->size());
+  Settings().setValue("+geometry", saveGeometry());
   Settings().sync();
   if (app) {
     app->quit();
@@ -847,21 +848,17 @@ Carpo::ParseStories (QDomNodeList & items, const QString & contentTag,
   }
 }
 
-
+#if 0
 void
 Carpo::resizeEvent (QResizeEvent *event)
 {
   if (!event) {
     return;
   }
-  QMainWindow::resizeEvent (event);
   CheckQmlRoot ();
-  if (qmlRoot) {
-    QMetaObject::invokeMethod (qmlRoot, "setSize",
-                 Q_ARG (QVariant, (ui.qmlView->size().width()-2)),
-                 Q_ARG (QVariant, (ui.qmlView->size().height())-2));
-  }
+  QDeclarativeView::resizeEvent (event);
 }
+#endif
 
 void
 Carpo::closeEvent (QCloseEvent *event)
@@ -870,9 +867,8 @@ Carpo::closeEvent (QCloseEvent *event)
     SaveFeedListModel (false);
   }
   Settings().setValue("geometry", saveGeometry());
-  Settings().setValue("sizes/qml", ui.qmlView->size());
   Settings().sync();
-  QMainWindow::closeEvent (event);
+  QDeclarativeView::closeEvent (event);
 }
 
 void

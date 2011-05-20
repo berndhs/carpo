@@ -56,6 +56,7 @@ ReportEvent::handleWheelEvent (QObject *obj, QGraphicsSceneWheelEvent * wevt)
   Qt::Orientation orient = wevt->orientation ();
   int degrees = wevt->delta ();
   wevt->setAccepted (true);
+  qDebug () << __PRETTY_FUNCTION__ << this << " emit WheelEvent " ;
   emit WheelEvent (obj, pos, orient, degrees);
   return true;
 }

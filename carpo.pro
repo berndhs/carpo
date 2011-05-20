@@ -76,7 +76,6 @@ RCC_DIR = tmp/rcc
 RESOURCES = $${MYNAME}.qrc 
 
 FORMS = \
-        ui/$${MYNAME}.ui \
         ui/DebugLog.ui \
         
 

@@ -35,11 +35,11 @@
 #include <QDomElement>
 #include <QResizeEvent>
 #include <QCloseEvent>
+#include <QDeclarativeView>
 #include "headline-list.h"
 #include "qml-feed-if.h"
 #include "qml-control-if.h"
 #include "qml-gesture-if.h"
-#include "ui_carpo.h"
 #include "feedlist-parser.h"
 #include "feedlist.h"
 #include "feedlist-model.h"
@@ -54,7 +54,7 @@ class QDeclarativeContext;
 
 namespace deliberate
 {
-class Carpo : public QMainWindow
+class Carpo : public QDeclarativeView
 {
 Q_OBJECT
 public:
@@ -108,7 +108,7 @@ signals:
 
 protected:
 
-  void resizeEvent (QResizeEvent *event);
+  //void resizeEvent (QResizeEvent *event);
   void closeEvent  (QCloseEvent *event);
 
 private:
@@ -141,7 +141,6 @@ private:
 
   bool           runAgain;
   QApplication  *app;
-  Ui_CarpoMain  ui;
   QStringList    configMessages;
 
   QDeclarativeContext *context;
