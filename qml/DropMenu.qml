@@ -9,15 +9,22 @@ Rectangle {
   property real floatWidth: childrenRect.width
   property real rollDelay: 125
   property real initialYScale: 0
+  property bool isShown: false
 
   signal leave ()
 
   function hide () {
     rollupScale.yScale = 0
+    isShown = false
   }
   function show () {
     rollupScale.yScale = 1
+    isShown = true
     console.log ("show menu at z = " + z )
+  }
+  function toggle () {
+    if (isShown) hide ()
+    else         show ()
   }
   transform: Scale {
     id: rollupScale

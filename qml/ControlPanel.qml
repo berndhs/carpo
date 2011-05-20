@@ -147,7 +147,7 @@ Rectangle {
       radius: height/2
       MouseArea {
         anchors.fill: parent
-        onClicked: indexMenu.show ()
+        onClicked: indexMenu.toggle ()
       }
       Text { text: qsTr("Views"); anchors.centerIn: parent }
     }
@@ -170,7 +170,7 @@ Rectangle {
       }
       MouseArea {
         anchors.fill: parent
-        onClicked: maintainMenu.show ()
+        onClicked: maintainMenu.toggle ()
       }
     }
 

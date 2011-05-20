@@ -126,3 +126,12 @@ SOURCES = \
           src/auto-update.cpp \
           src/event-special.cpp \
 
+
+unix:!symbian {
+    meego5 {
+        target.path = /opt/usr/bin
+    } else {
+        target.path = /usr/local/bin
+    }
+    INSTALLS += target
+}
