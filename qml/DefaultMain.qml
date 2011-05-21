@@ -82,6 +82,7 @@ Rectangle {
   ControlPanel { 
     id: controlPanel
     objectName: "ControlPanel"
+    outsideWidth: parent.width
     visible: true
     z: feedIndexArea.z + 5
     property bool normalShowTopics: false

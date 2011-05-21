@@ -26,17 +26,16 @@ import QtQuick 1.0
 Rectangle { 
   property real normalWidth: parent.width
   property real widthRatio: 0.25
-  property real embedMargin: 6
-  property real keyFieldWidth: normalWidth*widthRatio - embedMargin
-  property real valueFieldWidth: normalWidth*(1 - widthRatio) - embedMargin
+  property real keyFieldWidth: normalWidth*widthRatio
+  property real valueFieldWidth: normalWidth*(1 - widthRatio)
   property real shrinkDelay: 250
   property real itemHeight: 32
   property bool isShown: true
   property string valueBackgroundColor: "#c7f0f0"
   property string keyBackgroundColor: "#f0f0f0"
   property real topMargin: 0
-  property real leftMargin: 10
-  property real rightMargin: 10
+  property real leftMargin: 0
+  property real rightMargin: 0
   signal updateConfigItem (string theGroup, string theKey, string newValue)
   signal restartConfig ()
   signal doneConfig ()
@@ -124,7 +123,7 @@ Rectangle {
             anchors.left: parent.left
             x: parent.x + 2
             width:parent.width; wrapMode:Text.Wrap
-            text:  (confHasValue ? "....." + confKey : "<b>" + confKey + "</b" )
+            text:  (confHasValue ? "..." + confKey : "<b>" + confKey + "</b" )
           }
         } 
       }
@@ -171,7 +170,7 @@ Rectangle {
     visible: true
     delegate: verticalConfigDelegate
     clip: true
-    width: parent.width - 4
+    width: parent.width 
     height: parent.height -itemHeight - buttonRow.height
     currentIndex: -1
     contentWidth: childrenRect.width; contentHeight: childrenRect.height

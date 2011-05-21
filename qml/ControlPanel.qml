@@ -47,23 +47,18 @@ Rectangle {
   property string maintainButtonFade: "#fbdfc7"
   property real menuItemHeight: 32
   property real embedMargin : 0
+  property real outsideWidth: 500
   property string subMenuButtonColor: "#f4a460"
   property string subMenuButtonFade: "#fbdfc7"
 
   height: menuItemHeight
   z: 1
   property real extraMargin: 20
-  width: parent.width - 2*embedMargin - 2*extraMargin
+  width: outsideWidth - 2*embedMargin - 2*extraMargin
   color: "transparent"
   anchors.left: parent.left
   anchors.leftMargin: embedMargin + extraMargin
   anchors.rightMargin: embedMargin + extraMargin
-  MouseArea {
-    anchors.fill: parent
-    onClicked: { 
-      controlSelect (mouseX, mouseY) 
-    }
-  }
 
   ChoiceButton {   
     id: offButton
@@ -162,16 +157,11 @@ Rectangle {
       }
       anchors { left: detailButton.right }
       radius: height/2
-      Image {
-        anchors.centerIn: parent
-        anchors.fill: parent
-        fillMode: Image.PreserveAspectFit
-        source: "qrc:///images/settings.png"
-      }
       MouseArea {
         anchors.fill: parent
         onClicked: maintainMenu.toggle ()
       }
+      Text { text: qsTr ("Maintain"); anchors.centerIn: parent }
     }
 
     DropMenu {

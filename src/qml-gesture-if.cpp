@@ -23,22 +23,23 @@ GestureInterface::SetQmlRoot (QGraphicsObject * qmlRootPtr)
 void
 GestureInterface::pressed (const QString & objName, double x, double y)
 {
+  #if DRSS_GESTURE_TRACKING
   if (qmlRoot) {
     QObject* obj = qmlRoot->findChild<QObject*> (objName);
     lastPress[obj] = Spot (QVector2D (x,y), clock.elapsed());
-    #if DRSS_GESTURE_TRACKING
     QGraphicsObject * gobj = qobject_cast<QGraphicsObject*> (obj);
     if (gobj) {  
       QMetaObject::invokeMethod (gobj, "setTracking",
                  Q_ARG (QVariant, true));
     }
-    #endif
   }
+  #endif
 }
 
 void
 GestureInterface::exited (const QString & objName, double x, double y)
 {
+  #if DRSS_GESTURE_TRACKING
   if (qmlRoot) {
     QObject* obj = qmlRoot->findChild<QObject*> (objName);
     QGraphicsObject * gobj = qobject_cast<QGraphicsObject*> (obj);
@@ -47,10 +48,9 @@ GestureInterface::exited (const QString & objName, double x, double y)
                  Q_ARG (QVariant, false));
       checkSwiped (gobj, QVector2D (x,y), clock.elapsed() );
     }          
-    #if DRSS_GESTURE_TRACKING
     moveSteps[obj].clear ();
-    #endif
   }
+  #endif
 }
 
 void
