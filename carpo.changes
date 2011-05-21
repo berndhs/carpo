@@ -1,3 +1,7 @@
+* Sat May 21 2011 Bernd Stramm <bernd.stramm@gmail.com| - 0.2.8-1
+- remove QMainWindow
+- simplify QML dependencies; remove maitain image; remove superfluous gesture 
+
 * Sat May 07 2011 Bernd Stramm <bernd.stramm@gmail.com| - 0.2.6-1
 - private browsing set
 - shinier buttons
