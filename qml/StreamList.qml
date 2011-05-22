@@ -141,4 +141,7 @@ Rectangle {
     model: streamListModel
     highlight: Rectangle { color: "oldlace"; radius: 5 }
   }
+  onWidthChanged: {
+    console.log ("Stream List Rect width now " + width)
+  }
 }
