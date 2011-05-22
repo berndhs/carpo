@@ -81,11 +81,16 @@ then
          | awk '{print $1}' \
          | tr '[:upper:]' '[:lower:]'`
 else
-  if [ -e /etc/issue ]
-  then
-    DISTRO=`head -1 /etc/issue \
-	| awk '{print $1}' \
-	| tr '[:upper:]' '[:lower:]'`
+  if [ -e /etc/arch-release ]
+  then 
+    DISTRO='arch'
+  else
+    if [ -e /etc/issue ]
+    then
+      DISTRO=`head -1 /etc/issue \
+	  | awk '{print $1}' \
+	  | tr '[:upper:]' '[:lower:]'`
+    fi
   fi
 fi
 }
@@ -151,6 +156,7 @@ PREFIX=/usr
 OPTIONS_FILE=options.pri
 COMMAND_LINE="$0 $*"
 find_distro
+echo "DISTRO is " $DISTRO
 
 # 
 # command line arguments:
