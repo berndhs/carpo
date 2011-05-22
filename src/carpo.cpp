@@ -178,21 +178,17 @@ Carpo::QmlRun ()
   setResizeMode (QDeclarativeView::SizeRootObjectToView);
   qDebug () << __PRETTY_FUNCTION__ << " count A " << debCount; debCount++;
   qmlRoot = rootObject();
-  qDebug () << __PRETTY_FUNCTION__ << " count B " << debCount; debCount++;
   if (qmlRoot == 0) {
     QMessageBox::critical (this, "Fatal", "QML Load Failure");
     QTimer::singleShot (150, this, SLOT(Quit ()));
     return;
   }
-  qDebug () << __PRETTY_FUNCTION__ << " count C " << debCount; debCount++;
   qmlRoot->installEventFilter (reporter);
-  qDebug () << __PRETTY_FUNCTION__ << " count D " << debCount; debCount++;
   controlIF->SetQmlRoot (qobject_cast<QDeclarativeItem*> (qmlRoot));
   QDeclarativeItem * qmlWebView = qmlRoot->
                      findChild<QDeclarativeItem*>("StoryView");
   controlIF->SetQmlWeb (qmlWebView);
 
-  qDebug () << __PRETTY_FUNCTION__ << " count E " << debCount; debCount++;
   if (gestureIF) {
     gestureIF->SetQmlRoot (qmlRoot);
   }
@@ -200,7 +196,9 @@ Carpo::QmlRun ()
   maxDays = Settings().value ("feedlist/maxdays",maxDays).toInt();
   Settings().setValue ("feedlist/maxdays",maxDays); // so propStore knows it
   propStore->ReadFromObjects (qmlRoot);
+  qDebug () << __PRETTY_FUNCTION__ << " count G " << debCount; debCount++;
   propStore->FillSettings (qmlRoot);
+  qDebug () << __PRETTY_FUNCTION__ << " count H " << debCount; debCount++;
   propStore->SyncToObjects (qmlRoot);
   qDebug () << __PRETTY_FUNCTION__ << " count I " << debCount; debCount++;
   ShowList ("FeedList");

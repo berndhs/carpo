@@ -20,7 +20,6 @@ ControlPanel subMenuButtonFade
 StoryView scrollXStep
 StoryView scrollYStep
 StreamListArea color
-StreamListArea normalWidth
 StreamListArea itemHeight
 StreamListArea shrinkDelay
 StreamListArea feedLineColor
