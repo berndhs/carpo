@@ -29,6 +29,7 @@
 #include <QDomElement>
 #include <QDomNode>
 #include <QObject>
+#include <QIcon>
 #include <QObjectList>
 #include <QDebug>
 #include <QMessageBox>

@@ -24,6 +24,7 @@
 
 
 #include <QApplication>
+#include <QIcon>
 #include "deliberate.h"
 #include "delib-debug.h"
 #include "version.h"
@@ -90,7 +91,17 @@ main (int argc, char *argv[])
 #endif
   deliberate::Carpo   carpo;
 
-  app.setWindowIcon (carpo.windowIcon());
+  QIcon appIcon ;
+  appIcon.addFile (QString (":/images/icon256.png"), QSize (256,256));
+  appIcon.addFile (QString (":/images/icon128.png"), QSize (128,128));
+  appIcon.addFile (QString (":/images/icon64.png"), QSize (64,64));
+  appIcon.addFile (QString (":/images/icon48.png"), QSize (48,48));
+  appIcon.addFile (QString (":/images/icon32.png"), QSize (32,32));
+  appIcon.addFile (QString (":/images/icon16.png"), QSize (16,16));
+  qDebug () << __PRETTY_FUNCTION__ << " loaded icon null " << appIcon.isNull();
+  qDebug () << __PRETTY_FUNCTION__ << "   sizes " << appIcon.availableSizes();
+  app.setWindowIcon (appIcon);
+  carpo.setWindowIcon (appIcon);
   carpo.Init (app);
   carpo.AddConfigMessages (configMessages);
   carpo.Run ();
