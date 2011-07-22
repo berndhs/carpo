@@ -51,6 +51,15 @@ Rectangle {
   property string subMenuButtonColor: "#f4a460"
   property string subMenuButtonFade: "#fbdfc7"
 
+  property string modeFeedsLabel: qsTr ("Index")
+  property string modeIndexLabel: qsTr ("Feeds")
+  property string modeUnknownLabel: qsTr ("Mode")
+  property string modeLabel: modeFeedsLabel
+  property string listMode: "feeds"
+
+  property bool showFeeds: true
+  property bool showIndex: false
+
   height: menuItemHeight
   z: 1
   property real extraMargin: 20
@@ -59,6 +68,21 @@ Rectangle {
   anchors.left: parent.left
   anchors.leftMargin: embedMargin + extraMargin
   anchors.rightMargin: embedMargin + extraMargin
+
+  onShowFeedsChanged: {
+    if (showFeeds) {
+      modeLabel = (showIndex ? modeUnknownLabel : modeFeedsLabel)
+    } else {
+      modeLabel = (showIndex ? modeIndexLabel : modelUnknownLabel)
+    }
+  }
+  onShowIndexChanged: {
+    if (showIndex) {
+      modeLabel = (showFeeds ? modeUnknownLabel : modeIndexLabel)
+    } else {
+      modeLabel = (showFeeds ? modeFeedsLabel : modelUnknownLabel)
+    }
+  }
 
   ChoiceButton {   
     id: offButton
@@ -127,7 +151,10 @@ Rectangle {
         anchors.fill: parent
         onClicked: toggleViewSelect ()
       }
-      Text { text: qsTr("Feeds / Stories"); anchors.centerIn: parent }
+      Text { 
+        text: controlPanel.modeLabel; 
+        anchors.centerIn: parent 
+      }
     }
     Rectangle {
       id: detailButton

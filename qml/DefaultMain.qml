@@ -45,15 +45,19 @@ Rectangle {
   function newestNewsRow (theRow) { streamListArea.setNewestRow (theRow) }
   function shrinkFeedIndex () {
     feedIndexArea.shrink ()
+    controlPanel.showIndex = false
   }
   function expandFeedIndex () {
     feedIndexArea.expand ()
+    controlPanel.showIndex = true
   }
   function shrinkFeedList () {
     feedListArea.shrink ()
+    controlPanel.showFeeds = false
   }
   function expandFeedList () {
     feedListArea.expand ()
+    controlPanel.showFeeds = true
   }
   function toggleLists () {
     feedIF.toggleLists ()
@@ -88,7 +92,7 @@ Rectangle {
     property bool normalShowTopics: false
     property bool normalShowStream: false
     onShowTopics: { normalShowTopics = true; topicListArea.show () }
-    onHideTopics: {  normalShowTopics = false; topicListArea.hide () }
+    onHideTopics: { normalShowTopics = false; topicListArea.hide () }
     onShowRecent: { normalShowStream = true; streamListArea.show () }
     onHideRecent: { normalShowStream = false; streamListArea.hide () }
     onSelectQuit: { controlIF.exitApp () }

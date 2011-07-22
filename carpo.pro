@@ -135,3 +135,4 @@ unix:!symbian {
     }
     INSTALLS += target
 }
+
