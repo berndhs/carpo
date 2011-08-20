@@ -41,12 +41,15 @@ INCLUDEPATH += src
 TRANSLATIONS = trans/carpo_de.ts \
                trans/carpo_fr.ts \
 
-
-!include ("options.pri") {
-  message ("no options.pri, using defaults")
+build_for_harmattan {
   MAKEFILE = Makefile
 } else {
-  MAKEFILE = Make_$${MYNAME}
+  !include ("options.pri") {
+    message ("no options.pri, using defaults")
+    MAKEFILE = Makefile
+  } else {
+    MAKEFILE = Make_$${MYNAME}
+  }
 }
 unix {
   LIBS += -lrt
@@ -131,20 +134,3 @@ SOURCES = \
           src/event-special.cpp \
           src/orientation.cpp \
 
-
-unix:!symbian {
-    meego5 {
-        target.path = /opt/usr/bin
-    } else {
-        target.path = /usr/local/bin
-    }
-    INSTALLS += target
-}
-
-OTHER_FILES += \
-    qtc_packaging/debian_harmattan/rules \
-    qtc_packaging/debian_harmattan/README \
-    qtc_packaging/debian_harmattan/copyright \
-    qtc_packaging/debian_harmattan/control \
-    qtc_packaging/debian_harmattan/compat \
-    qtc_packaging/debian_harmattan/changelog

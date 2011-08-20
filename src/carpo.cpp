@@ -97,10 +97,6 @@ Carpo::Carpo (QWidget *parent)
   reporter = new ReportEvent (this);
   installEventFilter (reporter);
   qDebug () << __PRETTY_FUNCTION__ << " installed event filter";
-  resize (600,400);
-  if (Settings().contains ("+geometry")) {
-    restoreGeometry(Settings().value("+geometry").toByteArray());
-  }
   topicModel.SetFeedModel (&feeds);
   connect (&saveTimer, SIGNAL (timeout()), this, SLOT (MaybeSave()));
   saveTimer.start (5*60*1000);  // 5 minutes
@@ -197,8 +193,12 @@ Carpo::QmlRun ()
   if (isPhone) {
     setGeometry ( app->desktop()->screenGeometry());
     showMaximized ();
-    show ();
+  } else {
+    if (Settings().contains ("+geometry")) {
+      restoreGeometry(Settings().value("+geometry").toByteArray());
+    }
   }
+  show ();
   setResizeMode (QDeclarativeView::SizeRootObjectToView);
   qDebug () << __PRETTY_FUNCTION__ << " count A " << debCount; debCount++;
   qmlRoot = rootObject();
