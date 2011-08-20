@@ -30,6 +30,7 @@
 #include "version.h"
 #include "cmdoptions.h"
 #include "carpo.h"
+#include "orientation.h"
 
 #include <QDebug>
 
@@ -44,6 +45,11 @@ main (int argc, char *argv[])
   QCoreApplication::setApplicationVersion (pv.ShortVersion());
 
   QApplication  app (argc, argv);
+  
+  const char utilUri[] = "moui.geuzen.utils.static";
+
+  qmlRegisterType<geuzen::OrientationWatcher>(utilUri, 1, 0,
+                 "GeuzenOrientation");
 
   QSettings  settings;
   deliberate::InitSettings ();

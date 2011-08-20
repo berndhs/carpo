@@ -42,11 +42,15 @@
 #include <QDir>
 #include <QCryptographicHash>
 #include <QWebView>
+#include <QDesktopWidget>
+
+#include <QSystemDeviceInfo>
 
 #include "feedlist-writer.h"
 #include "carpo-magic.h"
 #include "deliberate.h"
 #include "version.h"
+#include "orientation.h"
 
 namespace deliberate
 {
@@ -68,9 +72,11 @@ Carpo::Carpo (QWidget *parent)
    propStore (0),
    topicModel (this),
    autoUpdate (feeds, this),
-   saveTimer (this)
+   saveTimer (this),
+   isPhone (false)
 {
   setObjectName ("CarpoMainObject");
+    
   feedListFile =  QDesktopServices::storageLocation 
               (QDesktopServices::DataLocation)
               + QDir::separator()
@@ -106,6 +112,11 @@ void
 Carpo::Init (QApplication & ap)
 {
   app = &ap;
+  QSystemDeviceInfo sdi;
+
+  QString imsi = sdi.imsi();
+  QString imei = sdi.imei();
+  isPhone = !(imsi.isEmpty() || imei.isEmpty());
 }
 
 void
@@ -161,7 +172,15 @@ Carpo::QmlRun ()
   qDebug () << __PRETTY_FUNCTION__ << " Carpo::QmlRun";
   static int debCount (1);
   LoadList ();
+  if (isPhone) {
+    QFont font = app->font();
+    font.setPointSize (font.pointSize() + 4);
+    app->setFont(font);
+  }
+  
   context = rootContext ();
+
+  context->setContextProperty ("isProbablyPhone", QVariant(isPhone));
   context->setContextProperty ("feedIndexModel", &headlines);
   context->setContextProperty ("feedListModel", &feeds);
   context->setContextProperty ("configModel", &configEdit);
@@ -175,6 +194,11 @@ Carpo::QmlRun ()
   qDebug () << __PRETTY_FUNCTION__ << " count " << debCount; debCount++;
   setSource (QUrl("qrc:///qml/DefaultMain.qml"));
   //setSource (QUrl::fromLocalFile("qml/DefaultMain.qml"));
+  if (isPhone) {
+    setGeometry ( app->desktop()->screenGeometry());
+    showMaximized ();
+    show ();
+  }
   setResizeMode (QDeclarativeView::SizeRootObjectToView);
   qDebug () << __PRETTY_FUNCTION__ << " count A " << debCount; debCount++;
   qmlRoot = rootObject();
@@ -292,14 +316,17 @@ Carpo::ShowStory (const QString & id, const QString & title)
                (Magic::PseudoAlertTag + "/browser/");
     tagBrowseBrowser.append (id);
     QString browseButton ("<button type=\"button\" "
+                       "style=\"font-size:%3\" "
                        "onClick=\"alert('%1')\">%2</button>");
-    QString buttons = QString ("<span style=\"font-size:small\"> ")
+    QString buttons = QString ("<span>")
                       + browseButton
                         .arg(tagBrowseHere)
                         .arg(tr("Load"))
+                        .arg(isPhone? "x-large" : "small")
                       + browseButton
                         .arg(tagBrowseBrowser)
                         .arg(tr("To Browser"))
+                        .arg(isPhone? "x-large" : "small")
                       + QString( "</span>");
     QString date (tr(" date unknown "));
     if (storyDates.contains(id)) {
@@ -410,13 +437,16 @@ Carpo::ShowAbout ()
                       + "\r\n\r\n"
                       + configMessages.join("\r\n")));
   QString button ("<button type=\"button\" "
+                       " style=\"font-size:%3\" "
                        "onClick=\"alert('%1')\">%2</button>");
   QString licenseButton (button
              .arg (Magic::PseudoAlertTag + "/license/")
-             .arg (tr("License")));
+             .arg (tr("License"))
+             .arg (isPhone ? "x-large": "normal"));
   QString manualButton (button
              .arg (Magic::PseudoAlertTag + "/manual/")
-             .arg (tr("Manual")));
+             .arg (tr("Manual"))
+             .arg (isPhone ? "x-large": "normal"));
   about.append (QString ("<br><div>%1&nbsp;%2</div>")
              .arg (licenseButton).arg (manualButton));
   QMetaObject::invokeMethod (qmlRoot, "setTheHtml",

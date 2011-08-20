@@ -32,6 +32,9 @@ ICON = carpo.png
 
 QT += core gui webkit network xml declarative
 CONFIG += debug_and_release
+CONFIG += mobility
+MOBILITY += sensors
+MOBILITY += systeminfo
 
 INCLUDEPATH += src
 
@@ -101,6 +104,7 @@ HEADERS = \
           src/topic-model.h \
           src/auto-update.h \
           src/event-special.h \
+          src/orientation.h \
 
 
 SOURCES = \
@@ -125,6 +129,7 @@ SOURCES = \
           src/topic-model.cpp \
           src/auto-update.cpp \
           src/event-special.cpp \
+          src/orientation.cpp \
 
 
 unix:!symbian {
@@ -136,3 +141,10 @@ unix:!symbian {
     INSTALLS += target
 }
 
+OTHER_FILES += \
+    qtc_packaging/debian_harmattan/rules \
+    qtc_packaging/debian_harmattan/README \
+    qtc_packaging/debian_harmattan/copyright \
+    qtc_packaging/debian_harmattan/control \
+    qtc_packaging/debian_harmattan/compat \
+    qtc_packaging/debian_harmattan/changelog
