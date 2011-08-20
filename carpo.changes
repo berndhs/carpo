@@ -1,19 +1,23 @@
-* Sun May 22 2011 Bernd Stramm <bernd.stramm@gmail.com| - 0.2.9-1
+* Fri Jul 21 2011 Bernd Stramm <bernd.stramm@gmail.com> - 0.2.10-1
+- change label on button
+- fix changelog email format
+
+* Sun May 22 2011 Bernd Stramm <bernd.stramm@gmail.com> - 0.2.9-1
 - fix icon issues
 - build distro flag for arch linux
 
-* Sat May 21 2011 Bernd Stramm <bernd.stramm@gmail.com| - 0.2.8-1
+* Sat May 21 2011 Bernd Stramm <bernd.stramm@gmail.com> - 0.2.8-1
 - remove QMainWindow
 - simplify QML dependencies; remove maitain image; remove superfluous gesture 
 
-* Sat May 07 2011 Bernd Stramm <bernd.stramm@gmail.com| - 0.2.6-1
+* Sat May 07 2011 Bernd Stramm <bernd.stramm@gmail.com> - 0.2.6-1
 - private browsing set
 - shinier buttons
 
-* Tue Apr 26 2011 Bernd Stramm <bernd.stramm@gmail.com| - 0.2.5-1
+* Tue Apr 26 2011 Bernd Stramm <bernd.stramm@gmail.com> - 0.2.5-1
 - move web nav to top when index area minimized
 
-* Tue Apr 26 2011 Bernd Stramm <bernd.stramm@gmail.com| - 0.2.4-1
+* Tue Apr 26 2011 Bernd Stramm <bernd.stramm@gmail.com> - 0.2.4-1
 - nicer URL forwarding functions
 
 * Thu Apr 07 2011 Bernd Stramm <bernd.stramm@gmail.com> - 0.2.3-1
