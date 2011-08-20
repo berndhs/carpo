@@ -176,6 +176,7 @@ private:
   QString              currentStory;
   QTimer               saveTimer;
   ReportEvent         *reporter;
+  bool                 isPhone;
 
 }; 
 

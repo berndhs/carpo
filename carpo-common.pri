@@ -32,18 +32,24 @@ ICON = carpo.png
 
 QT += core gui webkit network xml declarative
 CONFIG += debug_and_release
+CONFIG += mobility
+MOBILITY += sensors
+MOBILITY += systeminfo
 
 INCLUDEPATH += src
 
 TRANSLATIONS = trans/carpo_de.ts \
                trans/carpo_fr.ts \
 
-
-!include ("options.pri") {
-  message ("no options.pri, using defaults")
+build_for_harmattan {
   MAKEFILE = Makefile
 } else {
-  MAKEFILE = Make_$${MYNAME}
+  !include ("options.pri") {
+    message ("no options.pri, using defaults")
+    MAKEFILE = Makefile
+  } else {
+    MAKEFILE = Make_$${MYNAME}
+  }
 }
 unix {
   LIBS += -lrt
@@ -101,6 +107,7 @@ HEADERS = \
           src/topic-model.h \
           src/auto-update.h \
           src/event-special.h \
+          src/orientation.h \
 
 
 SOURCES = \
@@ -125,14 +132,5 @@ SOURCES = \
           src/topic-model.cpp \
           src/auto-update.cpp \
           src/event-special.cpp \
-
-
-unix:!symbian {
-    meego5 {
-        target.path = /opt/usr/bin
-    } else {
-        target.path = /usr/local/bin
-    }
-    INSTALLS += target
-}
+          src/orientation.cpp \
 

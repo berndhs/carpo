@@ -60,7 +60,7 @@ Rectangle {
   property bool showFeeds: true
   property bool showIndex: false
 
-  height: menuItemHeight
+  height: normalButtonHeight
   z: 1
   property real extraMargin: 20
   width: outsideWidth - 2*embedMargin - 2*extraMargin

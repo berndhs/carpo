@@ -22,22 +22,24 @@
  ****************************************************************/
 
 
- import QtQuick 1.0
- import QtWebKit 1.0
+import QtQuick 1.0
+import QtWebKit 1.0
+import moui.geuzen.utils.static 1.0
 
 Rectangle {
   id: displayArea
   objectName: "DisplayArea"
+  color: "transparent"
 
   property real embedMargin : 2
   property real indexItemHeight: 32
-  property real normalButtonHeight: 32
+  property real normalButtonHeight: isProbablyPhone ? 48 : 32
   property real indexHeight : 5 * indexItemHeight + embedMargin
-  property real restHeight: height - indexHeight - controlPanel.height
+  property real mainWidth: isPortrait ? height : width
+  property real mainHeight: isPortrait ? width : height
+  property real restHeight: mainHeight - indexHeight - controlPanel.height
   property real shrinkDelay: 250
-  color: "transparent"
-  width: 700
-  height: 500
+  property bool isPortrait: false
 
   function setTheHtml (theHtml) { storyView.setTheHtml (theHtml) }
   function setTheUrl (theUrl)   { storyView.url = theUrl }
@@ -74,20 +76,35 @@ Rectangle {
   function showEdit (visi) {
     console.log ("Visi temp " + visi)
     if (visi) {
+      indexBox.minimized = true
       feedEditArea.show ()
       storyView.visible = false
     } else {
+      indexBox.minimized = false
       feedEditArea.hide ()
       storyView.visible = true
     }
     controlIF.setEditingFeed (visi)
   }
 
+  GeuzenOrientation {
+    id: orientationWatcher
+    onRotationChange: {
+      displayArea.isPortrait = portrait
+      displayArea.rotation = rotation
+      console.log ("new orientation port " + displayArea.isPortrait)
+      console.log ("main box x " + displayArea.x + " y " + displayArea.y)
+    }
+    Component.onCompleted: {
+      console.log ("have Orientation Watcher")
+    }
+  }
   ControlPanel { 
     id: controlPanel
     objectName: "ControlPanel"
-    outsideWidth: parent.width
+    outsideWidth: mainWidth
     visible: true
+    anchors { horizontalCenter:  displayArea.horizontalCenter }
     z: feedIndexArea.z + 5
     property bool normalShowTopics: false
     property bool normalShowStream: false
@@ -121,21 +138,17 @@ Rectangle {
   Rectangle {
     id: indexBox
     objectName: "IndexBox"
-    anchors.top: controlPanel.bottom
+    anchors {top: controlPanel.bottom; horizontalCenter:  displayArea.horizontalCenter }
     height:  indexHeight
     visible: true
     property bool minimized: false
-    width: displayArea.width
+    width: mainWidth
     color: "transparent"
     function hide () {
-      indexBoxScale.yScale = 0
       minimized = true
-      webNavRect.moveTop (true)
     }
     function show () {
-      indexBoxScale.yScale = 1
       minimized = false
-      webNavRect.moveTop (false)
     }
     transform: Scale {
       id: indexBoxScale
@@ -229,6 +242,7 @@ Rectangle {
     anchors { 
       top: indexBox.bottom //(webNavRect.visible ? webNavRect.bottom : indexBox.bottom)
       topMargin: webNavRect.height
+      horizontalCenter: displayArea.horizontalCenter
       leftMargin: 0
       rightMargin: 0
     }
@@ -245,16 +259,12 @@ Rectangle {
     id: webNavRect
     objectName: "WebNavBox"
     property real space: 2
-    property string buttonColor: "magenta"
+    property string buttonColor: "lightgreen" //"magenta"
     property real buttonOpacity: 0.66667
-    property real navButtonWidth: 0.2*displayArea.width
+    property real navButtonWidth: 0.2*mainWidth
     visible: storyView.isWeb
-    function moveTop (atTop) {
-      if (atTop)  anchors.top = indexBox.top
-      else        anchors.top = indexBox.bottom
-    } 
     anchors { 
-      top: indexBox.bottom
+      top: indexBox.top
       horizontalCenter: storyView.horizontalCenter
     }    
     Gradient {
@@ -342,7 +352,7 @@ Rectangle {
   Flickable {
     id: feedEditArea
     objectName: "FeedEditArea"
-    width: displayArea.width
+    width: mainWidth
     height: restHeight
     clip: true
     property real rollDelay: 125
@@ -351,7 +361,7 @@ Rectangle {
     boundsBehavior: Flickable.DragOverBounds
     z: indexBox.z +1
     contentWidth: feedEdit.width; contentHeight: feedEdit.height
-    anchors { top: storyView.top; horizontalCenter: storyView.horizontalCenter }
+    anchors { top: indexBox.top; horizontalCenter: indexBox.horizontalCenter }
     visible: true
     function hide () { rollupScale.yScale = 0 }
     function show () { rollupScale.yScale = 1 }
@@ -366,12 +376,12 @@ Rectangle {
     FeedEdit {
       id: feedEdit 
       objectName: "FeedEdit"
-      width: displayArea.width
+      width: mainWidth
       z: parent.z
       anchors {top: parent.top; horizontalCenter: parent.horizontalCenter }
       onStartNewFeed: {
         feedEdit.displayNew (url)
-        indexBox.height = 0
+        showEdit (true)
       }
       onSaveFeed: {
         controlIF.saveFeed (ident, feedUrl, title, siteUrl, nick, descr, topics)
@@ -400,7 +410,7 @@ Rectangle {
     z: indexBox.z + 1
     normalWidth:parent.width -4
     height: parent.height
-    anchors { top: controlPanel.bottom; leftMargin: 4}
+    anchors { top: controlPanel.bottom; horizontalCenter: displayArea.horizontalCenter}
     onUpdateConfigItem: configIF.updateValue (theGroup, theKey, newValue) 
     onDoneConfig: { configList.hide (); indexBox.show () }
     onRestartConfig: controlIF.restartApp () 
@@ -429,11 +439,11 @@ Rectangle {
       if (isWebNow ) {
         streamListArea.hide ()
         topicListArea.hide ()
-        indexBox.hide ()
+        indexBox.minimized = true
       } else {
         if (controlPanel.normalShowTopics) topicListArea.show ()
         if (controlPanel.normalShowStream) streamListArea.show ()
-        indexBox.show ()
+        indexBox.minimized = false
       }
     }
   }
@@ -442,5 +452,36 @@ Rectangle {
     onLoadingChanged: {
       mainLoadIndicator.visible = loading
     }
+  }
+  states: [
+  State {
+    name: "indexHidden"
+    when: indexBox.minimized && indexBox.visible
+    PropertyChanges {
+      target: indexBox
+      yscale: 0
+    }
+    PropertyChanges {
+      target: indexBoxScale
+      yScale: 0
+    }
+  },
+  State {
+    name: "indexShown"
+    when: !(indexBox.minimized && indexBox.visible)
+    PropertyChanges {
+      target: indexBox
+      yscale: 1
+    }
+    PropertyChanges {
+      target: indexBoxScale
+      yScale: 1
+    }
+  }
+  ]
+  Component.onCompleted: {
+    orientationWatcher.start()
+    console.log ("loaded main")
+    console.log ("started orientation watcher")
   }
 }
