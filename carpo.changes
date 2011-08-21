@@ -1,3 +1,7 @@
+* Sat Aug 20 2011 Bernd Stramm <bernd.stramm@gmail.com> - 0.3.0 
+ - revised packaging to accomodate harmattan
+ - mods for phone, orientation
+
 * Fri Jul 21 2011 Bernd Stramm <bernd.stramm@gmail.com> - 0.2.10-1
 - change label on button
 - fix changelog email format

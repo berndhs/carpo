@@ -10,7 +10,7 @@ COUNT = $(shell ./docount.sh)
 RPMBUILD = $(HOME)/rpmbuild
 SOURCEDIR = $(RPMBUILD)/SOURCES
 
-TAR_SRC = $(NAME)-$(VERSION).tar.gz
+TAR_SRC = $(NAME)_$(VERSION).tar.gz
 DT_SRC = $(NAME).desktop
 SPEC = $(NAME).spec
 CHANGES = $(NAME).changes
@@ -18,7 +18,7 @@ CHANGES = $(NAME).changes
 SRC = $(SOURCEDIR)/$(TAR_SRC) $(SOURCEDIR)/$(DT_SRC)
 
 rpm: info $(SRC) $(SPEC)
-	rpmbuild -ba $(SPEC)
+	QA_RPATHS=$[0x0001] rpmbuild -ba $(SPEC)
 
 spec: $(SPEC)
 

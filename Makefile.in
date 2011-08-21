@@ -31,10 +31,10 @@ all: $(MAKEFILE)
 	ls -ltr bin/${PROJECT_NAME}*
 
 clean: $(MAKEFILE) FORCE
-	$(MAKE) -f $(MAKEFILE) clean
+	$(MAKE) -i -f $(MAKEFILE) clean
 
 distclean: $(MAKEFILE) FORCE
-	$(MAKE) -f $(MAKEFILE) distclean
+	$(MAKE) -i -f $(MAKEFILE) distclean
 	rm -f $(MAKEFILE)
 	rm -f $(TOP_MAKEFILE)
 	
