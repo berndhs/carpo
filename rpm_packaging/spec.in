@@ -1,0 +1,68 @@
+
+Name:    carpo
+Version: %{sourceversion}
+Release: %{relcount}%{dist}
+Summary: Carp RSS/Atom Reader
+
+License: GPLv2
+Group:   Applications/Network
+Packager: Bernd Stramm <bernd.stramm@gmail.com>
+Url:     http://carpo.sourceforge.net/
+Source: %{name}-%{version}.tar.gz
+Source2: linux/%{name}.desktop
+BuildRoot: %{_tmppath}/%{name}-%{version}-%{release}-root-%(%{__id_u} -n)
+
+# TODO: patches (?)
+
+
+#Obsoletes:
+
+#Provides: 
+
+BuildRequires: pkgconfig(QtNetwork) >= 4.7
+BuildRequires: pkgconfig(QtWebKit) >= 4.7
+BuildRequires: pkgconfig(QtDeclarative) >= 4.7
+BuildRequires: desktop-file-utils
+BuildRequires: gcc-c++
+
+%description
+RSS Reader
+
+
+%prep
+%setup
+
+%build
+sh configure
+make 
+
+%install
+
+rm -rf $RPM_BUILD_ROOT
+install -p -d $RPM_BUILD_ROOT%{_bindir}
+install -p -m 755 bin/%{name} $RPM_BUILD_ROOT%{_bindir}
+install -p -d $RPM_BUILD_ROOT%{_datadir}/pixmaps
+install -p -m 755 %{name}.png $RPM_BUILD_ROOT%{_datadir}/pixmaps
+desktop-file-install                                    \
+--dir=${RPM_BUILD_ROOT}%{_datadir}/applications         \
+%{SOURCE2}
+
+%clean
+rm -rf %{buildroot}
+
+
+%post 
+
+%postun 
+
+
+%files
+%defattr(-,root,root,-)
+%doc README
+%doc COPYRIGHT
+%doc LICENSE.txt
+%{_bindir}/%{name}
+%{_datadir}/applications/%{name}.desktop
+%{_datadir}/pixmaps/%{name}.png
+
+%changelog

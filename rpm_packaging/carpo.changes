@@ -1,0 +1,42 @@
+* Fri Jul 21 2011 Bernd Stramm <bernd.stramm@gmail.com> - 0.2.10-1
+- change label on button
+- fix changelog email format
+
+* Sun May 22 2011 Bernd Stramm <bernd.stramm@gmail.com> - 0.2.9-1
+- fix icon issues
+- build distro flag for arch linux
+
+* Sat May 21 2011 Bernd Stramm <bernd.stramm@gmail.com> - 0.2.8-1
+- remove QMainWindow
+- simplify QML dependencies; remove maitain image; remove superfluous gesture 
+
+* Sat May 07 2011 Bernd Stramm <bernd.stramm@gmail.com> - 0.2.6-1
+- private browsing set
+- shinier buttons
+
+* Tue Apr 26 2011 Bernd Stramm <bernd.stramm@gmail.com> - 0.2.5-1
+- move web nav to top when index area minimized
+
+* Tue Apr 26 2011 Bernd Stramm <bernd.stramm@gmail.com> - 0.2.4-1
+- nicer URL forwarding functions
+
+* Thu Apr 07 2011 Bernd Stramm <bernd.stramm@gmail.com> - 0.2.3-1
+- follow forwarded probe requests
+- fix label on delete feed button
+
+* Wed Apr 06 2011 Bernd Stramm <bernd.stramm@gmail.com> - 0.2.2-1
+- provide reset-to-defaults in settings
+- make max age for storysig configurable in settings
+- support mouse wheel for scrolling webview
+- add a load indicator for getting feed index
+- clean up to save a little memory
+- implement swipe for news stream as well as topic list
+- make news stream poll time configurable
+- display story title when story selected from news stream
+- allow selecting text from web pages after double-click
+- remove display of unused Nick field
+
+* Mon Mar 28 2011 Bernd Stramm <bernd.stramm@gmail.com> - 0.2.0-1
+- initial release
+
+
