@@ -2,11 +2,11 @@
 
 NAME=carpo
 CHANGELOG=${NAME}.changes
-DESKTOP=${NAME}.desktop
+DESKTOP=linux/${NAME}.desktop
 VERSION=`grep "ProgramVersion::VersionNumber" src/version.cpp \
         | awk '{print $3;}' \
         | sed s/[\(\"\;\)]//g`
-PACKDIR=${HOME}/packaging/carpo
+PACKDIR=rpm_packaging
 
 makearchive.sh ${NAME}-${VERSION} master
 cp ${NAME}-${VERSION}.tar.gz ${PACKDIR}
