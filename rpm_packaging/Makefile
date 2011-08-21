@@ -10,7 +10,7 @@ COUNT = $(shell ./docount.sh)
 RPMBUILD = $(HOME)/rpmbuild
 SOURCEDIR = $(RPMBUILD)/SOURCES
 
-TAR_SRC = $(NAME)_$(VERSION).tar.gz
+TAR_SRC = $(NAME)-$(VERSION).tar.gz
 DT_SRC = $(NAME).desktop
 SPEC = $(NAME).spec
 CHANGES = $(NAME).changes
