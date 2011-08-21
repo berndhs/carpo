@@ -104,6 +104,7 @@ Rectangle {
     objectName: "ControlPanel"
     outsideWidth: mainWidth
     visible: true
+    color: "transparent"
     anchors { horizontalCenter:  displayArea.horizontalCenter }
     z: feedIndexArea.z + 5
     property bool normalShowTopics: false
@@ -240,14 +241,15 @@ Rectangle {
     visible: true
     z: indexBox-2
     anchors { 
-      top: indexBox.bottom //(webNavRect.visible ? webNavRect.bottom : indexBox.bottom)
+      top: indexBox.minimized ? indexBox.top : indexBox.bottom
       topMargin: webNavRect.height
       horizontalCenter: displayArea.horizontalCenter
       leftMargin: 0
       rightMargin: 0
     }
     height: parent.height - controlPanel.height 
-            - indexBox.height - webNavRect.height
+            - (indexBox.minimized ? 0 : indexBox.height )
+            - webNavRect.height
     clip: false
    
     storyHtml: "<p>"+ qsTr("No Current Story.") + "</p>"
@@ -259,7 +261,7 @@ Rectangle {
     id: webNavRect
     objectName: "WebNavBox"
     property real space: 2
-    property string buttonColor: "lightgreen" //"magenta"
+    property string buttonColor: "lightgreen" 
     property real buttonOpacity: 0.66667
     property real navButtonWidth: 0.2*mainWidth
     visible: storyView.isWeb

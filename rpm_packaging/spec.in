@@ -8,8 +8,7 @@ License: GPLv2
 Group:   Applications/Network
 Packager: Bernd Stramm <bernd.stramm@gmail.com>
 Url:     http://carpo.sourceforge.net/
-Source: %{name}-%{version}.tar.gz
-Source2: linux/%{name}.desktop
+Source: %{name}_%{version}.tar.gz
 BuildRoot: %{_tmppath}/%{name}-%{version}-%{release}-root-%(%{__id_u} -n)
 
 # TODO: patches (?)
@@ -47,7 +46,7 @@ install -p -d $RPM_BUILD_ROOT%{_datadir}/pixmaps
 install -p -m 755 %{name}.png $RPM_BUILD_ROOT%{_datadir}/pixmaps
 desktop-file-install                                    \
 --dir=${RPM_BUILD_ROOT}%{_datadir}/applications         \
-%{SOURCE2}
+linux/%{name}.desktop
 
 %clean
 rm -rf %{buildroot}

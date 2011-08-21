@@ -85,7 +85,8 @@ binary-arch: build install
 	# dh_shlibdeps # Uncomment this line for use without Qt Creator
 	dh_gencontrol
 	dh_md5sums
-	dh_builddeb
+	dh_builddeb 
+        aegis-deb-add -control debian/carpo/DEBIAN/control .. debian/carpo.aegis=_aegis 
 
 binary: binary-indep binary-arch
 .PHONY: build clean binary-indep binary-arch binary install configure

@@ -16,17 +16,18 @@ DESKTOP=linux/${NAME}.desktop
 VERSION=`grep "ProgramVersion::VersionNumber" src/version.cpp \
         | awk '{print $3;}' \
         | sed s/[\(\"\;\)]//g`
+TARBALL=${NAME}_${VERSION}.tar.gz
 PACKDIR=rpm_packaging
 
 #makearchive.sh ${NAME}-${VERSION} master
 pack_archive ${NAME}-${VERSION} 
 
-cp ${NAME}-${VERSION}.tar.gz ${PACKDIR}
+cp ${TARBALL} ${PACKDIR}
 cp ${CHANGELOG} ${PACKDIR}
 cp ${DESKTOP} ${PACKDIR}
 echo ${NAME} > ${PACKDIR}/pack-name
 echo ${VERSION} > ${PACKDIR}/pack-version
-ls -l ${PACKDIR}/${NAME}-${VERSION}.tar.gz
+ls -l ${PACKDIR}/${TARBALL}
 ls -l ${PACKDIR}/pack-*
 
 MAKEIT="no"

@@ -63,7 +63,8 @@ Rectangle {
   height: normalButtonHeight
   z: 1
   property real extraMargin: 20
-  width: outsideWidth - 2*embedMargin - 2*extraMargin
+  property real insideWidth: outsideWidth - 2*embedMargin - 2*extraMargin
+  width: insideWidth
   color: "transparent"
   anchors.left: parent.left
   anchors.leftMargin: embedMargin + extraMargin
@@ -86,7 +87,7 @@ Rectangle {
 
   ChoiceButton {   
     id: offButton
-    width: (parent.width - buttonRow.width) * 0.4
+    width: insideWidth * 0.1
     anchors { left: buttonRow.right}
     gradient: Gradient {
       GradientStop { position: 0.00; color: "#c6e6e6" }
@@ -105,7 +106,7 @@ Rectangle {
   }
   ChoiceButton {   
     id: helpButton
-    width: (parent.width - buttonRow.width) * 0.4
+    width: insideWidth * 0.1
     anchors { right: buttonRow.left }
     gradient: Gradient {
       GradientStop { position: 0.00; color: "#c6e6e6" }
@@ -131,9 +132,10 @@ Rectangle {
 
   Rectangle {
     id: buttonRow
-    width: childrenRect.width
+    width: controlPanel.insideWidth - helpButton.width - offButton.width
     height: parent.height
-    property real buttonWidth: parent.width/4
+    color: controlPanel.color
+    property real buttonWidth: width/3.1
     anchors { horizontalCenter: parent.horizontalCenter ; top: parent.top }
 
     Rectangle {
@@ -141,7 +143,7 @@ Rectangle {
       width: parent.buttonWidth
       height: parent.height
       z: controlPanel.z + 1
-      anchors { left: parent.left }
+      anchors { left: buttonRow.left }
       radius: height/2
       gradient: Gradient {
         GradientStop { position: 0.00; color: choiceButtonColor }
@@ -165,7 +167,7 @@ Rectangle {
         GradientStop { position: 0.0; color: detailButtonColor }
         GradientStop { position: 1.0; color: detailButtonFade }
       }
-      anchors { left: indexButton.right }
+      anchors { horizontalCenter: buttonRow.horizontalCenter }
       radius: height/2
       MouseArea {
         anchors.fill: parent
@@ -182,7 +184,7 @@ Rectangle {
         GradientStop { position: 0.00; color: maintainButtonColor }
         GradientStop { position: 1.00; color: maintainButtonFade }
       }
-      anchors { left: detailButton.right }
+      anchors { right: buttonRow.right }
       radius: height/2
       MouseArea {
         anchors.fill: parent
