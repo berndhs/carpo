@@ -192,7 +192,7 @@ Carpo::QmlRun ()
   //setSource (QUrl::fromLocalFile("qml/DefaultMain.qml"));
   if (isPhone) {
     setGeometry ( app->desktop()->screenGeometry());
-    showMaximized ();
+    showFullScreen ();
   } else {
     if (Settings().contains ("+geometry")) {
       restoreGeometry(Settings().value("+geometry").toByteArray());

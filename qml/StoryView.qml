@@ -46,6 +46,8 @@ Flickable {
   property alias scrollXStep: theWebView.scrollXStep
   property alias scrollYStep: theWebView.scrollYStep
   property bool isWeb: false
+  property real storyBoxWidth: 4096
+  property real storyBoxHeight: 4096
 
   signal quitit ()
 
@@ -76,10 +78,11 @@ Flickable {
   function loadUrl (theUrl) {
     url = theUrl
   }
-  anchors.left: parent.left
-  anchors.right: parent.right
-  width: parent.width
-  height: parent.height
+  
+  //anchors.left: parent.left
+  //anchors.right: parent.right
+  width: storyBoxWidth
+  height: storyBoxHeight
   contentWidth: Math.max(parent.width,theWebView.width)
   contentHeight: Math.max(parent.height,theWebView.height)
   onWidthChanged : {

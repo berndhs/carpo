@@ -30,7 +30,8 @@ Rectangle {
   id: displayArea
   objectName: "DisplayArea"
   color: "transparent"
-
+  x: isPortrait ? (isInverted ? (width - height) * 0.5 : (height - width) * 0.5) : 0
+  
   property real embedMargin : 2
   property real indexItemHeight: 32
   property real normalButtonHeight: isProbablyPhone ? 48 : 32
@@ -38,8 +39,10 @@ Rectangle {
   property real mainWidth: isPortrait ? height : width
   property real mainHeight: isPortrait ? width : height
   property real restHeight: mainHeight - indexHeight - controlPanel.height
+  property real fullStoryHeight:  mainHeight - controlPanel.height
   property real shrinkDelay: 250
   property bool isPortrait: false
+  property bool isInverted: false
 
   function setTheHtml (theHtml) { storyView.setTheHtml (theHtml) }
   function setTheUrl (theUrl)   { storyView.url = theUrl }
@@ -92,6 +95,7 @@ Rectangle {
     onRotationChange: {
       displayArea.isPortrait = portrait
       displayArea.rotation = rotation
+      displayArea.isInverted = inverted
       console.log ("new orientation port " + displayArea.isPortrait)
       console.log ("main box x " + displayArea.x + " y " + displayArea.y)
     }
@@ -244,12 +248,11 @@ Rectangle {
       top: indexBox.minimized ? indexBox.top : indexBox.bottom
       topMargin: webNavRect.height
       horizontalCenter: displayArea.horizontalCenter
-      leftMargin: 0
-      rightMargin: 0
     }
-    height: parent.height - controlPanel.height 
+    storyBoxHeight: mainHeight - controlPanel.height 
             - (indexBox.minimized ? 0 : indexBox.height )
             - webNavRect.height
+    storyBoxWidth: mainWidth
     clip: false
    
     storyHtml: "<p>"+ qsTr("No Current Story.") + "</p>"
@@ -355,7 +358,7 @@ Rectangle {
     id: feedEditArea
     objectName: "FeedEditArea"
     width: mainWidth
-    height: restHeight
+    height: fullStoryHeight
     clip: true
     property real rollDelay: 125
     flickableDirection: Flickable.HorizontalAndVerticalFlick
