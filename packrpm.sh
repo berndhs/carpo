@@ -19,8 +19,7 @@ VERSION=`grep "ProgramVersion::VersionNumber" src/version.cpp \
 TARBALL=${NAME}_${VERSION}.tar.gz
 PACKDIR=rpm_packaging
 
-#makearchive.sh ${NAME}-${VERSION} master
-pack_archive ${NAME}-${VERSION} 
+pack_archive ${NAME}_${VERSION} 
 
 cp ${TARBALL} ${PACKDIR}
 cp ${CHANGELOG} ${PACKDIR}
