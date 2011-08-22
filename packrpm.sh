@@ -1,13 +1,17 @@
 #!/bin/bash
 
 function pack_archive () {
-  local PREFIX BRANCH FILES
+  local PREFIX TARFILE FILES
   
+  PREFIX=$1
+  TARFILE=$2
+  set -x
   FILES=$(git ls-files)
   tar  \
     --transform="s+^+${PREFIX}+"  \
     -zcf  ${TARFILE} \
     ${FILES}
+  set +x
 }
 
 NAME=carpo
@@ -19,7 +23,7 @@ VERSION=`grep "ProgramVersion::VersionNumber" src/version.cpp \
 TARBALL=${NAME}_${VERSION}.tar.gz
 PACKDIR=rpm_packaging
 
-pack_archive ${NAME}_${VERSION} 
+pack_archive ${NAME}_${VERSION} ${TARBALL}
 
 cp ${TARBALL} ${PACKDIR}
 cp ${CHANGELOG} ${PACKDIR}
