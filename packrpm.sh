@@ -8,7 +8,7 @@ function pack_archive () {
   set -x
   FILES=$(git ls-files)
   tar  \
-    --transform="s+^+${PREFIX}+"  \
+    --transform="s+^+${PREFIX}/+"  \
     -zcf  ${TARFILE} \
     ${FILES}
   set +x
