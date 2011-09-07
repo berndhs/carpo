@@ -37,5 +37,6 @@
  <file>qml/TopicList.qml</file>
  <file>qml/Popup.qml</file>
  <file>qml/UrlNav.qml</file>
+ <file>qml/CopyPasteMenu.qml</file>
 </qresource>
 </RCC>

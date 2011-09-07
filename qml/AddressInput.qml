@@ -51,6 +51,7 @@ Rectangle {
     anchors.verticalCenter: parent.verticalCenter
   }
   Rectangle {
+    id: urlTextBox
     height: urlLabel.height
     width: parent.width - urlLabel.width - anchors.leftMargin -2
     anchors.left: urlLabel.right
@@ -63,15 +64,41 @@ Rectangle {
       horizontalAlignment: TextEdit.AlignLeft
       autoScroll: true
       selectByMouse: true
-      Keys.onEnterPressed: {
-        bigBox.urlEntered(urlText.text)
-      }
-      Keys.onReturnPressed: {
-        bigBox.urlEntered(urlText.text)
+      onAccepted: {
+        bigBox.urlEntered (urlText.text)
       }
       anchors {
         left: parent.left; right: parent.right; leftMargin: 2; rightMargin:2 
         verticalCenter: parent.verticalCenter
+      }
+      MouseArea {
+        anchors.fill: parent
+        onClicked: {
+          urlText.forceActiveFocus()()
+        }
+        onPressAndHold: {
+          copyPasteAddress.visible = !copyPasteAddress.visible
+        }
+      }
+    }
+    CopyPasteMenu {
+      id: copyPasteAddress
+      z: urlTextBox.z + 1
+      visible: false
+      height: urlLabel.height
+      width: urlTextBox.width
+      anchors { 
+        bottom: urlTextBox.top
+        horizontalCenter: urlTextBox.horizontalCenter 
+      }
+      onWantCopy: {
+        urlText.copy ()
+      }
+      onWantSelect: {
+        urlText.selectAll ()
+      }
+      onWantPaste: {
+        urlText.paste ()
       }
     }
   }
