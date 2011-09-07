@@ -22,7 +22,7 @@
  ****************************************************************/
 
 
-import QtQuick 1.0
+import QtQuick 1.1
 import QtWebKit 1.0
 import moui.geuzen.utils.static 1.0
 
@@ -463,10 +463,6 @@ Rectangle {
     name: "indexHidden"
     when: indexBox.minimized && indexBox.visible
     PropertyChanges {
-      target: indexBox
-      yscale: 0
-    }
-    PropertyChanges {
       target: indexBoxScale
       yScale: 0
     }
@@ -474,10 +470,6 @@ Rectangle {
   State {
     name: "indexShown"
     when: !(indexBox.minimized && indexBox.visible)
-    PropertyChanges {
-      target: indexBox
-      yscale: 1
-    }
     PropertyChanges {
       target: indexBoxScale
       yScale: 1

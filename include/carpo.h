@@ -110,6 +110,7 @@ protected:
 
   //void resizeEvent (QResizeEvent *event);
   void closeEvent  (QCloseEvent *event);
+  bool eventFilter (QObject *watchedObj, QEvent * evt);
 
 private:
 
@@ -145,6 +146,8 @@ private:
 
   QDeclarativeContext *context;
   QGraphicsObject     *qmlRoot;
+  QDeclarativeItem    *mainStoryView;
+  QDeclarativeItem    *insideStoryView;
   QString              htmlString;
 
   HeadlineList         headlines;

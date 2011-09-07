@@ -16,7 +16,7 @@ export DH_VERBOSE=1
 configure: configure-stamp
 configure-stamp:
 	dh_testdir
-	qmake PREFIX=/usr # Uncomment this line for use without Qt Creator
+	qmake PREFIX=/usr carpo-harmattan.pro # Uncomment this line for use without Qt Creator
 
 	touch configure-stamp
 
@@ -30,9 +30,9 @@ build-stamp: configure-stamp
 	$(MAKE)   # Uncomment this line for use without Qt Creator
 	#docbook-to-man debian/carpo.sgml > carpo.1
 
-	#touch $@
+	touch $@
 
-clean: 
+clean: configure-stamp build-stamp
 	dh_testdir
 	dh_testroot
 	rm -f build-stamp configure-stamp
@@ -82,7 +82,7 @@ binary-arch: build install
 #	dh_perl
 #	dh_makeshlibs
 	dh_installdeb
-	# dh_shlibdeps # Uncomment this line for use without Qt Creator
+	dh_shlibdeps # Uncomment this line for use without Qt Creator
 	dh_gencontrol
 	dh_md5sums
 	dh_builddeb 

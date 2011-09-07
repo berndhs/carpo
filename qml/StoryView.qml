@@ -26,7 +26,7 @@
   *  used under the conditions of the LGPL version 2.
   */
 
- import QtQuick 1.0
+ import QtQuick 1.1
  import QtWebKit 1.0
 
 
@@ -149,13 +149,14 @@ Flickable {
       loadIndicator.visible = true 
     }
   }
+  
   Rectangle {
     id: loadIndicator
     width: 52; height: 26
     radius: height * 0.25
     anchors { top: theWebView.top; right: theWebView.right }
     opacity: 0.5
-    color: "red"
+    color: "green" //"red"
     Text { 
       anchors { 
         verticalCenter: parent.verticalCenter

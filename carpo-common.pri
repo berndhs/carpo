@@ -38,6 +38,8 @@ MOBILITY += systeminfo
 
 INCLUDEPATH += src
 
+QMAKE_CXXFLAGS += -std=c++0x
+
 TRANSLATIONS = trans/carpo_de.ts \
                trans/carpo_fr.ts \
 
@@ -81,33 +83,35 @@ MOC_DIR = tmp/moc
 RCC_DIR = tmp/rcc
 RESOURCES = $${MYNAME}.qrc 
 
+INCLUDEPATH += ./include
+
 FORMS = \
         ui/DebugLog.ui \
         
 
 HEADERS = \
-          src/$${MYNAME}.h \
-          src/$${MYNAME}-main.h \
-          src/$${MYNAME}-magic.h \
-          src/cmdoptions.h \
-          src/deliberate.h \
-          src/delib-debug.h \
-          src/version.h \
-          src/headline-list.h \
-          src/qml-feed-if.h \
-          src/qml-control-if.h \
-          src/qml-gesture-if.h \
-          src/feedlist-parser.h \
-          src/feedlist.h \
-          src/feedlist-model.h \
-          src/feedlist-writer.h \
-          src/carpo-netreply.h \
-          src/config-edit.h \
-          src/property-store.h \
-          src/topic-model.h \
-          src/auto-update.h \
-          src/event-special.h \
-          src/orientation.h \
+          include/$${MYNAME}.h \
+          include/$${MYNAME}-main.h \
+          include/$${MYNAME}-magic.h \
+          include/cmdoptions.h \
+          include/deliberate.h \
+          include/delib-debug.h \
+          include/version.h \
+          include/headline-list.h \
+          include/qml-feed-if.h \
+          include/qml-control-if.h \
+          include/qml-gesture-if.h \
+          include/feedlist-parser.h \
+          include/feedlist.h \
+          include/feedlist-model.h \
+          include/feedlist-writer.h \
+          include/carpo-netreply.h \
+          include/config-edit.h \
+          include/property-store.h \
+          include/topic-model.h \
+          include/auto-update.h \
+          include/event-special.h \
+          include/orientation.h \
 
 
 SOURCES = \

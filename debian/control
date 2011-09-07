@@ -2,7 +2,7 @@ Source: carpo
 Section: user/other
 Priority: optional
 Maintainer: Bernd Stramm <bernd.stramm@gmail.com>
-Build-Depends: debhelper (>= 5), libqt4-dev
+Build-Depends: debhelper (>= 5), libqt4-dev, libqtwebkit-dev, libqtm-sensors-dev, libqtm-systeminfo-dev
 Standards-Version: 3.7.3
 Homepage: http://carpo.sourceforge.net
 

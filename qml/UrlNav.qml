@@ -21,7 +21,7 @@
  *  Boston, MA  02110-1301, USA.
  ****************************************************************/
 
-import QtQuick 1.0
+import QtQuick 1.1
 
 Rectangle {
   id: urlNavRect

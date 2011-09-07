@@ -45,6 +45,8 @@
 #include <QDesktopWidget>
 
 #include <QSystemDeviceInfo>
+#include <QGestureEvent>
+#include <QGesture>
 
 #include "feedlist-writer.h"
 #include "carpo-magic.h"
@@ -61,6 +63,8 @@ Carpo::Carpo (QWidget *parent)
    app (0),
    context (0),
    qmlRoot (0),
+   mainStoryView (0),
+   insideStoryView (0),
    headlines (this),
    feedIF (0),
    controlIF (0),
@@ -209,9 +213,9 @@ Carpo::QmlRun ()
   }
   qmlRoot->installEventFilter (reporter);
   controlIF->SetQmlRoot (qobject_cast<QDeclarativeItem*> (qmlRoot));
-  QDeclarativeItem * qmlWebView = qmlRoot->
+  mainStoryView = qmlRoot->
                      findChild<QDeclarativeItem*>("StoryView");
-  controlIF->SetQmlWeb (qmlWebView);
+  controlIF->SetQmlWeb (mainStoryView);
 
   if (gestureIF) {
     gestureIF->SetQmlRoot (qmlRoot);
@@ -220,11 +224,8 @@ Carpo::QmlRun ()
   maxDays = Settings().value ("feedlist/maxdays",maxDays).toInt();
   Settings().setValue ("feedlist/maxdays",maxDays); // so propStore knows it
   propStore->ReadFromObjects (qmlRoot);
-  qDebug () << __PRETTY_FUNCTION__ << " count G " << debCount; debCount++;
   propStore->FillSettings (qmlRoot);
-  qDebug () << __PRETTY_FUNCTION__ << " count H " << debCount; debCount++;
   propStore->SyncToObjects (qmlRoot);
-  qDebug () << __PRETTY_FUNCTION__ << " count I " << debCount; debCount++;
   ShowList ("FeedList");
   topFolder.clear ();
   configEdit.Load ();
@@ -235,6 +236,30 @@ Carpo::QmlRun ()
   Settings().setValue ("timers/newspoll",streamDelay);
   autoUpdate.Start (streamDelay*1000); 
   qDebug () << __PRETTY_FUNCTION__ << " count J " << debCount; debCount++;
+  insideStoryView = qmlRoot->findChild<QDeclarativeItem*> ("StoryWebView");
+  qDebug () << " StoryWebView is " << insideStoryView;
+  if (insideStoryView) {
+    insideStoryView->grabGesture(Qt::SwipeGesture,
+                           Qt::ReceivePartialGestures
+                           | Qt::IgnoredGesturesPropagateToParent );
+                           
+    insideStoryView->grabGesture(Qt::PanGesture,
+                           Qt::ReceivePartialGestures
+                           | Qt::IgnoredGesturesPropagateToParent );
+                           
+    insideStoryView->installEventFilter (this);
+  }
+  if (mainStoryView) {
+    mainStoryView->grabGesture(Qt::SwipeGesture,
+                           Qt::ReceivePartialGestures
+                           | Qt::IgnoredGesturesPropagateToParent );
+                           
+    mainStoryView->grabGesture(Qt::PanGesture,
+                           Qt::ReceivePartialGestures
+                           | Qt::IgnoredGesturesPropagateToParent );
+                           
+    mainStoryView->installEventFilter (this);
+  }
 }
 
 void
@@ -530,6 +555,8 @@ Carpo::LoadFeed (const QString & urlString, const QString & storyHash)
 void
 Carpo::ProbeFeed (const QString & urlString)
 {
+  qDebug () << __PRETTY_FUNCTION__ << urlString;
+  qDebug () << "      using qnam " << qnam;
   if (qnam) {
     QNetworkReply * netreply = qnam->get (QNetworkRequest (QUrl (urlString)));
     CarpoNetReply * dreply = new CarpoNetReply (netreply, 
@@ -620,7 +647,8 @@ Carpo::GetFeedReply (QNetworkReply * reply, const QString & storyHash)
     ParseStories (items, "description", "pubDate");
   }
   if (entries.count() > 0) {
-    ParseStories (entries, "summary","published","updated");
+    ParseStories (entries, "summary", "published", "updated");
+    ParseStories (entries, "content", "published", "updated");
   }
   if (headlines.count() > 0) {
     ShowList ("FeedIndex");
@@ -762,11 +790,13 @@ Carpo::PopulateFromAtomDoc (QDomElement & el, Feed & feed)
   static QString tag_link("link");
   static QString tag_author("author");
   static QString tag_subtitle("subtitle");
+  static QString tag_updated("updated");
   QString xmllink;
   QString weblink;
   QString title;
   QString author;
   QString description (tr(""));
+  QString updated;
   bool foundsomething(false);
   for (QDomElement child = el.firstChildElement();
        !child.isNull();
@@ -781,11 +811,14 @@ Carpo::PopulateFromAtomDoc (QDomElement & el, Feed & feed)
       foundsomething |= ParseAtomAuthorElem (child, author);
     } else if (t == tag_subtitle) {
       description = child.text();
+    } else if (t == tag_updated) {
+      updated = child.text( );
     }
   }
   feed.values("title") = title;
   feed.values("weburl") = weblink;
   feed.values("description") = description;
+  feed.values("updated") = updated;
   return foundsomething;
 }
 
@@ -1015,6 +1048,31 @@ Carpo::HandleWheelEvent (QObject *detectObject,
                  Q_ARG (QVariant, pos.y()),
                  Q_ARG (QVariant, orientation),
                  Q_ARG (QVariant, delta));
+  }
+}
+
+bool
+Carpo::eventFilter (QObject * watchedObj, QEvent * evt)
+{
+  if (watchedObj == insideStoryView) {
+    qDebug () << __PRETTY_FUNCTION__ << " evt from webview " << evt;
+    QGestureEvent * gestEvt = dynamic_cast<QGestureEvent*>(evt);
+    if (gestEvt) {
+      qDebug () << __PRETTY_FUNCTION__ << " +++++++ we have a gesture ! " << gestEvt;
+      if (gestEvt->type() == QEvent::Gesture) {
+        QList<QGesture*> glist = gestEvt->gestures ();
+        qDebug () << " number of G: " << glist.count();
+        for (int g=0; g<glist.count(); g++) {
+          qDebug () << " gesture " << g << " type "<<  glist.at(g)->gestureType();
+        }
+      }
+    }
+    return false;
+  } else if (watchedObj == mainStoryView) {
+    qDebug () << __PRETTY_FUNCTION__ << " evt from main view " << evt;
+    return false;
+  } else {
+    return false; // somebody else handle it
   }
 }
 
