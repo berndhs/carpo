@@ -1,3 +1,10 @@
+* Wed Sep 07 2011 Bernd Stramm <bernd.stramm@gmail.com> - 0.3.3 
+ - better parsing of Atom
+
+* Mon Aug 22 2011 Bernd Stramm <bernd.stramm@gmail.com> - 0.3.2
+ - packaging issues
+ - fix issues with portrait mode vertical positioning fix story view size and positioning fix feed edit positioning
+
 * Sun Aug 21 2011 Bernd Stramm <bernd.stramm@gmail.com> - 0.3.1-1
  - fix issues with portrait mode vertical positioning 
  - fix story view size and positioning 
