@@ -200,6 +200,10 @@ Carpo::QmlRun ()
   } else {
     if (Settings().contains ("+geometry")) {
       restoreGeometry(Settings().value("+geometry").toByteArray());
+    } else {
+      int w = app->desktop()->screenGeometry().width();
+      int h = app->desktop()->screenGeometry().height();
+      resize ( w * 0.75, h * 0.75);
     }
   }
   show ();
